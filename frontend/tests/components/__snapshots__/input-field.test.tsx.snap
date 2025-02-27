@@ -1,0 +1,147 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`InputField > should render input field component > expected html 1`] = `
+<div>
+  <div
+    class="space-y-2"
+    id="input-text-field-test-id"
+  >
+    <label
+      class="block"
+      for="test-id"
+      id="input-text-field-test-id-label"
+    >
+      <span
+        class="font-semibold"
+      >
+        label test
+      </span>
+    </label>
+    <input
+      aria-labelledby="input-text-field-test-id-label"
+      class="block rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500"
+      id="input-text-field-test-id-input"
+      name="test"
+      type="text"
+      value="default value"
+    />
+  </div>
+</div>
+`;
+
+exports[`InputField > should render input field with error message > expected html 1`] = `
+<div>
+  <div
+    class="space-y-2"
+    id="input-text-field-test-id"
+  >
+    <label
+      class="block"
+      for="test-id"
+      id="input-text-field-test-id-label"
+    >
+      <span
+        class="font-semibold"
+      >
+        label test
+      </span>
+    </label>
+    <p>
+      <span
+        class="inline-block max-w-prose border-l-2 border-red-600 bg-red-50 px-3 py-1"
+        data-testid="input-error-test-id"
+        id="input-text-field-test-id-error"
+        role="alert"
+      >
+        error message
+      </span>
+    </p>
+    <input
+      aria-errormessage="input-text-field-test-id-error"
+      aria-invalid="true"
+      aria-labelledby="input-text-field-test-id-label"
+      class="block rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500"
+      id="input-text-field-test-id-input"
+      name="test"
+      type="text"
+      value="default value"
+    />
+  </div>
+</div>
+`;
+
+exports[`InputField > should render input field with help message > expected html 1`] = `
+<div>
+  <div
+    class="space-y-2"
+    id="input-text-field-test-id"
+  >
+    <label
+      class="block"
+      for="test-id"
+      id="input-text-field-test-id-label"
+    >
+      <span
+        class="font-semibold"
+      >
+        label test
+      </span>
+    </label>
+    <input
+      aria-describedby="input-text-field-test-id-help-secondary"
+      aria-labelledby="input-text-field-test-id-label"
+      class="block rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500"
+      id="input-text-field-test-id-input"
+      name="test"
+      type="text"
+      value="default value"
+    />
+    <span
+      class="block max-w-prose text-gray-500"
+      data-testid="input-help"
+      id="input-text-field-test-id-help-secondary"
+    >
+      help message
+    </span>
+  </div>
+</div>
+`;
+
+exports[`InputField > should render input field with required > expected html 1`] = `
+<div>
+  <div
+    class="space-y-2"
+    id="input-text-field-test-id"
+  >
+    <label
+      class="block"
+      for="test-id"
+      id="input-text-field-test-id-label"
+    >
+      <span
+        class="font-semibold"
+      >
+        label test
+      </span>
+       
+      <span
+        aria-hidden="true"
+      >
+        (
+        input-label.required
+        )
+      </span>
+    </label>
+    <input
+      aria-labelledby="input-text-field-test-id-label"
+      aria-required="true"
+      class="block rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500"
+      id="input-text-field-test-id-input"
+      name="test"
+      required=""
+      type="text"
+      value="default value"
+    />
+  </div>
+</div>
+`;

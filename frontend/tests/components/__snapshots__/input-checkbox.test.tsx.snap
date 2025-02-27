@@ -1,0 +1,80 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`InputCheckbox > should disable checkbox when disabled prop is provided > expected html 1`] = `
+<input
+  aria-labelledby="input-checkbox-test-id-label"
+  class="size-4 rounded-sm border-gray-500 bg-gray-50 text-blue-600 focus:ring-2 focus:ring-blue-500 focus:outline-hidden pointer-events-none cursor-not-allowed opacity-70"
+  data-testid="input-checkbox"
+  disabled=""
+  id="input-checkbox-test-id-input"
+  name="test-checkbox"
+  type="checkbox"
+/>
+`;
+
+exports[`InputCheckbox > should render checkbox with label and appends content > expected html 1`] = `
+<input
+  aria-labelledby="input-checkbox-test-id-label"
+  class="size-4 rounded-sm border-gray-500 bg-gray-50 text-blue-600 focus:ring-2 focus:ring-blue-500 focus:outline-hidden"
+  data-testid="input-checkbox"
+  id="input-checkbox-test-id-input"
+  name="test-checkbox"
+  type="checkbox"
+/>
+`;
+
+exports[`InputCheckbox > should render checkbox with label and appends content > expected html 2`] = `
+<input
+  aria-labelledby="input-checkbox-test-id-label"
+  class="size-4 rounded-sm border-gray-500 bg-gray-50 text-blue-600 focus:ring-2 focus:ring-blue-500 focus:outline-hidden"
+  data-testid="input-checkbox"
+  id="input-checkbox-test-id-input"
+  name="test-checkbox"
+  type="checkbox"
+/>
+`;
+
+exports[`InputCheckbox > should render checkbox with label and appends content > expected html 3`] = `
+<div
+  data-testid="append-content"
+>
+  Appended Content
+</div>
+`;
+
+exports[`InputCheckbox > should render input checkbox with error message > expected html 1`] = `
+<div>
+  <div
+    id="input-checkbox-test-id-wrapper"
+  >
+    <span
+      class="inline-block max-w-prose border-l-2 border-red-600 bg-red-50 px-3 py-1 my-2"
+      data-testid="input-error-test-id"
+      id="input-checkbox-test-id-error"
+      role="alert"
+    >
+      error message
+    </span>
+    <div
+      class="flex items-center"
+    >
+      <input
+        aria-errormessage="input-checkbox-test-id-error"
+        aria-labelledby="input-checkbox-test-id-label"
+        class="size-4 rounded-sm bg-gray-50 focus:ring-2 focus:outline-hidden border-red-500 text-red-700 focus:border-red-500 focus:ring-red-500"
+        data-testid="input-checkbox"
+        id="input-checkbox-test-id-input"
+        name="test"
+        type="checkbox"
+      />
+      <label
+        class="block pl-3 leading-6"
+        for="input-checkbox-test-id-input"
+        id="input-checkbox-test-id-label"
+      >
+        input checkbox
+      </label>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,41 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`InputLabel > should render input label component > expected html 1`] = `
+<div>
+  <label
+    class="block"
+    data-testid="input-label"
+    id="id"
+  >
+    <span
+      class="font-semibold"
+    >
+      input test
+    </span>
+  </label>
+</div>
+`;
+
+exports[`InputLabel > should render input label component with required > expected html 1`] = `
+<div>
+  <label
+    class="block"
+    data-testid="input-label"
+    id="id"
+  >
+    <span
+      class="font-semibold"
+    >
+      input test
+    </span>
+     
+    <span
+      aria-hidden="true"
+    >
+      (
+      input-label.required
+      )
+    </span>
+  </label>
+</div>
+`;

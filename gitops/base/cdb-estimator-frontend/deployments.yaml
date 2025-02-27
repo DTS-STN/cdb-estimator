@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cdb-estimator-frontend
+  labels:
+    app.kubernetes.io/name: cdb-estimator-frontend
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: cdb-estimator-frontend
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: cdb-estimator-frontend
+    spec:
+      containers:
+        - name: cdb-estimator-frontend
+          # Note: image tag should be pinned to a specific version in overlays
+          # TODO: Update this to DSHP repository.
+          image: dtsrhpdevscedacr.azurecr.io/cdb-estimator/cdb-estimator-frontend:latest
+          envFrom:
+            - configMapRef:
+                name: cdb-estimator-frontend
+            - secretRef:
+                name: cdb-estimator-frontend
+          ports:
+            - name: http
+              containerPort: 3000
+          livenessProbe:
+            tcpSocket:
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /api/readyz
+              port: http
+          resources:
+            requests:
+              cpu: 500m
+              memory: 512Mi
+            limits:
+              cpu: 1000m
+              memory: 1024Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0%
+      maxSurge: 100%

@@ -1,0 +1,8 @@
+{
+  "resource": "public/locales/public-fr.json",
+  "index": {
+    "page-title": "[FR] Welcome to CDB Estimator",
+    "about": "[FR] The CDB Estimator is a tool to help users estimate their potential Canadian Disability Benefit amount",
+    "navigate": "Accédez au portail des employés"
+  }
+}

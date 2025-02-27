@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cdb-estimator-frontend
+  annotations:
+    secret.reloader.stakater.com/auto: 'true'
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: cdb-estimator-frontend
+  template:
+    spec:
+      containers:
+        - name: cdb-estimator-frontend
+          # since we are using external secrets operator
+          # we must manually attach the generated secret
+          envFrom:
+            - configMapRef:
+                name: cdb-estimator-frontend-dev
+            - secretRef:
+                name: cdb-estimator-frontend-dev

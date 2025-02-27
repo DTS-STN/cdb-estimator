@@ -1,0 +1,60 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`InputCheckboxes > should display error message > expected html 1`] = `
+<span
+  class="inline-block max-w-prose border-l-2 border-red-600 bg-red-50 px-3 py-1"
+  data-testid="input-error-test-id"
+  id="input-checkboxes-test-id-error"
+  role="alert"
+>
+  Test Error Message
+</span>
+`;
+
+exports[`InputCheckboxes > should display helpMessagePrimary > expected html 1`] = `
+<span
+  class="block max-w-prose text-gray-500"
+  data-testid="input-help"
+  id="input-checkboxes-test-id-help-primary"
+>
+  Primary help message
+</span>
+`;
+
+exports[`InputCheckboxes > should display helpMessageSecondary > expected html 1`] = `
+<span
+  class="block max-w-prose text-gray-500"
+  data-testid="input-help"
+  id="input-checkboxes-test-id-help-secondary"
+>
+  Secondary help message
+</span>
+`;
+
+exports[`InputCheckboxes > should render component with legend and options > expected html 1`] = `
+<span
+  class="font-semibold"
+>
+  Test Legend
+</span>
+`;
+
+exports[`InputCheckboxes > should render component with legend and options > expected html 2`] = `
+<label
+  class="block pl-3 leading-6"
+  for="input-checkbox-:r0:-option-option1-input"
+  id="input-checkbox-:r0:-option-option1-label"
+>
+  Option 1
+</label>
+`;
+
+exports[`InputCheckboxes > should render component with legend and options > expected html 3`] = `
+<label
+  class="block pl-3 leading-6"
+  for="input-checkbox-:r0:-option-option2-input"
+  id="input-checkbox-:r0:-option-option2-label"
+>
+  Option 2
+</label>
+`;

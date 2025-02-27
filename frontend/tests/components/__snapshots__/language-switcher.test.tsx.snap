@@ -1,0 +1,14 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LanguageSwitcher > should render a LanguageSwitcher with the correct props > expected html 1`] = `
+<div>
+  <a
+    class="underline text-white hover:text-blue-100 focus:text-blue-200 sm:text-lg"
+    data-discover="true"
+    href="/fr/00000000-0000-0000-0000-000000000000?foo=bar"
+    lang="fr"
+  >
+    Français
+  </a>
+</div>
+`;
