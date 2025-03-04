@@ -14,8 +14,8 @@
     "checks": "node --experimental-strip-types ./checks-runner.ts",
     "test": "vitest",
     "test:e2e": "playwright test",
-    "format:check": "cross-env NODE_OPTIONS=--experimental-strip-types prettier --cache --check .",
-    "format:write": "cross-env NODE_OPTIONS=--experimental-strip-types prettier --write .",
+    "format:check": "prettier --cache --check .",
+    "format:write": "prettier --write .",
     "lint:check": "eslint --cache ./",
     "typecheck": "react-router typegen && tsc"
   },
@@ -83,7 +83,6 @@
     "@testing-library/react": "^16.2.0",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/compression": "^1.7.5",
-    "@types/eslint__eslintrc": "^2.1.2",
     "@types/eslint-plugin-jsx-a11y": "^6.10.0",
     "@types/express-session": "^1.18.1",
     "@types/morgan": "^1.9.9",
