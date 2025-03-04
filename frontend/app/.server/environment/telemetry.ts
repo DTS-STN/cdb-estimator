@@ -10,7 +10,7 @@ export const defaults = {
   OTEL_AUTH_HEADER: 'Authorization 00000000-0000-0000-0000-000000000000',
   OTEL_ENVIRONMENT_NAME: 'localhost',
   OTEL_METRICS_ENDPOINT: 'http://localhost:4318/v1/metrics',
-  OTEL_SERVICE_NAME: 'future-sir-frontend',
+  OTEL_SERVICE_NAME: 'cdb-estimator-frontend',
   OTEL_SERVICE_VERSION: '0.0.0',
   OTEL_TRACES_ENDPOINT: 'http://localhost:4318/v1/traces',
   OTEL_USE_CONSOLE_METRIC_EXPORTER: 'false',

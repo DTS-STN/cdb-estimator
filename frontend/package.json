@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/package",
-  "name": "future-sir-frontend",
+  "name": "cdb-estimator-frontend",
   "private": true,
   "sideEffects": false,
   "type": "module",

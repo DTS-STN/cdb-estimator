@@ -1,4 +1,4 @@
-# Internationalization (i18n) routing in CDB Estimator 
+# Internationalization (i18n) routing in CDB Estimator
 
 ## Overview
 

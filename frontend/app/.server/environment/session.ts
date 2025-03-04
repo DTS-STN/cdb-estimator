@@ -8,7 +8,7 @@ export type Session = Readonly<v.InferOutput<typeof session>>;
 
 export const defaults = {
   SESSION_TYPE: 'memory',
-  SESSION_COOKIE_NAME: '__FSIR||session',
+  SESSION_COOKIE_NAME: '__CBD_Estimator||session',
   SESSION_COOKIE_PATH: '/',
   SESSION_COOKIE_SAMESITE: 'strict',
   SESSION_COOKIE_SECRET: '00000000-0000-0000-0000-000000000000',
