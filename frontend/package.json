@@ -11,7 +11,7 @@
     "dev": "nodemon --config nodemon.json",
     "preview": "npm run build && cross-env NODE_ENV=production SESSION_COOKIE_SECURE=false node --env-file-if-exists=.env --import ./build/server/telemetry.js ./build/server/server.js",
     "start": "cross-env NODE_ENV=production node --import ./build/server/telemetry.js ./build/server/server.js",
-    "checks": "node --experimental-strip-types ./checks-runner.ts",
+    "checks": "node --experimental-strip-types ./scripts/checks-runner.ts",
     "test": "vitest",
     "test:e2e": "playwright test",
     "format:check": "prettier --cache --check .",
