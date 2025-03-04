@@ -41,7 +41,8 @@ export default function Layout() {
           </div>
         </div>
         <AppBar>
-          <MenuItem file="routes/protected/index.tsx">{t('public:index.navigate')}</MenuItem>
+          {/* TODO: This project probably won't need a dropdown menu. As with PASC we may only need a linked h2 title. */}
+          <MenuItem file="routes/public/index.tsx">{t('public:index.navigate')}</MenuItem>
         </AppBar>
       </header>
       <main className="container">
