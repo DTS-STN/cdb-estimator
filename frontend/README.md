@@ -50,7 +50,7 @@ docker build --tag cdb-estimator-frontend --file containerfile .
 docker run --init --interactive --tty --rm --network host --env-file .env --name cdb-estimator-frontend cdb-estimator-frontend
 
 # with podman
-podman build --tag future-sir-frontend --file containerfile .
+podman build --tag cdb-estimator-frontend --file containerfile .
 podman run --init --interactive --tty --rm --network host --env-file .env --name cdb-estimator-frontend cdb-estimator-frontend
 ```
 
