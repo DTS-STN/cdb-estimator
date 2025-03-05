@@ -1,0 +1,26 @@
+{
+  "age": {
+    "page-title": "Étape 1 de 8\u00A0: Âge"
+  },
+  "residency": {
+    "page-title": "Étape 2 de 8\u00A0: Résidence"
+  },
+  "status-in-canada": {
+    "page-title": "Étape 3 de 8\u00A0: Statut au Canada"
+  },
+  "incarceration": {
+    "page-title": "Étape 4 de 8\u00A0: Incarcération"
+  },
+  "marital-status": {
+    "page-title": "Étape 5 de 8\u00A0: État civil"
+  },
+  "disability-tax-credit": {
+    "page-title": "Étape 6 de 8\u00A0: Crédit d'impôt pour personnes handicapées"
+  },
+  "income-tax-return": {
+    "page-title": "Étape 7 de 8\u00A0: Déclaration de revenus"
+  },
+  "income": {
+    "page-title": "Étape 8 de 8\u00A0: Revenus"
+  }
+}
