@@ -22,5 +22,8 @@
   },
   "income": {
     "page-title": "Step 8 of 8: Income"
+  },
+  "results": {
+    "page-title": "Results"
   }
 }

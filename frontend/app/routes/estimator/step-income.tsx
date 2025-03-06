@@ -36,7 +36,7 @@ export async function action({ context, request }: Route.ActionArgs) {
       throw i18nRedirect('routes/estimator/step-income-tax-return.tsx', request);
     }
     case 'next': {
-      throw new Error('Not Implemented');
+      throw i18nRedirect('routes/estimator/results.tsx', request);
     }
   }
 }
