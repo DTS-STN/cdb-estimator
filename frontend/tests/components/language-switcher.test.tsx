@@ -15,7 +15,7 @@ vi.mock('~/i18n-routes', async (importActual) => {
     i18nRoutes: [
       {
         id: 'ROUTE-0001',
-        file: 'routes/index.tsx',
+        file: 'routes/splash.tsx',
         paths: { en: '/en/:id', fr: '/fr/:id' },
       },
     ],

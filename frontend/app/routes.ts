@@ -35,7 +35,7 @@ export function toRouteConfigEntries(routes: I18nRoute[]): RouteConfigEntry[] {
 }
 
 export default [
-  index('routes/index.tsx'),
+  index('routes/splash.tsx'), // Language selection page
   route('*', 'routes/not-found.tsx'),
 
   // API routes

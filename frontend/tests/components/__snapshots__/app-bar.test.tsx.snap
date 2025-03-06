@@ -48,7 +48,7 @@ exports[`AppBar > should correctly render an AppBar with a MenuItem when the fil
         <a
           class="underline text-white hover:text-blue-100 focus:text-blue-200 sm:text-lg"
           data-discover="true"
-          href="/en/public"
+          href="/en"
           lang="en"
         >
           gcweb:language-switcher.alt-lang
@@ -107,7 +107,7 @@ exports[`AppBar > should correctly render an AppBar with a MenuItem when the to 
         <a
           class="underline text-white hover:text-blue-100 focus:text-blue-200 sm:text-lg"
           data-discover="true"
-          href="/en/public"
+          href="/en"
           lang="en"
         >
           gcweb:language-switcher.alt-lang

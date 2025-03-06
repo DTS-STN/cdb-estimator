@@ -34,10 +34,10 @@ describe('Card', () => {
   it('should render a card with a link', () => {
     const RoutesStub = createRoutesStub([
       {
-        path: '/fr/public',
+        path: '/fr',
         Component: () => (
           <Card asChild>
-            <AppLink file="routes/public/index.tsx">
+            <AppLink file="routes/index.tsx">
               <CardHeader>
                 <CardTitle>Card Title</CardTitle>
                 <CardDescription>Test Card</CardDescription>
@@ -48,17 +48,17 @@ describe('Card', () => {
       },
     ]);
 
-    const { container } = render(<RoutesStub initialEntries={['/fr/public']} />);
+    const { container } = render(<RoutesStub initialEntries={['/fr']} />);
     expect(container).toMatchSnapshot('expected html');
   });
 
   it('should render a card with a link with an image', () => {
     const RoutesStub = createRoutesStub([
       {
-        path: '/fr/public',
+        path: '/fr',
         Component: () => (
           <Card asChild>
-            <AppLink file="routes/public/index.tsx">
+            <AppLink file="routes/index.tsx">
               <CardImage src="https://www.canada.ca/content/dam/canada/activities/20250115-1-520x200.jpg" />
               <CardHeader>
                 <CardTitle>Card Title</CardTitle>
@@ -73,14 +73,14 @@ describe('Card', () => {
       },
     ]);
 
-    const { container } = render(<RoutesStub initialEntries={['/fr/public']} />);
+    const { container } = render(<RoutesStub initialEntries={['/fr']} />);
     expect(container).toMatchSnapshot('expected html');
   });
 
   it('should render a card with a link with an icon', () => {
     const RoutesStub = createRoutesStub([
       {
-        path: '/fr/public',
+        path: '/fr',
         Component: () => (
           <Card>
             <div className="flex items-center gap-4 p-6">
@@ -97,14 +97,14 @@ describe('Card', () => {
       },
     ]);
 
-    const { container } = render(<RoutesStub initialEntries={['/fr/public']} />);
+    const { container } = render(<RoutesStub initialEntries={['/fr']} />);
     expect(container).toMatchSnapshot('expected html');
   });
 
   it('should render a card with a link with an icon, content, footer with button and heading2', () => {
     const RoutesStub = createRoutesStub([
       {
-        path: '/fr/public',
+        path: '/fr',
         Component: () => (
           <Card>
             <div className="flex items-center gap-4 p-6">
@@ -128,7 +128,7 @@ describe('Card', () => {
       },
     ]);
 
-    const { container } = render(<RoutesStub initialEntries={['/fr/public']} />);
+    const { container } = render(<RoutesStub initialEntries={['/fr']} />);
     expect(container).toMatchSnapshot('expected html');
   });
 });

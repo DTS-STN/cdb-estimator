@@ -63,7 +63,7 @@ exports[`links > AppLink > should render a link with a specified language when p
 <div>
   <a
     data-discover="true"
-    href="/en/public"
+    href="/en"
     lang="en"
   >
     This is a test
@@ -75,7 +75,7 @@ exports[`links > AppLink > should render a link with the current language if no 
 <div>
   <a
     data-discover="true"
-    href="/fr/public"
+    href="/fr"
   >
     This is a test
   </a>
@@ -93,7 +93,7 @@ exports[`links > InlineLink > should correctly render an InlineLink when the fil
   <a
     class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
     data-discover="true"
-    href="/fr/public"
+    href="/fr"
   >
     This is a test
   </a>

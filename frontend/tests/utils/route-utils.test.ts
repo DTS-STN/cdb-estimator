@@ -9,10 +9,10 @@ import { findRouteByFile, findRouteByPath, getRouteByFile, getRouteByPath } from
 describe('route-utils', () => {
   describe('findRouteByFile', () => {
     it('should return the correct route for a given file', () => {
-      expect(findRouteByFile('routes/public/index.tsx', i18nRoutes)).toEqual({
+      expect(findRouteByFile('routes/index.tsx', i18nRoutes)).toEqual({
         id: 'PUBL-0001',
-        file: 'routes/public/index.tsx',
-        paths: { en: '/en/public', fr: '/fr/public' },
+        file: 'routes/index.tsx',
+        paths: { en: '/en', fr: '/fr' },
       });
     });
 
@@ -23,10 +23,10 @@ describe('route-utils', () => {
 
   describe('findRouteByPath', () => {
     it('should return the correct route for a given path', () => {
-      expect(findRouteByPath('/en/public', i18nRoutes)).toEqual({
+      expect(findRouteByPath('/en', i18nRoutes)).toEqual({
         id: 'PUBL-0001',
-        file: 'routes/public/index.tsx',
-        paths: { en: '/en/public', fr: '/fr/public' },
+        file: 'routes/index.tsx',
+        paths: { en: '/en', fr: '/fr' },
       });
     });
 
@@ -37,10 +37,10 @@ describe('route-utils', () => {
 
   describe('getRouteByFile', () => {
     it('should return the correct route for a given file', () => {
-      expect(getRouteByFile('routes/public/index.tsx', i18nRoutes)).toEqual({
+      expect(getRouteByFile('routes/index.tsx', i18nRoutes)).toEqual({
         id: 'PUBL-0001',
-        file: 'routes/public/index.tsx',
-        paths: { en: '/en/public', fr: '/fr/public' },
+        file: 'routes/index.tsx',
+        paths: { en: '/en', fr: '/fr' },
       });
     });
 
@@ -59,10 +59,10 @@ describe('route-utils', () => {
 
   describe('getRouteByPath', () => {
     it('should return the correct route for a given path', () => {
-      expect(getRouteByPath('/en/public', i18nRoutes)).toEqual({
+      expect(getRouteByPath('/en', i18nRoutes)).toEqual({
         id: 'PUBL-0001',
-        file: 'routes/public/index.tsx',
-        paths: { en: '/en/public', fr: '/fr/public' },
+        file: 'routes/index.tsx',
+        paths: { en: '/en', fr: '/fr' },
       });
     });
 

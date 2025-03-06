@@ -83,15 +83,15 @@ export function isI18nPageRoute(obj: unknown): obj is I18nPageRoute {
  */
 export const i18nRoutes = [
   //
-  // Publicly accessable routes (ie: no authentication required)
+  // Publicly accessable routes
   //
   {
-    file: 'routes/public/layout.tsx',
+    file: 'routes/layout.tsx',
     children: [
       {
         id: 'PUBL-0001',
-        file: 'routes/public/index.tsx',
-        paths: { en: '/en/public', fr: '/fr/public' },
+        file: 'routes/index.tsx',
+        paths: { en: '/en', fr: '/fr' },
       },
     ],
   },

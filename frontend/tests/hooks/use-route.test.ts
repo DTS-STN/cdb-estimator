@@ -16,12 +16,12 @@ vi.mock('react-router', async (importActual) => {
 
 describe('useRoute', () => {
   it('should return the correct route for a given pathname', () => {
-    vi.mocked(useLocation, { partial: true }).mockReturnValue({ pathname: '/en/public' });
+    vi.mocked(useLocation, { partial: true }).mockReturnValue({ pathname: '/en' });
 
     expect(useRoute()).toEqual(
       expect.objectContaining({
-        file: 'routes/public/index.tsx',
-        paths: { en: '/en/public', fr: '/fr/public' },
+        file: 'routes/index.tsx',
+        paths: { en: '/en', fr: '/fr' },
       }),
     );
   });

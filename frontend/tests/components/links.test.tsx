@@ -18,7 +18,7 @@ describe('links', () => {
         {
           path: '/',
           Component: () => (
-            <AppLink file="routes/public/index.tsx" lang="en">
+            <AppLink file="routes/index.tsx" lang="en">
               This is a test
             </AppLink>
           ),
@@ -33,12 +33,12 @@ describe('links', () => {
     it('should render a link with the current language if no specific language is provided', () => {
       const RoutesStub = createRoutesStub([
         {
-          path: '/fr/public',
-          Component: () => <AppLink file="routes/public/index.tsx">This is a test</AppLink>,
+          path: '/fr',
+          Component: () => <AppLink file="routes/index.tsx">This is a test</AppLink>,
         },
       ]);
 
-      const { container } = render(<RoutesStub initialEntries={['/fr/public']} />);
+      const { container } = render(<RoutesStub initialEntries={['/fr']} />);
 
       expect(container).toMatchSnapshot('expected html');
     });
@@ -47,7 +47,7 @@ describe('links', () => {
       const RoutesStub = createRoutesStub([
         {
           path: '/',
-          Component: () => <AppLink file="routes/public/index.tsx">This is a test</AppLink>,
+          Component: () => <AppLink file="routes/index.tsx">This is a test</AppLink>,
           ErrorBoundary: () => <>{(useRouteError() as AppError).msg}</>,
         },
       ]);
@@ -60,16 +60,16 @@ describe('links', () => {
     it('should render a disabled link', () => {
       const RoutesStub = createRoutesStub([
         {
-          path: '/en/public',
+          path: '/en',
           Component: () => (
-            <AppLink disabled file="routes/public/index.tsx">
+            <AppLink disabled file="routes/index.tsx">
               This is a test
             </AppLink>
           ),
         },
       ]);
 
-      const { container } = render(<RoutesStub initialEntries={['/en/public']} />);
+      const { container } = render(<RoutesStub initialEntries={['/en']} />);
 
       expect(container).toMatchSnapshot('expected html');
     });
@@ -132,12 +132,12 @@ describe('links', () => {
     it('should correctly render an InlineLink when the file property is provided', () => {
       const RoutesStub = createRoutesStub([
         {
-          path: '/fr/public',
-          Component: () => <InlineLink file="routes/public/index.tsx">This is a test</InlineLink>,
+          path: '/fr',
+          Component: () => <InlineLink file="routes/index.tsx">This is a test</InlineLink>,
         },
       ]);
 
-      const { container } = render(<RoutesStub initialEntries={['/fr/public']} />);
+      const { container } = render(<RoutesStub initialEntries={['/fr']} />);
 
       expect(container).toMatchSnapshot('expected html');
     });
@@ -145,12 +145,12 @@ describe('links', () => {
     it('should correctly render an InlineLink when the to property is provided', () => {
       const RoutesStub = createRoutesStub([
         {
-          path: '/fr/public',
+          path: '/fr',
           Component: () => <InlineLink to="https://example.com/">This is a test</InlineLink>,
         },
       ]);
 
-      const { container } = render(<RoutesStub initialEntries={['/fr/public']} />);
+      const { container } = render(<RoutesStub initialEntries={['/fr']} />);
 
       expect(container).toMatchSnapshot('expected html');
     });
