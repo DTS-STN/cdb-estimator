@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import type { Route } from './+types/index';
 
 import { ButtonLink } from '~/components/button-link';
+import { Collapsible } from '~/components/collapsible';
 import { PageTitle } from '~/components/page-title';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
@@ -29,6 +30,8 @@ export default function Home() {
     <>
       <PageTitle>{t('public:index.page-title')}</PageTitle>
       <p className="mt-8">{t('public:index.about')}</p>
+
+      <Collapsible summary="Which option applies to you?">Single</Collapsible>
       <ButtonLink file="routes/estimator/step-age.tsx" variant="primary">
         {t('public:index.start')}
       </ButtonLink>
