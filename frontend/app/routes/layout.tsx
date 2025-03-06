@@ -3,9 +3,8 @@ import { Outlet } from 'react-router';
 
 import { useTranslation } from 'react-i18next';
 
-import { AppBar } from '~/components/app-bar';
+import { LanguageSwitcher } from '~/components/language-switcher';
 import { AppLink } from '~/components/links';
-import { MenuItem } from '~/components/menu';
 import { PageDetails } from '~/components/page-details';
 import { SkipNavigationLinks } from '~/components/skip-navigation-links';
 import { useLanguage } from '~/hooks/use-language';
@@ -24,7 +23,7 @@ export default function Layout() {
 
   return (
     <>
-      <header className="print:hidden">
+      <header className="border-b-[3px] border-slate-700 print:hidden">
         <SkipNavigationLinks />
         <div id="wb-bnr">
           <div className="container flex items-center justify-between gap-6 py-2.5 sm:py-3.5">
@@ -38,12 +37,9 @@ export default function Layout() {
                 decoding="async"
               />
             </AppLink>
+            <LanguageSwitcher>{t('gcweb:language-switcher.alt-lang')}</LanguageSwitcher>
           </div>
         </div>
-        <AppBar>
-          {/* TODO: This project probably won't need a dropdown menu. As with PASC we may only need a linked h2 title. */}
-          <MenuItem file="routes/index.tsx">{t('public:index.navigate')}</MenuItem>
-        </AppBar>
       </header>
       <main className="container">
         <Outlet />
