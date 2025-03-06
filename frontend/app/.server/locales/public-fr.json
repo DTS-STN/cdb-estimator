@@ -3,6 +3,7 @@
   "index": {
     "page-title": "[FR] Welcome to CDB Estimator",
     "about": "[FR] The CDB Estimator is a tool to help users estimate their potential Canadian Disability Benefit amount",
-    "navigate": "Accédez au tableau de bord"
+    "navigate": "Accédez au tableau de bord",
+    "start": "Démarrer l'estimateur de prestations"
   }
 }

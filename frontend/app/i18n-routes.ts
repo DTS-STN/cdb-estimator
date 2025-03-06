@@ -93,6 +93,51 @@ export const i18nRoutes = [
         file: 'routes/index.tsx',
         paths: { en: '/en', fr: '/fr' },
       },
+      {
+        file: 'routes/estimator/layout.tsx',
+        children: [
+          {
+            id: 'EST-0001',
+            file: 'routes/estimator/step-age.tsx',
+            paths: { en: '/en/age', fr: '/fr/age' },
+          },
+          {
+            id: 'EST-0002',
+            file: 'routes/estimator/step-residency.tsx',
+            paths: { en: '/en/residency', fr: '/fr/residence' },
+          },
+          {
+            id: 'EST-0003',
+            file: 'routes/estimator/step-status-in-canada.tsx',
+            paths: { en: '/en/status-in-canada', fr: '/fr/statut-au-canada' },
+          },
+          {
+            id: 'EST-0004',
+            file: 'routes/estimator/step-incarceration.tsx',
+            paths: { en: '/en/incarceration', fr: '/fr/incarceration' },
+          },
+          {
+            id: 'EST-0005',
+            file: 'routes/estimator/step-marital-status.tsx',
+            paths: { en: '/en/marital-status', fr: '/fr/etat-civil' },
+          },
+          {
+            id: 'EST-0006',
+            file: 'routes/estimator/step-disability-tax-credit.tsx',
+            paths: { en: '/en/disability-tax-credit', fr: '/fr/credit-impot-personnes-handicapees' },
+          },
+          {
+            id: 'EST-0007',
+            file: 'routes/estimator/step-income-tax-return.tsx',
+            paths: { en: '/en/income-tax-return', fr: '/fr/declaration-de-revenus' },
+          },
+          {
+            id: 'EST-0008',
+            file: 'routes/estimator/step-income.tsx',
+            paths: { en: '/en/income', fr: '/fr/revenus' },
+          },
+        ],
+      },
     ],
   },
 ] as const satisfies I18nRoute[];
