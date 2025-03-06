@@ -136,6 +136,11 @@ export const i18nRoutes = [
             file: 'routes/estimator/step-income.tsx',
             paths: { en: '/en/income', fr: '/fr/revenus' },
           },
+          {
+            id: 'EST-0009',
+            file: 'routes/estimator/results.tsx',
+            paths: { en: '/en/results', fr: '/fr/resultats' },
+          },
         ],
       },
     ],
