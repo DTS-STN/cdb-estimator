@@ -28,7 +28,7 @@ exports[`Card > should render a card with a link > expected html 1`] = `
   <a
     class="group block rounded-xs border bg-white shadow-xs [&:is(a)]:hover:bg-gray-50 [&:is(a)]:hover:shadow-md"
     data-discover="true"
-    href="/fr/public"
+    href="/fr"
   >
     <div
       class="flex flex-col space-y-1.5 p-6"
@@ -164,7 +164,7 @@ exports[`Card > should render a card with a link with an image > expected html 1
   <a
     class="group block rounded-xs border bg-white shadow-xs [&:is(a)]:hover:bg-gray-50 [&:is(a)]:hover:shadow-md"
     data-discover="true"
-    href="/fr/public"
+    href="/fr"
   >
     <img
       alt=""

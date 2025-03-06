@@ -5,7 +5,7 @@ exports[`ButtonLink > should render a ButtonLink with custom styles > expected h
   <a
     class="font-lato inline-flex items-center justify-center rounded-sm border align-middle no-underline outline-offset-4 px-3 py-2 text-sm border-slate-700 bg-slate-700 hover:bg-sky-800 focus:bg-sky-800 text-red-500"
     data-discover="true"
-    href="/fr/public"
+    href="/fr"
   >
     Test ButtonLink
   </a>
@@ -17,7 +17,7 @@ exports[`ButtonLink > should render a ButtonLink with default styles > expected 
   <a
     class="font-lato inline-flex items-center justify-center rounded-sm border align-middle no-underline outline-offset-4 px-5 py-2.5 text-sm border-gray-300 bg-gray-200 text-slate-700 hover:bg-neutral-300 focus:bg-neutral-300"
     data-discover="true"
-    href="/fr/public"
+    href="/fr"
   >
     Test ButtonLink
   </a>
@@ -41,7 +41,7 @@ exports[`ButtonLink > should render a pill ButtonLink correctly > expected html 
   <a
     class="font-lato inline-flex items-center justify-center border align-middle no-underline outline-offset-4 px-5 py-2.5 text-sm border-gray-300 bg-gray-200 text-slate-700 hover:bg-neutral-300 focus:bg-neutral-300 rounded-full"
     data-discover="true"
-    href="/fr/public"
+    href="/fr"
   >
     Test ButtonLink
   </a>
