@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import type { Route } from './+types/index';
 
 import { ButtonLink } from '~/components/button-link';
-import { Collapsible } from '~/components/collapsible';
 import { PageTitle } from '~/components/page-title';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
