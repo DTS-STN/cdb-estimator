@@ -7,8 +7,8 @@ export type CollapsibleSummaryProps = ComponentProps<'summary'>;
 
 export function CollapsibleSummary({ children, className, ...props }: CollapsibleSummaryProps) {
   return (
-    <summary className={cn('marker:cursor-pointer hover:text-blue-800', className)} {...props}>
-      <div className="ml-2 inline-block text-lg font-medium text-slate-950 underline hover:cursor-pointer">{children}</div>
+    <summary className={cn('cursor-pointer marker:text-blue-900', className)} {...props}>
+      <div className="ml-4 inline-block text-blue-900 hover:underline">{children}</div>
     </summary>
   );
 }
@@ -23,9 +23,9 @@ export function Collapsible({ children, contentClassName, id, summary, ...props 
   const summaryId = `${id ?? uniqueId}-summary`;
   const contentId = `${id ?? uniqueId}-content`;
   return (
-    <details id={id ?? uniqueId} {...props} className="my-2">
+    <details id={id ?? uniqueId} {...props}>
       <CollapsibleSummary id={summaryId}>{summary}</CollapsibleSummary>
-      <div id={contentId} className={cn('my-2 border-l-[2px] border-slate-950 px-6 text-lg', contentClassName)}>
+      <div id={contentId} className={cn('mt-2 border-l-[6px] border-gray-400 px-6 py-4', contentClassName)}>
         {children}
       </div>
     </details>
