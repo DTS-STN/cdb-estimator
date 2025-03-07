@@ -31,7 +31,7 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
 
   return (
     <div className="space-y-3">
-      <PageTitle>{t('estimator:results.page-title')}</PageTitle>
+      <PageTitle subTitle={t('public:application-title')}>{t('estimator:results.page-title')}</PageTitle>
     </div>
   );
 }
