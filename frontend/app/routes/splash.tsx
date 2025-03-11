@@ -9,6 +9,7 @@ import { AppLink } from '~/components/links';
 import { getFixedT } from '~/i18n-config.server';
 
 export const handle = {
+  breadcrumbs: [],
   i18nNamespace: ['gcweb'],
 } as const satisfies RouteHandle;
 

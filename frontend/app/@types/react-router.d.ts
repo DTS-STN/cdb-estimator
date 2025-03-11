@@ -2,6 +2,8 @@ import 'react-router';
 
 import type { Namespace } from 'i18next';
 
+import type { BreadcrumbItem } from '~/components/breadcrumbs';
+
 declare module 'react-router' {
   interface AppLoadContext {
     nonce: string;
@@ -12,6 +14,7 @@ declare module 'react-router' {
    * Route handles should export an i18n namespace, if necessary.
    */
   interface RouteHandle {
+    breadcrumbs: BreadcrumbItem[];
     i18nNamespace?: Namespace;
   }
 

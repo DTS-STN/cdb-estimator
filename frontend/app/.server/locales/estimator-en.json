@@ -1,29 +1,38 @@
 {
   "age": {
-    "page-title": "Step 1 of 8: Age"
+    "page-title": "Step 1 of 8: Age",
+    "breadcrumb": "Age"
   },
   "residency": {
-    "page-title": "Step 2 of 8: Residency"
+    "page-title": "Step 2 of 8: Residency",
+    "breadcrumb": "Residency"
   },
   "status-in-canada": {
-    "page-title": "Step 3 of 8: Status in Canada"
+    "page-title": "Step 3 of 8: Status in Canada",
+    "breadcrumb": "Status in Canada"
   },
   "incarceration": {
-    "page-title": "Step 4 of 8: Incarceration"
+    "page-title": "Step 4 of 8: Incarceration",
+    "breadcrumb": "Incarceration"
   },
   "marital-status": {
-    "page-title": "Step 5 of 8: Marital Status"
+    "page-title": "Step 5 of 8: Marital Status",
+    "breadcrumb": "Marital Status"
   },
   "disability-tax-credit": {
-    "page-title": "Step 6 of 8: Disability Tax Credit"
+    "page-title": "Step 6 of 8: Disability Tax Credit",
+    "breadcrumb": "Disability Tax Credit"
   },
   "income-tax-return": {
-    "page-title": "Step 7 of 8: Income Tax Return"
+    "page-title": "Step 7 of 8: Income Tax Return",
+    "breadcrumb": "Income Tax Return"
   },
   "income": {
-    "page-title": "Step 8 of 8: Income"
+    "page-title": "Step 8 of 8: Income",
+    "breadcrumb": "Income"
   },
   "results": {
-    "page-title": "Results"
+    "page-title": "Results",
+    "breadcrumb": "Results"
   }
 }

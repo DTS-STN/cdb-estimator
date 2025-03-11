@@ -12,6 +12,12 @@ import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 
 export const handle = {
+  breadcrumbs: [
+    ...parentHandle.breadcrumbs,
+    {
+      labelKey: 'estimator:disability-tax-credit.breadcrumb',
+    },
+  ],
   i18nNamespace: [...parentHandle.i18nNamespace],
 } as const satisfies RouteHandle;
 
