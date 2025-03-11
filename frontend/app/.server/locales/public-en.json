@@ -1,6 +1,7 @@
 {
   "resource": "public/locales/public-en.json",
   "index": {
+    "breadcrumb": "Estimator",
     "page-title": "Canada Disability Benefit Estimator",
     "about": "The CDB Estimator is a tool to help users estimate their potential Canada Disability Benefit amount",
     "navigate": "Go to dashboard",

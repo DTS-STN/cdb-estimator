@@ -1,5 +1,6 @@
 import * as v from 'valibot';
 
+import { breadcrumbs, defaults as breadcrumbsDefaults } from '~/.server/environment/breadcrumbs';
 import { buildinfo, defaults as buildinfoDefaults } from '~/.server/environment/buildinfo';
 import { stringToBooleanSchema } from '~/.server/validation/string-to-boolean-schema';
 
@@ -7,6 +8,7 @@ export type Client = Readonly<v.InferOutput<typeof client>>;
 
 export const defaults = {
   ...buildinfoDefaults,
+  ...breadcrumbsDefaults,
 } as const;
 
 /**
@@ -15,6 +17,7 @@ export const defaults = {
  */
 export const client = v.object({
   ...buildinfo.entries,
+  ...breadcrumbs.entries,
   I18NEXT_DEBUG: v.optional(stringToBooleanSchema()),
   isProduction: v.boolean(),
 });

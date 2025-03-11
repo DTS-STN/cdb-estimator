@@ -10,6 +10,10 @@ import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
 
 export const handle = {
+  breadcrumbs: [
+    ...parentHandle.breadcrumbs,
+    { labelKey: 'public:index.breadcrumb', destinationRoute: { file: 'routes/index.tsx' } },
+  ],
   i18nNamespace: [...parentHandle.i18nNamespace, 'public'],
 } as const satisfies RouteHandle;
 

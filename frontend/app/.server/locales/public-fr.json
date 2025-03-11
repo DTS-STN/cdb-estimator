@@ -1,6 +1,7 @@
 {
   "resource": "public/locales/public-fr.json",
   "index": {
+    "breadcrumb": "Estimateur",
     "page-title": "Estimateur de la Prestation canadienne pour les personnes handicapées",
     "about": "L'estimateur de la PCPH est un outil pour aider les utilisateurs à estimer le montant potentiel de leur Prestation canadienne pour les personnes handicapées",
     "navigate": "Accédez au tableau de bord",

@@ -7,8 +7,10 @@ import type { Route } from './+types/splash';
 import { ButtonLink } from '~/components/button-link';
 import { AppLink } from '~/components/links';
 import { getFixedT } from '~/i18n-config.server';
+import { handle as parentHandle } from '~/routes/layout';
 
 export const handle = {
+  breadcrumbs: [...parentHandle.breadcrumbs],
   i18nNamespace: ['gcweb'],
 } as const satisfies RouteHandle;
 
