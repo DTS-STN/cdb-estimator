@@ -9,10 +9,7 @@ import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 
 export const handle = {
-  breadcrumbs: [
-    ...parentHandle.breadcrumbs,
-    { labelKey: 'results', destinationRoute: { file: 'routes/estimator/results.tsx' } },
-  ],
+  breadcrumbs: [...parentHandle.breadcrumbs, { labelKey: 'estimator:results.breadcrumb' }],
   i18nNamespace: [...parentHandle.i18nNamespace],
 } as const satisfies RouteHandle;
 
@@ -35,7 +32,7 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
 
   return (
     <div className="space-y-3">
-      <PageTitle>{t('estimator:results.page-title')}</PageTitle>
+      <PageTitle subTitle={t('public:application-title')}>{t('estimator:results.page-title')}</PageTitle>
     </div>
   );
 }

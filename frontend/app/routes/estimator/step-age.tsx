@@ -12,10 +12,7 @@ import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 
 export const handle = {
-  breadcrumbs: [
-    ...parentHandle.breadcrumbs,
-    { labelKey: 'estimator:age.breadcrumb', destinationRoute: { file: 'routes/estimator/step-age.tsx' } },
-  ],
+  breadcrumbs: [...parentHandle.breadcrumbs, { labelKey: 'estimator:age.breadcrumb' }],
   i18nNamespace: [...parentHandle.i18nNamespace],
 } as const satisfies RouteHandle;
 
@@ -50,7 +47,7 @@ export default function StepAge({ actionData, loaderData, matches, params }: Rou
 
   return (
     <div className="space-y-3">
-      <PageTitle>{t('estimator:age.page-title')}</PageTitle>
+      <PageTitle subTitle={t('public:application-title')}>{t('estimator:age.page-title')}</PageTitle>
       <Form method="post">
         <div className="mt-8 flex flex-row-reverse flex-wrap items-center justify-end gap-3">
           <Button name="action" value="next" variant="primary" id="continue-button">

@@ -1,5 +1,6 @@
 {
   "resource": "public/locales/public-fr.json",
+  "application-title": "Estimateur de la Prestation canadienne pour les personnes handicapées",
   "index": {
     "breadcrumb": "Estimateur",
     "page-title": "Estimateur de la Prestation canadienne pour les personnes handicapées",

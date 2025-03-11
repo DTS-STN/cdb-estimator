@@ -1,5 +1,6 @@
 {
   "resource": "public/locales/public-en.json",
+  "application-title": "Canada Disability Benefit Estimator",
   "index": {
     "breadcrumb": "Estimator",
     "page-title": "Canada Disability Benefit Estimator",

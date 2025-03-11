@@ -6,7 +6,6 @@ import { InlineLink } from '~/components/links';
 import { useLanguage } from '~/hooks/use-language';
 import { useRoute } from '~/hooks/use-route';
 import type { I18nRouteFile } from '~/i18n-routes';
-import { cn } from '~/utils/tailwind-utils';
 
 type LanguageSwitcherProps = OmitStrict<
   ComponentProps<typeof InlineLink>,
@@ -21,7 +20,7 @@ export function LanguageSwitcher({ className, children, ...props }: LanguageSwit
 
   return (
     <InlineLink
-      className={cn('text-white hover:text-blue-100 focus:text-blue-200 sm:text-lg', className)}
+      className={className}
       file={file as I18nRouteFile}
       lang={altLanguage}
       params={params}
