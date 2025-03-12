@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 
 import type { Route } from './+types/index';
 
-import { AgePickerField } from '~/components/age-picker-field';
 import { ButtonLink } from '~/components/button-link';
 import { PageTitle } from '~/components/page-title';
 import { getTranslation } from '~/i18n-config.server';
