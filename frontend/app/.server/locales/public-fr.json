@@ -15,6 +15,7 @@
   "application-title": "Estimateur de la Prestation canadienne pour les personnes handicapées",
   "index": {
     "about": "L'estimateur de la PCPH est un outil pour aider les utilisateurs à estimer le montant potentiel de leur Prestation canadienne pour les personnes handicapées",
+    "breadcrumb": "Estimateur",
     "navigate": "Accédez au tableau de bord",
     "page-title": "Estimateur de la Prestation canadienne pour les personnes handicapées",
     "start": "Démarrer l'estimateur de prestations"

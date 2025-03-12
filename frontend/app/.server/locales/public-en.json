@@ -15,6 +15,7 @@
   "application-title": "Canada Disability Benefit Estimator",
   "index": {
     "about": "The CDB Estimator is a tool to help users estimate their potential Canada Disability Benefit amount",
+    "breadcrumb": "Estimator",
     "navigate": "Go to dashboard",
     "page-title": "Canada Disability Benefit Estimator",
     "start": "Start benefits estimator"

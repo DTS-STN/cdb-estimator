@@ -3,6 +3,9 @@ import { Outlet } from 'react-router';
 
 import { useTranslation } from 'react-i18next';
 
+import type { Route } from './+types/layout';
+
+import { Breadcrumbs } from '~/components/breadcrumbs';
 import { LanguageSwitcher } from '~/components/language-switcher';
 import { AppLink } from '~/components/links';
 import { PageDetails } from '~/components/page-details';
@@ -11,15 +14,22 @@ import { useLanguage } from '~/hooks/use-language';
 import { useRoute } from '~/hooks/use-route';
 
 export const handle = {
+  breadcrumbs: [
+    ...globalThis.__appEnvironment.BREADCRUMBS.map((item) => {
+      return { label: { en: item.label.en, fr: item.label.fr }, destination: { en: item.url.en, fr: item.url.fr } };
+    }),
+  ],
   i18nNamespace: ['gcweb', 'public'],
 } as const satisfies RouteHandle;
 
-export default function Layout() {
+export default function Layout({ matches }: Route.ComponentProps) {
   const { currentLanguage } = useLanguage();
   const { t } = useTranslation(['gcweb', 'public']);
   const { id: pageId } = useRoute();
 
   const { BUILD_DATE, BUILD_VERSION } = globalThis.__appEnvironment;
+
+  const breadcrumbs = (matches[matches.length - 1]?.handle as RouteHandle).breadcrumbs;
 
   return (
     <>
@@ -41,6 +51,7 @@ export default function Layout() {
           </div>
         </div>
       </header>
+      <Breadcrumbs items={breadcrumbs} className="my-4" />
       <main className="container">
         <Outlet />
         <PageDetails buildDate={BUILD_DATE} buildVersion={BUILD_VERSION} pageId={pageId} />
