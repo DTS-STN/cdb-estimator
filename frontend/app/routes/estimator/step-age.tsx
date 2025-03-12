@@ -3,7 +3,6 @@ import { useId } from 'react';
 import { data, useFetcher } from 'react-router';
 import type { RouteHandle } from 'react-router';
 
-import { differenceInYears } from 'date-fns';
 import type { SessionData } from 'express-session';
 import { useTranslation } from 'react-i18next';
 import * as v from 'valibot';
@@ -19,19 +18,12 @@ import { FetcherErrorSummary } from '~/components/error-summary';
 import { PageTitle } from '~/components/page-title';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/estimator/layout';
-import { getStartOfDayInTimezone, toISODateString } from '~/utils/date-utils';
+import { calculateAge } from '~/utils/age-utils';
+import { getStartOfDayInTimezone } from '~/utils/date-utils';
 
 type AgeInformationSessionData = NonNullable<SessionData['estimator']['ageForm']>;
 
 const timezone = serverEnvironment.BASE_TIMEZONE;
-
-function toDateString(year: number, month: number, day: number): string {
-  try {
-    return toISODateString(year, month, day);
-  } catch {
-    return '';
-  }
-}
 
 export const handle = {
   breadcrumbs: [...parentHandle.breadcrumbs, { labelKey: 'estimator:age.breadcrumb' }],
@@ -80,8 +72,8 @@ export async function action({ context, request }: Route.ActionArgs) {
           ),
         }),
         v.transform(({ month, year }) => {
-          const birthDate = new Date(year, month - 1, 1);
-          const age = differenceInYears(new Date(), birthDate);
+          const age = calculateAge(month, year);
+
           return { month, year, age };
         }),
         v.check(({ age }) => age >= 18 && age <= 65, t('estimator:age.date-of-birth.invalid-age')),
@@ -127,15 +119,11 @@ export default function StepAge({ actionData, loaderData, matches, params }: Rou
           <div className="space-y-6">
             {/* TODO : KAB : Change Implementation of AgePickerField to accept default value of month and year */}
             <AgePickerField
-              defaultValue={
-                loaderData.defaultFormValues?.dateOfBirth
-                  ? toDateString(
-                      Number(loaderData.defaultFormValues.dateOfBirth.year),
-                      Number(loaderData.defaultFormValues.dateOfBirth.month),
-                      1,
-                    )
-                  : undefined
-              }
+              defaultValues={{
+                month: loaderData.defaultFormValues?.dateOfBirth.month,
+                year: loaderData.defaultFormValues?.dateOfBirth.year,
+              }}
+              displayAge={true}
               errorMessages={{
                 all: errors?.dateOfBirth?.at(0),
                 month: errors?.['dateOfBirth.month']?.at(0),
