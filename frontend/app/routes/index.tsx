@@ -29,6 +29,7 @@ export default function Home() {
   return (
     <>
       <PageTitle>{t('public:index.page-title')}</PageTitle>
+
       <p>{t('public:index.about')}</p>
       <div className="mt-8">
         <ButtonLink file="routes/estimator/step-age.tsx" variant="primary">
