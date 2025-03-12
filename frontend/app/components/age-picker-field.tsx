@@ -116,16 +116,16 @@ export const AgePickerField = ({
     return { ...acc, [datePart]: errors || undefined };
   }, {} as AriaErrorMessage);
 
-  const [month, setMonth] = useState(defaultValues?.month?.toString() ?? '');
-  const [year, setYear] = useState(defaultValues?.year?.toString() ?? '');
+  const [month, setMonth] = useState(defaultValues?.month ?? 0);
+  const [year, setYear] = useState(defaultValues?.year ?? 0);
   const age = useMemo(() => calculateAge(month, year), [month, year]);
 
   const handleMonthChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    setMonth(event.target.value);
+    setMonth(parseInt(event.target.value));
   };
 
   const handleYearChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setYear(event.target.value);
+    setYear(parseInt(event.target.value));
   };
 
   // Define age picker part fields
@@ -133,7 +133,7 @@ export const AgePickerField = ({
     year: (
       <AgePickerYearField
         id={id}
-        defaultValue={year}
+        defaultValue={year.toString()}
         name={names.year}
         label={t('public:age-picker.year.label')}
         className="w-full sm:w-32"
@@ -147,7 +147,7 @@ export const AgePickerField = ({
     month: (
       <AgePickerMonthField
         id={id}
-        defaultValue={month}
+        defaultValue={month.toString()}
         name={names.month}
         label={t('public:age-picker.month.label')}
         placeholder={t('public:age-picker.month.placeholder')}
@@ -196,7 +196,7 @@ export const AgePickerField = ({
             <Fragment key={datePart}>{agePickerPartFields[datePart]}</Fragment>
           ))}
 
-          {displayAge === true && <AgeDisplay age={age} />}
+          {displayAge === true && age !== undefined && year > 1000 && year < 9999 && <AgeDisplay age={age} />}
         </div>
 
         {/* Help Messages - Secondary */}
@@ -350,12 +350,10 @@ function AgePickerYearField({
         defaultValue={defaultValue}
         disabled={disabled}
         id={ids.input}
-        min={1900}
         name={name}
         required={required}
-        type="text"
+        type="number"
         inputMode="numeric"
-        pattern="[0-9]*"
         maxLength={4}
         onChange={onChange}
       />
@@ -367,7 +365,7 @@ function AgePickerYearField({
  * Props for the AgeDisplay component
  */
 interface AgeDisplayProps {
-  age?: number;
+  age: number;
 }
 
 /**
@@ -379,16 +377,13 @@ interface AgeDisplayProps {
 function AgeDisplay({ age }: AgeDisplayProps): JSX.Element {
   const { t } = useTranslation(['public']);
 
-  if (age !== undefined) {
-    return (
-      <div role="alert" aria-live="assertive" className="space-y-1.5 sm:ml-30">
-        <label className="block">
-          <span className="font-semibold">{t('public:age-picker.your-age.label')}</span>
-        </label>
+  return (
+    <div role="alert" aria-live="assertive" className="space-y-1.5 sm:ml-30">
+      <label className="block">
+        <span className="font-semibold">{t('public:age-picker.your-age.label')}</span>
+      </label>
 
-        <span className="block max-w-prose">{`${age} ${t('age-picker.your-age.value-suffix')}`}</span>
-      </div>
-    );
-  }
-  return <></>;
+      <span className="block max-w-prose">{`${age} ${t('age-picker.your-age.value-suffix')}`}</span>
+    </div>
+  );
 }
