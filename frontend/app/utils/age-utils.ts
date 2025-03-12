@@ -1,3 +1,5 @@
+import { differenceInYears } from 'date-fns';
+
 /**
  * Calculates a person's age on the current date.
  * @param birthMonth The person's birth month as a number or number string.
@@ -17,16 +19,7 @@ export function calculateAge(birthMonth?: string | number, birthYear?: string | 
     return undefined;
   }
 
-  const currentDate = new Date();
-  const currentYear = currentDate.getFullYear();
-  const currentMonth = currentDate.getMonth() + 1; // getMonth() returns 0-based index
-
-  let age = currentYear - birthYearNum;
-
-  // Adjust age if birth month hasn't occurred yet this year
-  if (birthMonthNum > currentMonth) {
-    age--;
-  }
-
+  const birthDate = new Date(birthYearNum, birthMonthNum - 1, 1);
+  const age = differenceInYears(new Date(), birthDate);
   return age;
 }

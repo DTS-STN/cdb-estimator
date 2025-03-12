@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import type { Route } from './+types/index';
 
+import { AgePickerField } from '~/components/age-picker-field';
 import { ButtonLink } from '~/components/button-link';
 import { PageTitle } from '~/components/page-title';
 import { getTranslation } from '~/i18n-config.server';
@@ -30,6 +31,15 @@ export default function Home() {
     <>
       <PageTitle>{t('public:index.page-title')}</PageTitle>
       <p className="mt-8">{t('public:index.about')}</p>
+      <AgePickerField
+        names={{ month: 'personAgeMonth', year: 'personAgeYear' }}
+        id={'personAgePicker'}
+        legend={undefined}
+        displayAge={true}
+        defaultValues={{ month: 2, year: 1987 }}
+      />
+      <br></br>
+
       <ButtonLink file="routes/estimator/step-age.tsx" variant="primary">
         {t('public:index.start')}
       </ButtonLink>
