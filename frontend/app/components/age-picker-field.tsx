@@ -10,7 +10,6 @@ import { InputLegend } from '~/components/input-legend';
 import { useLanguage } from '~/hooks/use-language';
 import { calculateAge } from '~/utils/age-utils';
 import { getLocalizedMonths } from '~/utils/date-utils';
-import { padWithZero } from '~/utils/string-utils';
 import { cn } from '~/utils/tailwind-utils';
 
 type DatePart = 'year' | 'month';
