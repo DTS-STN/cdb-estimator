@@ -1,11 +1,24 @@
 {
-  "resource": "public/locales/public-fr.json",
+  "age-picker": {
+    "month": {
+      "label": "Mois",
+      "placeholder": "Sélectionnez le mois"
+    },
+    "year": {
+      "label": "Année (AAAA)"
+    },
+    "your-age": {
+      "label": "Vous avez :",
+      "value-suffix": "ans"
+    }
+  },
   "application-title": "Estimateur de la Prestation canadienne pour les personnes handicapées",
   "index": {
-    "breadcrumb": "Estimateur",
-    "page-title": "Estimateur de la Prestation canadienne pour les personnes handicapées",
     "about": "L'estimateur de la PCPH est un outil pour aider les utilisateurs à estimer le montant potentiel de leur Prestation canadienne pour les personnes handicapées",
+    "breadcrumb": "Estimateur",
     "navigate": "Accédez au tableau de bord",
+    "page-title": "Estimateur de la Prestation canadienne pour les personnes handicapées",
     "start": "Démarrer l'estimateur de prestations"
-  }
+  },
+  "resource": "public/locales/public-fr.json"
 }
