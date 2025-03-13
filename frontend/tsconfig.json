@@ -25,6 +25,7 @@
     "baseUrl": ".",
     "checkJs": true,
     "composite": true,
+    "erasableSyntaxOnly": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,

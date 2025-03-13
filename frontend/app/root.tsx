@@ -20,6 +20,7 @@ import tailwindStyleSheet from '~/tailwind.css?url';
 fontAwesomeConfig.autoAddCss = false;
 
 export const handle = {
+  breadcrumbs: [],
   i18nNamespace: ['gcweb'],
 } as const satisfies RouteHandle;
 
