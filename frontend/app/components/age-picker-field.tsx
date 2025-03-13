@@ -78,7 +78,7 @@ export const AgePickerField = ({
   names,
   required,
 }: AgePickerFieldProps): JSX.Element => {
-  const { t } = useTranslation(['public']);
+  const { t } = useTranslation(['common']);
   const { currentLanguage = 'en' } = useLanguage(); // english by default
   const currentDatePartOrder = DATE_PART_ORDER[currentLanguage];
 
@@ -135,7 +135,7 @@ export const AgePickerField = ({
         id={id}
         defaultValue={year.toString()}
         name={names.year}
-        label={t('public:age-picker.year.label')}
+        label={t('common:age-picker.year.label')}
         className="w-full sm:w-32"
         ariaDescribedBy={ariaDescribedBy}
         ariaErrorMessage={ariaErrorMessage.year}
@@ -149,8 +149,8 @@ export const AgePickerField = ({
         id={id}
         defaultValue={month.toString()}
         name={names.month}
-        label={t('public:age-picker.month.label')}
-        placeholder={t('public:age-picker.month.placeholder')}
+        label={t('common:age-picker.month.label')}
+        placeholder={t('common:age-picker.month.placeholder')}
         className="w-full sm:w-auto"
         currentLanguage={currentLanguage}
         ariaDescribedBy={ariaDescribedBy}
@@ -375,12 +375,12 @@ interface AgeDisplayProps {
  * @returns JSX.Element
  */
 function AgeDisplay({ age }: AgeDisplayProps): JSX.Element {
-  const { t } = useTranslation(['public']);
+  const { t } = useTranslation(['common']);
 
   return (
     <div role="alert" aria-live="assertive" className="space-y-1.5 sm:ml-30">
       <label className="block">
-        <span className="font-semibold">{t('public:age-picker.your-age.label')}</span>
+        <span className="font-semibold">{t('age-picker.your-age.label')}</span>
       </label>
 
       <span className="block max-w-prose">{`${age} ${t('age-picker.your-age.value-suffix')}`}</span>

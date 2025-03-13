@@ -1,19 +1,15 @@
+import commonEn from '~/.server/locales/common-en.json';
+import commonFr from '~/.server/locales/common-fr.json';
 import estimatorEn from '~/.server/locales/estimator-en.json';
 import estimatorFr from '~/.server/locales/estimator-fr.json';
-import gcwebEn from '~/.server/locales/gcweb-en.json';
-import gcwebFr from '~/.server/locales/gcweb-fr.json';
-import publicEn from '~/.server/locales/public-en.json';
-import publicFr from '~/.server/locales/public-fr.json';
 
 export const i18nResourcesEn = {
-  gcweb: gcwebEn,
-  public: publicEn,
+  common: commonEn,
   estimator: estimatorEn,
 } as const;
 
 export const i18nResourcesFr = {
-  gcweb: gcwebFr,
-  public: publicFr,
+  common: commonFr,
   estimator: estimatorFr,
 } as const;
 

@@ -47,7 +47,7 @@ export default function StepMaritalStatus({ actionData, loaderData, matches, par
 
   return (
     <div className="space-y-3">
-      <PageTitle subTitle={t('public:application-title')}>{t('estimator:marital-status.page-title')}</PageTitle>
+      <PageTitle subTitle={t('common:application-title')}>{t('estimator:marital-status.page-title')}</PageTitle>
       <Form method="post">
         <div className="mt-8 flex flex-row-reverse flex-wrap items-center justify-end gap-3">
           <Button name="action" value="next" variant="primary" id="continue-button">

@@ -1,0 +1,134 @@
+{
+  "age-picker": {
+    "month": {
+      "label": "Mois",
+      "placeholder": "Sélectionnez le mois"
+    },
+    "year": {
+      "label": "Année (AAAA)"
+    },
+    "your-age": {
+      "label": "Vous avez :",
+      "value-suffix": "ans"
+    }
+  },
+  "app": {
+    "account": "Compte",
+    "form": "Forme",
+    "logout": "Déconnexion",
+    "menu": "Menu",
+    "profile": "Profil",
+    "title": "Estimateur de la prestation canadienne pour les personnes handicapées"
+  },
+  "application-title": "Estimateur de la Prestation canadienne pour les personnes handicapées",
+  "breadcrumbs": {
+    "canada-ca": "Canada.ca",
+    "canada-ca-url": "https://www.canada.ca/fr.html",
+    "home": "Mon dossier Service Canada",
+    "you-are-here": "Vous êtes ici\u00a0:"
+  },
+  "date-picker": {
+    "day": {
+      "label": "Jour (JJ)"
+    },
+    "month": {
+      "label": "Mois",
+      "placeholder": "Sélectionnez le mois"
+    },
+    "year": {
+      "label": "Année (AAAA)"
+    }
+  },
+  "dialog": {
+    "close": "Fermer"
+  },
+  "error-summary": {
+    "header_one": "L'erreur suivante a été trouvée dans le formulaire\u00a0:",
+    "header_other": "Les {{count}} erreurs suivantes ont été trouvées dans le formulaire\u00a0:"
+  },
+  "footer": {
+    "about-site": "À propos de ce site",
+    "gc-corporate": "Organisation du gouvernement du Canada",
+    "gc-symbol": "Symbole du gouvernement du Canada",
+    "main-band": {
+      "header": "Service Canada",
+      "links": {
+        "contact-us": {
+          "content": "Contactez-nous",
+          "href": "https://www.canada.ca/fr/services/prestations/dentaire/regime-soins-dentaires/contactez.html"
+        }
+      }
+    },
+    "privacy": {
+      "href": "https://www.canada.ca/fr/transparence/confidentialite.html",
+      "text": "Confidentialité"
+    },
+    "terms-conditions": {
+      "href": "https://www.canada.ca/fr/transparence/avis.html",
+      "text": "Avis"
+    }
+  },
+  "header": {
+    "govt-of-canada.href": "https://www.canada.ca/fr.html",
+    "govt-of-canada.text": "Gouvernement du Canada",
+    "language-selection": "Sélection de la langue"
+  },
+  "index": {
+    "about": "L'estimateur de la PCPH est un outil pour aider les utilisateurs à estimer le montant potentiel de leur Prestation canadienne pour les personnes handicapées",
+    "breadcrumb": "Estimateur",
+    "navigate": "Accédez au tableau de bord",
+    "page-title": "Estimateur de la Prestation canadienne pour les personnes handicapées",
+    "start": "Démarrer l'estimateur de prestations"
+  },
+  "input-file": {
+    "choose-file": "Choisir un fichier",
+    "no-file": "Aucun fichier choisi"
+  },
+  "input-label": {
+    "required": "obligatoire"
+  },
+  "input-legend": {
+    "required": "obligatoire"
+  },
+  "input-option": {
+    "no": "Non",
+    "yes": "Oui"
+  },
+  "language": "Français",
+  "language-switcher": {
+    "alt-lang": "English",
+    "alt-lang-abbr": "EN",
+    "alt-lang-abbr-prop": "en"
+  },
+  "nav": {
+    "skip-to-about": "Passer à «\u00a0À propos de ce site\u00a0»",
+    "skip-to-content": "Passer au contenu principal"
+  },
+  "not-found": {
+    "document-title": "Page introuvable",
+    "page-message": "Nous sommes désolés que vous ayez abouti ici. Il arrive parfois qu'une page ait été déplacée ou supprimée. Heureusement, nous pouvons vous aider à trouver ce que vous cherchez.",
+    "page-subtitle": "(Erreur 404)",
+    "page-title": "Nous ne pouvons trouver cette page"
+  },
+  "page-details": {
+    "date-modfied": "Date de modification\u00a0:",
+    "page-details": "Détails de la page",
+    "screen-id": "Identificateur d'écran\u00a0:",
+    "version": "Version\u00a0:"
+  },
+  "resource": "public/locales/public-fr.json",
+  "server-error": {
+    "correlation-id": "<strong>ID de corrélation\u00a0:</strong> <span>{{correlationId}}</span>",
+    "document-title": "Erreur interne du serveur",
+    "error-code": "<strong>Code d'erreur\u00a0:</strong> <span>{{errorCode}}</span>",
+    "page-message": "Nous espérons résoudre le problème sous peu. Il ne s'agit pas d'un problème avec votre ordinateur ou Internet, mais plutôt avec le serveur de notre site Web.",
+    "page-subtitle": "(Erreur {{statusCode}})",
+    "page-title": "Nous éprouvons des difficultés avec cette page"
+  },
+  "session-timeout": {
+    "continue-session": "Continuer la session",
+    "description": "Votre session expirera automatiquement dans {{timeRemaining}}. Sélectionnez «\u00a0Continuer la session\u00a0» pour prolonger votre session.",
+    "end-session": "Mettre fin à la session",
+    "header": "Avertissement d'expiration de la session"
+  }
+}
