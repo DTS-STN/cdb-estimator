@@ -1,4 +1,4 @@
-import { Fragment, useMemo, useState } from 'react';
+import { Fragment, useState } from 'react';
 import type { ChangeEvent, JSX, ReactNode } from 'react';
 
 import { useTranslation } from 'react-i18next';
@@ -118,7 +118,7 @@ export const AgePickerField = ({
 
   const [month, setMonth] = useState(defaultValues?.month);
   const [year, setYear] = useState(defaultValues?.year);
-  const age = useMemo(() => month && year && calculateAge(month, year), [month, year]);
+  const age = month && year && calculateAge(month, year);
 
   const handleMonthChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setMonth(parseInt(event.target.value));
