@@ -1,7 +1,15 @@
 {
   "age": {
     "page-title": "Step 1 of 8: Age",
-    "breadcrumb": "Age"
+    "breadcrumb": "Age",
+    "date-of-birth": {
+      "label": "When were you born?",
+      "required-month": "Month of birth is required.",
+      "invalid-month": "Month of birth is invalid.",
+      "required-year": "Year of birth is required.",
+      "invalid-year": "Year of birth is invalid.",
+      "invalid-age": "You must be between 18 and 65."
+    }
   },
   "residency": {
     "page-title": "Step 2 of 8: Residency",
