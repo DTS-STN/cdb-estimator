@@ -67,21 +67,51 @@ export function security(environment: ServerEnvironment): RequestHandler {
     response.locals.nonce = randomUUID();
     log.trace('Adding nonce [%s] to response', response.locals.nonce);
 
-    const contentSecurityPolicy = [
-      `base-uri 'none'`,
-      `default-src 'none'`,
-      `connect-src 'self'` + (environment.isProduction ? '' : ' ws://localhost:3001'),
-      `font-src 'self' fonts.gstatic.com use.fontawesome.com www.canada.ca`,
-      `form-action 'self'`,
-      `frame-ancestors 'self'`,
-      `frame-src 'self'`,
-      `img-src 'self' data: www.canada.ca`,
-      `object-src data:`,
-      `script-src 'self' 'nonce-${response.locals.nonce}'`,
+    const cspDirectives: Record<string, (string | undefined)[]> = {
+      'base-uri': ["'none'"],
+      'default-src': ["'none'"],
+      'connect-src': [
+        "'self'",
+        environment.isProduction ? undefined : 'ws://localhost:3001',
+        'https://*.omtrdc.net',
+        'https://*.demdex.net',
+        'https://assets.adobedtm.com',
+      ],
+      'font-src': ["'self'", 'fonts.gstatic.com', 'use.fontawesome.com', 'www.canada.ca'],
+      'form-action': ["'self'"],
+      'frame-ancestors': ["'self'"],
+      'frame-src': ["'self'", 'https://*.omtrdc.net', 'https://*.demdex.net', 'https://assets.adobedtm.com'],
+      'img-src': [
+        "'self'",
+        'https://*.omtrdc.net',
+        'https://*.demdex.net',
+        'https://assets.adobedtm.com',
+        'https://cm.everesttech.net',
+        'www.canada.ca',
+      ],
+      'object-src': ['data:'],
+      'script-src': [
+        "'self'",
+        "'unsafe-eval'",
+        "'unsafe-inline'",
+        //`'nonce-${response.locals.nonce}'`,
+        'https://code.jquery.com',
+        'https://assets.adobedtm.com',
+        'https://activitymap.adobe.com',
+      ],
       // NOTE: unsafe-inline is required by Radix Primitives 💩
-      // see https://github.com/radix-ui/primitives/discussions/3130
-      `style-src 'self' 'unsafe-inline' fonts.googleapis.com use.fontawesome.com www.canada.ca`,
-    ].join('; ');
+      // See: https://github.com/radix-ui/primitives/discussions/3130
+      'style-src': ["'self'", "'unsafe-inline'", 'fonts.googleapis.com', 'use.fontawesome.com', 'www.canada.ca'],
+    };
+
+    // Helper function to format the CSP policy
+    const formatCSP = (directives: Record<string, (string | undefined)[]>): string => {
+      return Object.entries(directives)
+        .map(([key, values]) => `${key} ${values.filter(Boolean).join(' ')}`)
+        .join('; ');
+    };
+
+    const contentSecurityPolicy = formatCSP(cspDirectives);
 
     const permissionsPolicy = [
       'camera=()',
