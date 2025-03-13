@@ -116,9 +116,9 @@ export const AgePickerField = ({
     return { ...acc, [datePart]: errors || undefined };
   }, {} as AriaErrorMessage);
 
-  const [month, setMonth] = useState(defaultValues?.month ?? 0);
-  const [year, setYear] = useState(defaultValues?.year ?? 0);
-  const age = useMemo(() => calculateAge(month, year), [month, year]);
+  const [month, setMonth] = useState(defaultValues?.month);
+  const [year, setYear] = useState(defaultValues?.year);
+  const age = useMemo(() => month && year && calculateAge(month, year), [month, year]);
 
   const handleMonthChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setMonth(parseInt(event.target.value));
@@ -133,7 +133,7 @@ export const AgePickerField = ({
     year: (
       <AgePickerYearField
         id={id}
-        defaultValue={year.toString()}
+        defaultValue={year?.toString() ?? ''}
         name={names.year}
         label={t('common:age-picker.year.label')}
         className="w-full sm:w-32"
@@ -147,7 +147,7 @@ export const AgePickerField = ({
     month: (
       <AgePickerMonthField
         id={id}
-        defaultValue={month.toString()}
+        defaultValue={month?.toString() ?? ''}
         name={names.month}
         label={t('common:age-picker.month.label')}
         placeholder={t('common:age-picker.month.placeholder')}
@@ -196,7 +196,9 @@ export const AgePickerField = ({
             <Fragment key={datePart}>{agePickerPartFields[datePart]}</Fragment>
           ))}
 
-          {displayAge === true && age !== undefined && year > 1000 && year < 9999 && <AgeDisplay age={age} />}
+          {displayAge === true && age !== undefined && year !== undefined && year > 1000 && year < 9999 && (
+            <AgeDisplay age={age} />
+          )}
         </div>
 
         {/* Help Messages - Secondary */}
@@ -354,7 +356,6 @@ function AgePickerYearField({
         required={required}
         type="number"
         inputMode="numeric"
-        maxLength={4}
         onChange={onChange}
       />
     </div>

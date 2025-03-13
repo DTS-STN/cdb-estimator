@@ -29,11 +29,12 @@ export default function Home() {
   return (
     <>
       <PageTitle>{t('common:index.page-title')}</PageTitle>
-      <p className="mt-8">{t('common:index.about')}</p>
-
-      <ButtonLink file="routes/estimator/step-age.tsx" variant="primary">
-        {t('common:index.start')}
-      </ButtonLink>
+      <p>{t('common:index.about')}</p>
+      <div className="mt-8">
+        <ButtonLink file="routes/estimator/step-age.tsx" variant="primary">
+          {t('common:index.start')}
+        </ButtonLink>
+      </div>
     </>
   );
 }

@@ -1,7 +1,15 @@
 {
   "age": {
     "page-title": "Étape 1 de 8\u00A0: Âge",
-    "breadcrumb": "Âge"
+    "breadcrumb": "Âge",
+    "date-of-birth": {
+      "label": "Quel est votre mois de naissance?",
+      "required-month": "Le mois de naissance est requis.",
+      "invalid-month": "Le mois de naissance est invalide.",
+      "required-year": "L'année de naissance est requise.",
+      "invalid-year": "L'année de naissance est invalide.",
+      "invalid-age": "Vous devez avoir entre 18 et 65 ans."
+    }
   },
   "residency": {
     "page-title": "Étape 2 de 8\u00A0: Résidence",

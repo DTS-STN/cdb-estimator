@@ -5,9 +5,9 @@ import { differenceInYears } from 'date-fns';
  * @param birthMonth The person's birth month.
  * @param birthYear The person's birth year.
  
- * @returns The person's age (years) on the current day. Returns undefined if parsing fails.
+ * @returns The person's age (years) on the current day.
  */
-export function calculateAge(birthMonth: number, birthYear: number): number | undefined {
+export function calculateAge(birthMonth: number, birthYear: number): number {
   const birthDate = new Date(0, birthMonth - 1, 1);
   birthDate.setFullYear(birthYear);
 
