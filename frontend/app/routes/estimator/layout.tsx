@@ -8,7 +8,7 @@ export const handle = {
     ...parentHandle.breadcrumbs,
     { labelKey: 'public:index.breadcrumb', destinationRoute: { file: 'routes/index.tsx' } },
   ],
-  i18nNamespace: ['gcweb', 'public', 'estimator'],
+  i18nNamespace: ['common', 'estimator'],
 } as const satisfies RouteHandle;
 
 export default function Layout() {
