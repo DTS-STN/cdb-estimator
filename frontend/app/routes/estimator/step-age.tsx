@@ -91,7 +91,7 @@ export async function action({ context, request }: Route.ActionArgs) {
 
       (context.session.estimator ??= {}).ageForm = parseResult.output;
 
-      throw i18nRedirect('routes/estimator/step-residency.tsx', request);
+      throw i18nRedirect('routes/estimator/step-marital-status.tsx', request);
     }
   }
 }
