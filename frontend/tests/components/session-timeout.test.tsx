@@ -42,9 +42,9 @@ describe('SessionTimeout', () => {
     mockIsPrompted.mockReturnValue(true);
 
     setup();
-    expect(screen.queryByText('gcweb:session-timeout.header')).not.toBeNull();
-    expect(screen.queryByText('gcweb:session-timeout.end-session')).not.toBeNull();
-    expect(screen.queryByText('gcweb:session-timeout.continue-session')).not.toBeNull();
+    expect(screen.queryByText('common:session-timeout.header')).not.toBeNull();
+    expect(screen.queryByText('common:session-timeout.end-session')).not.toBeNull();
+    expect(screen.queryByText('common:session-timeout.continue-session')).not.toBeNull();
   });
 
   it('should call `onSessionEnd` when the "End Session" button is clicked', () => {
@@ -52,7 +52,7 @@ describe('SessionTimeout', () => {
 
     setup({ onSessionEnd });
 
-    const endSessionButton = screen.getByText('gcweb:session-timeout.end-session');
+    const endSessionButton = screen.getByText('common:session-timeout.end-session');
     act(() => void fireEvent.click(endSessionButton));
 
     expect(onSessionEnd).toHaveBeenCalled();
@@ -63,7 +63,7 @@ describe('SessionTimeout', () => {
 
     setup({ onSessionExtend });
 
-    const continueSessionButton = screen.getByText('gcweb:session-timeout.continue-session');
+    const continueSessionButton = screen.getByText('common:session-timeout.continue-session');
     act(() => void fireEvent.click(continueSessionButton));
 
     expect(onSessionExtend).toHaveBeenCalled();
@@ -85,14 +85,18 @@ describe('SessionTimeout', () => {
 
     setup();
 
-    expect(screen.queryByText('{"key":"gcweb:session-timeout.description","options":{"timeRemaining":"0:50"}}')).not.toBeNull();
+    expect(
+      screen.queryByText('{"key":"common:session-timeout.description","options":{"timeRemaining":"0:50"}}'),
+    ).not.toBeNull();
 
     act(() => {
       mockGetRemainingTime.mockReturnValue(49000);
       vi.advanceTimersByTime(1000);
     });
 
-    expect(screen.queryByText('{"key":"gcweb:session-timeout.description","options":{"timeRemaining":"0:49"}}')).not.toBeNull();
+    expect(
+      screen.queryByText('{"key":"common:session-timeout.description","options":{"timeRemaining":"0:49"}}'),
+    ).not.toBeNull();
 
     vi.useRealTimers();
   });

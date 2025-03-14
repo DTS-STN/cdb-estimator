@@ -32,7 +32,7 @@ interface MenuProps {
 }
 
 export function Menu({ className, children }: MenuProps) {
-  const { t } = useTranslation(['gcweb']);
+  const { t } = useTranslation(['common']);
 
   return (
     <DropdownMenu>
@@ -43,7 +43,7 @@ export function Menu({ className, children }: MenuProps) {
         )}
       >
         <span id="menu-label" className="my-auto py-2 sm:text-2xl">
-          {t('gcweb:app.title')}
+          {t('common:app.title')}
         </span>
         <FontAwesomeIcon icon={faChevronDown} className="my-auto size-4" />
       </DropdownMenuTrigger>

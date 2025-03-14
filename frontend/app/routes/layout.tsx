@@ -19,12 +19,12 @@ export const handle = {
       return { label: { en: item.label.en, fr: item.label.fr }, destination: { en: item.url.en, fr: item.url.fr } };
     }),
   ],
-  i18nNamespace: ['gcweb', 'public'],
+  i18nNamespace: ['common'],
 } as const satisfies RouteHandle;
 
 export default function Layout({ matches }: Route.ComponentProps) {
   const { currentLanguage } = useLanguage();
-  const { t } = useTranslation(['gcweb', 'public']);
+  const { t } = useTranslation(['common']);
   const { id: pageId } = useRoute();
 
   const { BUILD_DATE, BUILD_VERSION } = globalThis.__appEnvironment;
@@ -41,13 +41,13 @@ export default function Layout({ matches }: Route.ComponentProps) {
               <img
                 className="h-8 w-auto"
                 src={`https://www.canada.ca/etc/designs/canada/wet-boew/assets/sig-blk-${currentLanguage}.svg`}
-                alt={t('gcweb:header.govt-of-canada.text')}
+                alt={t('common:header.govt-of-canada.text')}
                 width="300"
                 height="28"
                 decoding="async"
               />
             </AppLink>
-            <LanguageSwitcher>{t('gcweb:language-switcher.alt-lang')}</LanguageSwitcher>
+            <LanguageSwitcher>{t('common:language-switcher.alt-lang')}</LanguageSwitcher>
           </div>
         </div>
       </header>
@@ -59,11 +59,11 @@ export default function Layout({ matches }: Route.ComponentProps) {
       <footer id="wb-info" tabIndex={-1} className="bg-stone-50 print:hidden">
         <div className="container flex items-center justify-end gap-6 py-2.5 sm:py-3.5">
           <div>
-            <h2 className="sr-only">{t('gcweb:footer.about-site')}</h2>
+            <h2 className="sr-only">{t('common:footer.about-site')}</h2>
             <div>
               <img
                 src="https://www.canada.ca/etc/designs/canada/wet-boew/assets/wmms-blk.svg"
-                alt={t('gcweb:footer.gc-symbol')}
+                alt={t('common:footer.gc-symbol')}
                 width={300}
                 height={71}
                 className="h-10 w-auto"

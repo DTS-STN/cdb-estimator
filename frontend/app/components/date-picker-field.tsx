@@ -75,7 +75,7 @@ export const DatePickerField = ({
   names,
   required,
 }: DatePickerFieldProps): JSX.Element => {
-  const { t } = useTranslation(['gcweb']);
+  const { t } = useTranslation(['common']);
   const { currentLanguage = 'en' } = useLanguage(); // english by default
   const currentDatePartOrder = DATE_PART_ORDER[currentLanguage];
 
@@ -127,7 +127,7 @@ export const DatePickerField = ({
         id={id}
         defaultValue={year}
         name={names.year}
-        label={t('gcweb:date-picker.year.label')}
+        label={t('common:date-picker.year.label')}
         className="w-full sm:w-32"
         ariaDescribedBy={ariaDescribedBy}
         ariaErrorMessage={ariaErrorMessage.year}
@@ -140,8 +140,8 @@ export const DatePickerField = ({
         id={id}
         defaultValue={month}
         name={names.month}
-        label={t('gcweb:date-picker.month.label')}
-        placeholder={t('gcweb:date-picker.month.placeholder')}
+        label={t('common:date-picker.month.label')}
+        placeholder={t('common:date-picker.month.placeholder')}
         className="w-full sm:w-auto"
         currentLanguage={currentLanguage}
         ariaDescribedBy={ariaDescribedBy}
@@ -155,7 +155,7 @@ export const DatePickerField = ({
         id={id}
         defaultValue={day}
         name={names.day}
-        label={t('gcweb:date-picker.day.label')}
+        label={t('common:date-picker.day.label')}
         className="w-full sm:w-20"
         ariaDescribedBy={ariaDescribedBy}
         ariaErrorMessage={ariaErrorMessage.day}

@@ -21,7 +21,7 @@ fontAwesomeConfig.autoAddCss = false;
 
 export const handle = {
   breadcrumbs: [],
-  i18nNamespace: ['gcweb'],
+  i18nNamespace: ['common'],
 } as const satisfies RouteHandle;
 
 export function links(): Route.LinkDescriptors {

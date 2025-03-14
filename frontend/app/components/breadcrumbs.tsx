@@ -32,7 +32,7 @@ export interface BreadcrumbsProps {
   items: BreadcrumbItem[];
 }
 
-function getLabel(item: BreadcrumbItem, t: TFunction<['gcweb', 'estimator'], undefined>, currentLanguage?: Language) {
+function getLabel(item: BreadcrumbItem, t: TFunction<['common'], undefined>, currentLanguage?: Language) {
   if (item.labelKey !== undefined) {
     return t(item.labelKey);
   }
@@ -47,13 +47,13 @@ function getDestination(item: BreadcrumbItem, currentLanguage?: Language) {
 }
 
 export function Breadcrumbs({ className, items }: BreadcrumbsProps) {
-  const { t } = useTranslation(['gcweb']);
+  const { t } = useTranslation(['common']);
   const { currentLanguage } = useLanguage();
 
   return (
     <nav id="wb-bc" className={className} property="breadcrumb" aria-labelledby="breadcrumbs">
       <h2 id="breadcrumbs" className="sr-only">
-        {t('gcweb:breadcrumbs.you-are-here')}
+        {t('common:breadcrumbs.you-are-here')}
       </h2>
       <div className="container">
         <ol className="flex flex-wrap items-center gap-x-3 gap-y-1" typeof="BreadcrumbList">
