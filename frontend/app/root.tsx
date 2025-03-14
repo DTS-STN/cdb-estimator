@@ -63,8 +63,7 @@ export function loader({ context }: Route.LoaderArgs) {
 
 export default function App({ loaderData, matches, params }: Route.ComponentProps) {
   const { currentLanguage } = useLanguage();
-  const { ADOBE_ANALYTICS_ENABLED, ADOBE_ANALYTICS_DEBUG, ADOBE_ANALYTICS_JQUERY_SRC, ADOBE_ANALYTICS_SRC } =
-    globalThis.__appEnvironment;
+  const { ADOBE_ANALYTICS_JQUERY_SRC, ADOBE_ANALYTICS_SRC } = globalThis.__appEnvironment;
 
   useEffect(() => {
     if (adobeAnalytics.isEnabled()) {
@@ -96,17 +95,11 @@ export default function App({ loaderData, matches, params }: Route.ComponentProp
           src={`/api/client-env?v=${loaderData.clientEnvRevision}`}
           suppressHydrationWarning={true}
         />
-        {ADOBE_ANALYTICS_ENABLED && ADOBE_ANALYTICS_DEBUG && (
-          <script type="text/javascript" id="gc-analytics-bottom-debug-script">
-            _satellite.setDebug(true);
-          </script>
+        {adobeAnalytics.isEnabled() && adobeAnalytics.isDebug() && (
+          <script id="gc-analytics-bottom-debug-script">_satellite.setDebug(true);</script>
         )}
 
-        {ADOBE_ANALYTICS_ENABLED && (
-          <script type="text/javascript" id="gc-analytics-bottom-script">
-            _satellite.pageBottom();
-          </script>
-        )}
+        {adobeAnalytics.isEnabled() && <script id="gc-analytics-bottom-script">_satellite.pageBottom();</script>}
       </body>
     </html>
   );
