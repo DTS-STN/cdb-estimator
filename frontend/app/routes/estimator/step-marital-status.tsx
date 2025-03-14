@@ -30,10 +30,10 @@ export async function action({ context, request }: Route.ActionArgs) {
 
   switch (action) {
     case 'back': {
-      throw i18nRedirect('routes/estimator/step-incarceration.tsx', request);
+      throw i18nRedirect('routes/estimator/step-age.tsx', request);
     }
     case 'next': {
-      throw i18nRedirect('routes/estimator/step-disability-tax-credit.tsx', request);
+      throw i18nRedirect('routes/estimator/step-income.tsx', request);
     }
   }
 }
