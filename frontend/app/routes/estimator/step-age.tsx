@@ -10,7 +10,6 @@ import * as v from 'valibot';
 import type { Info, Route } from './+types/step-age';
 import type { DateOfBirth } from './@types';
 
-import { serverEnvironment } from '~/.server/environment';
 import { i18nRedirect } from '~/.server/utils/route-utils';
 import { AgePickerField } from '~/components/age-picker-field';
 import { Button } from '~/components/button';
@@ -19,11 +18,8 @@ import { PageTitle } from '~/components/page-title';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 import { calculateAge } from '~/utils/age-utils';
-import { getStartOfDayInTimezone } from '~/utils/date-utils';
 
 type AgeInformationSessionData = NonNullable<SessionData['estimator']['ageForm']>;
-
-const timezone = serverEnvironment.BASE_TIMEZONE;
 
 export const handle = {
   breadcrumbs: [...parentHandle.breadcrumbs, { labelKey: 'estimator:age.breadcrumb' }],
@@ -54,8 +50,6 @@ export async function action({ context, request }: Route.ActionArgs) {
       throw i18nRedirect('routes/index.tsx', request);
     }
     case 'next': {
-      const maxAllowedDate = getStartOfDayInTimezone(timezone);
-
       const dobSchema = v.pipe(
         v.object({
           month: v.pipe(
@@ -67,8 +61,6 @@ export async function action({ context, request }: Route.ActionArgs) {
           year: v.pipe(
             v.number(t('estimator:age.date-of-birth.required-year')),
             v.integer(t('estimator:age.date-of-birth.invalid-year')),
-            v.minValue(1, t('estimator:age.date-of-birth.invalid-year')),
-            v.maxValue(maxAllowedDate.getFullYear(), t('estimator:age.date-of-birth.invalid-year')),
           ),
         }),
         v.transform(({ month, year }) => {

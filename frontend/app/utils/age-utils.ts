@@ -8,8 +8,11 @@ import { differenceInYears } from 'date-fns';
  * @returns The person's age (years) on the current day.
  */
 export function calculateAge(birthMonth: number, birthYear: number): number {
-  const birthDate = new Date(0, birthMonth - 1, 1);
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#interpretation_of_two-digit_years
+  const birthDate = new Date();
   birthDate.setFullYear(birthYear);
+  birthDate.setMonth(birthMonth - 1);
+  birthDate.setDate(1);
 
   const age = differenceInYears(new Date(), birthDate);
   return age;
