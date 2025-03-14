@@ -23,7 +23,7 @@ exports[`AppBar > should correctly render an AppBar with a MenuItem when the fil
             class="my-auto py-2 sm:text-2xl"
             id="menu-label"
           >
-            gcweb:app.title
+            common:app.title
           </span>
           <svg
             aria-hidden="true"
@@ -70,7 +70,7 @@ exports[`AppBar > should correctly render an AppBar with a MenuItem when the to 
             class="my-auto py-2 sm:text-2xl"
             id="menu-label"
           >
-            gcweb:app.title
+            common:app.title
           </span>
           <svg
             aria-hidden="true"

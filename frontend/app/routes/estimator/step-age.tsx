@@ -113,7 +113,7 @@ export default function StepAge({ actionData, loaderData, matches, params }: Rou
 
   return (
     <div className="space-y-3">
-      <PageTitle subTitle={t('public:application-title')}>{t('estimator:age.page-title')}</PageTitle>
+      <PageTitle subTitle={t('common:application-title')}>{t('estimator:age.page-title')}</PageTitle>
       <FetcherErrorSummary fetcherKey={fetcherKey}>
         <fetcher.Form method="post" noValidate>
           <div className="space-y-6">
