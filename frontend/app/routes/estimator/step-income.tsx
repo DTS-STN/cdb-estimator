@@ -34,7 +34,7 @@ export async function action({ context, request }: Route.ActionArgs) {
 
   switch (action) {
     case 'back': {
-      throw i18nRedirect('routes/estimator/step-income-tax-return.tsx', request);
+      throw i18nRedirect('routes/estimator/step-marital-status.tsx', request);
     }
     case 'next': {
       throw i18nRedirect('routes/estimator/results.tsx', request);
