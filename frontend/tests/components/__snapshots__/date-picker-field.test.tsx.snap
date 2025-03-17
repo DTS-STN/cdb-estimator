@@ -33,7 +33,7 @@ exports[`DatePickerField > should render date picker field component > expected 
             <span
               class="font-semibold"
             >
-              gcweb:date-picker.month.label
+              common:date-picker.month.label
             </span>
           </label>
           <select
@@ -51,7 +51,7 @@ exports[`DatePickerField > should render date picker field component > expected 
               selected=""
               value=""
             >
-              gcweb:date-picker.month.placeholder
+              common:date-picker.month.placeholder
             </option>
             <option
               id="date-picker-id-month-option-1"
@@ -139,7 +139,7 @@ exports[`DatePickerField > should render date picker field component > expected 
             <span
               class="font-semibold"
             >
-              gcweb:date-picker.day.label
+              common:date-picker.day.label
             </span>
           </label>
           <input
@@ -170,7 +170,7 @@ exports[`DatePickerField > should render date picker field component > expected 
             <span
               class="font-semibold"
             >
-              gcweb:date-picker.year.label
+              common:date-picker.year.label
             </span>
           </label>
           <input
@@ -227,7 +227,7 @@ exports[`DatePickerField > should render date picker field component with defaul
             <span
               class="font-semibold"
             >
-              gcweb:date-picker.month.label
+              common:date-picker.month.label
             </span>
           </label>
           <select
@@ -244,7 +244,7 @@ exports[`DatePickerField > should render date picker field component with defaul
               id="date-picker-id-month-option-unselected"
               value=""
             >
-              gcweb:date-picker.month.placeholder
+              common:date-picker.month.placeholder
             </option>
             <option
               id="date-picker-id-month-option-1"
@@ -333,7 +333,7 @@ exports[`DatePickerField > should render date picker field component with defaul
             <span
               class="font-semibold"
             >
-              gcweb:date-picker.day.label
+              common:date-picker.day.label
             </span>
           </label>
           <input
@@ -364,7 +364,7 @@ exports[`DatePickerField > should render date picker field component with defaul
             <span
               class="font-semibold"
             >
-              gcweb:date-picker.year.label
+              common:date-picker.year.label
             </span>
           </label>
           <input
@@ -463,7 +463,7 @@ exports[`DatePickerField > should render date picker field component with error 
             <span
               class="font-semibold"
             >
-              gcweb:date-picker.month.label
+              common:date-picker.month.label
             </span>
           </label>
           <select
@@ -482,7 +482,7 @@ exports[`DatePickerField > should render date picker field component with error 
               selected=""
               value=""
             >
-              gcweb:date-picker.month.placeholder
+              common:date-picker.month.placeholder
             </option>
             <option
               id="date-picker-id-month-option-1"
@@ -570,7 +570,7 @@ exports[`DatePickerField > should render date picker field component with error 
             <span
               class="font-semibold"
             >
-              gcweb:date-picker.day.label
+              common:date-picker.day.label
             </span>
           </label>
           <input
@@ -602,7 +602,7 @@ exports[`DatePickerField > should render date picker field component with error 
             <span
               class="font-semibold"
             >
-              gcweb:date-picker.year.label
+              common:date-picker.year.label
             </span>
           </label>
           <input
@@ -667,7 +667,7 @@ exports[`DatePickerField > should render date picker field component with help m
             <span
               class="font-semibold"
             >
-              gcweb:date-picker.month.label
+              common:date-picker.month.label
             </span>
           </label>
           <select
@@ -685,7 +685,7 @@ exports[`DatePickerField > should render date picker field component with help m
               selected=""
               value=""
             >
-              gcweb:date-picker.month.placeholder
+              common:date-picker.month.placeholder
             </option>
             <option
               id="date-picker-id-month-option-1"
@@ -773,7 +773,7 @@ exports[`DatePickerField > should render date picker field component with help m
             <span
               class="font-semibold"
             >
-              gcweb:date-picker.day.label
+              common:date-picker.day.label
             </span>
           </label>
           <input
@@ -804,7 +804,7 @@ exports[`DatePickerField > should render date picker field component with help m
             <span
               class="font-semibold"
             >
-              gcweb:date-picker.year.label
+              common:date-picker.year.label
             </span>
           </label>
           <input
@@ -876,7 +876,7 @@ exports[`DatePickerField > should render date picker field component with requir
             <span
               class="font-semibold"
             >
-              gcweb:date-picker.month.label
+              common:date-picker.month.label
             </span>
           </label>
           <select
@@ -896,7 +896,7 @@ exports[`DatePickerField > should render date picker field component with requir
               selected=""
               value=""
             >
-              gcweb:date-picker.month.placeholder
+              common:date-picker.month.placeholder
             </option>
             <option
               id="date-picker-id-month-option-1"
@@ -984,7 +984,7 @@ exports[`DatePickerField > should render date picker field component with requir
             <span
               class="font-semibold"
             >
-              gcweb:date-picker.day.label
+              common:date-picker.day.label
             </span>
           </label>
           <input
@@ -1017,7 +1017,7 @@ exports[`DatePickerField > should render date picker field component with requir
             <span
               class="font-semibold"
             >
-              gcweb:date-picker.year.label
+              common:date-picker.year.label
             </span>
           </label>
           <input

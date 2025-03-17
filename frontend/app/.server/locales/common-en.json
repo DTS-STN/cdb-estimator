@@ -1,0 +1,134 @@
+{
+  "age-picker": {
+    "month": {
+      "label": "Month",
+      "placeholder": "Select month"
+    },
+    "year": {
+      "label": "Year (YYYY)"
+    },
+    "your-age": {
+      "label": "Your age :",
+      "value-suffix": "years old"
+    }
+  },
+  "app": {
+    "account": "Account",
+    "form": "Form",
+    "logout": "Logout",
+    "menu": "Menu",
+    "profile": "Profile",
+    "title": "Canada Disability Benefit Estimator"
+  },
+  "application-title": "Canada Disability Benefit Estimator",
+  "breadcrumbs": {
+    "canada-ca": "Canada.ca",
+    "canada-ca-url": "https://www.canada.ca/en.html",
+    "home": "My Service Canada Account",
+    "you-are-here": "You are here:"
+  },
+  "date-picker": {
+    "day": {
+      "label": "Day (DD)"
+    },
+    "month": {
+      "label": "Month",
+      "placeholder": "Select month"
+    },
+    "year": {
+      "label": "Year (YYYY)"
+    }
+  },
+  "dialog": {
+    "close": "Close"
+  },
+  "error-summary": {
+    "header_one": "The following error was found in the form:",
+    "header_other": "The following {{count}} errors were found in the form:"
+  },
+  "footer": {
+    "about-site": "About this site",
+    "gc-corporate": "Government of Canada Corporate",
+    "gc-symbol": "Symbol of the Government of Canada",
+    "main-band": {
+      "header": "Service Canada",
+      "links": {
+        "contact-us": {
+          "content": "Contact us",
+          "href": "https://www.canada.ca/en/services/benefits/dental/dental-care-plan/contact.html"
+        }
+      }
+    },
+    "privacy": {
+      "href": "https://www.canada.ca/en/transparency/privacy.html",
+      "text": "Privacy"
+    },
+    "terms-conditions": {
+      "href": "https://www.canada.ca/en/transparency/terms.html",
+      "text": "Terms and conditions"
+    }
+  },
+  "header": {
+    "govt-of-canada.href": "https://www.canada.ca/en.html",
+    "govt-of-canada.text": "Government of Canada",
+    "language-selection": "Language selection"
+  },
+  "index": {
+    "about": "The CDB Estimator is a tool to help users estimate their potential Canada Disability Benefit amount",
+    "breadcrumb": "Estimator",
+    "navigate": "Go to dashboard",
+    "page-title": "Canada Disability Benefit Estimator",
+    "start": "Start benefits estimator"
+  },
+  "input-file": {
+    "choose-file": "Choose File",
+    "no-file": "No file chosen"
+  },
+  "input-label": {
+    "required": "required"
+  },
+  "input-legend": {
+    "required": "required"
+  },
+  "input-option": {
+    "no": "No",
+    "yes": "Yes"
+  },
+  "language": "English",
+  "language-switcher": {
+    "alt-lang": "Français",
+    "alt-lang-abbr": "FR",
+    "alt-lang-abbr-prop": "fr"
+  },
+  "nav": {
+    "skip-to-about": "Skip to About this site",
+    "skip-to-content": "Skip to main content"
+  },
+  "not-found": {
+    "document-title": "Not found",
+    "page-message": "We're sorry you ended up here. Sometimes a page gets moved or deleted, but hopefully we can help you find what you're looking for.",
+    "page-subtitle": "(Error 404)",
+    "page-title": "We couldn't find that web page"
+  },
+  "page-details": {
+    "date-modfied": "Date modified:",
+    "page-details": "Page details",
+    "screen-id": "Screen identifier:",
+    "version": "Version:"
+  },
+  "resource": "public/locales/public-en.json",
+  "server-error": {
+    "correlation-id": "<strong>Correlation ID:</strong> <span>{{correlationId}}</span>",
+    "document-title": "Internal server error",
+    "error-code": "<strong>Error code:</strong> <span>{{errorCode}}</span>",
+    "page-message": "We expect the problem to be fixed shortly. It's not your computer or Internet connection but a problem with our website's server.",
+    "page-subtitle": "(Error {{statusCode}})",
+    "page-title": "We're having a problem with that page"
+  },
+  "session-timeout": {
+    "continue-session": "Continue session",
+    "description": "Your session will expire automatically in {{timeRemaining}}. Select \"Continue Session\" to extend your session.",
+    "end-session": "End session now",
+    "header": "Session timeout warning"
+  }
+}

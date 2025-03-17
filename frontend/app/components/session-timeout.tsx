@@ -28,7 +28,7 @@ export interface SessionTimeoutProps extends Required<Pick<IIdleTimerProps, 'pro
  * fetcher submissions, and form submissions.
  */
 export function SessionTimeout({ promptBeforeIdle, timeout, onSessionEnd, onSessionExtend }: SessionTimeoutProps) {
-  const { t } = useTranslation(['gcweb']);
+  const { t } = useTranslation(['common']);
   const [timeRemaining, setTimeRemaining] = useState('');
 
   /**
@@ -113,15 +113,15 @@ export function SessionTimeout({ promptBeforeIdle, timeout, onSessionEnd, onSess
     <Dialog open={isPrompted()} onOpenChange={(open) => !open && handleSessionExtend()}>
       <DialogContent aria-describedby={undefined} className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>{t('gcweb:session-timeout.header')}</DialogTitle>
+          <DialogTitle>{t('common:session-timeout.header')}</DialogTitle>
         </DialogHeader>
-        {t('gcweb:session-timeout.description', { timeRemaining })}
+        {t('common:session-timeout.description', { timeRemaining })}
         <DialogFooter>
           <Button id="end-session-button" variant="default" size="sm" onClick={handleSessionEnd}>
-            {t('gcweb:session-timeout.end-session')}
+            {t('common:session-timeout.end-session')}
           </Button>
           <Button id="continue-session-button" variant="primary" size="sm" onClick={handleSessionExtend}>
-            {t('gcweb:session-timeout.continue-session')}
+            {t('common:session-timeout.continue-session')}
           </Button>
         </DialogFooter>
       </DialogContent>

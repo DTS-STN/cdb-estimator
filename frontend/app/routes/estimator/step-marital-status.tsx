@@ -30,10 +30,10 @@ export async function action({ context, request }: Route.ActionArgs) {
 
   switch (action) {
     case 'back': {
-      throw i18nRedirect('routes/estimator/step-incarceration.tsx', request);
+      throw i18nRedirect('routes/estimator/step-age.tsx', request);
     }
     case 'next': {
-      throw i18nRedirect('routes/estimator/step-disability-tax-credit.tsx', request);
+      throw i18nRedirect('routes/estimator/step-income.tsx', request);
     }
   }
 }
@@ -47,7 +47,7 @@ export default function StepMaritalStatus({ actionData, loaderData, matches, par
 
   return (
     <div className="space-y-3">
-      <PageTitle subTitle={t('public:application-title')}>{t('estimator:marital-status.page-title')}</PageTitle>
+      <PageTitle subTitle={t('common:application-title')}>{t('estimator:marital-status.page-title')}</PageTitle>
       <Form method="post">
         <div className="mt-8 flex flex-row-reverse flex-wrap items-center justify-end gap-3">
           <Button name="action" value="next" variant="primary" id="continue-button">
