@@ -31,7 +31,7 @@ exports[`error-boundaries > BilingualErrorBoundary > should correctly render the
             href="https://canada.ca/"
           >
             <img
-              alt="gcweb:header.govt-of-canada.text / gcweb:header.govt-of-canada.text"
+              alt="common:header.govt-of-canada.text / common:header.govt-of-canada.text"
               class="h-8 w-auto"
               decoding="async"
               height="28"
@@ -61,19 +61,19 @@ exports[`error-boundaries > BilingualErrorBoundary > should correctly render the
               tabindex="-1"
             >
               <span>
-                gcweb:server-error.page-title
+                common:server-error.page-title
               </span>
               <small
                 class="block text-2xl font-normal text-neutral-500"
               >
-                {"key":"gcweb:server-error.page-subtitle","options":{"statusCode":500}}
+                {"key":"common:server-error.page-subtitle","options":{"statusCode":500}}
               </small>
             </h1>
           </div>
           <p
             class="mb-8 text-lg text-gray-500"
           >
-            gcweb:server-error.page-message
+            common:server-error.page-message
           </p>
         </div>
         <div
@@ -89,19 +89,19 @@ exports[`error-boundaries > BilingualErrorBoundary > should correctly render the
               tabindex="-1"
             >
               <span>
-                gcweb:server-error.page-title
+                common:server-error.page-title
               </span>
               <small
                 class="block text-2xl font-normal text-neutral-500"
               >
-                {"key":"gcweb:server-error.page-subtitle","options":{"statusCode":500}}
+                {"key":"common:server-error.page-subtitle","options":{"statusCode":500}}
               </small>
             </h1>
           </div>
           <p
             class="mb-8 text-lg text-gray-500"
           >
-            gcweb:server-error.page-message
+            common:server-error.page-message
           </p>
         </div>
       </div>
@@ -121,18 +121,18 @@ exports[`error-boundaries > BilingualErrorBoundary > should correctly render the
             <span
               lang="en"
             >
-              gcweb:footer.about-site
+              common:footer.about-site
             </span>
              / 
             <span
               lang="fr"
             >
-              gcweb:footer.about-site
+              common:footer.about-site
             </span>
           </h2>
           <div>
             <img
-              alt="gcweb:footer.gc-symbol / gcweb:footer.gc-symbol"
+              alt="common:footer.gc-symbol / common:footer.gc-symbol"
               class="h-10 w-auto"
               height="71"
               src="https://www.canada.ca/etc/designs/canada/wet-boew/assets/wmms-blk.svg"
@@ -191,7 +191,7 @@ exports[`error-boundaries > BilingualErrorBoundary > should correctly render the
             href="https://canada.ca/"
           >
             <img
-              alt="gcweb:header.govt-of-canada.text / gcweb:header.govt-of-canada.text"
+              alt="common:header.govt-of-canada.text / common:header.govt-of-canada.text"
               class="h-8 w-auto"
               decoding="async"
               height="28"
@@ -221,28 +221,28 @@ exports[`error-boundaries > BilingualErrorBoundary > should correctly render the
               tabindex="-1"
             >
               <span>
-                gcweb:server-error.page-title
+                common:server-error.page-title
               </span>
               <small
                 class="block text-2xl font-normal text-neutral-500"
               >
-                {"key":"gcweb:server-error.page-subtitle","options":{"statusCode":500}}
+                {"key":"common:server-error.page-subtitle","options":{"statusCode":500}}
               </small>
             </h1>
           </div>
           <p
             class="mb-8 text-lg text-gray-500"
           >
-            gcweb:server-error.page-message
+            common:server-error.page-message
           </p>
           <ul
             class="list-disc pl-10 text-gray-800"
           >
             <li>
-              {"key":"gcweb:server-error.error-code","options":{"values":{"errorCode":"UNC-0000"}}}
+              {"key":"common:server-error.error-code","options":{"values":{"errorCode":"UNC-0000"}}}
             </li>
             <li>
-              {"key":"gcweb:server-error.correlation-id","options":{"values":{"correlationId":"XX-000000"}}}
+              {"key":"common:server-error.correlation-id","options":{"values":{"correlationId":"XX-000000"}}}
             </li>
           </ul>
         </div>
@@ -259,28 +259,28 @@ exports[`error-boundaries > BilingualErrorBoundary > should correctly render the
               tabindex="-1"
             >
               <span>
-                gcweb:server-error.page-title
+                common:server-error.page-title
               </span>
               <small
                 class="block text-2xl font-normal text-neutral-500"
               >
-                {"key":"gcweb:server-error.page-subtitle","options":{"statusCode":500}}
+                {"key":"common:server-error.page-subtitle","options":{"statusCode":500}}
               </small>
             </h1>
           </div>
           <p
             class="mb-8 text-lg text-gray-500"
           >
-            gcweb:server-error.page-message
+            common:server-error.page-message
           </p>
           <ul
             class="list-disc pl-10 text-gray-800"
           >
             <li>
-              {"key":"gcweb:server-error.error-code","options":{"values":{"errorCode":"UNC-0000"}}}
+              {"key":"common:server-error.error-code","options":{"values":{"errorCode":"UNC-0000"}}}
             </li>
             <li>
-              {"key":"gcweb:server-error.correlation-id","options":{"values":{"correlationId":"XX-000000"}}}
+              {"key":"common:server-error.correlation-id","options":{"values":{"correlationId":"XX-000000"}}}
             </li>
           </ul>
         </div>
@@ -301,18 +301,18 @@ exports[`error-boundaries > BilingualErrorBoundary > should correctly render the
             <span
               lang="en"
             >
-              gcweb:footer.about-site
+              common:footer.about-site
             </span>
              / 
             <span
               lang="fr"
             >
-              gcweb:footer.about-site
+              common:footer.about-site
             </span>
           </h2>
           <div>
             <img
-              alt="gcweb:footer.gc-symbol / gcweb:footer.gc-symbol"
+              alt="common:footer.gc-symbol / common:footer.gc-symbol"
               class="h-10 w-auto"
               height="71"
               src="https://www.canada.ca/etc/designs/canada/wet-boew/assets/wmms-blk.svg"
@@ -356,7 +356,7 @@ exports[`error-boundaries > BilingualNotFound > should correctly render the bili
             href="https://canada.ca/"
           >
             <img
-              alt="gcweb:header.govt-of-canada.text"
+              alt="common:header.govt-of-canada.text"
               class="h-8 w-auto"
               decoding="async"
               height="28"
@@ -370,7 +370,7 @@ exports[`error-boundaries > BilingualNotFound > should correctly render the bili
               <span
                 lang="fr"
               >
-                gcweb:header.govt-of-canada.text
+                common:header.govt-of-canada.text
               </span>
             </span>
           </a>
@@ -396,19 +396,19 @@ exports[`error-boundaries > BilingualNotFound > should correctly render the bili
               tabindex="-1"
             >
               <span>
-                gcweb:not-found.page-title
+                common:not-found.page-title
               </span>
               <small
                 class="block text-2xl font-normal text-neutral-500"
               >
-                gcweb:not-found.page-subtitle
+                common:not-found.page-subtitle
               </small>
             </h1>
           </div>
           <p
             class="mb-8 text-lg text-gray-500"
           >
-            gcweb:not-found.page-message
+            common:not-found.page-message
           </p>
         </div>
         <div
@@ -424,19 +424,19 @@ exports[`error-boundaries > BilingualNotFound > should correctly render the bili
               tabindex="-1"
             >
               <span>
-                gcweb:not-found.page-title
+                common:not-found.page-title
               </span>
               <small
                 class="block text-2xl font-normal text-neutral-500"
               >
-                gcweb:not-found.page-subtitle
+                common:not-found.page-subtitle
               </small>
             </h1>
           </div>
           <p
             class="mb-8 text-lg text-gray-500"
           >
-            gcweb:not-found.page-message
+            common:not-found.page-message
           </p>
         </div>
       </div>
@@ -456,18 +456,18 @@ exports[`error-boundaries > BilingualNotFound > should correctly render the bili
             <span
               lang="en"
             >
-              gcweb:footer.about-site
+              common:footer.about-site
             </span>
              / 
             <span
               lang="fr"
             >
-              gcweb:footer.about-site
+              common:footer.about-site
             </span>
           </h2>
           <div>
             <img
-              alt="gcweb:footer.gc-symbol / gcweb:footer.gc-symbol"
+              alt="common:footer.gc-symbol / common:footer.gc-symbol"
               class="h-10 w-auto"
               height="71"
               src="https://www.canada.ca/etc/designs/canada/wet-boew/assets/wmms-blk.svg"
@@ -511,7 +511,7 @@ exports[`error-boundaries > UnilingualErrorBoundary > should correctly render th
             href="https://canada.ca/"
           >
             <img
-              alt="gcweb:header.govt-of-canada.text"
+              alt="common:header.govt-of-canada.text"
               class="h-8 w-auto"
               decoding="async"
               height="28"
@@ -534,19 +534,19 @@ exports[`error-boundaries > UnilingualErrorBoundary > should correctly render th
           tabindex="-1"
         >
           <span>
-            gcweb:server-error.page-title
+            common:server-error.page-title
           </span>
           <small
             class="block text-2xl font-normal text-neutral-500"
           >
-            {"key":"gcweb:server-error.page-subtitle","options":{"statusCode":500}}
+            {"key":"common:server-error.page-subtitle","options":{"statusCode":500}}
           </small>
         </h1>
       </div>
       <p
         class="mb-8 text-lg text-gray-500"
       >
-        gcweb:server-error.page-message
+        common:server-error.page-message
       </p>
     </main>
     <footer
@@ -561,11 +561,11 @@ exports[`error-boundaries > UnilingualErrorBoundary > should correctly render th
           <h2
             class="sr-only"
           >
-            gcweb:footer.about-site
+            common:footer.about-site
           </h2>
           <div>
             <img
-              alt="gcweb:footer.gc-symbol"
+              alt="common:footer.gc-symbol"
               class="h-10 w-auto"
               height="71"
               src="https://www.canada.ca/etc/designs/canada/wet-boew/assets/wmms-blk.svg"
@@ -609,7 +609,7 @@ exports[`error-boundaries > UnilingualErrorBoundary > should correctly render th
             href="https://canada.ca/"
           >
             <img
-              alt="gcweb:header.govt-of-canada.text"
+              alt="common:header.govt-of-canada.text"
               class="h-8 w-auto"
               decoding="async"
               height="28"
@@ -632,28 +632,28 @@ exports[`error-boundaries > UnilingualErrorBoundary > should correctly render th
           tabindex="-1"
         >
           <span>
-            gcweb:server-error.page-title
+            common:server-error.page-title
           </span>
           <small
             class="block text-2xl font-normal text-neutral-500"
           >
-            {"key":"gcweb:server-error.page-subtitle","options":{"statusCode":500}}
+            {"key":"common:server-error.page-subtitle","options":{"statusCode":500}}
           </small>
         </h1>
       </div>
       <p
         class="mb-8 text-lg text-gray-500"
       >
-        gcweb:server-error.page-message
+        common:server-error.page-message
       </p>
       <ul
         class="list-disc pl-10 text-gray-800"
       >
         <li>
-          {"key":"gcweb:server-error.error-code","options":{"values":{"errorCode":"UNC-0000"}}}
+          {"key":"common:server-error.error-code","options":{"values":{"errorCode":"UNC-0000"}}}
         </li>
         <li>
-          {"key":"gcweb:server-error.correlation-id","options":{"values":{"correlationId":"XX-000000"}}}
+          {"key":"common:server-error.correlation-id","options":{"values":{"correlationId":"XX-000000"}}}
         </li>
       </ul>
     </main>
@@ -669,11 +669,11 @@ exports[`error-boundaries > UnilingualErrorBoundary > should correctly render th
           <h2
             class="sr-only"
           >
-            gcweb:footer.about-site
+            common:footer.about-site
           </h2>
           <div>
             <img
-              alt="gcweb:footer.gc-symbol"
+              alt="common:footer.gc-symbol"
               class="h-10 w-auto"
               height="71"
               src="https://www.canada.ca/etc/designs/canada/wet-boew/assets/wmms-blk.svg"
@@ -715,7 +715,7 @@ exports[`error-boundaries > UnilingualNotFound > should correctly render the uni
             href="https://canada.ca/"
           >
             <img
-              alt="gcweb:header.govt-of-canada.text"
+              alt="common:header.govt-of-canada.text"
               class="h-8 w-auto"
               decoding="async"
               height="28"
@@ -738,19 +738,19 @@ exports[`error-boundaries > UnilingualNotFound > should correctly render the uni
           tabindex="-1"
         >
           <span>
-            gcweb:not-found.page-title
+            common:not-found.page-title
           </span>
           <small
             class="block text-2xl font-normal text-neutral-500"
           >
-            gcweb:not-found.page-subtitle
+            common:not-found.page-subtitle
           </small>
         </h1>
       </div>
       <p
         class="mb-8 text-lg text-gray-500"
       >
-        gcweb:not-found.page-message
+        common:not-found.page-message
       </p>
     </main>
     <footer
@@ -765,11 +765,11 @@ exports[`error-boundaries > UnilingualNotFound > should correctly render the uni
           <h2
             class="sr-only"
           >
-            gcweb:footer.about-site
+            common:footer.about-site
           </h2>
           <div>
             <img
-              alt="gcweb:footer.gc-symbol"
+              alt="common:footer.gc-symbol"
               class="h-10 w-auto"
               height="71"
               src="https://www.canada.ca/etc/designs/canada/wet-boew/assets/wmms-blk.svg"

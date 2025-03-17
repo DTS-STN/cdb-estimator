@@ -11,7 +11,7 @@ export interface InputLabelProps extends ComponentProps<'label'> {
 }
 
 export function InputLabel(props: InputLabelProps) {
-  const { t } = useTranslation('gcweb');
+  const { t } = useTranslation('common');
   const { children, className, required, ...restProps } = props;
 
   return (

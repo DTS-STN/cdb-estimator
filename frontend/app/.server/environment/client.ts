@@ -1,5 +1,7 @@
 import * as v from 'valibot';
 
+import { adobeAnalytics, defaults as adobeAnalyticsDefaults } from './adobe-analytics';
+
 import { breadcrumbs, defaults as breadcrumbsDefaults } from '~/.server/environment/breadcrumbs';
 import { buildinfo, defaults as buildinfoDefaults } from '~/.server/environment/buildinfo';
 import { stringToBooleanSchema } from '~/.server/validation/string-to-boolean-schema';
@@ -7,6 +9,7 @@ import { stringToBooleanSchema } from '~/.server/validation/string-to-boolean-sc
 export type Client = Readonly<v.InferOutput<typeof client>>;
 
 export const defaults = {
+  ...adobeAnalyticsDefaults,
   ...buildinfoDefaults,
   ...breadcrumbsDefaults,
 } as const;
@@ -16,6 +19,7 @@ export const defaults = {
  * ⚠️ IMPORTANT: DO NOT PUT SENSITIVE CONFIGURATIONS HERE ⚠️
  */
 export const client = v.object({
+  ...adobeAnalytics.entries,
   ...buildinfo.entries,
   ...breadcrumbs.entries,
   I18NEXT_DEBUG: v.optional(stringToBooleanSchema()),

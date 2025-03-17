@@ -39,7 +39,7 @@ export interface ErrorSummaryProps extends OmitStrict<ComponentPropsWithoutRef<'
  * @returns The rendered component or `null` if there are no errors.
  */
 export function ErrorSummary({ className, errors, ...rest }: ErrorSummaryProps): JSX.Element | null {
-  const { t } = useTranslation(['gcweb']);
+  const { t } = useTranslation(['common']);
   const sectionRef = useRef<HTMLElement>(null);
 
   // Scroll and focus on the error summary when errors are updated.
@@ -62,7 +62,7 @@ export function ErrorSummary({ className, errors, ...rest }: ErrorSummaryProps):
       tabIndex={-1}
       role="alert"
     >
-      <h2 className="font-lato text-lg font-semibold">{t('gcweb:error-summary.header', { count: errors.length })}</h2>
+      <h2 className="font-lato text-lg font-semibold">{t('common:error-summary.header', { count: errors.length })}</h2>
       <ol className="mt-1.5 list-decimal space-y-2 pl-7">
         {errors.map(({ fieldId, errorMessage }) => (
           <li key={`${fieldId}-${errorMessage}`}>

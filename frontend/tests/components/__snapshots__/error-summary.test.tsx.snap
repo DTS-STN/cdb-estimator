@@ -11,7 +11,7 @@ exports[`ActionDataErrorSummary > displays errors from action data > expected ht
       <h2
         class="font-lato text-lg font-semibold"
       >
-        {"key":"gcweb:error-summary.header","options":{"count":1}}
+        {"key":"common:error-summary.header","options":{"count":1}}
       </h2>
       <ol
         class="mt-1.5 list-decimal space-y-2 pl-7"
@@ -54,7 +54,7 @@ exports[`ErrorSummary > should render an error summary with 1 error > expected h
     <h2
       class="font-lato text-lg font-semibold"
     >
-      {"key":"gcweb:error-summary.header","options":{"count":1}}
+      {"key":"common:error-summary.header","options":{"count":1}}
     </h2>
     <ol
       class="mt-1.5 list-decimal space-y-2 pl-7"
@@ -83,7 +83,7 @@ exports[`ErrorSummary > should render an error summary with 2 errors > expected 
     <h2
       class="font-lato text-lg font-semibold"
     >
-      {"key":"gcweb:error-summary.header","options":{"count":2}}
+      {"key":"common:error-summary.header","options":{"count":2}}
     </h2>
     <ol
       class="mt-1.5 list-decimal space-y-2 pl-7"
@@ -122,7 +122,7 @@ exports[`FetcherErrorSummary > displays errors from fetcher data > expected html
       <h2
         class="font-lato text-lg font-semibold"
       >
-        {"key":"gcweb:error-summary.header","options":{"count":1}}
+        {"key":"common:error-summary.header","options":{"count":1}}
       </h2>
       <ol
         class="mt-1.5 list-decimal space-y-2 pl-7"
@@ -164,7 +164,7 @@ exports[`FormErrorSummary > displays errors from form action data > expected htm
       <h2
         class="font-lato text-lg font-semibold"
       >
-        {"key":"gcweb:error-summary.header","options":{"count":1}}
+        {"key":"common:error-summary.header","options":{"count":1}}
       </h2>
       <ol
         class="mt-1.5 list-decimal space-y-2 pl-7"

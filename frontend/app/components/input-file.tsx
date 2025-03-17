@@ -34,7 +34,7 @@ export function InputFile({
   onChange,
   ...rest
 }: InputFileProps) {
-  const { t } = useTranslation('gcweb');
+  const { t } = useTranslation('common');
   const [fileName, setFileName] = useState(t('input-file.no-file'));
   const defaultId = useId();
   const baseId = `input-file-${id ?? defaultId}`;

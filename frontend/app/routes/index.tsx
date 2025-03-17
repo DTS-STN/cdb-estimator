@@ -10,13 +10,13 @@ import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
 
 export const handle = {
-  breadcrumbs: [...parentHandle.breadcrumbs, { labelKey: 'public:index.breadcrumb' }],
-  i18nNamespace: [...parentHandle.i18nNamespace, 'public'],
+  breadcrumbs: [...parentHandle.breadcrumbs, { labelKey: 'common:index.breadcrumb' }],
+  i18nNamespace: [...parentHandle.i18nNamespace, 'common'],
 } as const satisfies RouteHandle;
 
 export async function loader({ request }: Route.LoaderArgs) {
   const { t } = await getTranslation(request, handle.i18nNamespace);
-  return { documentTitle: t('public:index.page-title') };
+  return { documentTitle: t('common:index.page-title') };
 }
 
 export function meta({ data }: Route.MetaArgs) {

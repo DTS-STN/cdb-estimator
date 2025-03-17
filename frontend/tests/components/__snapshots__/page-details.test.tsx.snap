@@ -8,7 +8,7 @@ exports[`PageDetails > should render the pageid, app version, and date modified 
     <h2
       class="sr-only"
     >
-      gcweb:page-details.page-details
+      common:page-details.page-details
     </h2>
     <dl
       class="space-y-1"
@@ -18,7 +18,7 @@ exports[`PageDetails > should render the pageid, app version, and date modified 
         class="flex gap-2"
       >
         <dt>
-          gcweb:page-details.screen-id
+          common:page-details.screen-id
         </dt>
         <dd>
           PUBL-0001
@@ -28,7 +28,7 @@ exports[`PageDetails > should render the pageid, app version, and date modified 
         class="flex gap-2"
       >
         <dt>
-          gcweb:page-details.date-modfied
+          common:page-details.date-modfied
         </dt>
         <dd>
           <time>
@@ -40,7 +40,7 @@ exports[`PageDetails > should render the pageid, app version, and date modified 
         class="flex gap-2"
       >
         <dt>
-          gcweb:page-details.version
+          common:page-details.version
         </dt>
         <dd>
           0.0.0

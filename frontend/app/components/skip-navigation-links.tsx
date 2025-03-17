@@ -5,12 +5,12 @@ import { useTranslation } from 'react-i18next';
 import { AnchorLink } from '~/components/links';
 
 export function SkipNavigationLinks() {
-  const { t } = useTranslation(['gcweb']);
+  const { t } = useTranslation(['common']);
 
   return (
     <div id="skip-to-content">
-      <SkipNavigationLink anchorElementId="wb-cont">{t('gcweb:nav.skip-to-content')}</SkipNavigationLink>
-      <SkipNavigationLink anchorElementId="wb-info">{t('gcweb:nav.skip-to-about')}</SkipNavigationLink>
+      <SkipNavigationLink anchorElementId="wb-cont">{t('common:nav.skip-to-content')}</SkipNavigationLink>
+      <SkipNavigationLink anchorElementId="wb-info">{t('common:nav.skip-to-about')}</SkipNavigationLink>
     </div>
   );
 }
