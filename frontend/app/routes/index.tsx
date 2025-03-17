@@ -35,7 +35,7 @@ function ContentEn() {
 
   return (
     <>
-      <PageTitle>{t('public:index.page-title')}</PageTitle>
+      <PageTitle>{t('common:index.page-title')}</PageTitle>
 
       <div className="max-w-prose space-y-6">
         <section className="space-y-6">
@@ -127,7 +127,7 @@ function ContentEn() {
         <section className="my-10">
           <div>
             <ButtonLink file="routes/estimator/step-age.tsx" variant="primary" size="lg">
-              {t('public:index.start')}
+              {t('common:index.start')}
             </ButtonLink>
           </div>
         </section>
