@@ -126,7 +126,7 @@ function ContentEn() {
 
         <section className="my-10">
           <div>
-            <ButtonLink file="routes/estimator/step-age.tsx" variant="primary" className="text-lg">
+            <ButtonLink file="routes/estimator/step-age.tsx" variant="primary" size="lg">
               {t('public:index.start')}
             </ButtonLink>
           </div>
