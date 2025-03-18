@@ -5,6 +5,8 @@ import { useTranslation } from 'react-i18next';
 import type { Route } from './+types/index';
 
 import { ButtonLink } from '~/components/button-link';
+import { ContextualAlert } from '~/components/contextual-alert';
+import { InlineLink } from '~/components/links';
 import { PageTitle } from '~/components/page-title';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
@@ -24,10 +26,16 @@ export function meta({ data }: Route.MetaArgs) {
 }
 
 export default function Home() {
-  const { i18n } = useTranslation(handle.i18nNamespace);
+  const { i18n, t } = useTranslation(handle.i18nNamespace);
   const lang = i18n.language;
 
-  return lang === 'en' ? ContentEn() : ContentFr();
+  return (
+    <>
+      <PageTitle>{t('common:index.page-title')}</PageTitle>
+
+      {lang === 'en' ? ContentEn() : ContentFr()}
+    </>
+  );
 }
 
 function ContentEn() {
@@ -35,37 +43,50 @@ function ContentEn() {
 
   return (
     <>
-      <PageTitle>{t('common:index.page-title')}</PageTitle>
+      <ContextualAlert type="info" className="my-6">
+        <p>
+          <strong>This estimator is a work in progress.</strong>
+        </p>
+        <p>
+          You can improve it by giving your{' '}
+          <InlineLink
+            to="https://srv217.services.gc.ca/ihst4/Questionnaire.aspx?sid=2729a4fb-be1c-48c1-95ed-b595ade76792&lc=eng&GocTemplateCulture=en-CA&iffsappid=TISMB-DGTGIS&iffssid=334e3618-a1e0-4e57-8d06-62dde193abbd"
+            className="external-link"
+            target="_blank"
+          >
+            feedback
+          </InlineLink>
+          .
+        </p>
+      </ContextualAlert>
 
       <div className="max-w-prose space-y-6">
         <section className="space-y-6">
           <p>
-            <strong>This estimator is a work in progress.</strong>
-            <br />
-            You can improve it by giving your{' '}
-            <a
-              className="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
-              href="https://srv217.services.gc.ca/ihst4/Questionnaire.aspx?sid=2729a4fb-be1c-48c1-95ed-b595ade76792&lc=eng&GocTemplateCulture=en-CA&iffsappid=TISMB-DGTGIS&iffssid=334e3618-a1e0-4e57-8d06-62dde193abbd"
+            Use this estimator to find out how much money you could get from the{' '}
+            <InlineLink
+              to="https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html"
+              target="_blank"
+              className="external-link"
             >
-              feedback
-            </a>
-            .<br />
-            Use this estimator to find out how much money you could get from the <u>Canada Disability Benefit</u>. This is not
-            an application for benefits.{' '}
+              Canada Disability Benefit
+            </InlineLink>
+            . This is not an application for benefits.{' '}
           </p>
-          <h2 className="font-lato text-lg font-bold">Before you begin</h2>
+          <h2 className="font-lato mb-4 text-lg font-bold">Before you begin</h2>
           <p>
             To be eligible for the Canada Disability Benefit, you must meet specific eligibility criteria. To learn more about
             the Canada Disability Benefit and the eligibility criteria, go to{' '}
-            <a
-              className="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
-              href="https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html"
+            <InlineLink
+              target="_blank"
+              className="external-link"
+              to="https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html"
             >
               canada.ca/disability-benefit
-            </a>
+            </InlineLink>
             .
           </p>
-          <p>To receive the benefit, a person must:</p>
+          <p className="mb-4">To receive the benefit, a person must:</p>
           <ol className="list-decimal space-y-1 pl-7">
             <li>
               be a resident of Canada for the purposes of the <em>Income tax Act</em>
@@ -92,9 +113,11 @@ function ContentEn() {
           </ol>
           <p>
             If the person is married or in a common-law relationship, their spouse or common-law partner must also file an
-            income tax return with the Canada Revenue Agency for the previous tax year. In some cases, the person applying for
-            the benefit can ask Service Canada to waive (remove) the requirement that their spouse or common-law partner file an
-            income tax return. These cases include:
+            income tax return with the Canada Revenue Agency for the previous tax year.
+          </p>
+          <p className="mb-4">
+            In some cases, the person applying for the benefit can ask Service Canada to waive (remove) the requirement that
+            their spouse or common-law partner file an income tax return. These cases include:
           </p>
           <ol className="list-decimal space-y-1 pl-7">
             <li>
@@ -107,7 +130,7 @@ function ContentEn() {
             </li>
             <li>if it would be unsafe for the person to ask their spouse or common-law partner to file a return</li>
           </ol>
-          <p>
+          <p className="mb-4">
             If you feel you meet the eligibility criteria, use the benefits estimator to see how much you may receive. The
             estimator will ask you questions about your:
           </p>
@@ -116,9 +139,8 @@ function ContentEn() {
             <li>marital status</li>
             <li>income</li>
           </ol>
+          <p>It will take about 5 to 10 minutes to complete.</p>
           <p>
-            It will take about 5 to 10 minutes to complete.
-            <br />
             <strong>This tool gives an estimate only.</strong> It doesn&#39;t guarantee that you&#39;ll be eligible or that
             you&#39;ll receive the amount estimated.
           </p>
@@ -132,12 +154,16 @@ function ContentEn() {
           </div>
         </section>
 
-        <section className="space-y-6">
+        <section className="space-y-4">
           <h2 className="font-lato text-lg font-bold">About the results</h2>
           <p>
             This estimator uses amounts for benefits paid between July 2025 and June 2026. Future benefit amounts may be higher.
             The results are not financial advice and are subject to change. For a more accurate assessment of your estimated
-            benefits amount, please <a href="#contact">contact us</a>.
+            benefits amount, please{' '}
+            <InlineLink className="external-link" target="_blank" to="#contact">
+              contact us
+            </InlineLink>
+            .
           </p>
         </section>
       </div>
