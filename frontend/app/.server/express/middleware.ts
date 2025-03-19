@@ -83,6 +83,7 @@ export function security(environment: ServerEnvironment): RequestHandler {
       'frame-src': ["'self'", 'https://*.omtrdc.net', 'https://*.demdex.net', 'https://assets.adobedtm.com'],
       'img-src': [
         "'self'",
+        'data:',
         'https://*.omtrdc.net',
         'https://*.demdex.net',
         'https://assets.adobedtm.com',
