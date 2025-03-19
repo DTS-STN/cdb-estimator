@@ -55,55 +55,55 @@ exports[`DatePickerField > should render date picker field component > expected 
             </option>
             <option
               id="date-picker-id-month-option-1"
-              value="01"
+              value="1"
             >
               January
             </option>
             <option
               id="date-picker-id-month-option-2"
-              value="02"
+              value="2"
             >
               February
             </option>
             <option
               id="date-picker-id-month-option-3"
-              value="03"
+              value="3"
             >
               March
             </option>
             <option
               id="date-picker-id-month-option-4"
-              value="04"
+              value="4"
             >
               April
             </option>
             <option
               id="date-picker-id-month-option-5"
-              value="05"
+              value="5"
             >
               May
             </option>
             <option
               id="date-picker-id-month-option-6"
-              value="06"
+              value="6"
             >
               June
             </option>
             <option
               id="date-picker-id-month-option-7"
-              value="07"
+              value="7"
             >
               July
             </option>
             <option
               id="date-picker-id-month-option-8"
-              value="08"
+              value="8"
             >
               August
             </option>
             <option
               id="date-picker-id-month-option-9"
-              value="09"
+              value="9"
             >
               September
             </option>
@@ -248,56 +248,55 @@ exports[`DatePickerField > should render date picker field component with defaul
             </option>
             <option
               id="date-picker-id-month-option-1"
-              selected=""
-              value="01"
+              value="1"
             >
               January
             </option>
             <option
               id="date-picker-id-month-option-2"
-              value="02"
+              value="2"
             >
               February
             </option>
             <option
               id="date-picker-id-month-option-3"
-              value="03"
+              value="3"
             >
               March
             </option>
             <option
               id="date-picker-id-month-option-4"
-              value="04"
+              value="4"
             >
               April
             </option>
             <option
               id="date-picker-id-month-option-5"
-              value="05"
+              value="5"
             >
               May
             </option>
             <option
               id="date-picker-id-month-option-6"
-              value="06"
+              value="6"
             >
               June
             </option>
             <option
               id="date-picker-id-month-option-7"
-              value="07"
+              value="7"
             >
               July
             </option>
             <option
               id="date-picker-id-month-option-8"
-              value="08"
+              value="8"
             >
               August
             </option>
             <option
               id="date-picker-id-month-option-9"
-              value="09"
+              value="9"
             >
               September
             </option>
@@ -486,55 +485,55 @@ exports[`DatePickerField > should render date picker field component with error 
             </option>
             <option
               id="date-picker-id-month-option-1"
-              value="01"
+              value="1"
             >
               January
             </option>
             <option
               id="date-picker-id-month-option-2"
-              value="02"
+              value="2"
             >
               February
             </option>
             <option
               id="date-picker-id-month-option-3"
-              value="03"
+              value="3"
             >
               March
             </option>
             <option
               id="date-picker-id-month-option-4"
-              value="04"
+              value="4"
             >
               April
             </option>
             <option
               id="date-picker-id-month-option-5"
-              value="05"
+              value="5"
             >
               May
             </option>
             <option
               id="date-picker-id-month-option-6"
-              value="06"
+              value="6"
             >
               June
             </option>
             <option
               id="date-picker-id-month-option-7"
-              value="07"
+              value="7"
             >
               July
             </option>
             <option
               id="date-picker-id-month-option-8"
-              value="08"
+              value="8"
             >
               August
             </option>
             <option
               id="date-picker-id-month-option-9"
-              value="09"
+              value="9"
             >
               September
             </option>
@@ -689,55 +688,55 @@ exports[`DatePickerField > should render date picker field component with help m
             </option>
             <option
               id="date-picker-id-month-option-1"
-              value="01"
+              value="1"
             >
               January
             </option>
             <option
               id="date-picker-id-month-option-2"
-              value="02"
+              value="2"
             >
               February
             </option>
             <option
               id="date-picker-id-month-option-3"
-              value="03"
+              value="3"
             >
               March
             </option>
             <option
               id="date-picker-id-month-option-4"
-              value="04"
+              value="4"
             >
               April
             </option>
             <option
               id="date-picker-id-month-option-5"
-              value="05"
+              value="5"
             >
               May
             </option>
             <option
               id="date-picker-id-month-option-6"
-              value="06"
+              value="6"
             >
               June
             </option>
             <option
               id="date-picker-id-month-option-7"
-              value="07"
+              value="7"
             >
               July
             </option>
             <option
               id="date-picker-id-month-option-8"
-              value="08"
+              value="8"
             >
               August
             </option>
             <option
               id="date-picker-id-month-option-9"
-              value="09"
+              value="9"
             >
               September
             </option>
@@ -900,55 +899,55 @@ exports[`DatePickerField > should render date picker field component with requir
             </option>
             <option
               id="date-picker-id-month-option-1"
-              value="01"
+              value="1"
             >
               January
             </option>
             <option
               id="date-picker-id-month-option-2"
-              value="02"
+              value="2"
             >
               February
             </option>
             <option
               id="date-picker-id-month-option-3"
-              value="03"
+              value="3"
             >
               March
             </option>
             <option
               id="date-picker-id-month-option-4"
-              value="04"
+              value="4"
             >
               April
             </option>
             <option
               id="date-picker-id-month-option-5"
-              value="05"
+              value="5"
             >
               May
             </option>
             <option
               id="date-picker-id-month-option-6"
-              value="06"
+              value="6"
             >
               June
             </option>
             <option
               id="date-picker-id-month-option-7"
-              value="07"
+              value="7"
             >
               July
             </option>
             <option
               id="date-picker-id-month-option-8"
-              value="08"
+              value="8"
             >
               August
             </option>
             <option
               id="date-picker-id-month-option-9"
-              value="09"
+              value="9"
             >
               September
             </option>
