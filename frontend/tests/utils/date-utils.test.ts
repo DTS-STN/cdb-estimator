@@ -6,6 +6,7 @@ import {
   isPastInTimezone,
   isTodayInTimezone,
   isValidTimeZone,
+  toISODateString,
 } from '~/utils/date-utils';
 
 describe('date-utils', () => {
@@ -114,6 +115,16 @@ describe('date-utils', () => {
     it('should return the start of the day in the specified timezone', () => {
       expect(getStartOfDayInTimezone('Canada/Eastern', '2000-01-01')) //
         .toEqual(new Date('2000-01-01T05:00:00.000Z'));
+    });
+  });
+
+  describe('toISODateString', () => {
+    it('should format a date correctly from numbers', () => {
+      expect(toISODateString(2000, 1, 1)).toEqual('2000-01-01');
+    });
+
+    it('should format a date correctly from year < 100', () => {
+      expect(toISODateString(19, 1, 1)).toEqual('0019-01-01');
     });
   });
 });

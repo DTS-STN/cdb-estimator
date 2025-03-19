@@ -73,7 +73,6 @@ export function isValidTimeZone(timeZone: string): boolean {
 }
 
 /**
-<<<<<<< HEAD
  * Checks if a given string is a valid date string in ISO 8601 format (YYYY-MM-DD).
  *
  * This function uses `parseISO` (presumably from a date/time library like date-fns)
@@ -236,12 +235,14 @@ export function getStartOfDayInTimezone(timezone: string, date?: number | string
  * returns a string representing the date in the "YYYY-MM-DD" format.
  *
  * @param year - The year (e.g., 2023).
- * @param month - The month (1 for January, 12 for December).
+ * @param month - The month value as a number between 1 and 12 (January to December)
  * @param day - The day of the month.
  * @returns An ISO 8601 date string in the format "YYYY-MM-DD".
  */
 export function toISODateString(year: number, month: number, day: number): string {
-  return formatISODate(`${year}-${month}-${day}`);
+  const date = new Date(year, month - 1, day);
+  date.setFullYear(year); // Ensure the year is set correctly for years < 100
+  return formatISODate(date);
 }
 
 /**
