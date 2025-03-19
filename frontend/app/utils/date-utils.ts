@@ -41,16 +41,16 @@ export function dateExists(year: number, month: number, day: number): boolean {
  * Retrieve an array of months based on the provided locale and format.
  * @param locale - The locale to use for formatting the months.
  * @param format - The format for displaying the months.
- * @returns An array containing objects with month index and formatted month text.
+ * @returns An array containing objects with month value as a number between 1 and 12 (January to December) and formatted month text.
  */
 export function getLocalizedMonths(
   locale: string,
   format: 'numeric' | '2-digit' | 'long' | 'short' | 'narrow' | undefined = 'long',
-): { index: number; text: string }[] {
+): { value: number; text: string }[] {
   const formatter = new Intl.DateTimeFormat(locale, { month: format, timeZone: 'UTC' });
 
   return Array.from({ length: 12 }, (_, i) => ({
-    index: i + 1, // month index (1-based)
+    value: i + 1, // 1 - 12 January to December
     text: formatter.format(Date.UTC(0, i, 1)), // formatted month name
   }));
 }
@@ -73,7 +73,6 @@ export function isValidTimeZone(timeZone: string): boolean {
 }
 
 /**
-<<<<<<< HEAD
  * Checks if a given string is a valid date string in ISO 8601 format (YYYY-MM-DD).
  *
  * This function uses `parseISO` (presumably from a date/time library like date-fns)
@@ -236,12 +235,14 @@ export function getStartOfDayInTimezone(timezone: string, date?: number | string
  * returns a string representing the date in the "YYYY-MM-DD" format.
  *
  * @param year - The year (e.g., 2023).
- * @param month - The month (1 for January, 12 for December).
+ * @param month - The month value as a number between 1 and 12 (January to December)
  * @param day - The day of the month.
  * @returns An ISO 8601 date string in the format "YYYY-MM-DD".
  */
 export function toISODateString(year: number, month: number, day: number): string {
-  return formatISODate(`${year}-${month}-${day}`);
+  const date = new Date(year, month - 1, day);
+  date.setFullYear(year); // Ensure the year is set correctly for years < 100
+  return formatISODate(date);
 }
 
 /**

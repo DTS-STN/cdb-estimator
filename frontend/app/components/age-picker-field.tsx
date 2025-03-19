@@ -285,7 +285,7 @@ function AgePickerMonthField({
         </option>
         {months.map((month) => {
           return (
-            <option id={ids.option(month.index)} key={month.index} value={month.index}>
+            <option id={ids.option(month.value)} key={month.value} value={month.value}>
               {month.text}
             </option>
           );
