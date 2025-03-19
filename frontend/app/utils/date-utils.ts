@@ -1,14 +1,12 @@
 import { TZDate } from '@date-fns/tz';
 import { formatISO, isBefore, isToday, isValid, parseISO, startOfDay } from 'date-fns';
 
-import { padWithZero } from '~/utils/string-utils';
-
 /**
  * Parses a date string in the format "YYYY-MM-DD" and returns an object with the parsed components.
  * @param date The date string to parse.
- * @returns An object containing the parsed components (year, month, day). Returns an empty object if parsing fails or if the date does not exist.
+ * @returns An object containing the parsed components (year: number, month: number between 1 and 12 (January to December), day: number). Returns an empty object if parsing fails or if the date does not exist.
  */
-export function extractDateParts(date: string): { year?: string; month?: string; day?: string } {
+export function extractDateParts(date: string): { year?: number; month?: number; day?: number } {
   const [yearStr, monthStr, dayStr] = date.split('-');
 
   const year = Number(yearStr);
@@ -19,14 +17,14 @@ export function extractDateParts(date: string): { year?: string; month?: string;
   if (!dateExists(year, month, day)) return {};
 
   return {
-    year: padWithZero(year, 4),
-    month: padWithZero(month, 2),
-    day: padWithZero(day, 2),
+    year: year,
+    month: month,
+    day: day,
   };
 }
 
 /**
- * Validates a date (year, month, day) if it exist.
+ * Validates a date (year, month, day) if it exists.
  * @param year - The year as number to validate.
  * @param month - The month as a number between 1 and 12 (January to December).
  * @param day - The day as number to validate.
