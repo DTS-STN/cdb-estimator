@@ -9,7 +9,6 @@ import { InputLabel } from '~/components/input-label';
 import { InputLegend } from '~/components/input-legend';
 import { useLanguage } from '~/hooks/use-language';
 import { extractDateParts, getLocalizedMonths } from '~/utils/date-utils';
-import { padWithZero } from '~/utils/string-utils';
 import { cn } from '~/utils/tailwind-utils';
 
 type DatePart = 'year' | 'month' | 'day';
@@ -281,7 +280,7 @@ function DatePickerMonthField({
         </option>
         {months.map((month) => {
           return (
-            <option id={ids.option(month.index)} key={month.index} value={padWithZero(month.index, 2)}>
+            <option id={ids.option(month.value)} key={month.value} value={month.value}>
               {month.text}
             </option>
           );
