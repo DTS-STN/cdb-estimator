@@ -11,6 +11,7 @@ export type AlertType = 'warning' | 'success' | 'danger' | 'info' | 'comment';
 export interface ContextualAlertProps {
   children: ReactNode;
   type: AlertType;
+  className?: string;
 }
 
 const alertBackgroundColors: Partial<Record<AlertType, string>> & { default: string } = {
@@ -34,7 +35,7 @@ export function ContextualAlert(props: ContextualAlertProps) {
   const alertBorderColor = alertBorderColors[type] ?? alertBorderColors.default;
 
   return (
-    <div className={cn('relative pl-4 sm:pl-6', alertBackgroundColor)}>
+    <div className={cn('relative pl-4 sm:pl-6', alertBackgroundColor, props.className)}>
       <div className={cn('absolute top-3 left-1.5 pt-1 sm:left-3.5', alertBackgroundColor)}>
         <Icon type={type} />
       </div>

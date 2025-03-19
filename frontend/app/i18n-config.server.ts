@@ -86,6 +86,9 @@ export async function initI18next(language?: Language): Promise<i18n> {
     parseMissingKeyHandler: (key) => {
       throw new AppError(`Missing translation key: ${key}`, ErrorCodes.MISSING_TRANSLATION_KEY);
     },
+    react: {
+      transKeepBasicHtmlNodesFor: ['br', 'strong', 'i', 'p', 'b', 'em'],
+    },
   });
 
   return i18n;
