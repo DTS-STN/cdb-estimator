@@ -352,10 +352,13 @@ function AgePickerYearField({
         defaultValue={defaultValue}
         disabled={disabled}
         id={ids.input}
+        min={1900}
         name={name}
         required={required}
         type="number"
         inputMode="numeric"
+        pattern="[0-9]*"
+        maxLength={4}
         onChange={onChange}
       />
     </div>
