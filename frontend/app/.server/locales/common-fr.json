@@ -74,11 +74,57 @@
     "language-selection": "Sélection de la langue"
   },
   "index": {
-    "about": "L'estimateur de la PCPH est un outil pour aider les utilisateurs à estimer le montant potentiel de leur Prestation canadienne pour les personnes handicapées",
+    "about": "L&#39;estimateur de la PCPH est un outil pour aider les utilisateurs à estimer le montant potentiel de leur Prestation canadienne pour les personnes handicapées",
     "breadcrumb": "Estimateur",
     "navigate": "Accédez au tableau de bord",
     "page-title": "Estimateur de la Prestation canadienne pour les personnes handicapées",
-    "start": "Démarrer l'estimateur de prestations"
+    "start": "Démarrer l&#39;estimateur de prestations",
+    "content": {
+      "result-disclaimer": "<strong>Cet outil ne donne qu&#39;une estimation.</strong> Il ne garantit pas que vous serez admissible ou que vous recevrez le montant estimé.",
+      "completion-time": "Il vous faudra environ 5 à 10 minutes pour obtenir une estimation.",
+      "estimator-steps": {
+        "intro": "Si vous estimez que vous répondez aux critères d&#39;admissibilité, utilisez l&#39;estimateur de prestations pour savoir combien vous pourriez recevoir. L&#39;estimateur vous posera des questions au sujet de votre :",
+        "step-1": "âge",
+        "step-2": "état matrimonial",
+        "step-3": "revenu"
+      },
+      "contact-href": "#contact",
+      "cdb-href": "https://www.canada.ca/fr/services/prestations/handicap/prestation-canadienne-personnes-situation-handicap.html",
+      "alert-work-in-progress": {
+        "work-in-progress": "<strong>Cet estimateur est un travail en cours.</strong>",
+        "feedback": "Vous pouvez aider à l'améliorer en donnant votre <feedbackLink>rétroaction</feedBackLink>.",
+        "feedback-href": "https://srv217.services.gc.ca/ihst4/Questionnaire.aspx?sid=095884db-9033-4dc6-8afc-d0d174019aae&lc=fra&iffsappid=TISMB-DGTGIS&iffssid=34fffc1a-6acf-498d-9a10-a5399ae6d337&GocTemplateCulture=fr-CA"
+      },
+      "results": {
+        "header": "À propos des résultats",
+        "description": "Les résultats ne sont pas des conseils financiers et peuvent changer. Pour une évaluation plus précise de votre montant de prestations estimé, veuillez <contactLink>communiquer avec nous</contactLink>."
+      },
+      "description": "Utilisez cet outil pour déterminer le montant que vous pourriez recevoir de la <cdbLink>Prestations canadiennes des personnes handicapées</cdbLink>. Il ne s'agit pas d'une demande de prestations.",
+      "eligibility": {
+        "header": "Avant de commencer",
+        "intro": "Pour être admissible aux prestations canadiennes des personnes handicapées, vous devez répondre aux critères spécifiques d'admissibilité. Pour en savoir plus sur la Prestation canadienne des personnes handicapées et les critères de l'admissibilité, veuillez consulter <cdbLink>canada.ca/prestation-handicap</cdbLink>.",
+        "criterias": {
+          "intro": "Pour recevoir la prestation, une personne doit:",
+          "criteria-1": "être un résident du Canada aux fins de la <em>Loi de l'impôt sur le revenu</em>;",
+          "criteria-2": "être approuvée pour le crédit d'impôt pour personnes handicapées;",
+          "criteria-3": "être âgée de 18 à 64 ans;",
+          "criteria-4": "avoir produit une déclaration de revenus et de prestations auprès de l'Agence du revenu du Canada pour l'année d'imposition précédente. Par exemple, pour obtenir les prestations de la période de paiement de juillet 2025 à juin 2026, la déclaration pour l'année d'imposition 2024 est nécessaire;",
+          "criteria-5": "être l'un des suivants: ",
+          "target-audience-1": "un citoyen canadien;",
+          "target-audience-2": "un résident permanent;",
+          "target-audience-3": "une personne protégée;",
+          "target-audience-4": "un résident temporaire qui a vécu au Canada au cours des 18 derniers mois;",
+          "target-audience-5": "une personne inscrite ou ayant le droit d'être inscrite en vertu de la <em>Loi sur les Indiens</em>."
+        },
+        "spouse-requirement": "Si la personne est mariée ou vit en union de fait, son époux ou conjoint de fait doit également avoir produit une déclaration de revenus auprès de l'Agence du revenu du Canada pour l'année d'imposition précédente.",
+        "spouse-requirement-waive": {
+          "intro": "Dans certains cas, la personne qui demande la prestation peut demander à Service Canada de renoncer (supprimer) l'obligation pour son époux ou conjoint de fait de produire une déclaration de revenus. Ces cas comprennent:",
+          "criteria-1": "si l'époux ou le conjoint de fait de la personne n'est pas un résident du Canada aux fins de la <em>Loi de l'impôt sur le revenu</em>;",
+          "criteria-2": "si la personne ne vit pas avec son époux ou son conjoint de fait dans le même logement pour des raisons indépendantes de sa volonté (par exemple, il vit dans un établissement de soins de longue durée);",
+          "criteria-3": "s'il était dangereux pour la personne de demander à son époux ou à son conjoint de fait de produire une déclaration."
+        }
+      }
+    }
   },
   "input-file": {
     "choose-file": "Choisir un fichier",

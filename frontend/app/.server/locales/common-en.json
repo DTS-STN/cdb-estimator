@@ -78,7 +78,53 @@
     "breadcrumb": "Estimator",
     "navigate": "Go to dashboard",
     "page-title": "Canada Disability Benefit Estimator",
-    "start": "Start benefits estimator"
+    "start": "Start benefits estimator",
+    "content": {
+      "result-disclaimer": "<strong>This tool gives an estimate only.</strong> It doesn't guarantee that you'll be eligible or that you'll receive the amount estimated.",
+      "completion-time": "It will take about 5 to 10 minutes to complete.",
+      "estimator-steps": {
+        "intro": "If you feel you meet the eligibility criteria, use the benefits estimator to see how much you may receive. The estimator will ask you questions about your:",
+        "step-1": "age",
+        "step-2": "marital status",
+        "step-3": "income"
+      },
+      "contact-href": "#contact",
+      "cdb-href": "https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html",
+      "alert-work-in-progress": {
+        "work-in-progress": "<strong>This estimator is a work in progress.</strong>",
+        "feedback": "You can improve it by giving your <feedbackLink>feedback</feedBackLink>.",
+        "feedback-href": "https://srv217.services.gc.ca/ihst4/Questionnaire.aspx?sid=2729a4fb-be1c-48c1-95ed-b595ade76792&lc=eng&GocTemplateCulture=en-CA&iffsappid=TISMB-DGTGIS&iffssid=334e3618-a1e0-4e57-8d06-62dde193abbd"
+      },
+      "results": {
+        "header": "About the results",
+        "description": "This estimator uses amounts for benefits paid between July 2025 and June 2026. Future benefit amounts may be higher. The results are not financial advice and are subject to change. For a more accurate assessment of your estimated benefits amount, please <contactLink>contact us</contactLink>."
+      },
+      "description": "Use this estimator to find out how much money you could get from the <cdbLink>Canada Disability Benefit</cdbLink>. This is not an application for benefits. ",
+      "eligibility": {
+        "header": "Before you begin",
+        "intro": "To be eligible for the Canada Disability Benefit, you must meet specific eligibility criteria. To learn more about the Canada Disability Benefit and the eligibility criteria, go to <cdbLink>canada.ca/disability-benefit</cdbLink>.",
+        "criterias": {
+          "intro": "To receive the benefit, a person must:",
+          "criteria-1": "be a resident of Canada for the purposes of the <em>Income tax Act</em>",
+          "criteria-2": "have been approved for the disability tax credit",
+          "criteria-3": "be between the ages of 18 and 64",
+          "criteria-4": "have filed an income tax return with the Canada Revenue Agency for the previous tax year. For example, to receive benefits for the July 2025 to June 2026 payment period, the person must have filed a return for the 2024 tax year",
+          "criteria-5": "be one of the following:",
+          "target-audience-1": "a Canadian citizen",
+          "target-audience-2": "a permanent resident",
+          "target-audience-3": "a protected person",
+          "target-audience-4": "a temporary resident who has lived in Canada for the past 18 months",
+          "target-audience-5": "someone who is registered or entitled to be registered under the <em>Indian Act</em>"
+        },
+        "spouse-requirement": "If the person is married or in a common-law relationship, their spouse or common-law partner must also file an income tax return with the Canada Revenue Agency for the previous tax year.",
+        "spouse-requirement-waive": {
+          "intro": "In some cases, the person applying for the benefit can ask Service Canada to waive (remove) the requirement that their spouse or common-law partner file an income tax return. These cases include:",
+          "criteria-1": "if the person's spouse or common-law partner is not resident in Canada for the purposes of the <em>Income Tax Act</em>",
+          "criteria-2": "if the person does not live with their spouse or common-law partner for reasons they do not control (for example, if they live in a long-term care home)",
+          "criteria-3": "if it would be unsafe for the person to ask their spouse or common-law partner to file a return"
+        }
+      }
+    }
   },
   "input-file": {
     "choose-file": "Choose File",

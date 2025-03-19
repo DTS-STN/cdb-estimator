@@ -1,6 +1,6 @@
 import type { RouteHandle } from 'react-router';
 
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 import type { Route } from './+types/index';
 
@@ -26,123 +26,103 @@ export function meta({ data }: Route.MetaArgs) {
 }
 
 export default function Home() {
-  const { i18n, t } = useTranslation(handle.i18nNamespace);
-  const lang = i18n.language;
+  const { t } = useTranslation(handle.i18nNamespace);
+
+  const cdbLink = <InlineLink to={t('common:index.content.cdb-href')} className="external-link" target="_blank" />;
+  const contactLink = <InlineLink to={t('common:index.content.contact-href')} className="external-link" target="_blank" />;
+  const feedbackLink = (
+    <InlineLink to={t('common:index.content.alert-work-in-progress.feedback-href')} className="external-link" target="_blank" />
+  );
 
   return (
     <>
       <PageTitle>{t('common:index.page-title')}</PageTitle>
 
-      {lang === 'en' ? ContentEn() : ContentFr()}
-    </>
-  );
-}
-
-function ContentEn() {
-  const { t } = useTranslation(handle.i18nNamespace);
-
-  return (
-    <>
       <ContextualAlert type="info" className="my-6">
         <p>
-          <strong>This estimator is a work in progress.</strong>
+          <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.alert-work-in-progress.work-in-progress" />
         </p>
         <p>
-          You can improve it by giving your{' '}
-          <InlineLink
-            to="https://srv217.services.gc.ca/ihst4/Questionnaire.aspx?sid=2729a4fb-be1c-48c1-95ed-b595ade76792&lc=eng&GocTemplateCulture=en-CA&iffsappid=TISMB-DGTGIS&iffssid=334e3618-a1e0-4e57-8d06-62dde193abbd"
-            className="external-link"
-            target="_blank"
-          >
-            feedback
-          </InlineLink>
-          .
+          <Trans
+            ns={handle.i18nNamespace}
+            i18nKey="common:index.content.alert-work-in-progress.feedback"
+            components={{ feedbackLink }}
+          />
         </p>
       </ContextualAlert>
 
       <div className="max-w-prose space-y-6">
         <section className="space-y-6">
           <p>
-            Use this estimator to find out how much money you could get from the{' '}
-            <InlineLink
-              to="https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html"
-              target="_blank"
-              className="external-link"
-            >
-              Canada Disability Benefit
-            </InlineLink>
-            . This is not an application for benefits.{' '}
+            <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.description" components={{ cdbLink }} />
           </p>
-          <h2 className="font-lato mb-4 text-lg font-bold">Before you begin</h2>
+          <h2 className="font-lato mb-4 text-lg font-bold">{t('common:index.content.eligibility.header')}</h2>
           <p>
-            To be eligible for the Canada Disability Benefit, you must meet specific eligibility criteria. To learn more about
-            the Canada Disability Benefit and the eligibility criteria, go to{' '}
-            <InlineLink
-              target="_blank"
-              className="external-link"
-              to="https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html"
-            >
-              canada.ca/disability-benefit
-            </InlineLink>
-            .
+            <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.eligibility.intro" components={{ cdbLink }} />
           </p>
-          <p className="mb-4">To receive the benefit, a person must:</p>
+          <p className="mb-4">{t('common:index.content.eligibility.criterias.intro')}</p>
           <ol className="list-decimal space-y-1 pl-7">
             <li>
-              be a resident of Canada for the purposes of the <em>Income tax Act</em>
-            </li>
-            <li>have been approved for the disability tax credit</li>
-            <li>be between the ages of 18 and 64 </li>
-            <li>
-              have filed an income tax return with the Canada Revenue Agency for the previous tax year. For example, to receive
-              benefits for the July 2025 to June 2026 payment period, the person must have filed a return for the 2024 tax
-              year{' '}
+              <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.eligibility.criterias.criteria-1" />
             </li>
             <li>
-              be one of the following:
+              <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.eligibility.criterias.criteria-2" />
+            </li>
+            <li>
+              <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.eligibility.criterias.criteria-3" />
+            </li>
+            <li>
+              <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.eligibility.criterias.criteria-4" />
+            </li>
+            <li>
+              <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.eligibility.criterias.criteria-5" />
               <ul className="list-disc space-y-1 pl-7">
-                <li>a Canadian citizen</li>
-                <li>a permanent resident</li>
-                <li>a protected person</li>
-                <li>a temporary resident who has lived in Canada for the past 18 months</li>
                 <li>
-                  someone who is registered or entitled to be registered under the <em>Indian Act</em>
+                  <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.eligibility.criterias.target-audience-1" />
+                </li>
+                <li>
+                  <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.eligibility.criterias.target-audience-2" />
+                </li>
+                <li>
+                  <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.eligibility.criterias.target-audience-3" />
+                </li>
+                <li>
+                  <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.eligibility.criterias.target-audience-4" />
+                </li>
+                <li>
+                  <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.eligibility.criterias.target-audience-5" />
                 </li>
               </ul>
             </li>
           </ol>
-          <p>
-            If the person is married or in a common-law relationship, their spouse or common-law partner must also file an
-            income tax return with the Canada Revenue Agency for the previous tax year.
-          </p>
-          <p className="mb-4">
-            In some cases, the person applying for the benefit can ask Service Canada to waive (remove) the requirement that
-            their spouse or common-law partner file an income tax return. These cases include:
-          </p>
+          <p>{t('common:index.content.eligibility.spouse-requirement')}</p>
+          <p className="mb-4">{t('common:index.content.eligibility.spouse-requirement-waive.intro')}</p>
           <ol className="list-decimal space-y-1 pl-7">
             <li>
-              if the person&#39;s spouse or common-law partner is not resident in Canada for the purposes of the{' '}
-              <em>Income Tax Act</em>
+              <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.eligibility.spouse-requirement-waive.criteria-1" />
             </li>
             <li>
-              if the person does not live with their spouse or common-law partner for reasons they do not control (for example,
-              if they live in a long-term care home)
+              <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.eligibility.spouse-requirement-waive.criteria-2" />
             </li>
-            <li>if it would be unsafe for the person to ask their spouse or common-law partner to file a return</li>
+            <li>
+              <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.eligibility.spouse-requirement-waive.criteria-3" />
+            </li>
           </ol>
-          <p className="mb-4">
-            If you feel you meet the eligibility criteria, use the benefits estimator to see how much you may receive. The
-            estimator will ask you questions about your:
-          </p>
+          <p className="mb-4">{t('common:index.content.estimator-steps.intro')}</p>
           <ol className="list-decimal space-y-1 pl-7">
-            <li>age</li>
-            <li>marital status</li>
-            <li>income</li>
+            <li>
+              <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.estimator-steps.step-1" />
+            </li>
+            <li>
+              <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.estimator-steps.step-2" />
+            </li>
+            <li>
+              <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.estimator-steps.step-3" />
+            </li>
           </ol>
-          <p>It will take about 5 to 10 minutes to complete.</p>
+          <p>{t('common:index.content.completion-time')}</p>
           <p>
-            <strong>This tool gives an estimate only.</strong> It doesn&#39;t guarantee that you&#39;ll be eligible or that
-            you&#39;ll receive the amount estimated.
+            <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.result-disclaimer" />
           </p>
         </section>
 
@@ -155,22 +135,12 @@ function ContentEn() {
         </section>
 
         <section className="space-y-4">
-          <h2 className="font-lato text-lg font-bold">About the results</h2>
+          <h2 className="font-lato text-lg font-bold">{t('common:index.content.results.header')}</h2>
           <p>
-            This estimator uses amounts for benefits paid between July 2025 and June 2026. Future benefit amounts may be higher.
-            The results are not financial advice and are subject to change. For a more accurate assessment of your estimated
-            benefits amount, please{' '}
-            <InlineLink className="external-link" target="_blank" to="#contact">
-              contact us
-            </InlineLink>
-            .
+            <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.results.description" components={{ contactLink }} />
           </p>
         </section>
       </div>
     </>
   );
-}
-
-function ContentFr() {
-  return <p className="text-xl">À venir...</p>;
 }
