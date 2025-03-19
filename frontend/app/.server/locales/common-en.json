@@ -1,4 +1,5 @@
 {
+  "additional-information-label": "Additional information",
   "age-picker": {
     "month": {
       "label": "Month",
@@ -176,5 +177,7 @@
     "description": "Your session will expire automatically in {{timeRemaining}}. Select \"Continue Session\" to extend your session.",
     "end-session": "End session now",
     "header": "Session timeout warning"
-  }
+  },
+  "next": "Next",
+  "previous": "Previous"
 }
