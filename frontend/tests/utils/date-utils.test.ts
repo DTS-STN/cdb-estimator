@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 
 import {
+  dateExists,
   getLocalizedMonths,
   getStartOfDayInTimezone,
   isPastInTimezone,
@@ -10,6 +11,20 @@ import {
 } from '~/utils/date-utils';
 
 describe('date-utils', () => {
+  describe('dateExists', () => {
+    it('should return [true] for a valid date', () => {
+      expect(dateExists(2000, 2, 1)).toEqual(true); // 2000-02-01
+    });
+
+    it('should return [false] for an invalid date', () => {
+      expect(dateExists(2000, 2, 30)).toEqual(false); // 2000-02-30
+    });
+
+    it('should return [true] for a valid date with year < 100', () => {
+      expect(dateExists(99, 2, 1)).toEqual(true); // 0099-02-01
+    });
+  });
+
   describe('isValidTimeZone', () => {
     const invalidTimeZones = [
       '', //

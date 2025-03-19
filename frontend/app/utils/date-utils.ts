@@ -16,7 +16,7 @@ export function extractDateParts(date: string): { year?: string; month?: string;
   const day = Number(dayStr);
 
   if (isNaN(year) || isNaN(month) || isNaN(day)) return {};
-  if (!dateExists(year, month - 1, day)) return {};
+  if (!dateExists(year, month, day)) return {};
 
   return {
     year: padWithZero(year, 4),
@@ -28,13 +28,14 @@ export function extractDateParts(date: string): { year?: string; month?: string;
 /**
  * Validates a date (year, month, day) if it exist.
  * @param year - The year as number to validate.
- * @param month - The month as number to validate.
+ * @param month - The month as a number between 1 and 12 (January to December).
  * @param day - The day as number to validate.
  * @returns A boolean - true if the date exists or false if the date does not exist.
  */
 export function dateExists(year: number, month: number, day: number): boolean {
-  const date = new Date(year, month, day);
-  return date.getFullYear() === year && date.getMonth() === month && date.getDate() === day;
+  const date = new Date(year, month - 1, day);
+  date.setFullYear(year); // Ensure the year is set correctly for years < 100
+  return date.getFullYear() === year && date.getMonth() === month - 1 && date.getDate() === day;
 }
 
 /**
