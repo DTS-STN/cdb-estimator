@@ -2,6 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 import {
   dateExists,
+  extractDateParts,
   getLocalizedMonths,
   getStartOfDayInTimezone,
   isPastInTimezone,
@@ -22,6 +23,24 @@ describe('date-utils', () => {
 
     it('should return [true] for a valid date with year < 100', () => {
       expect(dateExists(99, 2, 1)).toEqual(true); // 0099-02-01
+    });
+  });
+
+  describe('extractDateParts', () => {
+    it('should return the correct date parts', () => {
+      expect(extractDateParts('2000-02-01')).toEqual({ year: 2000, month: 2, day: 1 });
+    });
+
+    it('should return an empty object for an invalid date', () => {
+      expect(extractDateParts('2000-02-31')).toEqual({});
+    });
+
+    it('should return an empty object for a random string', () => {
+      expect(extractDateParts('invalid-date')).toEqual({});
+    });
+
+    it('should return the correct date parts with year < 100', () => {
+      expect(extractDateParts('0099-02-01')).toEqual({ year: 99, month: 2, day: 1 });
     });
   });
 

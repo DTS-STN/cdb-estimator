@@ -48,8 +48,6 @@ exports[`DatePickerField > should render date picker field component > expected 
               disabled=""
               hidden=""
               id="date-picker-id-month-option-unselected"
-              selected=""
-              value=""
             >
               common:date-picker.month.placeholder
             </option>
@@ -155,7 +153,6 @@ exports[`DatePickerField > should render date picker field component > expected 
             name="day test"
             pattern="[0-9]*"
             type="text"
-            value=""
           />
         </div>
         <div
@@ -185,7 +182,6 @@ exports[`DatePickerField > should render date picker field component > expected 
             name="year test"
             pattern="[0-9]*"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -242,12 +238,12 @@ exports[`DatePickerField > should render date picker field component with defaul
               disabled=""
               hidden=""
               id="date-picker-id-month-option-unselected"
-              value=""
             >
               common:date-picker.month.placeholder
             </option>
             <option
               id="date-picker-id-month-option-1"
+              selected=""
               value="1"
             >
               January
@@ -348,7 +344,7 @@ exports[`DatePickerField > should render date picker field component with defaul
             name="day test"
             pattern="[0-9]*"
             type="text"
-            value="01"
+            value="1"
           />
         </div>
         <div
@@ -478,8 +474,6 @@ exports[`DatePickerField > should render date picker field component with error 
               disabled=""
               hidden=""
               id="date-picker-id-month-option-unselected"
-              selected=""
-              value=""
             >
               common:date-picker.month.placeholder
             </option>
@@ -586,7 +580,6 @@ exports[`DatePickerField > should render date picker field component with error 
             name="day test"
             pattern="[0-9]*"
             type="text"
-            value=""
           />
         </div>
         <div
@@ -617,7 +610,6 @@ exports[`DatePickerField > should render date picker field component with error 
             name="year test"
             pattern="[0-9]*"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -681,8 +673,6 @@ exports[`DatePickerField > should render date picker field component with help m
               disabled=""
               hidden=""
               id="date-picker-id-month-option-unselected"
-              selected=""
-              value=""
             >
               common:date-picker.month.placeholder
             </option>
@@ -788,7 +778,6 @@ exports[`DatePickerField > should render date picker field component with help m
             name="day test"
             pattern="[0-9]*"
             type="text"
-            value=""
           />
         </div>
         <div
@@ -818,7 +807,6 @@ exports[`DatePickerField > should render date picker field component with help m
             name="year test"
             pattern="[0-9]*"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -892,8 +880,6 @@ exports[`DatePickerField > should render date picker field component with requir
               disabled=""
               hidden=""
               id="date-picker-id-month-option-unselected"
-              selected=""
-              value=""
             >
               common:date-picker.month.placeholder
             </option>
@@ -1001,7 +987,6 @@ exports[`DatePickerField > should render date picker field component with requir
             pattern="[0-9]*"
             required=""
             type="text"
-            value=""
           />
         </div>
         <div
@@ -1033,7 +1018,6 @@ exports[`DatePickerField > should render date picker field component with requir
             pattern="[0-9]*"
             required=""
             type="text"
-            value=""
           />
         </div>
       </div>
