@@ -13,8 +13,33 @@
   },
 
   "marital-status": {
+    "additional-info": {
+      "single": "<strong>Single:</strong> you are single and another status does not apply",
+      "divorced": "<strong>Divorced:</strong> you were married and are now legally divorced",
+      "separated": {
+        "p1": "<strong>Separated:</strong> you have been living apart from your spouse or common-law partner because of a breakdown in the relationship for a period of at least 90 days and you have not reconciled.",
+        "p2": "Once you have been separated for 90 days, the effective day of your separation is the date you started living apart. You would still be considered to have a spouse or common-law partner if there is no breakdown in the relationship and you were living apart for reasons such as work, studies, or health problems.",
+        "p3": "Note: Generally, you are not considered separated if your spouse or common-law partner is incarcerated or does not live in Canada, as long as there is no breakdown in your relationship"
+      },
+      "widowed": "<strong>Widowed:</strong> your spouse or common-law partner is deceased.",
+      "married": "<strong>Married:</strong> you are legally married to someone.",
+      "common-law": {
+        "text": "<strong>Common-law:</strong> you are living in a conjugal relationship with someone to whom you are not married and to whom at least one of the following situations applies. They:",
+        "item1": "have been living with you for at least 12 continuous months. This includes any period you were separated for less than 90 days because of a breakdown in your relationship",
+        "item2": "are the parent of your child by birth or adoption",
+        "item3": "have custody and control of your child (or had custody and control immediately before the child turned 19 years of age) and your child is wholly dependent on that person for support"
+      }
+    },
     "page-title": "Step 2 of 3: Marital Status",
-    "breadcrumb": "Marital Status"
+    "breadcrumb": "Marital Status",
+    "error-message": {
+      "marital-status-required": "Marital status is required"
+    },
+    "form-instructions": "What is your marital status?",
+    "radio-options": {
+      "single": "Single, divorced, separated or widowed",
+      "married": "Married or common-law"
+    }
   },
   "income": {
     "page-title": "Step 3 of 3: Income",

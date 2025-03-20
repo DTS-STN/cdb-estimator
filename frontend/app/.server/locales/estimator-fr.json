@@ -12,8 +12,33 @@
     }
   },
   "marital-status": {
+    "additional-info": {
+      "single": "<strong>Célibataire\u00a0:</strong> vous êtes célibataire et aucune des situations ci-dessus ne s'applique à vous",
+      "divorced": "<strong>Divorcé\u00a0:</strong> vous étiez marié et êtes maintenant divorcé légalement",
+      "separated": {
+        "p1": "<strong>Séparé\u00a0:</strong> vous vivez séparément de votre époux ou conjoint de fait depuis 90 jours ou plus en raison de la rupture de votre union, et il n'y a pas de réconciliation.",
+        "p2": "Lorsque vous êtes séparé depuis 90 jours, la date d'entrée en vigueur de votre séparation est le jour où vous et votre époux ou conjoint de fait avez commencé à vivre séparément. Vous êtes toujours considéré comme ayant un époux ou un conjoint de fait s'il n'y a pas de rupture de votre union et que vous vivez séparément pour des raisons telles que le travail, les études ou des problèmes de santé.",
+        "p3": "Remarque\u00a0: Généralement, vous n'êtes pas considéré séparé si votre époux ou conjoint de fait est détenu dans une prison ou ne vit pas au Canada, tant qu'il n'y a pas de rupture de votre union."
+      },
+      "widowed": "<strong>Veuf\u00a0:</strong> votre époux ou conjoint de fait est décédé.",
+      "married": "<strong>Marié\u00a0:</strong> vous êtes légalement marié à quelqu’un.",
+      "common-law": {
+        "text": "<strong>Conjoint de fait\u00a0:</strong> vous vivez en relation conjugale avec une personne avec qui vous n'êtes pas marié et à qui au moins l'une des situations suivantes s'applique\u00a0:",
+        "item1": "elle vit avec vous depuis au moins 12 mois sans interruption. Cela comprend les périodes de moins de 90 jours où vous avez vécu séparément en raison de la rupture de votre union;",
+        "item2": "elle est le parent de votre enfant, par la naissance ou l'adoption;",
+        "item3": "elle a la garde, la surveillance et la charge entière de votre enfant (ou elle en avait la garde et la surveillance juste avant que l'enfant atteigne l'âge de 19 ans)."
+      }
+    },
     "page-title": "Étape 2 de 3\u00A0: État civil",
-    "breadcrumb": "État civil"
+    "breadcrumb": "État civil",
+    "error-message": {
+      "marital-status-required": "L'état civil est requis"
+    },
+    "form-instructions": "Quel est votre état civil?",
+    "radio-options": {
+      "single": "Célibataire, divorcé, séparé ou veuf",
+      "married": "Marié ou conjoint de fait"
+    }
   },
   "income": {
     "page-title": "Étape 3 de 3\u00A0: Revenus",
