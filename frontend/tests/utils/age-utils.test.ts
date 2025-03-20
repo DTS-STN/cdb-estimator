@@ -19,6 +19,11 @@ describe('age-utils', () => {
       expect(calculateAge(4, 1990)).toEqual(10);
     });
 
+    it('should return the correct age: 10 when at start of year', () => {
+      vi.setSystemTime(new Date('2000-01-01T05:00:00.000Z'));
+      expect(calculateAge(1, 1990)).toEqual(10);
+    });
+
     it('should return the correct age for year < 100', () => {
       vi.setSystemTime(new Date('2000-04-01'));
       expect(calculateAge(4, 10)).toEqual(1990);
@@ -49,6 +54,11 @@ describe('age-utils', () => {
     it('should return the correct age in months: 120', () => {
       vi.setSystemTime(new Date('2000-04-01'));
       expect(calculateAgeInMonths(4, 1990)).toEqual(120);
+    });
+
+    it('should return the correct age in months: 120 when at start of year', () => {
+      vi.setSystemTime(new Date('2000-01-01T05:00:00.000Z'));
+      expect(calculateAgeInMonths(1, 1990)).toEqual(120);
     });
 
     it('should return the correct age in months for year < 100', () => {
