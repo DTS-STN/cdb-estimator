@@ -117,7 +117,7 @@ export const DatePickerField = ({
   }, {} as AriaErrorMessage);
 
   // Extract default date parts from the default value
-  const { day = '', month = '', year = '' } = extractDateParts(defaultValue ?? '');
+  const { day, month, year } = extractDateParts(defaultValue ?? '');
 
   // Define date picker part fields
   const datePickerPartFields = {
@@ -218,7 +218,7 @@ interface DatePickerMonthFieldProps {
   ariaErrorMessage?: string;
   className?: string;
   currentLanguage?: Language;
-  defaultValue: string;
+  defaultValue?: number;
   disabled?: boolean;
   id: string;
   label: string;
@@ -275,7 +275,7 @@ function DatePickerMonthField({
         name={name}
         required={required}
       >
-        <option id={ids.optionUnselected} value="" disabled hidden>
+        <option id={ids.optionUnselected} disabled hidden selected={defaultValue === undefined}>
           {placeholder}
         </option>
         {months.map((month) => {
@@ -297,7 +297,7 @@ interface DatePickerYearFieldProps {
   ariaDescribedBy: string;
   ariaErrorMessage?: string;
   className?: string;
-  defaultValue: string;
+  defaultValue?: number;
   disabled?: boolean;
   id: string;
   label: string;
@@ -364,7 +364,7 @@ interface DatePickerDayFieldProps {
   ariaDescribedBy: string;
   ariaErrorMessage?: string;
   className?: string;
-  defaultValue: string;
+  defaultValue?: number;
   disabled?: boolean;
   id: string;
   label: string;

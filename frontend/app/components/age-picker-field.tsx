@@ -133,7 +133,7 @@ export const AgePickerField = ({
     year: (
       <AgePickerYearField
         id={id}
-        defaultValue={year?.toString() ?? ''}
+        defaultValue={year}
         name={names.year}
         label={t('common:age-picker.year.label')}
         className="w-full sm:w-32"
@@ -147,7 +147,7 @@ export const AgePickerField = ({
     month: (
       <AgePickerMonthField
         id={id}
-        defaultValue={month?.toString() ?? ''}
+        defaultValue={month}
         name={names.month}
         label={t('common:age-picker.month.label')}
         placeholder={t('common:age-picker.month.placeholder')}
@@ -220,7 +220,7 @@ interface AgePickerMonthFieldProps {
   ariaErrorMessage?: string;
   className?: string;
   currentLanguage?: Language;
-  defaultValue: string;
+  defaultValue?: number;
   disabled?: boolean;
   id: string;
   label: string;
@@ -280,7 +280,7 @@ function AgePickerMonthField({
         onChange={onChange}
         required={required}
       >
-        <option id={ids.optionUnselected} value="" disabled hidden>
+        <option id={ids.optionUnselected} disabled hidden selected={defaultValue === undefined}>
           {placeholder}
         </option>
         {months.map((month) => {
@@ -302,7 +302,7 @@ interface AgePickerYearFieldProps {
   ariaDescribedBy: string;
   ariaErrorMessage?: string;
   className?: string;
-  defaultValue: string;
+  defaultValue?: number;
   disabled?: boolean;
   id: string;
   label: string;
@@ -352,10 +352,13 @@ function AgePickerYearField({
         defaultValue={defaultValue}
         disabled={disabled}
         id={ids.input}
+        min={1900}
         name={name}
         required={required}
         type="number"
         inputMode="numeric"
+        pattern="[0-9]*"
+        maxLength={4}
         onChange={onChange}
       />
     </div>
