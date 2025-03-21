@@ -3,12 +3,12 @@ import { useId } from 'react';
 import { data, useFetcher } from 'react-router';
 import type { RouteHandle } from 'react-router';
 
-import type { SessionData } from 'express-session';
 import { Trans, useTranslation } from 'react-i18next';
 import * as v from 'valibot';
 
 import type { Info, Route } from './+types/step-marital-status';
-import { isMaritalStatus, validMaritalStatuses } from './types';
+import type { MaritalStatus, MaritalStatusForm } from './@types';
+import { validMaritalStatuses } from './types';
 
 import { i18nRedirect } from '~/.server/utils/route-utils';
 import { Button } from '~/components/button';
@@ -18,8 +18,6 @@ import { InputRadios } from '~/components/input-radios';
 import { PageTitle } from '~/components/page-title';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/estimator/layout';
-
-type MaritalStatusSessionData = NonNullable<SessionData['estimator']['maritalStatusForm']>;
 
 export const handle = {
   breadcrumbs: [...parentHandle.breadcrumbs, { labelKey: 'estimator:marital-status.breadcrumb' }],
@@ -31,7 +29,7 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
   //TODO: validate current overall state, redirect accordingly
   return {
     documentTitle: t('estimator:marital-status.page-title'),
-    defaultFormValues: context.session.estimator?.maritalStatusForm,
+    defaultFormValues: context.session.estimator?.maritalStatus,
   };
 }
 
@@ -45,23 +43,29 @@ export async function action({ context, request }: Route.ActionArgs) {
       throw i18nRedirect('routes/estimator/step-age.tsx', request);
     }
     case 'next': {
-      const martialSatusSchema = v.object({
-        maritalStatus: v.picklist(validMaritalStatuses, t('estimator:marital-status.error-message.marital-status-required')),
-      }) satisfies v.GenericSchema<MaritalStatusSessionData>;
-
-      const maritalStatus = formData.get('maritalStatus')?.toString();
+      const martialSatusSchema = v.pipe(
+        v.object({
+          maritalStatus: v.pipe(
+            v.string(t('estimator:marital-status.error-message.marital-status-required')),
+            v.picklist(validMaritalStatuses, t('estimator:marital-status.error-message.marital-status-required')),
+          ),
+        }),
+        v.transform((input) => {
+          return input.maritalStatus as MaritalStatus;
+        }),
+      ) satisfies v.GenericSchema<MaritalStatusForm, MaritalStatus>;
 
       const input = {
-        maritalStatus: maritalStatus !== undefined ? (isMaritalStatus(maritalStatus) ? maritalStatus : undefined) : undefined,
-      } satisfies Partial<MaritalStatusSessionData>;
+        maritalStatus: formData.get('maritalStatus') as string,
+      } satisfies Partial<MaritalStatusForm>;
 
       const parseResult = v.safeParse(martialSatusSchema, input, { lang });
 
       if (!parseResult.success) {
-        return data({ errors: v.flatten<typeof martialSatusSchema>(parseResult.issues).nested }, { status: 400 });
+        return data({ errors: v.flatten<typeof martialSatusSchema>(parseResult.issues) }, { status: 400 });
       }
 
-      (context.session.estimator ??= {}).maritalStatusForm = parseResult.output;
+      (context.session.estimator ??= {}).maritalStatus = parseResult.output;
 
       throw i18nRedirect('routes/estimator/step-income.tsx', request);
     }
@@ -136,16 +140,16 @@ export default function StepMaritalStatus({ actionData, loaderData, matches, par
                 {
                   value: validMaritalStatuses[0],
                   children: <Trans ns={handle.i18nNamespace} i18nKey="estimator:marital-status.radio-options.single" />,
-                  defaultChecked: loaderData.defaultFormValues?.maritalStatus === validMaritalStatuses[0],
+                  defaultChecked: loaderData.defaultFormValues === validMaritalStatuses[0],
                 },
                 {
                   value: validMaritalStatuses[1],
                   children: <Trans ns={handle.i18nNamespace} i18nKey="estimator:marital-status.radio-options.married" />,
-                  defaultChecked: loaderData.defaultFormValues?.maritalStatus === validMaritalStatuses[1],
+                  defaultChecked: loaderData.defaultFormValues === validMaritalStatuses[1],
                 },
               ]}
               required
-              errorMessage={errors?.maritalStatus?.at(0)}
+              errorMessage={errors?.nested?.maritalStatus?.at(0) ?? errors?.root?.at(0)}
             />
           </div>
           <div className="mt-8 flex flex-row-reverse flex-wrap items-center justify-end gap-3">

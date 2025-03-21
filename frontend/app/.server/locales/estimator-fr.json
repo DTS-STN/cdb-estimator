@@ -13,10 +13,6 @@
     "min-eligible-age-info": "Vous pouvez présenter une demande jusqu'à 6 mois avant votre 18e anniversaire.",
     "page-title": "Étape 1 de 3\u00A0: Âge"
   },
-  "income": {
-    "breadcrumb": "Revenus",
-    "page-title": "Étape 3 de 3\u00A0: Revenus"
-  },
   "marital-status": {
     "additional-info": {
       "common-law": {
@@ -44,6 +40,66 @@
     "radio-options": {
       "married": "Marié ou conjoint de fait",
       "single": "Célibataire, divorcé, séparé ou veuf"
+    }
+  },
+  "income": {
+    "page-title": "Étape 3 de 3\u00A0: Revenus",
+    "breadcrumb": "Revenus",
+    "fields": {
+      "net-income": {
+        "label": "Votre revenu net",
+        "error": {
+          "required": "Votre revenu net est requis",
+          "invalid": "Votre revenu net est invalide"
+        }
+      },
+      "working-income": {
+        "label": "Votre revenu d’emploi",
+        "error": {
+          "required": "Votre revenu d’emploi est requis",
+          "invalid": "Votre revenu d’emploi est invalide"
+        }
+      },
+      "claimed-income": {
+        "label": "Votre revenue de PUGE et REEI",
+        "error": {
+          "invalid": "Votre revenue de PUGE et REEI est invalide"
+        }
+      },
+      "claimed-repayment": {
+        "label": "Votre remboursement de PUGE et REEI",
+        "error": {
+          "invalid": "Votre remboursement de PUGE et REEI est invalide"
+        }
+      },
+      "partner": {
+        "net-income": {
+          "label": "Le revenu net de votre partenaire",
+          "error": {
+            "required": "Le revenu net de votre partenaire est requis",
+            "invalid": "Le revenu net de votre partenaire est invalide"
+          }
+        },
+        "working-income": {
+          "label": "Le revenu d’emploi de votre partenaire",
+          "error": {
+            "required": "Le revenu d’emploi de votre partenaire est requis",
+            "invalid": "Le revenu d’emploi de votre partenaire est invalide"
+          }
+        },
+        "claimed-income": {
+          "label": "Le revenue de PUGE et REEI de votre partenaire",
+          "error": {
+            "invalid": "Le revenue de PUGE et REEI de votre partenaire est invalide"
+          }
+        },
+        "claimed-repayment": {
+          "label": "Le remboursement de PUGE et REEI de votre partenaire",
+          "error": {
+            "invalid": "Le remboursement de PUGE et REEI de votre partenaire est invalid"
+          }
+        }
+      }
     }
   },
   "results": {
