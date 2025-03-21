@@ -51,7 +51,7 @@ export default function Home() {
         </p>
       </ContextualAlert>
 
-      <div className="max-w-prose space-y-6">
+      <div className="space-y-6">
         <section className="space-y-6">
           <p>
             <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.description" components={{ cdbLink }} />
