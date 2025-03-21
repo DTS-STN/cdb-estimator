@@ -78,7 +78,7 @@ export const AgePickerField = ({
   names,
   required,
 }: AgePickerFieldProps): JSX.Element => {
-  const { t } = useTranslation(['common']);
+  const { t } = useTranslation(['common', 'estimator']);
   const { currentLanguage = 'en' } = useLanguage(); // english by default
   const currentDatePartOrder = DATE_PART_ORDER[currentLanguage];
 
@@ -119,6 +119,13 @@ export const AgePickerField = ({
   const [month, setMonth] = useState(defaultValues?.month);
   const [year, setYear] = useState(defaultValues?.year);
   const age = month && year && calculateAge(month, year);
+  const ageAdditionalInfo = (() => {
+    if (age !== undefined) {
+      if (age >= 65) return t('estimator:age.max-eligible-age-info');
+      else if (age < 18) return t('estimator:age.min-eligible-age-info');
+    }
+    return undefined;
+  })();
 
   const handleMonthChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setMonth(parseInt(event.target.value));
@@ -197,7 +204,7 @@ export const AgePickerField = ({
           ))}
 
           {displayAge === true && age !== undefined && year !== undefined && year > 1000 && year < 9999 && (
-            <AgeDisplay age={age} />
+            <AgeDisplay age={age} additionalInfo={ageAdditionalInfo} />
           )}
         </div>
 
@@ -370,6 +377,7 @@ function AgePickerYearField({
  */
 interface AgeDisplayProps {
   age: number;
+  additionalInfo?: string;
 }
 
 /**
@@ -378,7 +386,7 @@ interface AgeDisplayProps {
  * @param props - Props for the AgeDisplay component
  * @returns JSX.Element
  */
-function AgeDisplay({ age }: AgeDisplayProps): JSX.Element {
+function AgeDisplay({ age, additionalInfo }: AgeDisplayProps): JSX.Element {
   const { t } = useTranslation(['common']);
 
   return (
@@ -387,7 +395,9 @@ function AgeDisplay({ age }: AgeDisplayProps): JSX.Element {
         <span className="font-semibold">{t('age-picker.your-age.label')}</span>
       </label>
 
-      <span className="block max-w-prose">{`${age} ${t('age-picker.your-age.value-suffix')}`}</span>
+      <div className="block max-w-prose">{`${age} ${t(age === 1 ? 'age-picker.your-age.value-suffix-singular' : 'age-picker.your-age.value-suffix-plural')}`}</div>
+
+      <div>{additionalInfo}</div>
     </div>
   );
 }

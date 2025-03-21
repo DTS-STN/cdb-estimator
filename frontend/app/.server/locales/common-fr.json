@@ -10,7 +10,8 @@
     },
     "your-age": {
       "label": "Vous avez :",
-      "value-suffix": "ans"
+      "value-suffix-plural": "ans",
+      "value-suffix-singular": "an"
     }
   },
   "app": {

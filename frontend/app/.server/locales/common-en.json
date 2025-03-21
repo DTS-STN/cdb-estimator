@@ -10,7 +10,8 @@
     },
     "your-age": {
       "label": "Your age :",
-      "value-suffix": "years old"
+      "value-suffix-plural": "years old",
+      "value-suffix-singular": "year old"
     }
   },
   "app": {
