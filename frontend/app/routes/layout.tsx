@@ -47,7 +47,14 @@ export default function Layout({ matches }: Route.ComponentProps) {
                 decoding="async"
               />
             </AppLink>
-            <LanguageSwitcher>{t('common:language-switcher.alt-lang')}</LanguageSwitcher>
+            <LanguageSwitcher>
+              <span className="hidden md:block" lang={t('common:language-switcher.alt-lang-abbr-prop')}>
+                {t('common:language-switcher.alt-lang')}
+              </span>
+              <abbr title={t('common:language-switcher.alt-lang')} className="cursor-help uppercase md:hidden">
+                {t('common:language-switcher.alt-lang-abbr')}
+              </abbr>
+            </LanguageSwitcher>
           </div>
         </div>
       </header>
