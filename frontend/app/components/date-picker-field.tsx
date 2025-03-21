@@ -269,13 +269,13 @@ function DatePickerMonthField({
         aria-labelledby={ids.label}
         aria-required={required}
         className={cn(inputStyles.base, inputStyles.disabled, hasErrorMessage && inputStyles.error, className)}
-        defaultValue={defaultValue}
+        defaultValue={defaultValue ?? -1}
         disabled={disabled}
         id={ids.select}
         name={name}
         required={required}
       >
-        <option id={ids.optionUnselected} disabled hidden selected={defaultValue === undefined}>
+        <option id={ids.optionUnselected} disabled hidden value={-1}>
           {placeholder}
         </option>
         {months.map((month) => {
