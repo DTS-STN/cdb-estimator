@@ -10,10 +10,8 @@ import { differenceInMonths, differenceInYears } from 'date-fns';
 export function calculateAge(month: number, year: number): number {
   const date = new Date(year, month - 1, 1); // Explicity set to first day of the month
   date.setFullYear(year); // Ensure the year is set correctly for years < 100
-  date.setUTCHours(0, 0, 0, 0); // Set the time to midnight because we only care about the date
 
   const now = new Date();
-  now.setUTCHours(0, 0, 0, 0); // Set the time to midnight because we only care about the date
 
   return differenceInYears(now, date);
 }
@@ -28,10 +26,8 @@ export function calculateAge(month: number, year: number): number {
 export function calculateAgeInMonths(month: number, year: number): number {
   const date = new Date(year, month - 1, 1); // Explicity set to first day of the month
   date.setFullYear(year); // Ensure the year is set correctly for years < 100
-  date.setUTCHours(0, 0, 0, 0); // Set the time to midnight because we only care about the date
 
   const now = new Date();
-  now.setUTCHours(0, 0, 0, 0); // Set the time to midnight because we only care about the date
 
   return differenceInMonths(now, date);
 }
