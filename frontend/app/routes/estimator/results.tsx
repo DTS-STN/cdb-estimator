@@ -18,6 +18,7 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
 
   return {
     documentTitle: t('estimator:results.page-title'),
+    results: context.session.estimator,
   };
 }
 
@@ -33,6 +34,7 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
   return (
     <div className="space-y-3">
       <PageTitle subTitle={t('common:application-title')}>{t('estimator:results.page-title')}</PageTitle>
+      <pre>{JSON.stringify(loaderData.results, null, 2)}</pre>
     </div>
   );
 }

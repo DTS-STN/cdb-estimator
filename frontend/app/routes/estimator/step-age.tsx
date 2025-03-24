@@ -3,12 +3,12 @@ import { useId } from 'react';
 import { data, useFetcher } from 'react-router';
 import type { RouteHandle } from 'react-router';
 
-import type { SessionData } from 'express-session';
+//import type { SessionData } from 'express-session';
 import { useTranslation } from 'react-i18next';
 import * as v from 'valibot';
 
 import type { Info, Route } from './+types/step-age';
-import type { DateOfBirth } from './@types';
+import type { AgeForm, DateOfBirth } from './@types';
 
 import { i18nRedirect } from '~/.server/utils/route-utils';
 import { AgePickerField } from '~/components/age-picker-field';
@@ -19,7 +19,7 @@ import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 import { calculateAge } from '~/utils/age-utils';
 
-type AgeInformationSessionData = NonNullable<SessionData['estimator']['ageForm']>;
+//type EstimatorSessionData = NonNullable<SessionData['estimator']>;
 
 export const handle = {
   breadcrumbs: [...parentHandle.breadcrumbs, { labelKey: 'estimator:age.breadcrumb' }],
@@ -31,7 +31,7 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
 
   return {
     documentTitle: t('estimator:age.page-title'),
-    defaultFormValues: context.session.estimator?.ageForm,
+    defaultFormValues: context.session.estimator?.dateOfBirth,
   };
 }
 
@@ -50,16 +50,23 @@ export async function action({ context, request }: Route.ActionArgs) {
       throw i18nRedirect('routes/index.tsx', request);
     }
     case 'next': {
-      const dobSchema = v.pipe(
+      const ageFormSchema = v.pipe(
         v.object({
           month: v.pipe(
-            v.number(t('estimator:age.date-of-birth.required-month')),
+            v.string(t('estimator:age.date-of-birth.required-month')),
+            v.nonEmpty(t('estimator:age.date-of-birth.required-month')),
+            v.regex(/^\d+$/, t('estimator:age.date-of-birth.invalid-month')),
+            v.transform(Number),
+            v.number(t('estimator:age.date-of-birth.invalid-month')),
             v.integer(t('estimator:age.date-of-birth.invalid-month')),
             v.minValue(1, t('estimator:age.date-of-birth.invalid-month')),
             v.maxValue(12, t('estimator:age.date-of-birth.invalid-month')),
           ),
           year: v.pipe(
-            v.number(t('estimator:age.date-of-birth.required-year')),
+            v.string(t('estimator:age.date-of-birth.required-year')),
+            v.regex(/^\d+$/, t('estimator:age.date-of-birth.invalid-year')),
+            v.transform(Number),
+            v.number(t('estimator:age.date-of-birth.invalid-year')),
             v.integer(t('estimator:age.date-of-birth.invalid-year')),
           ),
         }),
@@ -70,26 +77,20 @@ export async function action({ context, request }: Route.ActionArgs) {
         }),
         v.check(({ age }) => age >= 18 && age <= 65, t('estimator:age.date-of-birth.invalid-age')),
         v.transform(({ month, year }) => ({ month, year })),
-      ) satisfies v.GenericSchema<DateOfBirth>;
-
-      const schema = v.object({
-        dateOfBirth: dobSchema,
-      }) satisfies v.GenericSchema<AgeInformationSessionData>;
+      ) satisfies v.GenericSchema<AgeForm, DateOfBirth>;
 
       const input = {
-        dateOfBirth: {
-          month: Number(formData.get('dateOfBirthMonth')),
-          year: Number(formData.get('dateOfBirthYear')),
-        },
-      } satisfies Partial<AgeInformationSessionData>;
+        month: formData.get('dateOfBirthMonth') as string,
+        year: formData.get('dateOfBirthYear') as string,
+      } satisfies Partial<AgeForm>;
 
-      const parseResult = v.safeParse(schema, input, { lang });
+      const parseResult = v.safeParse(ageFormSchema, input, { lang });
 
       if (!parseResult.success) {
-        return data({ errors: v.flatten<typeof schema>(parseResult.issues).nested }, { status: 400 });
+        return data({ errors: v.flatten<typeof ageFormSchema>(parseResult.issues) }, { status: 400 });
       }
 
-      (context.session.estimator ??= {}).ageForm = parseResult.output;
+      (context.session.estimator ??= {}).dateOfBirth = parseResult.output;
 
       throw i18nRedirect('routes/estimator/step-marital-status.tsx', request);
     }
@@ -112,14 +113,14 @@ export default function StepAge({ actionData, loaderData, matches, params }: Rou
             {/* TODO : KAB : Change Implementation of AgePickerField to accept default value of month and year */}
             <AgePickerField
               defaultValues={{
-                month: loaderData.defaultFormValues?.dateOfBirth.month,
-                year: loaderData.defaultFormValues?.dateOfBirth.year,
+                month: loaderData.defaultFormValues?.month,
+                year: loaderData.defaultFormValues?.year,
               }}
               displayAge={true}
               errorMessages={{
-                all: errors?.dateOfBirth?.at(0),
-                month: errors?.['dateOfBirth.month']?.at(0),
-                year: errors?.['dateOfBirth.year']?.at(0),
+                all: errors?.root?.at(0),
+                month: errors?.nested?.month?.at(0),
+                year: errors?.nested?.year?.at(0),
               }}
               id="date-of-birth-id"
               legend={t('estimator:age.date-of-birth.label')}

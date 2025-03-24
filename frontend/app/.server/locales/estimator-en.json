@@ -13,10 +13,7 @@
     "min-eligible-age-info": "You can apply up to 6 months before your 18th birthday.",
     "page-title": "Step 1 of 3: Age"
   },
-  "income": {
-    "breadcrumb": "Income",
-    "page-title": "Step 3 of 3: Income"
-  },
+
   "marital-status": {
     "additional-info": {
       "common-law": {
@@ -44,6 +41,66 @@
     "radio-options": {
       "married": "Married or common-law",
       "single": "Single, divorced, separated or widowed"
+    }
+  },
+  "income": {
+    "page-title": "Step 3 of 3: Income",
+    "breadcrumb": "Income",
+    "fields": {
+      "net-income": {
+        "label": "Your net income",
+        "error": {
+          "required": "Your Net income is required",
+          "invalid": "Your Net income is invalid"
+        }
+      },
+      "working-income": {
+        "label": "Your working income",
+        "error": {
+          "required": "Your Working income is required",
+          "invalid": "Your Working income is invalid"
+        }
+      },
+      "claimed-income": {
+        "label": "Your UCCB and RDSP income",
+        "error": {
+          "invalid": "Your UCCB RDSP income is invalid"
+        }
+      },
+      "claimed-repayment": {
+        "label": "Your UCCB and RDSP repayment",
+        "error": {
+          "invalid": "Your UCCB RDSP repayment is invalid"
+        }
+      },
+      "partner": {
+        "net-income": {
+          "label": "Your partner's net income",
+          "error": {
+            "required": "Your partner's net income is required",
+            "invalid": "Your partner's net income is invalid"
+          }
+        },
+        "working-income": {
+          "label": "Your partner's working income",
+          "error": {
+            "required": "Your partner's working income is required",
+            "invalid": "Your partner's working income is invalid"
+          }
+        },
+        "claimed-income": {
+          "label": "Your partner's UCCB and RDSP income",
+          "error": {
+            "invalid": "Your partner's UCCB RDSP income is invalid"
+          }
+        },
+        "claimed-repayment": {
+          "label": "Your partner's UCCB and RDSP repayment",
+          "error": {
+            "invalid": "Your partner's UCCB RDSP repayment is invalid"
+          }
+        }
+      }
     }
   },
   "results": {
