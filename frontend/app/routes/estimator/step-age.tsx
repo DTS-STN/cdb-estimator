@@ -15,11 +15,10 @@ import { AgePickerField } from '~/components/age-picker-field';
 import { Button } from '~/components/button';
 import { FetcherErrorSummary } from '~/components/error-summary';
 import { PageTitle } from '~/components/page-title';
+import { useErrorTranslation } from '~/hooks/use-error-translation';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 import { calculateAge } from '~/utils/age-utils';
-
-//type EstimatorSessionData = NonNullable<SessionData['estimator']>;
 
 export const handle = {
   breadcrumbs: [...parentHandle.breadcrumbs, { labelKey: 'estimator:age.breadcrumb' }],
@@ -40,7 +39,7 @@ export function meta({ data }: Route.MetaArgs) {
 }
 
 export async function action({ context, request }: Route.ActionArgs) {
-  const { lang, t } = await getTranslation(request, handle.i18nNamespace);
+  const { lang } = await getTranslation(request, handle.i18nNamespace);
 
   const formData = await request.formData();
   const action = formData.get('action');
@@ -53,21 +52,21 @@ export async function action({ context, request }: Route.ActionArgs) {
       const ageFormSchema = v.pipe(
         v.object({
           month: v.pipe(
-            v.string(t('estimator:age.date-of-birth.required-month')),
-            v.nonEmpty(t('estimator:age.date-of-birth.required-month')),
-            v.regex(/^\d+$/, t('estimator:age.date-of-birth.invalid-month')),
+            v.string('date-of-birth.error.required-month'),
+            v.nonEmpty('date-of-birth.error.required-month'),
+            v.regex(/^\d+$/, 'date-of-birth.error.invalid-month'),
             v.transform(Number),
-            v.number(t('estimator:age.date-of-birth.invalid-month')),
-            v.integer(t('estimator:age.date-of-birth.invalid-month')),
-            v.minValue(1, t('estimator:age.date-of-birth.invalid-month')),
-            v.maxValue(12, t('estimator:age.date-of-birth.invalid-month')),
+            v.number('date-of-birth.error.invalid-month'),
+            v.integer('date-of-birth.error.invalid-month'),
+            v.minValue(1, 'date-of-birth.error.invalid-month'),
+            v.maxValue(12, 'date-of-birth.error.invalid-month'),
           ),
           year: v.pipe(
-            v.string(t('estimator:age.date-of-birth.required-year')),
-            v.regex(/^\d+$/, t('estimator:age.date-of-birth.invalid-year')),
+            v.string('date-of-birth.error.required-year'),
+            v.regex(/^\d+$/, 'date-of-birth.error.invalid-year'),
             v.transform(Number),
-            v.number(t('estimator:age.date-of-birth.invalid-year')),
-            v.integer(t('estimator:age.date-of-birth.invalid-year')),
+            v.number('date-of-birth.error.invalid-year'),
+            v.integer('date-of-birth.error.invalid-year'),
           ),
         }),
         v.transform(({ month, year }) => {
@@ -75,7 +74,7 @@ export async function action({ context, request }: Route.ActionArgs) {
 
           return { month, year, age };
         }),
-        v.check(({ age }) => age >= 18 && age <= 65, t('estimator:age.date-of-birth.invalid-age')),
+        v.check(({ age }) => age >= 18 && age <= 65, 'date-of-birth.error.invalid-age'),
         v.transform(({ month, year }) => ({ month, year })),
       ) satisfies v.GenericSchema<AgeForm, DateOfBirth>;
 
@@ -99,7 +98,7 @@ export async function action({ context, request }: Route.ActionArgs) {
 
 export default function StepAge({ actionData, loaderData, matches, params }: Route.ComponentProps) {
   const { t } = useTranslation(handle.i18nNamespace);
-
+  const errT = useErrorTranslation('estimator', 'age.fields');
   const fetcherKey = useId();
   const fetcher = useFetcher<Info['actionData']>({ key: fetcherKey });
   const errors = fetcher.data?.errors;
@@ -118,12 +117,12 @@ export default function StepAge({ actionData, loaderData, matches, params }: Rou
               }}
               displayAge={true}
               errorMessages={{
-                all: errors?.root?.at(0),
-                month: errors?.nested?.month?.at(0),
-                year: errors?.nested?.year?.at(0),
+                all: errT(errors?.root?.at(0)),
+                month: errT(errors?.nested?.month?.at(0)),
+                year: errT(errors?.nested?.year?.at(0)),
               }}
               id="date-of-birth-id"
-              legend={t('estimator:age.date-of-birth.label')}
+              legend={t('estimator:age.fields.date-of-birth.label')}
               names={{
                 month: 'dateOfBirthMonth',
                 year: 'dateOfBirthYear',
@@ -133,10 +132,10 @@ export default function StepAge({ actionData, loaderData, matches, params }: Rou
           </div>
           <div className="mt-8 flex flex-row-reverse flex-wrap items-center justify-end gap-3">
             <Button name="action" value="next" variant="primary" id="continue-button">
-              Next
+              {t('common:next')}
             </Button>
             <Button name="action" value="back" id="back-button">
-              Previous
+              {t('common:previous')}
             </Button>
           </div>
         </fetcher.Form>

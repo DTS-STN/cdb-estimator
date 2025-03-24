@@ -16,6 +16,7 @@ import { Collapsible } from '~/components/collapsible';
 import { FetcherErrorSummary } from '~/components/error-summary';
 import { InputRadios } from '~/components/input-radios';
 import { PageTitle } from '~/components/page-title';
+import { useErrorTranslation } from '~/hooks/use-error-translation';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 
@@ -34,7 +35,7 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
 }
 
 export async function action({ context, request }: Route.ActionArgs) {
-  const { lang, t } = await getTranslation(request, handle.i18nNamespace);
+  const { lang } = await getTranslation(request, handle.i18nNamespace);
   const formData = await request.formData();
   const action = formData.get('action');
 
@@ -45,10 +46,7 @@ export async function action({ context, request }: Route.ActionArgs) {
     case 'next': {
       const martialSatusSchema = v.pipe(
         v.object({
-          maritalStatus: v.pipe(
-            v.string(t('estimator:marital-status.error-message.marital-status-required')),
-            v.picklist(validMaritalStatuses, t('estimator:marital-status.error-message.marital-status-required')),
-          ),
+          maritalStatus: v.pipe(v.string('status.error.required'), v.picklist(validMaritalStatuses, 'status.error.required')),
         }),
         v.transform((input) => {
           return input.maritalStatus as MaritalStatus;
@@ -78,6 +76,7 @@ export function meta({ data }: Route.MetaArgs) {
 
 export default function StepMaritalStatus({ actionData, loaderData, matches, params }: Route.ComponentProps) {
   const { t } = useTranslation(handle.i18nNamespace);
+  const errT = useErrorTranslation('estimator', 'marital-status.fields');
   const fetcherKey = useId();
   const fetcher = useFetcher<Info['actionData']>({ key: fetcherKey });
   const errors = fetcher.data?.errors;
@@ -135,21 +134,23 @@ export default function StepMaritalStatus({ actionData, loaderData, matches, par
               }
               id="marital-status"
               name="maritalStatus"
-              legend={t('estimator:marital-status.form-instructions')}
+              legend={t('estimator:marital-status.fields.status.label')}
               options={[
                 {
                   value: validMaritalStatuses[0],
-                  children: <Trans ns={handle.i18nNamespace} i18nKey="estimator:marital-status.radio-options.single" />,
+                  children: <Trans ns={handle.i18nNamespace} i18nKey="estimator:marital-status.fields.status.options.single" />,
                   defaultChecked: loaderData.defaultFormValues === validMaritalStatuses[0],
                 },
                 {
                   value: validMaritalStatuses[1],
-                  children: <Trans ns={handle.i18nNamespace} i18nKey="estimator:marital-status.radio-options.married" />,
+                  children: (
+                    <Trans ns={handle.i18nNamespace} i18nKey="estimator:marital-status.fields.status.options.married" />
+                  ),
                   defaultChecked: loaderData.defaultFormValues === validMaritalStatuses[1],
                 },
               ]}
               required
-              errorMessage={errors?.nested?.maritalStatus?.at(0) ?? errors?.root?.at(0)}
+              errorMessage={errT(errors?.nested?.maritalStatus?.at(0) ?? errors?.root?.at(0))}
             />
           </div>
           <div className="mt-8 flex flex-row-reverse flex-wrap items-center justify-end gap-3">
