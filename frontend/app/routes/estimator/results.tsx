@@ -1,8 +1,5 @@
-import { Fragment } from 'react';
-
 import type { RouteHandle } from 'react-router';
 
-import { T } from 'node_modules/react-router/dist/development/fog-of-war-Da8gpnoZ.mjs';
 import { Trans, useTranslation } from 'react-i18next';
 
 import type { Route } from './+types/results';
