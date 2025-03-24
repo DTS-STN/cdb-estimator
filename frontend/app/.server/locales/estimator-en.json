@@ -9,6 +9,8 @@
       "required-month": "Month of birth is required.",
       "required-year": "Year of birth is required."
     },
+    "max-eligible-age-info": "You may be eligible up to and including the month you turn 65.",
+    "min-eligible-age-info": "You can apply up to 6 months before your 18th birthday.",
     "page-title": "Step 1 of 3: Age"
   },
   "income": {

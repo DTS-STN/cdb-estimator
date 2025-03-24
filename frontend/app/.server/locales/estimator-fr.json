@@ -9,6 +9,8 @@
       "required-month": "Le mois de naissance est requis.",
       "required-year": "L'année de naissance est requise."
     },
+    "max-eligible-age-info": "Vous pourriez être admissible jusqu'au mois de votre 65e anniversaire inclusivement.",
+    "min-eligible-age-info": "Vous pouvez présenter une demande jusqu'à 6 mois avant votre 18e anniversaire.",
     "page-title": "Étape 1 de 3\u00A0: Âge"
   },
   "income": {

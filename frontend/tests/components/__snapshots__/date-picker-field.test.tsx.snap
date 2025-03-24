@@ -48,6 +48,8 @@ exports[`DatePickerField > should render date picker field component > expected 
               disabled=""
               hidden=""
               id="date-picker-id-month-option-unselected"
+              selected=""
+              value="-1"
             >
               common:date-picker.month.placeholder
             </option>
@@ -238,6 +240,7 @@ exports[`DatePickerField > should render date picker field component with defaul
               disabled=""
               hidden=""
               id="date-picker-id-month-option-unselected"
+              value="-1"
             >
               common:date-picker.month.placeholder
             </option>
@@ -474,6 +477,8 @@ exports[`DatePickerField > should render date picker field component with error 
               disabled=""
               hidden=""
               id="date-picker-id-month-option-unselected"
+              selected=""
+              value="-1"
             >
               common:date-picker.month.placeholder
             </option>
@@ -673,6 +678,8 @@ exports[`DatePickerField > should render date picker field component with help m
               disabled=""
               hidden=""
               id="date-picker-id-month-option-unselected"
+              selected=""
+              value="-1"
             >
               common:date-picker.month.placeholder
             </option>
@@ -880,6 +887,8 @@ exports[`DatePickerField > should render date picker field component with requir
               disabled=""
               hidden=""
               id="date-picker-id-month-option-unselected"
+              selected=""
+              value="-1"
             >
               common:date-picker.month.placeholder
             </option>
