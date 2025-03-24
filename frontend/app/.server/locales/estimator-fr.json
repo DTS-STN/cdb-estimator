@@ -1,51 +1,82 @@
 {
   "age": {
-    "page-title": "Étape 1 de 3\u00A0: Âge",
     "breadcrumb": "Âge",
     "date-of-birth": {
+      "invalid-age": "Vous devez avoir entre 18 et 65 ans.",
+      "invalid-month": "Le mois de naissance est invalide.",
+      "invalid-year": "L'année de naissance est invalide.",
       "label": "Quel est votre mois de naissance?",
       "required-month": "Le mois de naissance est requis.",
-      "invalid-month": "Le mois de naissance est invalide.",
-      "required-year": "L'année de naissance est requise.",
-      "invalid-year": "L'année de naissance est invalide.",
-      "invalid-age": "Vous devez avoir entre 18 et 65 ans."
-    }
+      "required-year": "L'année de naissance est requise."
+    },
+    "page-title": "Étape 1 de 3\u00A0: Âge"
+  },
+  "income": {
+    "breadcrumb": "Revenus",
+    "page-title": "Étape 3 de 3\u00A0: Revenus"
   },
   "marital-status": {
     "additional-info": {
-      "single": "<strong>Célibataire\u00a0:</strong> vous êtes célibataire et aucune des situations ci-dessus ne s'applique à vous",
+      "common-law": {
+        "item1": "elle vit avec vous depuis au moins 12 mois sans interruption. Cela comprend les périodes de moins de 90 jours où vous avez vécu séparément en raison de la rupture de votre union;",
+        "item2": "elle est le parent de votre enfant, par la naissance ou l'adoption;",
+        "item3": "elle a la garde, la surveillance et la charge entière de votre enfant (ou elle en avait la garde et la surveillance juste avant que l'enfant atteigne l'âge de 19 ans).",
+        "text": "<strong>Conjoint de fait\u00a0:</strong> vous vivez en relation conjugale avec une personne avec qui vous n'êtes pas marié et à qui au moins l'une des situations suivantes s'applique\u00a0:"
+      },
       "divorced": "<strong>Divorcé\u00a0:</strong> vous étiez marié et êtes maintenant divorcé légalement",
+      "married": "<strong>Marié\u00a0:</strong> vous êtes légalement marié à quelqu’un.",
       "separated": {
         "p1": "<strong>Séparé\u00a0:</strong> vous vivez séparément de votre époux ou conjoint de fait depuis 90 jours ou plus en raison de la rupture de votre union, et il n'y a pas de réconciliation.",
         "p2": "Lorsque vous êtes séparé depuis 90 jours, la date d'entrée en vigueur de votre séparation est le jour où vous et votre époux ou conjoint de fait avez commencé à vivre séparément. Vous êtes toujours considéré comme ayant un époux ou un conjoint de fait s'il n'y a pas de rupture de votre union et que vous vivez séparément pour des raisons telles que le travail, les études ou des problèmes de santé.",
         "p3": "Remarque\u00a0: Généralement, vous n'êtes pas considéré séparé si votre époux ou conjoint de fait est détenu dans une prison ou ne vit pas au Canada, tant qu'il n'y a pas de rupture de votre union."
       },
-      "widowed": "<strong>Veuf\u00a0:</strong> votre époux ou conjoint de fait est décédé.",
-      "married": "<strong>Marié\u00a0:</strong> vous êtes légalement marié à quelqu’un.",
-      "common-law": {
-        "text": "<strong>Conjoint de fait\u00a0:</strong> vous vivez en relation conjugale avec une personne avec qui vous n'êtes pas marié et à qui au moins l'une des situations suivantes s'applique\u00a0:",
-        "item1": "elle vit avec vous depuis au moins 12 mois sans interruption. Cela comprend les périodes de moins de 90 jours où vous avez vécu séparément en raison de la rupture de votre union;",
-        "item2": "elle est le parent de votre enfant, par la naissance ou l'adoption;",
-        "item3": "elle a la garde, la surveillance et la charge entière de votre enfant (ou elle en avait la garde et la surveillance juste avant que l'enfant atteigne l'âge de 19 ans)."
-      }
+      "single": "<strong>Célibataire\u00a0:</strong> vous êtes célibataire et aucune des situations ci-dessus ne s'applique à vous",
+      "widowed": "<strong>Veuf\u00a0:</strong> votre époux ou conjoint de fait est décédé."
     },
-    "page-title": "Étape 2 de 3\u00A0: État civil",
     "breadcrumb": "État civil",
     "error-message": {
       "marital-status-required": "L'état civil est requis"
     },
     "form-instructions": "Quel est votre état civil?",
+    "page-title": "Étape 2 de 3\u00A0: État civil",
     "radio-options": {
-      "single": "Célibataire, divorcé, séparé ou veuf",
-      "married": "Marié ou conjoint de fait"
+      "married": "Marié ou conjoint de fait",
+      "single": "Célibataire, divorcé, séparé ou veuf"
     }
   },
-  "income": {
-    "page-title": "Étape 3 de 3\u00A0: Revenus",
-    "breadcrumb": "Revenus"
-  },
   "results": {
-    "page-title": "Résultats",
-    "breadcrumb": "Résultats"
+    "breadcrumb": "Résultats",
+    "content": {
+      "next-steps": {
+        "apply-cdb": "Faire une demande des Prestations canadienne pour les personnes handicapées",
+        "header": "Étapes suivantes",
+        "learn-more": "Pour apprendre plus de la Prestation canadienne pour les personnes handicapées"
+      },
+      "your-estimate": {
+        "header": "Votre estimation",
+        "married-common-law": {
+          "cdb-partner-result": "Si vous et votre partenaire recevez tous les deux la Prestation canadienne pour les personnes handicapées, vous pourriez recevoir un montant mensuel de <strong>{{result}}</strong>.",
+          "intro": "Vous pourriez être admissible à recevoir un montant de prestation mensuelle qui dépend du fait que votre partenaire reçoit ou non la Prestation canadienne pour les personnes handicapées.",
+          "non-cdb-partner-result": "Si votre partenaire ne reçoit pas la Prestation canadienne pour les personnes handicapées, vous pourriez recevoir un montant mensuel de <strong>{{result}}</strong>."
+        },
+        "single": {
+          "intro": "Vous pourriez être admissible à recevoir:",
+          "result": "Un montant mensuel de <strong>{{result}}</strong> provenant de la Prestation canadienne pour les personnes handicapées."
+        }
+      }
+    },
+    "disclaimer-alert": "Ce qui suit n'est qu'une estimation basée sur les informations que vous avez fournies.",
+    "form-data-summary": {
+      "edit-aria-labels": {
+        "age": "Modifier votre âge",
+        "marital-status": "Modifier votre état matrimonial"
+      },
+      "field-labels": {
+        "age": "Âge",
+        "marital-status": "État matrimonial"
+      },
+      "title": "Vos renseignements"
+    },
+    "page-title": "Résultats"
   }
 }

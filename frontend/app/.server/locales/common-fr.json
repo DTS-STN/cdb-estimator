@@ -43,6 +43,7 @@
   "dialog": {
     "close": "Fermer"
   },
+  "edit": "Modifier",
   "error-summary": {
     "header_one": "L'erreur suivante a été trouvée dans le formulaire\u00a0:",
     "header_other": "Les {{count}} erreurs suivantes ont été trouvées dans le formulaire\u00a0:"

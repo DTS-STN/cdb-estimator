@@ -1,52 +1,82 @@
 {
   "age": {
-    "page-title": "Step 1 of 3: Age",
     "breadcrumb": "Age",
     "date-of-birth": {
+      "invalid-age": "You must be between 18 and 65.",
+      "invalid-month": "Month of birth is invalid.",
+      "invalid-year": "Year of birth is invalid.",
       "label": "When were you born?",
       "required-month": "Month of birth is required.",
-      "invalid-month": "Month of birth is invalid.",
-      "required-year": "Year of birth is required.",
-      "invalid-year": "Year of birth is invalid.",
-      "invalid-age": "You must be between 18 and 65."
-    }
+      "required-year": "Year of birth is required."
+    },
+    "page-title": "Step 1 of 3: Age"
   },
-
+  "income": {
+    "breadcrumb": "Income",
+    "page-title": "Step 3 of 3: Income"
+  },
   "marital-status": {
     "additional-info": {
-      "single": "<strong>Single:</strong> you are single and another status does not apply",
+      "common-law": {
+        "item1": "have been living with you for at least 12 continuous months. This includes any period you were separated for less than 90 days because of a breakdown in your relationship",
+        "item2": "are the parent of your child by birth or adoption",
+        "item3": "have custody and control of your child (or had custody and control immediately before the child turned 19 years of age) and your child is wholly dependent on that person for support",
+        "text": "<strong>Common-law:</strong> you are living in a conjugal relationship with someone to whom you are not married and to whom at least one of the following situations applies. They:"
+      },
       "divorced": "<strong>Divorced:</strong> you were married and are now legally divorced",
+      "married": "<strong>Married:</strong> you are legally married to someone.",
       "separated": {
         "p1": "<strong>Separated:</strong> you have been living apart from your spouse or common-law partner because of a breakdown in the relationship for a period of at least 90 days and you have not reconciled.",
         "p2": "Once you have been separated for 90 days, the effective day of your separation is the date you started living apart. You would still be considered to have a spouse or common-law partner if there is no breakdown in the relationship and you were living apart for reasons such as work, studies, or health problems.",
         "p3": "Note: Generally, you are not considered separated if your spouse or common-law partner is incarcerated or does not live in Canada, as long as there is no breakdown in your relationship"
       },
-      "widowed": "<strong>Widowed:</strong> your spouse or common-law partner is deceased.",
-      "married": "<strong>Married:</strong> you are legally married to someone.",
-      "common-law": {
-        "text": "<strong>Common-law:</strong> you are living in a conjugal relationship with someone to whom you are not married and to whom at least one of the following situations applies. They:",
-        "item1": "have been living with you for at least 12 continuous months. This includes any period you were separated for less than 90 days because of a breakdown in your relationship",
-        "item2": "are the parent of your child by birth or adoption",
-        "item3": "have custody and control of your child (or had custody and control immediately before the child turned 19 years of age) and your child is wholly dependent on that person for support"
-      }
+      "single": "<strong>Single:</strong> you are single and another status does not apply",
+      "widowed": "<strong>Widowed:</strong> your spouse or common-law partner is deceased."
     },
-    "page-title": "Step 2 of 3: Marital Status",
     "breadcrumb": "Marital Status",
     "error-message": {
       "marital-status-required": "Marital status is required"
     },
     "form-instructions": "What is your marital status?",
+    "page-title": "Step 2 of 3: Marital Status",
     "radio-options": {
-      "single": "Single, divorced, separated or widowed",
-      "married": "Married or common-law"
+      "married": "Married or common-law",
+      "single": "Single, divorced, separated or widowed"
     }
   },
-  "income": {
-    "page-title": "Step 3 of 3: Income",
-    "breadcrumb": "Income"
-  },
   "results": {
-    "page-title": "Results",
-    "breadcrumb": "Results"
+    "breadcrumb": "Results",
+    "content": {
+      "next-steps": {
+        "apply-cdb": "Apply for the Canada Disability Benefit",
+        "header": "Next steps",
+        "learn-more": "Learn more about the Canada Disability Benefit"
+      },
+      "your-estimate": {
+        "header": "Your estimate",
+        "married-common-law": {
+          "cdb-partner-result": "If both you and your partner are receiving the Canada Disability Benefit, you could receive a monthly amount of <strong>{{result}}</strong>.",
+          "intro": "You could be eligible to receive a monthly benefit amount that depends on whether your partner is receiving the Canada Disability Benefit.",
+          "non-cdb-partner-result": "If your partner is not receiving the Canada Disability Benefit, you could receive a monthly amount of <strong>{{result}}</strong>."
+        },
+        "single": {
+          "intro": "You could be eligible to receive:",
+          "result": "A monthly amount of <strong>{{result}}</strong> from the Canada Disability Benefit."
+        }
+      }
+    },
+    "disclaimer-alert": "The following is only an estimate based on the information you provided. Monthly payments are based on current rates.",
+    "form-data-summary": {
+      "edit-aria-labels": {
+        "age": "Edit your age",
+        "marital-status": "Edit your marital status"
+      },
+      "field-labels": {
+        "age": "Age",
+        "marital-status": "Marital status"
+      },
+      "title": "What you told us"
+    },
+    "page-title": "Results"
   }
 }
