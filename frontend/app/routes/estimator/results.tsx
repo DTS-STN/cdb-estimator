@@ -9,7 +9,7 @@ import { ContextualAlert } from '~/components/contextual-alert';
 import { InlineLink } from '~/components/links';
 import { PageTitle } from '~/components/page-title';
 import { getTranslation } from '~/i18n-config.server';
-import { I18nRouteFile } from '~/i18n-routes';
+import type { I18nRouteFile } from '~/i18n-routes';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 import { cn } from '~/utils/tailwind-utils';
 
