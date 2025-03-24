@@ -14,7 +14,7 @@ import { Button } from '~/components/button';
 import { FetcherErrorSummary } from '~/components/error-summary';
 import { InputField } from '~/components/input-field';
 import { PageTitle } from '~/components/page-title';
-import { useLanguage } from '~/hooks/use-language';
+import { useErrorTranslation } from '~/hooks/use-error-translation';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 
@@ -106,7 +106,7 @@ function processIncome(formData: FormData, isMarried: boolean) {
     v.object({
       kind: v.literal('married'),
       ...personIncomeSchema.entries,
-      partner: personIncomeSchema, // Required for 'married'
+      partner: personIncomeSchema,
     }),
   ]) satisfies v.GenericSchema<SingleIncomeForm | MarriedIncomeForm, SingleIncome | MarriedIncome>;
 
@@ -126,30 +126,16 @@ function processIncome(formData: FormData, isMarried: boolean) {
       : undefined,
   } satisfies Partial<MarriedIncomeForm | SingleIncomeForm>;
 
-  console.log(input);
   const parseResult = v.safeParse(incomeFormSchema, input);
   if (!parseResult.success) {
-    console.log(parseResult.issues);
     return { errors: v.flatten<typeof incomeFormSchema>(parseResult.issues) };
   }
   return { output: parseResult.output };
 }
 
-function useResolveError(ns: string, keyPrefix: string) {
-  const { i18n } = useTranslation(handle.i18nNamespace);
-  const { currentLanguage } = useLanguage();
-
-  return (keySuffix?: string) => {
-    if (i18n.exists(`${ns}:${keyPrefix}.${keySuffix}`)) {
-      return i18n.getResource(currentLanguage?.toString() ?? 'en', ns, `${keyPrefix}.${keySuffix}`);
-    }
-    return undefined;
-  };
-}
-
 export default function StepIncome({ actionData, loaderData, matches, params }: Route.ComponentProps) {
   const { t } = useTranslation(handle.i18nNamespace);
-  const errT = useResolveError('estimator', 'income.fields');
+  const errT = useErrorTranslation('estimator', 'income.fields');
   const fetcherKey = useId();
   const fetcher = useFetcher<Info['actionData']>({ key: fetcherKey });
   const errors = fetcher.data?.errors;
