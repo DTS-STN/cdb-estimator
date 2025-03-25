@@ -39,7 +39,7 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
   return (
     <div className="space-y-3">
       <PageTitle subTitle={t('common:application-title')}>{t('estimator:results.page-title')}</PageTitle>
-      
+
       <ContextualAlert type="info" className="my-6">
         <p>{t('estimator:results.disclaimer-alert')}</p>
       </ContextualAlert>
@@ -73,7 +73,7 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
                 />
               </li>
             </ul>
-            
+
             <pre>{JSON.stringify(loaderData.results, null, 2)}</pre>
 
             <h2 className="font-lato mb-4 text-lg font-bold">{t('estimator:results.content.next-steps.header')}</h2>
