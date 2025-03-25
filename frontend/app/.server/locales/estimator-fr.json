@@ -1,13 +1,17 @@
 {
   "age": {
     "breadcrumb": "Âge",
-    "date-of-birth": {
-      "invalid-age": "Vous devez avoir entre 18 et 65 ans.",
-      "invalid-month": "Le mois de naissance est invalide.",
-      "invalid-year": "L'année de naissance est invalide.",
-      "label": "Quel est votre mois de naissance?",
-      "required-month": "Le mois de naissance est requis.",
-      "required-year": "L'année de naissance est requise."
+    "fields": {
+      "date-of-birth": {
+        "error": {
+          "invalid-age": "Vous devez avoir entre 18 et 65 ans.",
+          "invalid-month": "Le mois de naissance est invalide.",
+          "invalid-year": "L'année de naissance est invalide.",
+          "required-month": "Le mois de naissance est requis.",
+          "required-year": "L'année de naissance est requise."
+        },
+        "label": "Quel est votre mois de naissance?"
+      }
     },
     "max-eligible-age-info": "Vous pourriez être admissible jusqu'au mois de votre 65e anniversaire inclusivement.",
     "min-eligible-age-info": "Vous pouvez présenter une demande jusqu'à 6 mois avant votre 18e anniversaire.",
@@ -15,6 +19,99 @@
   },
   "income": {
     "breadcrumb": "Revenus",
+    "fields": {
+      "claimed-income": {
+        "error": {
+          "invalid": "Votre revenue de PUGE et REEI est invalide"
+        },
+        "info-label": "Information",
+        "label": "Votre revenue de PUGE et REEI"
+      },
+      "claimed-repayment": {
+        "error": {
+          "invalid": "Votre remboursement de PUGE et REEI est invalide"
+        },
+        "info-label": "Information",
+        "label": "Votre remboursement de PUGE et REEI"
+      },
+      "net-income": {
+        "error": {
+          "invalid": "Votre revenu net est invalide",
+          "required": "Votre revenu net est requis"
+        },
+        "info-label": "Comment calculer votre revenu net ?",
+        "label": "Votre revenu net"
+      },
+      "partner": {
+        "claimed-income": {
+          "error": {
+            "invalid": "Le revenue de PUGE et REEI de votre partenaire est invalide"
+          },
+          "info-label": "Information",
+          "label": "Le revenue de PUGE et REEI de votre partenaire"
+        },
+        "claimed-repayment": {
+          "error": {
+            "invalid": "Le remboursement de PUGE et REEI de votre partenaire est invalid"
+          },
+          "info-label": "Information",
+          "label": "Le remboursement de PUGE et REEI de votre partenaire"
+        },
+        "net-income": {
+          "error": {
+            "invalid": "Le revenu net de votre partenaire est invalide",
+            "required": "Le revenu net de votre partenaire est requis"
+          },
+          "info-label": "Comment calculer le revenu net de votre cojoint ?",
+          "label": "Le revenu net de votre partenaire"
+        },
+        "working-income": {
+          "error": {
+            "invalid": "Le revenu d’emploi de votre partenaire est invalide",
+            "required": "Le revenu d’emploi de votre partenaire est requis"
+          },
+          "info-label": "Comment calculer le revenu d’emploi de votre partenaire ?",
+          "label": "Le revenu d’emploi de votre partenaire"
+        }
+      },
+      "working-income": {
+        "error": {
+          "invalid": "Votre revenu d’emploi est invalide",
+          "required": "Votre revenu d’emploi est requis"
+        },
+        "info-label": "Comment calculer votre revenu d’emploi ?",
+        "label": "Votre revenu d’emploi"
+      }
+    },
+    "form-instructions": {
+      "married": "Pour estimer vos prestations , nous aurons besoin des renseignements suivants de votre déclaration de revenus de {{year}} et de la déclaration de revenus de {{year}} de votre partenaire.",
+      "single": "Pour estimer vos prestations , nous aurons besoin des renseignements suivants de votre déclaration de revenus de {{year}}. "
+    },
+    "info": {
+      "CDB": "<strong>PCPH :</strong> Prestation canadienne des personnes handicapées",
+      "claimed-income": "Revenu que vous avez demandé (ligne 11700 et ligne 12500 de votre déclaration de revenus). Si le champ est laisse vide, nous supposerons qu’il est égal à zéro.",
+      "claimed-repayment": "Remboursement que vous avez demandé (ligne 21300 et ligne 23200 de votre déclaration de revenus). Si le champ est laisse vide, nous supposerons qu’il est égal à zéro.",
+      "net-income": "Ligne 23600 de votre déclaration. Si votre revenu net est négatif, entrez ‘0’",
+      "partner-claimed-income": "Revenu que votre conjoint a demandé (ligne 11700 et ligne 12500 de leur déclaration de revenus). Si le champ est laisse vide, nous supposerons qu’il est égal à zéro.",
+      "partner-claimed-repayment": "Remboursement que votre conjoint a demandé (ligne 21300 et ligne 23200 de leur déclaration de revenus). Si le champ est laisse vide, nous supposerons qu’il est égal à zéro.",
+      "partner-net-income": "Ligne 23600 de la déclaration de votre conjoint.",
+      "RDSP": "<strong>REEI :</strong> Revenus d’un régime enregistré d’épargne-invalidité",
+      "UCCB": "<strong>PUGE :</strong> Prestation universelle pour la garde d’enfants",
+      "working-income": {
+        "items": [
+          "Revenus d’emploi (linge 10100)",
+          "Autres revenus d’emploi (ligne 10400)",
+          "Montant imposable des bourses d’études, de perfectionnement et d’entretien, et des subventions reçues par des artistes pour un projet (ligne 13010)",
+          "Revenus d’entreprise (entrez 0 si le montant et négatif) (ligne 13500)",
+          "Revenus de profession libérale (entrez 0 si le montant et négatif) (ligne 13700)",
+          "Revenus de commissions (entrez 0 si le montant et négatif) (ligne 13900)",
+          "Revenus d’agriculture (entrez 0 si le montant et négatif) (ligne 14100)",
+          "Revenus de pêche (entrez 0 si le montant et négatif) (ligne 14300)"
+        ],
+        "text1": "Pour déterminer votre revenu de travail, additionnez tous les types de revenus suivants :",
+        "text2": "Si votre revenu de travail est négatif, entrez ‘0’."
+      }
+    },
     "page-title": "Étape 3 de 3\u00A0: Revenus"
   },
   "marital-status": {
@@ -36,15 +133,19 @@
       "widowed": "<strong>Veuf\u00a0:</strong> votre époux ou conjoint de fait est décédé."
     },
     "breadcrumb": "État civil",
-    "error-message": {
-      "marital-status-required": "L'état civil est requis"
+    "fields": {
+      "status": {
+        "error": {
+          "required": "L'état civil est requis"
+        },
+        "label": "Quel est votre état civil?",
+        "options": {
+          "married": "Marié ou conjoint de fait",
+          "single": "Célibataire, divorcé, séparé ou veuf"
+        }
+      }
     },
-    "form-instructions": "Quel est votre état civil?",
-    "page-title": "Étape 2 de 3\u00A0: État civil",
-    "radio-options": {
-      "married": "Marié ou conjoint de fait",
-      "single": "Célibataire, divorcé, séparé ou veuf"
-    }
+    "page-title": "Étape 2 de 3\u00A0: État civil"
   },
   "results": {
     "breadcrumb": "Résultats",
