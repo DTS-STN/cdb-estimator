@@ -1,6 +1,9 @@
 import type { ComponentProps } from 'react';
+import { useEffect } from 'react';
 
 import { useLocation, useParams } from 'react-router';
+
+import { useTranslation } from 'react-i18next';
 
 import { InlineLink } from '~/components/links';
 import { useLanguage } from '~/hooks/use-language';
@@ -13,10 +16,21 @@ type LanguageSwitcherProps = OmitStrict<
 >;
 
 export function LanguageSwitcher({ className, children, ...props }: LanguageSwitcherProps) {
-  const { altLanguage } = useLanguage();
+  const { altLanguage, currentLanguage } = useLanguage();
+  const { i18n } = useTranslation();
   const { search } = useLocation();
   const { file } = useRoute();
   const params = useParams();
+
+  // Match the i18n language to the current route language
+  useEffect(() => {
+    const changeLanguage = async () => {
+      if (currentLanguage && i18n.language !== currentLanguage) {
+        await i18n.changeLanguage(currentLanguage);
+      }
+    };
+    void changeLanguage();
+  }, [currentLanguage, i18n]);
 
   return (
     <InlineLink
@@ -24,7 +38,7 @@ export function LanguageSwitcher({ className, children, ...props }: LanguageSwit
       file={file as I18nRouteFile}
       lang={altLanguage}
       params={params}
-      reloadDocument={true}
+      reloadDocument={false}
       search={search}
       {...props}
     >
