@@ -1,5 +1,6 @@
 import type { RouteHandle } from 'react-router';
 
+import type { i18n } from 'i18next';
 import { Trans, useTranslation } from 'react-i18next';
 
 import type { Route } from './+types/results';
@@ -34,17 +35,15 @@ export function meta({ data }: Route.MetaArgs) {
 
 export async function action({ context, request }: Route.ActionArgs) {}
 
-function formatCurrency(number: number) {
-  const { i18n, t } = useTranslation(handle.i18nNamespace);
-  console.log(i18n.language);
-  return number.toLocaleString(i18n.language === 'fr' ? 'fr-CA' : 'en-CA', {
+function formatCurrency(number: number, internationalization: i18n) {
+  return number.toLocaleString(internationalization.language === 'fr' ? 'fr-CA' : 'en-CA', {
     style: 'currency',
     currency: 'CAD',
   });
 }
 
 export default function Results({ actionData, loaderData, matches, params }: Route.ComponentProps) {
-  const { i18n, t } = useTranslation(handle.i18nNamespace);
+  const { t, i18n } = useTranslation(handle.i18nNamespace);
 
   // format input values
   let age = undefined;
@@ -69,24 +68,24 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
     : undefined;
 
   if (loaderData.results?.income) {
-    netIncome = formatCurrency(loaderData.results.income.netIncome);
-    workingIncome = formatCurrency(loaderData.results.income.workingIncome);
+    netIncome = formatCurrency(loaderData.results.income.netIncome, i18n);
+    workingIncome = formatCurrency(loaderData.results.income.workingIncome, i18n);
     claimedIncome = loaderData.results.income.claimedIncome
-      ? formatCurrency(loaderData.results.income.claimedIncome)
+      ? formatCurrency(loaderData.results.income.claimedIncome, i18n)
       : undefined;
     claimedRepayment = loaderData.results.income.claimedRepayment
-      ? formatCurrency(loaderData.results.income.claimedRepayment)
+      ? formatCurrency(loaderData.results.income.claimedRepayment, i18n)
       : undefined;
   }
 
   if (loaderData.results?.income?.kind === 'married') {
-    partnerNetIncome = formatCurrency(loaderData.results.income.partner.netIncome);
-    partnerWorkingIncome = formatCurrency(loaderData.results.income.partner.workingIncome);
+    partnerNetIncome = formatCurrency(loaderData.results.income.partner.netIncome, i18n);
+    partnerWorkingIncome = formatCurrency(loaderData.results.income.partner.workingIncome, i18n);
     partnerClaimedIncome = loaderData.results.income.partner.claimedIncome
-      ? formatCurrency(loaderData.results.income.partner.claimedIncome)
+      ? formatCurrency(loaderData.results.income.partner.claimedIncome, i18n)
       : undefined;
     partnerClaimedRepayment = loaderData.results.income.partner.claimedRepayment
-      ? formatCurrency(loaderData.results.income.partner.claimedRepayment)
+      ? formatCurrency(loaderData.results.income.partner.claimedRepayment, i18n)
       : undefined;
   }
 
