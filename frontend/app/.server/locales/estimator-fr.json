@@ -149,6 +149,37 @@
   },
   "results": {
     "breadcrumb": "Résultats",
+    "content": {
+      "next-steps": {
+        "apply-cdb": "Faire une demande des Prestations canadienne pour les personnes handicapées",
+        "header": "Étapes suivantes",
+        "learn-more": "Pour apprendre plus de la Prestation canadienne pour les personnes handicapées"
+      },
+      "your-estimate": {
+        "header": "Votre estimation",
+        "married-common-law": {
+          "cdb-partner-result": "Si vous et votre partenaire recevez tous les deux la Prestation canadienne pour les personnes handicapées, vous pourriez recevoir un montant mensuel de <strong>{{result}}</strong>.",
+          "intro": "Vous pourriez être admissible à recevoir un montant de prestation mensuelle qui dépend du fait que votre partenaire reçoit ou non la Prestation canadienne pour les personnes handicapées.",
+          "non-cdb-partner-result": "Si votre partenaire ne reçoit pas la Prestation canadienne pour les personnes handicapées, vous pourriez recevoir un montant mensuel de <strong>{{result}}</strong>."
+        },
+        "single": {
+          "intro": "Vous pourriez être admissible à recevoir:",
+          "result": "Un montant mensuel de <strong>{{result}}</strong> provenant de la Prestation canadienne pour les personnes handicapées."
+        }
+      }
+    },
+    "disclaimer-alert": "Ce qui suit n'est qu'une estimation basée sur les informations que vous avez fournies.",
+    "form-data-summary": {
+      "edit-aria-labels": {
+        "age": "Modifier votre âge",
+        "marital-status": "Modifier votre état matrimonial"
+      },
+      "field-labels": {
+        "age": "Âge",
+        "marital-status": "État matrimonial"
+      },
+      "title": "Vos renseignements"
+    },
     "page-title": "Résultats"
   }
 }
