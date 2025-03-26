@@ -128,11 +128,13 @@ export const AgePickerField = ({
   })();
 
   const handleMonthChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    setMonth(parseInt(event.target.value));
+    const parsedValue = Number(event.target.value);
+    setMonth(isNaN(parsedValue) ? undefined : parsedValue);
   };
 
   const handleYearChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setYear(parseInt(event.target.value));
+    const parsedValue = Number(event.target.value);
+    setYear(isNaN(parsedValue) ? undefined : parsedValue);
   };
 
   // Define age picker part fields
