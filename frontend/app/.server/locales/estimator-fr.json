@@ -22,10 +22,10 @@
     "fields": {
       "claimed-income": {
         "error": {
-          "invalid": "Votre revenue de PUGE et REEI est invalide"
+          "invalid": "Votre revenu de PUGE et REEI est invalide"
         },
         "info-label": "Information",
-        "label": "Votre revenue de PUGE et REEI"
+        "label": "Votre revenu de PUGE et REEI"
       },
       "claimed-repayment": {
         "error": {
@@ -45,10 +45,10 @@
       "partner": {
         "claimed-income": {
           "error": {
-            "invalid": "Le revenue de PUGE et REEI de votre partenaire est invalide"
+            "invalid": "Le revenu de PUGE et REEI de votre partenaire est invalide"
           },
           "info-label": "Information",
-          "label": "Le revenue de PUGE et REEI de votre partenaire"
+          "label": "Le revenu de PUGE et REEI de votre partenaire"
         },
         "claimed-repayment": {
           "error": {
@@ -172,11 +172,33 @@
     "form-data-summary": {
       "edit-aria-labels": {
         "age": "Modifier votre âge",
-        "marital-status": "Modifier votre état matrimonial"
+        "marital-status": "Modifier votre état matrimonial",
+        "net-income": "Modifier votre revenu net",
+        "partner-net-income": "Modifier le revenu net de votre partenaire",
+        "partner-working-income": "Modifier le revenu d’emploi de votre partenaire",
+        "partner-uccb-rdsp-income": "Modifier le revenu de PUGE et REEI de votre partenaire",
+        "partner-uccb-rdsp-repayment": "Modifier le remboursement de PUGE et REEI de votre partenaire",
+        "working-income": "Modifier votre revenu d’emploi",
+        "uccb-rdsp-income": "Modifier votre revenu de PUGE et REEI",
+        "uccb-rdsp-repayment": "Modifier votre remboursement de PUGE et REEI"
+      },
+      "enum-display": {
+        "marital-status": {
+          "married-or-common-law": "Marié ou conjoint de fait",
+          "single-divorced-separated-or-widowed": "Célibataire, divorcé, séparé ou veuf"
+        }
       },
       "field-labels": {
         "age": "Âge",
-        "marital-status": "État matrimonial"
+        "marital-status": "État matrimonial",
+        "net-income": "Votre revenu net",
+        "partner-net-income": "Le revenu net de votre partenaire",
+        "partner-working-income": "Le revenu d’emploi de votre partenaire",
+        "partner-uccb-rdsp-income": "Le revenu de PUGE et REEI de votre partenaire",
+        "partner-uccb-rdsp-repayment": "Le remboursement de PUGE et REEI de votre partenaire",
+        "working-income": "Votre revenu d’emploi",
+        "uccb-rdsp-income": "Votre revenu de PUGE et REEI",
+        "uccb-rdsp-repayment": "Votre remboursement de PUGE et REEI"
       },
       "title": "Vos renseignements"
     },
