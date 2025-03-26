@@ -151,84 +151,86 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
             </div>
           </section>
           <section className="col-span-1 row-span-2 space-y-4">
-            <div className="mt-8 mb-8 rounded bg-stone-100 sm:p-8 md:mt-0 md:max-w-[360px]">
+            <div className="my-8 rounded bg-stone-100 p-5 md:mt-0 md:max-w-[360px]">
               <h3 className="font-lato text-xl font-bold">{t('estimator:results.form-data-summary.title')}</h3>
 
-              {InfoBlock(
-                t('estimator:results.form-data-summary.field-labels.age'),
-                t('estimator:results.form-data-summary.edit-aria-labels.age'),
-                'routes/estimator/step-age.tsx',
-                formattedResults.age,
-                false,
-              )}
-              {InfoBlock(
-                t('estimator:results.form-data-summary.field-labels.marital-status'),
-                t('estimator:results.form-data-summary.edit-aria-labels.marital-status'),
-                'routes/estimator/step-marital-status.tsx',
-                formattedResults.maritalStatus,
-                true,
-              )}
-              {InfoBlock(
-                t('estimator:results.form-data-summary.field-labels.net-income'),
-                t('estimator:results.form-data-summary.edit-aria-labels.net-income'),
-                'routes/estimator/step-income.tsx',
-                formattedResults.income.netIncome,
-                true,
-              )}
-              {InfoBlock(
-                t('estimator:results.form-data-summary.field-labels.working-income'),
-                t('estimator:results.form-data-summary.edit-aria-labels.working-income'),
-                'routes/estimator/step-income.tsx',
-                formattedResults.income.workingIncome,
-                true,
-              )}
-              {InfoBlock(
-                t('estimator:results.form-data-summary.field-labels.uccb-rdsp-income'),
-                t('estimator:results.form-data-summary.edit-aria-labels.uccb-rdsp-income'),
-                'routes/estimator/step-income.tsx',
-                formattedResults.income.claimedIncome ?? '-',
-                true,
-              )}
-              {InfoBlock(
-                t('estimator:results.form-data-summary.field-labels.uccb-rdsp-repayment'),
-                t('estimator:results.form-data-summary.edit-aria-labels.uccb-rdsp-repayment'),
-                'routes/estimator/step-income.tsx',
-                formattedResults.income.claimedRepayment ?? '-',
-                true,
-              )}
+              <div className="space-y-4">
+                {InfoBlock(
+                  t('estimator:results.form-data-summary.field-labels.age'),
+                  t('estimator:results.form-data-summary.edit-aria-labels.age'),
+                  'routes/estimator/step-age.tsx',
+                  formattedResults.age,
+                  false,
+                )}
+                {InfoBlock(
+                  t('estimator:results.form-data-summary.field-labels.marital-status'),
+                  t('estimator:results.form-data-summary.edit-aria-labels.marital-status'),
+                  'routes/estimator/step-marital-status.tsx',
+                  formattedResults.maritalStatus,
+                  true,
+                )}
+                {InfoBlock(
+                  t('estimator:results.form-data-summary.field-labels.net-income'),
+                  t('estimator:results.form-data-summary.edit-aria-labels.net-income'),
+                  'routes/estimator/step-income.tsx',
+                  formattedResults.income.netIncome,
+                  true,
+                )}
+                {InfoBlock(
+                  t('estimator:results.form-data-summary.field-labels.working-income'),
+                  t('estimator:results.form-data-summary.edit-aria-labels.working-income'),
+                  'routes/estimator/step-income.tsx',
+                  formattedResults.income.workingIncome,
+                  true,
+                )}
+                {InfoBlock(
+                  t('estimator:results.form-data-summary.field-labels.uccb-rdsp-income'),
+                  t('estimator:results.form-data-summary.edit-aria-labels.uccb-rdsp-income'),
+                  'routes/estimator/step-income.tsx',
+                  formattedResults.income.claimedIncome ?? '-',
+                  true,
+                )}
+                {InfoBlock(
+                  t('estimator:results.form-data-summary.field-labels.uccb-rdsp-repayment'),
+                  t('estimator:results.form-data-summary.edit-aria-labels.uccb-rdsp-repayment'),
+                  'routes/estimator/step-income.tsx',
+                  formattedResults.income.claimedRepayment ?? '-',
+                  true,
+                )}
 
-              {formattedResults.income.kind === 'married' && (
-                <>
-                  {InfoBlock(
-                    t('estimator:results.form-data-summary.field-labels.partner-net-income'),
-                    t('estimator:results.form-data-summary.edit-aria-labels.partner-net-income'),
-                    'routes/estimator/step-income.tsx',
-                    formattedResults.income.partner.netIncome,
-                    true,
-                  )}
-                  {InfoBlock(
-                    t('estimator:results.form-data-summary.field-labels.partner-working-income'),
-                    t('estimator:results.form-data-summary.edit-aria-labels.partner-working-income'),
-                    'routes/estimator/step-income.tsx',
-                    formattedResults.income.partner.workingIncome,
-                    true,
-                  )}
-                  {InfoBlock(
-                    t('estimator:results.form-data-summary.field-labels.partner-uccb-rdsp-income'),
-                    t('estimator:results.form-data-summary.edit-aria-labels.partner-uccb-rdsp-income'),
-                    'routes/estimator/step-income.tsx',
-                    formattedResults.income.partner.claimedIncome ?? '-',
-                    true,
-                  )}
-                  {InfoBlock(
-                    t('estimator:results.form-data-summary.field-labels.partner-uccb-rdsp-repayment'),
-                    t('estimator:results.form-data-summary.edit-aria-labels.partner-uccb-rdsp-repayment'),
-                    'routes/estimator/step-income.tsx',
-                    formattedResults.income.partner.claimedRepayment ?? '-',
-                    true,
-                  )}
-                </>
-              )}
+                {formattedResults.income.kind === 'married' && (
+                  <>
+                    {InfoBlock(
+                      t('estimator:results.form-data-summary.field-labels.partner-net-income'),
+                      t('estimator:results.form-data-summary.edit-aria-labels.partner-net-income'),
+                      'routes/estimator/step-income.tsx',
+                      formattedResults.income.partner.netIncome,
+                      true,
+                    )}
+                    {InfoBlock(
+                      t('estimator:results.form-data-summary.field-labels.partner-working-income'),
+                      t('estimator:results.form-data-summary.edit-aria-labels.partner-working-income'),
+                      'routes/estimator/step-income.tsx',
+                      formattedResults.income.partner.workingIncome,
+                      true,
+                    )}
+                    {InfoBlock(
+                      t('estimator:results.form-data-summary.field-labels.partner-uccb-rdsp-income'),
+                      t('estimator:results.form-data-summary.edit-aria-labels.partner-uccb-rdsp-income'),
+                      'routes/estimator/step-income.tsx',
+                      formattedResults.income.partner.claimedIncome ?? '-',
+                      true,
+                    )}
+                    {InfoBlock(
+                      t('estimator:results.form-data-summary.field-labels.partner-uccb-rdsp-repayment'),
+                      t('estimator:results.form-data-summary.edit-aria-labels.partner-uccb-rdsp-repayment'),
+                      'routes/estimator/step-income.tsx',
+                      formattedResults.income.partner.claimedRepayment ?? '-',
+                      true,
+                    )}
+                  </>
+                )}
+              </div>
             </div>
           </section>
         </div>
@@ -241,7 +243,7 @@ function InfoBlock(title: string, editAriaLabel: string, editRoute: I18nRouteFil
   const { t } = useTranslation(handle.i18nNamespace);
 
   return (
-    <div className={cn('py-4', showBorder ? 'border-t border-stone-600' : '')}>
+    <div className={showBorder ? 'border-t border-stone-600' : ''}>
       <div>{title}</div>
       <div className="grid grid-cols-3 gap-0">
         <div className="col-span-2">
