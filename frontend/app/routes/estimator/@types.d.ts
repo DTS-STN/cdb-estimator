@@ -58,6 +58,26 @@ export interface PersonIncome {
   claimedRepayment?: number;
 }
 
+export type FormattedCDBEstimator = {
+  age: string;
+  maritalStatus: string;
+  income: FormattedSingleIncome | FormattedMarriedIncome;
+};
+export interface FormattedPersonIncome {
+  netIncome: string;
+  workingIncome: string;
+  claimedIncome?: string;
+  claimedRepayment?: string;
+}
+
+export interface FormattedSingleIncome extends FormattedPersonIncome {
+  kind: 'single';
+}
+export interface FormattedMarriedIncome extends FormattedPersonIncome {
+  kind: 'married';
+  partner: FormattedPersonIncome;
+}
+
 declare module 'express-session' {
   interface SessionData {
     estimator: Partial<CDBEstimator>;
