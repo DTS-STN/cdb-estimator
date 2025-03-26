@@ -16,12 +16,15 @@ import type { I18nRouteFile } from '~/i18n-routes';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 import { calculateAge } from '~/utils/age-utils';
 
+import { estimatorStepGate } from '~/utils/state-utils';
+
 export const handle = {
   breadcrumbs: [...parentHandle.breadcrumbs, { labelKey: 'estimator:results.breadcrumb' }],
   i18nNamespace: [...parentHandle.i18nNamespace],
 } as const satisfies RouteHandle;
 
 export async function loader({ context, params, request }: Route.LoaderArgs) {
+  estimatorStepGate(context.session.estimator, 'routes/estimator/results.tsx', request);
   const { t } = await getTranslation(request, handle.i18nNamespace);
 
   if (context.session.estimator === undefined) {

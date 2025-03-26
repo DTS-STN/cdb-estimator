@@ -18,6 +18,7 @@ import { PageTitle } from '~/components/page-title';
 import { useErrorTranslation } from '~/hooks/use-error-translation';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/estimator/layout';
+import { estimatorStepGate } from '~/utils/state-utils';
 
 export const handle = {
   breadcrumbs: [...parentHandle.breadcrumbs, { labelKey: 'estimator:income.breadcrumb' }],
@@ -25,8 +26,9 @@ export const handle = {
 } as const satisfies RouteHandle;
 
 export async function loader({ context, params, request }: Route.LoaderArgs) {
+  estimatorStepGate(context.session.estimator, 'routes/estimator/step-income.tsx', request);
   const { t } = await getTranslation(request, handle.i18nNamespace);
-  //TODO: validate current overall state, redirect accordingly
+
   return {
     documentTitle: t('estimator:income.page-title'),
     defaultFormValues: context.session.estimator?.income,

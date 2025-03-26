@@ -19,6 +19,7 @@ import { PageTitle } from '~/components/page-title';
 import { useErrorTranslation } from '~/hooks/use-error-translation';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/estimator/layout';
+import { estimatorStepGate } from '~/utils/state-utils';
 
 export const handle = {
   breadcrumbs: [...parentHandle.breadcrumbs, { labelKey: 'estimator:marital-status.breadcrumb' }],
@@ -26,8 +27,9 @@ export const handle = {
 } as const satisfies RouteHandle;
 
 export async function loader({ context, params, request }: Route.LoaderArgs) {
+  estimatorStepGate(context.session.estimator, 'routes/estimator/step-marital-status.tsx', request);
   const { t } = await getTranslation(request, handle.i18nNamespace);
-  //TODO: validate current overall state, redirect accordingly
+
   return {
     documentTitle: t('estimator:marital-status.page-title'),
     defaultFormValues: context.session.estimator?.maritalStatus,
@@ -63,7 +65,11 @@ export async function action({ context, request }: Route.ActionArgs) {
         return data({ errors: v.flatten<typeof martialSatusSchema>(parseResult.issues) }, { status: 400 });
       }
 
-      (context.session.estimator ??= {}).maritalStatus = parseResult.output;
+      if ((context.session.estimator ??= {}).maritalStatus !== parseResult.output) {
+        (context.session.estimator ??= {}).maritalStatus = parseResult.output;
+        //clear income data because marital status has changed (there is a dependency betwen the maritalStatus choice and the income schema)
+        (context.session.estimator ??= {}).income = undefined;
+      }
 
       throw i18nRedirect('routes/estimator/step-income.tsx', request);
     }
