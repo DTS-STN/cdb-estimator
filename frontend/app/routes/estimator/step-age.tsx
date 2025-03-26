@@ -19,6 +19,7 @@ import { useErrorTranslation } from '~/hooks/use-error-translation';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 import { calculateAge } from '~/utils/age-utils';
+import { estimatorStepGate } from '~/utils/state-utils';
 
 export const handle = {
   breadcrumbs: [...parentHandle.breadcrumbs, { labelKey: 'estimator:age.breadcrumb' }],
@@ -26,6 +27,7 @@ export const handle = {
 } as const satisfies RouteHandle;
 
 export async function loader({ context, params, request }: Route.LoaderArgs) {
+  estimatorStepGate(context.session.estimator, 'routes/estimator/step-age.tsx', request);
   const { t } = await getTranslation(request, handle.i18nNamespace);
 
   return {
