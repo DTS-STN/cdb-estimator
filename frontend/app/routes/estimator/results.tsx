@@ -15,7 +15,6 @@ import { getTranslation } from '~/i18n-config.server';
 import type { I18nRouteFile } from '~/i18n-routes';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 import { calculateAge } from '~/utils/age-utils';
-
 import { estimatorStepGate } from '~/utils/state-utils';
 
 export const handle = {
