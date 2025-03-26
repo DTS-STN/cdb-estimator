@@ -16,7 +16,7 @@ type LanguageSwitcherProps = OmitStrict<
 
 export function LanguageSwitcher({ className, children, ...props }: LanguageSwitcherProps) {
   const { altLanguage } = useLanguage();
-  const { i18n } = useTranslation();
+  const { i18n } = useTranslation(['common']);
   const { search } = useLocation();
   const { file } = useRoute();
   const params = useParams();
