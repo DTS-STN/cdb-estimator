@@ -1,10 +1,13 @@
+import { data } from 'react-router';
 import type { RouteHandle } from 'react-router';
 
 import type { i18n } from 'i18next';
 import { Trans, useTranslation } from 'react-i18next';
+import * as v from 'valibot';
 
 import type { Route } from './+types/results';
-import type { CDBEstimator, FormattedCDBEstimator } from './@types';
+import type { CDBEstimator, FormattedCDBEstimator, FormattedMarriedIncome, FormattedSingleIncome } from './@types';
+import { validMaritalStatuses } from './types';
 
 import { i18nRedirect } from '~/.server/utils/route-utils';
 import { ButtonLink } from '~/components/button-link';
@@ -52,44 +55,67 @@ function formatCurrency(number: number, internationalization: i18n) {
 export default function Results({ actionData, loaderData, matches, params }: Route.ComponentProps) {
   const { t, i18n } = useTranslation(handle.i18nNamespace);
 
-  const formattedResults: FormattedCDBEstimator = {
-    age: calculateAge(loaderData.results.dateOfBirth.month, loaderData.results.dateOfBirth.year).toString(),
-    maritalStatus: t(`estimator:results.form-data-summary.enum-display.marital-status.${loaderData.results.maritalStatus}`),
-    income:
-      loaderData.results.income.kind === 'single'
-        ? {
-            kind: 'single',
-            netIncome: formatCurrency(loaderData.results.income.netIncome, i18n),
-            workingIncome: formatCurrency(loaderData.results.income.workingIncome, i18n),
-            claimedIncome: loaderData.results.income.claimedIncome
-              ? formatCurrency(loaderData.results.income.claimedIncome, i18n)
+  const formattedPersonIncomeSchema = v.object({
+    netIncome: v.number(),
+    workingIncome: v.number(),
+    claimedIncome: v.optional(v.number()),
+    claimedRepayment: v.optional(v.number()),
+  });
+
+  const formattedResultsSchema = v.pipe(
+    v.object({
+      dateOfBirth: v.object({
+        month: v.number(),
+        year: v.number(),
+      }),
+
+      maritalStatus: v.picklist(validMaritalStatuses),
+      income: v.variant('kind', [
+        v.object({
+          kind: v.literal('single'),
+          ...formattedPersonIncomeSchema.entries,
+        }),
+        v.object({
+          kind: v.literal('married'),
+          ...formattedPersonIncomeSchema.entries,
+          partner: formattedPersonIncomeSchema,
+        }),
+      ]),
+    }),
+    v.transform((input) => {
+      return {
+        age: calculateAge(input.dateOfBirth.month, input.dateOfBirth.year).toString(),
+        maritalStatus: t(`estimator:results.form-data-summary.enum-display.marital-status.${input.maritalStatus}`),
+        income: {
+          kind: input.income.kind,
+          netIncome: formatCurrency(input.income.netIncome, i18n),
+          workingIncome: formatCurrency(input.income.workingIncome, i18n),
+          claimedIncome: input.income.claimedIncome ? formatCurrency(input.income.claimedIncome, i18n) : undefined,
+          claimedRepayment: input.income.claimedRepayment ? formatCurrency(input.income.claimedRepayment, i18n) : undefined,
+          partner:
+            input.income.kind === 'married'
+              ? {
+                  netIncome: formatCurrency(input.income.partner.netIncome, i18n),
+                  workingIncome: formatCurrency(input.income.partner.workingIncome, i18n),
+                  claimedIncome: input.income.partner.claimedIncome
+                    ? formatCurrency(input.income.partner.claimedIncome, i18n)
+                    : undefined,
+                  claimedRepayment: input.income.partner.claimedRepayment
+                    ? formatCurrency(input.income.partner.claimedRepayment, i18n)
+                    : undefined,
+                }
               : undefined,
-            claimedRepayment: loaderData.results.income.claimedRepayment
-              ? formatCurrency(loaderData.results.income.claimedRepayment, i18n)
-              : undefined,
-          }
-        : {
-            kind: 'married',
-            netIncome: formatCurrency(loaderData.results.income.netIncome, i18n),
-            workingIncome: formatCurrency(loaderData.results.income.workingIncome, i18n),
-            claimedIncome: loaderData.results.income.claimedIncome
-              ? formatCurrency(loaderData.results.income.claimedIncome, i18n)
-              : undefined,
-            claimedRepayment: loaderData.results.income.claimedRepayment
-              ? formatCurrency(loaderData.results.income.claimedRepayment, i18n)
-              : undefined,
-            partner: {
-              netIncome: formatCurrency(loaderData.results.income.partner.netIncome, i18n),
-              workingIncome: formatCurrency(loaderData.results.income.partner.workingIncome, i18n),
-              claimedIncome: loaderData.results.income.partner.claimedIncome
-                ? formatCurrency(loaderData.results.income.partner.claimedIncome, i18n)
-                : undefined,
-              claimedRepayment: loaderData.results.income.partner.claimedRepayment
-                ? formatCurrency(loaderData.results.income.partner.claimedRepayment, i18n)
-                : undefined,
-            },
-          },
-  };
+        } as FormattedMarriedIncome | FormattedSingleIncome,
+      };
+    }),
+  ) satisfies v.GenericSchema<CDBEstimator, FormattedCDBEstimator>;
+
+  const parsedResults = v.safeParse(formattedResultsSchema, loaderData.results);
+  if (!parsedResults.success) {
+    return data({ errors: v.flatten<typeof formattedResultsSchema>(parsedResults.issues) }, { status: 500 });
+  }
+
+  const formattedResults = parsedResults.output;
 
   return (
     <div className="space-y-3">

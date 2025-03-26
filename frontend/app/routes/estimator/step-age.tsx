@@ -3,7 +3,6 @@ import { useId } from 'react';
 import { data, useFetcher } from 'react-router';
 import type { RouteHandle } from 'react-router';
 
-//import type { SessionData } from 'express-session';
 import { useTranslation } from 'react-i18next';
 import * as v from 'valibot';
 
