@@ -64,12 +64,13 @@ export async function action({ context, request }: Route.ActionArgs) {
 }
 
 function processIncome(formData: FormData, isMarried: boolean) {
+  const positiveDecimal = new RegExp(/^\d*(\.\d\d?)?$/);
   // Base schema for PersonIncome fields
   const personIncomeSchema = v.object({
     netIncome: v.pipe(
       v.string('net-income.error.required'),
       v.nonEmpty('net-income.error.required'),
-      v.regex(/^\d*$/, 'net-income.error.invalid'),
+      v.regex(positiveDecimal, 'net-income.error.invalid'),
       v.transform(Number),
       v.number('net-income.error.invalid'),
       v.minValue(0, 'net-income.error.invalid'),
@@ -77,21 +78,21 @@ function processIncome(formData: FormData, isMarried: boolean) {
     workingIncome: v.pipe(
       v.string('working-income.error.required'),
       v.nonEmpty('working-income.error.required'),
-      v.regex(/^\d*$/, 'working-income.error.invalid'),
+      v.regex(positiveDecimal, 'working-income.error.invalid'),
       v.transform(Number),
       v.number('working-income.error.invalid'),
       v.minValue(0, 'working-income.error.invalid'),
     ),
     claimedIncome: v.pipe(
       v.optional(v.string(), '0'),
-      v.regex(/^\d*$/, 'claimed-income.error.invalid'),
+      v.regex(positiveDecimal, 'claimed-income.error.invalid'),
       v.transform(Number),
       v.number('claimed-income.error.invalid'),
       v.minValue(0, 'claimed-income.error.invalid'),
     ),
     claimedRepayment: v.pipe(
       v.optional(v.string(), '0'),
-      v.regex(/^\d*$/, 'claimed-repayment.error.invalid'),
+      v.regex(positiveDecimal, 'claimed-repayment.error.invalid'),
       v.transform(Number),
       v.number('claimed-repayment.error.invalid'),
       v.minValue(0, 'claimed-repayment.error.invalid'),
