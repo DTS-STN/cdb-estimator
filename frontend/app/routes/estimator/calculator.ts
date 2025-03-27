@@ -1,4 +1,4 @@
-import { CDBEstimator, PersonIncome } from './@types';
+import type { CDBEstimator, PersonIncome } from './@types';
 
 export function calculateEstimation(data: CDBEstimator, partnerReceivesCDB: boolean) {
   const INDEXING_FACTOR = 1; // A : Indexing factor
