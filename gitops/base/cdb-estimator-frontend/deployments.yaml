@@ -17,7 +17,7 @@ spec:
         - name: cdb-estimator-frontend
           # Note: image tag should be pinned to a specific version in overlays
           # TODO: Update this to DSHP repository.
-          image: dtsrhpdevscedacr.azurecr.io/cdb-estimator/cdb-estimator-frontend:latest
+          image: dtsrhpdevscedacr.azurecr.io/canada-disability-benefit/cdb-estimator-frontend:latest
           envFrom:
             - configMapRef:
                 name: cdb-estimator-frontend
