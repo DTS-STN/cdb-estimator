@@ -81,8 +81,8 @@ export default function App({ loaderData, matches, params }: Route.ComponentProp
         <Links />
         {adobeAnalytics.isEnabled() && (
           <>
-            <script src={ADOBE_ANALYTICS_JQUERY_SRC} suppressHydrationWarning nonce={loaderData.nonce} />
-            <script src={ADOBE_ANALYTICS_SRC} suppressHydrationWarning nonce={loaderData.nonce} />
+            <script src={ADOBE_ANALYTICS_JQUERY_SRC} nonce={loaderData.nonce} />
+            <script src={ADOBE_ANALYTICS_SRC} nonce={loaderData.nonce} />
           </>
         )}
       </head>
@@ -90,11 +90,7 @@ export default function App({ loaderData, matches, params }: Route.ComponentProp
         <Outlet />
         <ScrollRestoration nonce={loaderData.nonce} />
         <Scripts nonce={loaderData.nonce} />
-        <script //
-          nonce={loaderData.nonce}
-          src={`/api/client-env?v=${loaderData.clientEnvRevision}`}
-          suppressHydrationWarning={true}
-        />
+        <script nonce={loaderData.nonce} src={`/api/client-env?v=${loaderData.clientEnvRevision}`} />
         {adobeAnalytics.isEnabled() && adobeAnalytics.isDebug() && (
           <script id="gc-analytics-bottom-debug-script">_satellite.setDebug(true);</script>
         )}

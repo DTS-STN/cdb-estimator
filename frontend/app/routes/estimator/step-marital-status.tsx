@@ -122,18 +122,18 @@ export default function StepMaritalStatus({ actionData, loaderData, matches, par
                       </p>
                       <p>
                         <Trans i18nKey={'estimator:marital-status.additional-info.common-law.text'} />
-                        <ul className="list-disc space-y-2 pl-5">
-                          <li>
-                            <Trans i18nKey={'estimator:marital-status.additional-info.common-law.item1'} />
-                          </li>
-                          <li>
-                            <Trans i18nKey={'estimator:marital-status.additional-info.common-law.item2'} />
-                          </li>
-                          <li>
-                            <Trans i18nKey={'estimator:marital-status.additional-info.common-law.item3'} />
-                          </li>
-                        </ul>
                       </p>
+                      <ul className="list-disc space-y-2 pl-5">
+                        <li>
+                          <Trans i18nKey={'estimator:marital-status.additional-info.common-law.item1'} />
+                        </li>
+                        <li>
+                          <Trans i18nKey={'estimator:marital-status.additional-info.common-law.item2'} />
+                        </li>
+                        <li>
+                          <Trans i18nKey={'estimator:marital-status.additional-info.common-law.item3'} />
+                        </li>
+                      </ul>
                     </div>
                   </Collapsible>
                 </div>
