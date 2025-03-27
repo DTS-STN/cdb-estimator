@@ -7,7 +7,7 @@ import type { I18nResources } from '~/.server/locales';
 import { i18nResources } from '~/.server/locales';
 import { AppError } from '~/errors/app-error';
 import { ErrorCodes } from '~/errors/error-codes';
-import { getLanguage } from '~/utils/i18n-utils';
+import { getLanguageFromResource } from '~/utils/i18n-utils';
 
 /**
  * Gets a fixed translation function for a given language and namespace.
@@ -26,7 +26,7 @@ export async function getFixedT<NS extends Namespace, TKPrefix extends KeyPrefix
   const isRequest = languageOrRequest instanceof Request;
 
   const language = isRequest //
-    ? getLanguage(new URL(languageOrRequest.url))
+    ? getLanguageFromResource(new URL(languageOrRequest.url))
     : languageOrRequest;
 
   if (language === undefined) {
@@ -52,7 +52,11 @@ export async function getTranslation<NS extends Namespace, TKPrefix extends KeyP
   namespace: NS,
   keyPrefix?: TKPrefix,
 ): Promise<{ lang: Language; t: TFunction<NS, TKPrefix> }> {
-  const lang = getLanguage(languageOrRequest);
+  const isRequest = languageOrRequest instanceof Request;
+
+  const lang = isRequest //
+    ? getLanguageFromResource(new URL(languageOrRequest.url))
+    : languageOrRequest;
 
   if (lang === undefined) {
     throw new AppError('No language found in request', ErrorCodes.NO_LANGUAGE_FOUND);
