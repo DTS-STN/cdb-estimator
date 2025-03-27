@@ -5,12 +5,12 @@ metadata:
   annotations:
     secret.reloader.stakater.com/auto: 'true'
 spec:
+  revisionHistoryLimit: 0
   selector:
     matchLabels:
       app.kubernetes.io/name: cdb-estimator-frontend
   template:
     spec:
-      revisionHistoryLimit: 0
       containers:
         - name: cdb-estimator-frontend
           image: dtsrhpdevscedacr.azurecr.io/canada-disability-benefit/cdb-estimator-frontend:latest
