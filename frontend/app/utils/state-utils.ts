@@ -7,11 +7,11 @@ export type StateField = keyof CDBEstimator;
 /**
  * defines a mapping of route files to StateField. is used to determine which state fields to check for when attempting to load a given route
  */
-const stateMap = new Map<I18nRouteFile, StateField | undefined>([
-  ['routes/estimator/step-age.tsx', 'dateOfBirth'],
-  ['routes/estimator/step-marital-status.tsx', 'maritalStatus'],
-  ['routes/estimator/step-income.tsx', 'income'],
-  ['routes/estimator/results.tsx', undefined],
+const stateMap = new Map<I18nRouteFile, StateField[]>([
+  ['routes/estimator/step-age.tsx', []],
+  ['routes/estimator/step-marital-status.tsx', ['dateOfBirth']],
+  ['routes/estimator/step-income.tsx', ['dateOfBirth', 'maritalStatus']],
+  ['routes/estimator/results.tsx', ['dateOfBirth', 'maritalStatus', 'income']],
 ]);
 
 /**
@@ -20,23 +20,39 @@ const stateMap = new Map<I18nRouteFile, StateField | undefined>([
  * @param targetRouteFile Route file the application is testing for
  * @returns
  */
-export function getStateRoute(state: Partial<CDBEstimator> | undefined, targetRouteFile: I18nRouteFile): I18nRouteFile {
-  for (const [route, stateField] of stateMap) {
-    // if the state is undefined, return the first route
-    if (state === undefined) {
-      return route;
-    }
-    //if a state field is specified and is not defined in the state, return the route
-    if (stateField !== undefined && state[stateField] === undefined) {
-      return route;
-    }
-    //if the route matches the target route, stop iterating and return the route
-    if (route === targetRouteFile) {
-      return route;
+function getStateRoute(state: Partial<CDBEstimator> | undefined, targetRouteFile: I18nRouteFile): I18nRouteFile {
+  let routeCandidate = targetRouteFile;
+
+  if (stateMap.has(targetRouteFile)) {
+    for (const [route, stateFields] of stateMap) {
+      // if the state is undefined, return the first route
+      if (state === undefined) {
+        return route;
+      }
+      // if stateFields is empty, the route is a result candidate
+      if (stateFields.length === 0) {
+        routeCandidate = route;
+      }
+      // if stateFields is not empty
+      else {
+        // check presence of all specified stateFields
+        for (const stateField of stateFields) {
+          if (state[stateField] === undefined) {
+            // stop and return the last route candidate
+            return routeCandidate;
+          }
+        }
+        // assign a new route candidate
+        routeCandidate = route;
+      }
+      //if the route candidate matches the target route, stop iterating
+      if (routeCandidate === targetRouteFile) {
+        break;
+      }
     }
   }
   //default (no matches): return the target route
-  return targetRouteFile;
+  return routeCandidate;
 }
 
 /**
