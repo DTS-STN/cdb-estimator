@@ -14,6 +14,7 @@ spec:
     # pin all versions to v7.4
     #
     spec:
+      replicas: 2
       initContainers:
         - name: init
           image: docker.io/redis:7.4
