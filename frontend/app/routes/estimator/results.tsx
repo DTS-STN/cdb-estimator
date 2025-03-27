@@ -10,12 +10,11 @@ import type { CDBEstimator, FormattedCDBEstimator, FormattedMarriedIncome, Forma
 import { calculateEstimation } from './calculator';
 import { validMaritalStatuses } from './types';
 
-import { i18nRedirect } from '~/.server/utils/route-utils';
 import { ButtonLink } from '~/components/button-link';
 import { ContextualAlert } from '~/components/contextual-alert';
 import { InlineLink } from '~/components/links';
 import { PageTitle } from '~/components/page-title';
-import { getTranslation } from '~/i18n-config.server';
+import { getTranslation, initI18next } from '~/i18n-config.server';
 import type { I18nRouteFile } from '~/i18n-routes';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 import { calculateAge } from '~/utils/age-utils';
@@ -30,34 +29,11 @@ export const handle = {
 export async function loader({ context, params, request }: Route.LoaderArgs) {
   estimatorStepGate(context.session.estimator, 'routes/estimator/results.tsx', request);
   const { t } = await getTranslation(request, handle.i18nNamespace);
+  const i18n = await initI18next();
 
   if (context.session.estimator === undefined) {
-    throw i18nRedirect('routes/index.tsx', request);
+    throw data({ errors: 'state is undefined' }, { status: 500 });
   }
-
-  return {
-    documentTitle: t('estimator:results.page-title'),
-    results: context.session.estimator as CDBEstimator,
-  };
-}
-
-export function meta({ data }: Route.MetaArgs) {
-  return [{ title: data.documentTitle }];
-}
-
-export async function action({ context, request }: Route.ActionArgs) {}
-
-function formatCurrency(number: number, internationalization: i18n) {
-  return number.toLocaleString(internationalization.language === 'fr' ? 'fr-CA' : 'en-CA', {
-    style: 'currency',
-    currency: 'CAD',
-  });
-}
-
-export default function Results({ actionData, loaderData, matches, params }: Route.ComponentProps) {
-  const { t, i18n } = useTranslation(handle.i18nNamespace);
-  const nonCdbPartnerEstimation = formatCurrency(calculateEstimation(loaderData.results, false), i18n);
-  const cdbPartnerEstimation = formatCurrency(calculateEstimation(loaderData.results, true), i18n);
 
   const formattedPersonIncomeSchema = v.object({
     netIncome: v.number(),
@@ -110,16 +86,39 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
                 }
               : undefined,
         } as FormattedMarriedIncome | FormattedSingleIncome,
+        nonCdbPartnerEstimation: formatCurrency(calculateEstimation(input, false), i18n),
+        cdbPartnerEstimation: formatCurrency(calculateEstimation(input, true), i18n),
       };
     }),
   ) satisfies v.GenericSchema<CDBEstimator, FormattedCDBEstimator>;
 
-  const parsedResults = v.safeParse(formattedResultsSchema, loaderData.results);
+  const parsedResults = v.safeParse(formattedResultsSchema, context.session.estimator);
   if (!parsedResults.success) {
-    return data({ errors: v.flatten<typeof formattedResultsSchema>(parsedResults.issues) }, { status: 500 });
+    throw data({ errors: v.flatten<typeof formattedResultsSchema>(parsedResults.issues) }, { status: 500 });
   }
 
-  const formattedResults = parsedResults.output;
+  return {
+    documentTitle: t('estimator:results.page-title'),
+    results: context.session.estimator as CDBEstimator,
+    formattedResults: parsedResults.output,
+  };
+}
+
+export function meta({ data }: Route.MetaArgs) {
+  return [{ title: data.documentTitle }];
+}
+
+export async function action({ context, request }: Route.ActionArgs) {}
+
+function formatCurrency(number: number, internationalization: i18n) {
+  return number.toLocaleString(internationalization.language === 'fr' ? 'fr-CA' : 'en-CA', {
+    style: 'currency',
+    currency: 'CAD',
+  });
+}
+
+export default function Results({ actionData, loaderData, matches, params }: Route.ComponentProps) {
+  const { t } = useTranslation(handle.i18nNamespace);
 
   return (
     <div className="space-y-3">
@@ -142,7 +141,7 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
                     <Trans
                       ns={handle.i18nNamespace}
                       i18nKey="estimator:results.content.your-estimate.single.result"
-                      values={{ result: nonCdbPartnerEstimation }}
+                      values={{ result: loaderData.formattedResults.nonCdbPartnerEstimation }}
                     />
                   </li>
                 </ul>
@@ -157,14 +156,14 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
                     <Trans
                       ns={handle.i18nNamespace}
                       i18nKey="estimator:results.content.your-estimate.married-common-law.non-cdb-partner-result"
-                      values={{ result: nonCdbPartnerEstimation }}
+                      values={{ result: loaderData.formattedResults.nonCdbPartnerEstimation }}
                     />
                   </li>
                   <li>
                     <Trans
                       ns={handle.i18nNamespace}
                       i18nKey="estimator:results.content.your-estimate.married-common-law.cdb-partner-result"
-                      values={{ result: cdbPartnerEstimation }}
+                      values={{ result: loaderData.formattedResults.cdbPartnerEstimation }}
                     />
                   </li>
                 </ul>
@@ -187,7 +186,7 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
               </div>
             </div>
           </section>
-          <section className="col-span-1 row-span-2 space-y-4">{DataSummary(formattedResults)}</section>
+          <section className="col-span-1 row-span-2 space-y-4">{DataSummary(loaderData.formattedResults)}</section>
         </div>
       </div>
     </div>
