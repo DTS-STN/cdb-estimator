@@ -5,6 +5,7 @@ import { Trans, useTranslation } from 'react-i18next';
 
 import type { Route } from './+types/results';
 import type { CDBEstimator, FormattedCDBEstimator } from './@types';
+import { calculateEstimation } from './calculator';
 
 import { i18nRedirect } from '~/.server/utils/route-utils';
 import { ButtonLink } from '~/components/button-link';
@@ -51,6 +52,8 @@ function formatCurrency(number: number, internationalization: i18n) {
 
 export default function Results({ actionData, loaderData, matches, params }: Route.ComponentProps) {
   const { t, i18n } = useTranslation(handle.i18nNamespace);
+  const nonCdbPartnerEstimation = formatCurrency(calculateEstimation(loaderData.results, false), i18n);
+  const cdbPartnerEstimation = formatCurrency(calculateEstimation(loaderData.results, true), i18n);
 
   const formattedResults: FormattedCDBEstimator = {
     age: calculateAge(loaderData.results.dateOfBirth.month, loaderData.results.dateOfBirth.year).toString(),
@@ -109,7 +112,11 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
                 <p className="mb-4">{t('estimator:results.content.your-estimate.single.intro')}</p>
                 <ul className="list-disc space-y-1 pl-7">
                   <li>
-                    <Trans ns={handle.i18nNamespace} i18nKey="estimator:results.content.your-estimate.single.result" />
+                    <Trans
+                      ns={handle.i18nNamespace}
+                      i18nKey="estimator:results.content.your-estimate.single.result"
+                      values={{ result: nonCdbPartnerEstimation }}
+                    />
                   </li>
                 </ul>
               </>
@@ -123,12 +130,14 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
                     <Trans
                       ns={handle.i18nNamespace}
                       i18nKey="estimator:results.content.your-estimate.married-common-law.non-cdb-partner-result"
+                      values={{ result: nonCdbPartnerEstimation }}
                     />
                   </li>
                   <li>
                     <Trans
                       ns={handle.i18nNamespace}
                       i18nKey="estimator:results.content.your-estimate.married-common-law.cdb-partner-result"
+                      values={{ result: cdbPartnerEstimation }}
                     />
                   </li>
                 </ul>
