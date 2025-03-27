@@ -7,6 +7,7 @@ import * as v from 'valibot';
 
 import type { Route } from './+types/results';
 import type { CDBEstimator, FormattedCDBEstimator, FormattedMarriedIncome, FormattedSingleIncome } from './@types';
+import { calculateEstimation } from './calculator';
 import { validMaritalStatuses } from './types';
 
 import { i18nRedirect } from '~/.server/utils/route-utils';
@@ -19,6 +20,7 @@ import type { I18nRouteFile } from '~/i18n-routes';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 import { calculateAge } from '~/utils/age-utils';
 import { estimatorStepGate } from '~/utils/state-utils';
+import { cn } from '~/utils/tailwind-utils';
 
 export const handle = {
   breadcrumbs: [...parentHandle.breadcrumbs, { labelKey: 'estimator:results.breadcrumb' }],
@@ -54,6 +56,8 @@ function formatCurrency(number: number, internationalization: i18n) {
 
 export default function Results({ actionData, loaderData, matches, params }: Route.ComponentProps) {
   const { t, i18n } = useTranslation(handle.i18nNamespace);
+  const nonCdbPartnerEstimation = formatCurrency(calculateEstimation(loaderData.results, false), i18n);
+  const cdbPartnerEstimation = formatCurrency(calculateEstimation(loaderData.results, true), i18n);
 
   const formattedPersonIncomeSchema = v.object({
     netIncome: v.number(),
@@ -135,7 +139,11 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
                 <p className="mb-4">{t('estimator:results.content.your-estimate.single.intro')}</p>
                 <ul className="list-disc space-y-1 pl-7">
                   <li>
-                    <Trans ns={handle.i18nNamespace} i18nKey="estimator:results.content.your-estimate.single.result" />
+                    <Trans
+                      ns={handle.i18nNamespace}
+                      i18nKey="estimator:results.content.your-estimate.single.result"
+                      values={{ result: nonCdbPartnerEstimation }}
+                    />
                   </li>
                 </ul>
               </>
@@ -149,12 +157,14 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
                     <Trans
                       ns={handle.i18nNamespace}
                       i18nKey="estimator:results.content.your-estimate.married-common-law.non-cdb-partner-result"
+                      values={{ result: nonCdbPartnerEstimation }}
                     />
                   </li>
                   <li>
                     <Trans
                       ns={handle.i18nNamespace}
                       i18nKey="estimator:results.content.your-estimate.married-common-law.cdb-partner-result"
+                      values={{ result: cdbPartnerEstimation }}
                     />
                   </li>
                 </ul>
@@ -181,7 +191,7 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
             <div className="my-8 rounded bg-stone-100 p-5 md:mt-0 md:max-w-[360px]">
               <h3 className="font-lato text-xl font-bold">{t('estimator:results.form-data-summary.title')}</h3>
 
-              <div className="space-y-4">
+              <div>
                 {InfoBlock(
                   t('estimator:results.form-data-summary.field-labels.age'),
                   t('estimator:results.form-data-summary.edit-aria-labels.age'),
@@ -270,7 +280,7 @@ function InfoBlock(title: string, editAriaLabel: string, editRoute: I18nRouteFil
   const { t } = useTranslation(handle.i18nNamespace);
 
   return (
-    <div className={showBorder ? 'border-t border-stone-600' : ''}>
+    <div className={cn('py-4', showBorder ? 'border-t border-stone-600' : '')}>
       <div>{title}</div>
       <div className="grid grid-cols-3 gap-0">
         <div className="col-span-2">
