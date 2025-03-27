@@ -17,7 +17,7 @@ export function getI18nNamespace(routes?: RouteModule[]): Namespace {
  * @param resource - The request, URL, or path to extract the language from.
  * @returns The language code (`en` or `fr`), or `undefined` if the language cannot be determined.
  */
-export function getLanguage(resource: Request | URL | string): Language | undefined {
+export function getLanguageFromResource(resource: Request | URL | string): Language | undefined {
   switch (true) {
     case resource instanceof Request: {
       return getLanguageFromPath(new URL(resource.url).pathname);

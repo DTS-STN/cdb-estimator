@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router';
 
-import { getAltLanguage, getLanguage } from '~/utils/i18n-utils';
+import { getAltLanguage, getLanguageFromResource } from '~/utils/i18n-utils';
 
 type UseLanguageReturnType = { altLanguage?: Language; currentLanguage?: Language };
 
@@ -12,7 +12,7 @@ type UseLanguageReturnType = { altLanguage?: Language; currentLanguage?: Languag
 export function useLanguage(): UseLanguageReturnType {
   const { pathname } = useLocation();
 
-  const currentLanguage = getLanguage(pathname);
+  const currentLanguage = getLanguageFromResource(pathname);
   const altLanguage = currentLanguage && getAltLanguage(currentLanguage);
 
   return { altLanguage, currentLanguage };
