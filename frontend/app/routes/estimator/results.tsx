@@ -1,11 +1,14 @@
+import { data } from 'react-router';
 import type { RouteHandle } from 'react-router';
 
 import type { i18n } from 'i18next';
 import { Trans, useTranslation } from 'react-i18next';
+import * as v from 'valibot';
 
 import type { Route } from './+types/results';
-import type { CDBEstimator, FormattedCDBEstimator } from './@types';
+import type { CDBEstimator, FormattedCDBEstimator, FormattedMarriedIncome, FormattedSingleIncome } from './@types';
 import { calculateEstimation } from './calculator';
+import { validMaritalStatuses } from './types';
 
 import { i18nRedirect } from '~/.server/utils/route-utils';
 import { ButtonLink } from '~/components/button-link';
@@ -17,6 +20,7 @@ import type { I18nRouteFile } from '~/i18n-routes';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 import { calculateAge } from '~/utils/age-utils';
 import { estimatorStepGate } from '~/utils/state-utils';
+import { cn } from '~/utils/tailwind-utils';
 
 export const handle = {
   breadcrumbs: [...parentHandle.breadcrumbs, { labelKey: 'estimator:results.breadcrumb' }],
@@ -55,44 +59,67 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
   const nonCdbPartnerEstimation = formatCurrency(calculateEstimation(loaderData.results, false), i18n);
   const cdbPartnerEstimation = formatCurrency(calculateEstimation(loaderData.results, true), i18n);
 
-  const formattedResults: FormattedCDBEstimator = {
-    age: calculateAge(loaderData.results.dateOfBirth.month, loaderData.results.dateOfBirth.year).toString(),
-    maritalStatus: t(`estimator:results.form-data-summary.enum-display.marital-status.${loaderData.results.maritalStatus}`),
-    income:
-      loaderData.results.income.kind === 'single'
-        ? {
-            kind: 'single',
-            netIncome: formatCurrency(loaderData.results.income.netIncome, i18n),
-            workingIncome: formatCurrency(loaderData.results.income.workingIncome, i18n),
-            claimedIncome: loaderData.results.income.claimedIncome
-              ? formatCurrency(loaderData.results.income.claimedIncome, i18n)
+  const formattedPersonIncomeSchema = v.object({
+    netIncome: v.number(),
+    workingIncome: v.number(),
+    claimedIncome: v.optional(v.number()),
+    claimedRepayment: v.optional(v.number()),
+  });
+
+  const formattedResultsSchema = v.pipe(
+    v.object({
+      dateOfBirth: v.object({
+        month: v.number(),
+        year: v.number(),
+      }),
+
+      maritalStatus: v.picklist(validMaritalStatuses),
+      income: v.variant('kind', [
+        v.object({
+          kind: v.literal('single'),
+          ...formattedPersonIncomeSchema.entries,
+        }),
+        v.object({
+          kind: v.literal('married'),
+          ...formattedPersonIncomeSchema.entries,
+          partner: formattedPersonIncomeSchema,
+        }),
+      ]),
+    }),
+    v.transform((input) => {
+      return {
+        age: calculateAge(input.dateOfBirth.month, input.dateOfBirth.year).toString(),
+        maritalStatus: t(`estimator:results.form-data-summary.enum-display.marital-status.${input.maritalStatus}`),
+        income: {
+          kind: input.income.kind,
+          netIncome: formatCurrency(input.income.netIncome, i18n),
+          workingIncome: formatCurrency(input.income.workingIncome, i18n),
+          claimedIncome: input.income.claimedIncome ? formatCurrency(input.income.claimedIncome, i18n) : undefined,
+          claimedRepayment: input.income.claimedRepayment ? formatCurrency(input.income.claimedRepayment, i18n) : undefined,
+          partner:
+            input.income.kind === 'married'
+              ? {
+                  netIncome: formatCurrency(input.income.partner.netIncome, i18n),
+                  workingIncome: formatCurrency(input.income.partner.workingIncome, i18n),
+                  claimedIncome: input.income.partner.claimedIncome
+                    ? formatCurrency(input.income.partner.claimedIncome, i18n)
+                    : undefined,
+                  claimedRepayment: input.income.partner.claimedRepayment
+                    ? formatCurrency(input.income.partner.claimedRepayment, i18n)
+                    : undefined,
+                }
               : undefined,
-            claimedRepayment: loaderData.results.income.claimedRepayment
-              ? formatCurrency(loaderData.results.income.claimedRepayment, i18n)
-              : undefined,
-          }
-        : {
-            kind: 'married',
-            netIncome: formatCurrency(loaderData.results.income.netIncome, i18n),
-            workingIncome: formatCurrency(loaderData.results.income.workingIncome, i18n),
-            claimedIncome: loaderData.results.income.claimedIncome
-              ? formatCurrency(loaderData.results.income.claimedIncome, i18n)
-              : undefined,
-            claimedRepayment: loaderData.results.income.claimedRepayment
-              ? formatCurrency(loaderData.results.income.claimedRepayment, i18n)
-              : undefined,
-            partner: {
-              netIncome: formatCurrency(loaderData.results.income.partner.netIncome, i18n),
-              workingIncome: formatCurrency(loaderData.results.income.partner.workingIncome, i18n),
-              claimedIncome: loaderData.results.income.partner.claimedIncome
-                ? formatCurrency(loaderData.results.income.partner.claimedIncome, i18n)
-                : undefined,
-              claimedRepayment: loaderData.results.income.partner.claimedRepayment
-                ? formatCurrency(loaderData.results.income.partner.claimedRepayment, i18n)
-                : undefined,
-            },
-          },
-  };
+        } as FormattedMarriedIncome | FormattedSingleIncome,
+      };
+    }),
+  ) satisfies v.GenericSchema<CDBEstimator, FormattedCDBEstimator>;
+
+  const parsedResults = v.safeParse(formattedResultsSchema, loaderData.results);
+  if (!parsedResults.success) {
+    return data({ errors: v.flatten<typeof formattedResultsSchema>(parsedResults.issues) }, { status: 500 });
+  }
+
+  const formattedResults = parsedResults.output;
 
   return (
     <div className="space-y-3">
@@ -164,7 +191,7 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
             <div className="my-8 rounded bg-stone-100 p-5 md:mt-0 md:max-w-[360px]">
               <h3 className="font-lato text-xl font-bold">{t('estimator:results.form-data-summary.title')}</h3>
 
-              <div className="space-y-4">
+              <div>
                 {InfoBlock(
                   t('estimator:results.form-data-summary.field-labels.age'),
                   t('estimator:results.form-data-summary.edit-aria-labels.age'),
@@ -253,7 +280,7 @@ function InfoBlock(title: string, editAriaLabel: string, editRoute: I18nRouteFil
   const { t } = useTranslation(handle.i18nNamespace);
 
   return (
-    <div className={showBorder ? 'border-t border-stone-600' : ''}>
+    <div className={cn('py-4', showBorder ? 'border-t border-stone-600' : '')}>
       <div>{title}</div>
       <div className="grid grid-cols-3 gap-0">
         <div className="col-span-2">
