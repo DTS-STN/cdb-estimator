@@ -210,14 +210,14 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                     <div className="space-y-4">
                       <p>
                         <Trans i18nKey={'estimator:income.info.working-income.text1'} />
-                        <ul className="list-disc space-y-2 pl-5">
-                          {(t('estimator:income.info.working-income.items', { returnObjects: true }) as string[]).map(
-                            (item, index) => (
-                              <li key={index}>{item}</li>
-                            ),
-                          )}
-                        </ul>
                       </p>
+                      <ul className="list-disc space-y-2 pl-5">
+                        {(t('estimator:income.info.working-income.items', { returnObjects: true }) as string[]).map(
+                          (item, index) => (
+                            <li key={index}>{item}</li>
+                          ),
+                        )}
+                      </ul>
                       <p>
                         <Trans i18nKey={'estimator:income.info.working-income.text2'} />
                       </p>

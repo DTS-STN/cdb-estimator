@@ -95,7 +95,7 @@ export function security(environment: ServerEnvironment): RequestHandler {
         "'self'",
         "'unsafe-eval'",
         "'unsafe-inline'",
-        //`'nonce-${response.locals.nonce}'`,
+        //`'nonce-${response.locals.nonce}'`, //adobe analytics requires unsafe-inline which conflicts with this
         'https://code.jquery.com',
         'https://assets.adobedtm.com',
         'https://activitymap.adobe.com',
