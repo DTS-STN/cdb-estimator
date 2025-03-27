@@ -2,7 +2,7 @@ import type { RouteModule } from 'react-router';
 
 import { describe, expect, it } from 'vitest';
 
-import { getAltLanguage, getI18nNamespace, getLanguage } from '~/utils/i18n-utils';
+import { getAltLanguage, getI18nNamespace, getLanguageFromResource } from '~/utils/i18n-utils';
 
 describe('i18n-utils', () => {
   describe('getI18nNamespace', () => {
@@ -29,7 +29,7 @@ describe('i18n-utils', () => {
     });
   });
 
-  describe('getLanguage', () => {
+  describe('getLanguageFromResource', () => {
     it.each([
       { input: 'http://example.com/en', expected: 'en' },
       { input: 'http://example.com/en/some-route', expected: 'en' },
@@ -37,7 +37,7 @@ describe('i18n-utils', () => {
       { input: 'http://example.com/fr/some-route', expected: 'fr' },
       { input: 'http://example.com/some-route', expected: undefined },
     ])('should return $expected for request $input', ({ input, expected }) => {
-      expect(getLanguage(new Request(input))).toEqual(expected);
+      expect(getLanguageFromResource(new Request(input))).toEqual(expected);
     });
 
     it.each([
@@ -47,7 +47,7 @@ describe('i18n-utils', () => {
       { input: 'http://example.com/fr/some-route', expected: 'fr' },
       { input: 'http://example.com/some-route', expected: undefined },
     ])('should return $expected for URL $input', ({ input, expected }) => {
-      expect(getLanguage(new URL(input))).toEqual(expected);
+      expect(getLanguageFromResource(new URL(input))).toEqual(expected);
     });
 
     it.each([
@@ -57,15 +57,17 @@ describe('i18n-utils', () => {
       { input: '/fr/some-route', expected: 'fr' },
       { input: '/some-route', expected: undefined },
     ])('should return $expected for string $input', ({ input, expected }) => {
-      expect(getLanguage(input)).toEqual(expected);
+      expect(getLanguageFromResource(input)).toEqual(expected);
     });
   });
 
   describe('getAltLanguage', () => {
-    it('should return the correct alternate language', () => {
-      expect(getAltLanguage('en')).toEqual('fr');
-      expect(getAltLanguage('fr')).toEqual('en');
-      expect(getAltLanguage('es')).toBeUndefined();
+    it.each([
+      { input: 'en', expected: 'fr' },
+      { input: 'fr', expected: 'en' },
+      { input: 'es', expected: undefined },
+    ])('should return the correct alternate language for $input', ({ input, expected }) => {
+      expect(getAltLanguage(input)).toEqual(expected);
     });
   });
 });

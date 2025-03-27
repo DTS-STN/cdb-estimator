@@ -16,7 +16,7 @@ import { LogFactory } from '~/.server/logging';
 import { createCounter, handleSpanException } from '~/.server/utils/telemetry-utils';
 import { isAppError } from '~/errors/app-error';
 import { initI18next } from '~/i18n-config.server';
-import { getLanguage } from '~/utils/i18n-utils';
+import { getLanguageFromResource } from '~/utils/i18n-utils';
 
 /* eslint-disable no-param-reassign */
 
@@ -29,7 +29,7 @@ export default async function handleRequest(
   routerContext: EntryContext,
   loadContext: AppLoadContext,
 ) {
-  const language = getLanguage(request);
+  const language = getLanguageFromResource(request);
   const i18n = await initI18next(language);
 
   return new Promise((resolve, reject) => {

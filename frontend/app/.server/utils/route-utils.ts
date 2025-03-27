@@ -6,7 +6,7 @@ import { AppError } from '~/errors/app-error';
 import { ErrorCodes } from '~/errors/error-codes';
 import type { I18nRouteFile } from '~/i18n-routes';
 import { i18nRoutes } from '~/i18n-routes';
-import { getLanguage } from '~/utils/i18n-utils';
+import { getLanguageFromResource } from '~/utils/i18n-utils';
 import { getRouteByFile } from '~/utils/route-utils';
 
 const log = LogFactory.getLogger(import.meta.url);
@@ -49,7 +49,7 @@ export function i18nRedirect(
   },
 ): Response {
   const { init, params, search } = opts ?? {};
-  const language = getLanguage(resource);
+  const language = getLanguageFromResource(resource);
 
   if (language === undefined) {
     throw new AppError('No language found in request', ErrorCodes.NO_LANGUAGE_FOUND);
