@@ -5,6 +5,7 @@ metadata:
   annotations:
     secret.reloader.stakater.com/auto: 'true'
 spec:
+  replicas: 2
   serviceName: redis-headless
   selector:
     matchLabels:
@@ -14,7 +15,6 @@ spec:
     # pin all versions to v7.4
     #
     spec:
-      replicas: 2
       initContainers:
         - name: init
           image: docker.io/redis:7.4
