@@ -62,6 +62,8 @@ export type FormattedCDBEstimator = {
   age: string;
   maritalStatus: string;
   income: FormattedSingleIncome | FormattedMarriedIncome;
+  nonCdbPartnerEstimation: string;
+  cdbPartnerEstimation: string;
 };
 export interface FormattedPersonIncome {
   netIncome: string;
