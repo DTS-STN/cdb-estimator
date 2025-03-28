@@ -48,10 +48,10 @@ export default function Layout({ matches }: Route.ComponentProps) {
               />
             </AppLink>
             <LanguageSwitcher data-gc-analytics-customclick={adobeAnalytics.getCustomClick(`LanguageSwitcher:Toggle`)}>
-              <span className="hidden md:block" lang={t('common:language-switcher.alt-lang-abbr-prop')}>
+              <span className="hidden sm:block" lang={t('common:language-switcher.alt-lang-abbr-prop')}>
                 {t('common:language-switcher.alt-lang')}
               </span>
-              <abbr title={t('common:language-switcher.alt-lang')} className="cursor-help uppercase md:hidden">
+              <abbr title={t('common:language-switcher.alt-lang')} className="cursor-help uppercase sm:hidden">
                 {t('common:language-switcher.alt-lang-abbr')}
               </abbr>
             </LanguageSwitcher>
