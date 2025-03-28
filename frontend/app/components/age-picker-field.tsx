@@ -1,5 +1,5 @@
-import { Fragment } from 'react';
-import type { JSX, ReactNode } from 'react';
+import { Fragment, useState } from 'react';
+import type { ChangeEvent, JSX, ReactNode } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
@@ -7,10 +7,11 @@ import { InputError } from '~/components/input-error';
 import { InputHelp } from '~/components/input-help';
 import { InputLabel } from '~/components/input-label';
 import { InputLegend } from '~/components/input-legend';
-import { extractDateParts, getLocalizedMonths } from '~/utils/date-utils';
+import { calculateAge } from '~/utils/age-utils';
+import { getLocalizedMonths } from '~/utils/date-utils';
 import { cn } from '~/utils/tailwind-utils';
 
-type DatePart = 'year' | 'month' | 'day';
+type DatePart = 'year' | 'month';
 
 type AriaErrorMessage = Readonly<Record<DatePart, string | undefined>>;
 
@@ -18,8 +19,8 @@ type AriaErrorMessage = Readonly<Record<DatePart, string | undefined>>;
  * Order of date parts based on language
  */
 const DATE_PART_ORDER = {
-  en: ['month', 'day', 'year'] as const,
-  fr: ['day', 'month', 'year'] as const,
+  en: ['month', 'year'] as const,
+  fr: ['month', 'year'] as const,
 } as const satisfies Record<Language, DatePart[]>;
 
 const inputStyles = {
@@ -29,14 +30,17 @@ const inputStyles = {
 } as const;
 
 /**
- * Props for the DatePickerField component
+ * Props for the AgePickerField component
  */
-export interface DatePickerFieldProps {
-  defaultValue?: string;
+export interface AgePickerFieldProps {
+  defaultValues?: {
+    year?: number;
+    month?: number;
+  };
   disabled?: boolean;
+  displayAge?: boolean;
   errorMessages?: {
     all?: string;
-    day?: string;
     month?: string;
     year?: string;
   };
@@ -47,7 +51,6 @@ export interface DatePickerFieldProps {
   id: string;
   legend: ReactNode;
   names: {
-    day: string;
     month: string;
     year: string;
   };
@@ -55,14 +58,15 @@ export interface DatePickerFieldProps {
 }
 
 /**
- * DatePickerField component
+ * AgePickerField component
  *
- * @param props - Props for the DatePickerField component
+ * @param props - Props for the AgePickerField component
  * @returns JSX.Element
  */
-export const DatePickerField = ({
-  defaultValue,
+export const AgePickerField = ({
+  defaultValues,
   disabled,
+  displayAge,
   errorMessages,
   helpMessagePrimary,
   helpMessagePrimaryClassName,
@@ -72,20 +76,19 @@ export const DatePickerField = ({
   legend,
   names,
   required,
-}: DatePickerFieldProps): JSX.Element => {
-  const { t, i18n } = useTranslation(['common']);
+}: AgePickerFieldProps): JSX.Element => {
+  const { t, i18n } = useTranslation(['common', 'estimator']);
   const currentLanguage = i18n.language as Language;
   const currentDatePartOrder = DATE_PART_ORDER[currentLanguage];
 
   // Generate unique IDs for accessibility
-  const baseId = `date-picker-${id}`;
+  const baseId = `age-picker-${id}`;
   const ids = {
     wrapper: baseId,
     legend: `${baseId}-legend`,
     error: {
       all: `${baseId}-error-all`,
       month: `${baseId}-error-month`,
-      day: `${baseId}-error-day`,
       year: `${baseId}-error-year`,
     },
     help: {
@@ -96,7 +99,7 @@ export const DatePickerField = ({
 
   // Combine IDs for aria-describedby attribute
   const ariaDescribedBy: string = [
-    ids.legend, //
+    ids.legend,
     helpMessagePrimary ? ids.help.primary : false,
     helpMessageSecondary ? ids.help.secondary : false,
   ]
@@ -105,58 +108,62 @@ export const DatePickerField = ({
 
   // Generate error messages for each date part
   const ariaErrorMessage: AriaErrorMessage = currentDatePartOrder.reduce((acc, datePart) => {
-    const errors = [
-      errorMessages?.all ? ids.error.all : false, //
-      errorMessages?.[datePart] ? ids.error[datePart] : false,
-    ]
+    const errors = [errorMessages?.all ? ids.error.all : false, errorMessages?.[datePart] ? ids.error[datePart] : false]
       .filter(Boolean)
       .join(' ');
 
     return { ...acc, [datePart]: errors || undefined };
   }, {} as AriaErrorMessage);
 
-  // Extract default date parts from the default value
-  const { day, month, year } = extractDateParts(defaultValue ?? '');
+  const [month, setMonth] = useState(defaultValues?.month);
+  const [year, setYear] = useState(defaultValues?.year);
+  const age = month && year && calculateAge(month, year);
+  const ageAdditionalInfo = (() => {
+    if (age !== undefined) {
+      if (age >= 65) return t('estimator:age.max-eligible-age-info');
+      else if (age < 18) return t('estimator:age.min-eligible-age-info');
+    }
+    return undefined;
+  })();
 
-  // Define date picker part fields
-  const datePickerPartFields = {
+  const handleMonthChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    const parsedValue = Number(event.target.value);
+    setMonth(isNaN(parsedValue) ? undefined : parsedValue);
+  };
+
+  const handleYearChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const parsedValue = Number(event.target.value);
+    setYear(isNaN(parsedValue) ? undefined : parsedValue);
+  };
+
+  // Define age picker part fields
+  const agePickerPartFields = {
     year: (
-      <DatePickerYearField
+      <AgePickerYearField
         id={id}
         defaultValue={year}
         name={names.year}
-        label={t('common:date-picker.year.label')}
+        label={t('common:age-picker.year.label')}
         className="w-full sm:w-32"
         ariaDescribedBy={ariaDescribedBy}
         ariaErrorMessage={ariaErrorMessage.year}
+        onChange={handleYearChange}
         required={required}
         disabled={disabled}
       />
     ),
     month: (
-      <DatePickerMonthField
+      <AgePickerMonthField
         id={id}
         defaultValue={month}
         name={names.month}
-        label={t('common:date-picker.month.label')}
-        placeholder={t('common:date-picker.month.placeholder')}
+        label={t('common:age-picker.month.label')}
+        placeholder={t('common:age-picker.month.placeholder')}
         className="w-full sm:w-auto"
         currentLanguage={currentLanguage}
         ariaDescribedBy={ariaDescribedBy}
         ariaErrorMessage={ariaErrorMessage.month}
-        required={required}
-        disabled={disabled}
-      />
-    ),
-    day: (
-      <DatePickerDayField
-        id={id}
-        defaultValue={day}
-        name={names.day}
-        label={t('common:date-picker.day.label')}
-        className="w-full sm:w-20"
-        ariaDescribedBy={ariaDescribedBy}
-        ariaErrorMessage={ariaErrorMessage.day}
+        onChange={handleMonthChange}
         required={required}
         disabled={disabled}
       />
@@ -194,8 +201,12 @@ export const DatePickerField = ({
         {/* Date Picker Part Fields */}
         <div className="flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:space-x-2">
           {currentDatePartOrder.map((datePart) => (
-            <Fragment key={datePart}>{datePickerPartFields[datePart]}</Fragment>
+            <Fragment key={datePart}>{agePickerPartFields[datePart]}</Fragment>
           ))}
+
+          {displayAge === true && age !== undefined && year !== undefined && year > 1000 && year < 9999 && (
+            <AgeDisplay age={age} additionalInfo={ageAdditionalInfo} />
+          )}
         </div>
 
         {/* Help Messages - Secondary */}
@@ -210,9 +221,9 @@ export const DatePickerField = ({
 };
 
 /**
- * Props for the DatePickerMonthField component
+ * Props for the AgePickerMonthField component
  */
-interface DatePickerMonthFieldProps {
+interface AgePickerMonthFieldProps {
   ariaDescribedBy: string;
   ariaErrorMessage?: string;
   className?: string;
@@ -222,17 +233,18 @@ interface DatePickerMonthFieldProps {
   id: string;
   label: string;
   name: string;
+  onChange: (event: ChangeEvent<HTMLSelectElement>) => void;
   placeholder: string;
   required?: boolean;
 }
 
 /**
- * DatePickerMonthField component
+ * AgePickerMonthField component
  *
- * @param props - Props for the DatePickerMonthField component
+ * @param props - Props for the AgePickerMonthField component
  * @returns JSX.Element
  */
-function DatePickerMonthField({
+function AgePickerMonthField({
   ariaDescribedBy,
   ariaErrorMessage,
   className,
@@ -242,10 +254,11 @@ function DatePickerMonthField({
   id,
   label,
   name,
+  onChange,
   placeholder,
   required,
-}: DatePickerMonthFieldProps): JSX.Element {
-  const baseId = `date-picker-${id}-month`;
+}: AgePickerMonthFieldProps): JSX.Element {
+  const baseId = `age-picker-${id}-month`;
   const ids = {
     wrapper: baseId,
     label: `${baseId}-label`,
@@ -272,6 +285,7 @@ function DatePickerMonthField({
         disabled={disabled}
         id={ids.select}
         name={name}
+        onChange={onChange}
         required={required}
       >
         <option id={ids.optionUnselected} disabled hidden value={-1}>
@@ -290,9 +304,9 @@ function DatePickerMonthField({
 }
 
 /**
- * Props for the DatePickerYearField component
+ * Props for the AgePickerYearField component
  */
-interface DatePickerYearFieldProps {
+interface AgePickerYearFieldProps {
   ariaDescribedBy: string;
   ariaErrorMessage?: string;
   className?: string;
@@ -302,15 +316,16 @@ interface DatePickerYearFieldProps {
   label: string;
   name: string;
   required?: boolean;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 /**
- * DatePickerYearField component
+ * AgePickerYearField component
  *
- * @param props - Props for the DatePickerYearField component
+ * @param props - Props for the AgePickerYearField component
  * @returns JSX.Element
  */
-function DatePickerYearField({
+function AgePickerYearField({
   ariaDescribedBy,
   ariaErrorMessage,
   className,
@@ -319,9 +334,10 @@ function DatePickerYearField({
   id,
   label,
   name,
+  onChange,
   required,
-}: DatePickerYearFieldProps): JSX.Element {
-  const baseId = `date-picker-${id}-year`;
+}: AgePickerYearFieldProps): JSX.Element {
+  const baseId = `age-picker-${id}-year`;
   const ids = {
     wrapper: baseId,
     label: `${baseId}-label`,
@@ -347,79 +363,42 @@ function DatePickerYearField({
         min={1900}
         name={name}
         required={required}
-        type="text"
+        type="number"
         inputMode="numeric"
         pattern="[0-9]*"
         maxLength={4}
+        onChange={onChange}
       />
     </div>
   );
 }
 
 /**
- * Props for the DatePickerDayField component
+ * Props for the AgeDisplay component
  */
-interface DatePickerDayFieldProps {
-  ariaDescribedBy: string;
-  ariaErrorMessage?: string;
-  className?: string;
-  defaultValue?: number;
-  disabled?: boolean;
-  id: string;
-  label: string;
-  name: string;
-  required?: boolean;
+interface AgeDisplayProps {
+  age: number;
+  additionalInfo?: string;
 }
 
 /**
- * DatePickerDayField component
+ * AgeDisplay component
  *
- * @param props - Props for the DatePickerDayField component
+ * @param props - Props for the AgeDisplay component
  * @returns JSX.Element
  */
-function DatePickerDayField({
-  ariaDescribedBy,
-  ariaErrorMessage,
-  className,
-  defaultValue,
-  disabled,
-  id,
-  label,
-  name,
-  required,
-}: DatePickerDayFieldProps): JSX.Element {
-  const baseId = `date-picker-${id}-day`;
-  const ids = {
-    wrapper: baseId,
-    label: `${baseId}-label`,
-    input: `${baseId}-input`,
-  };
-  const hasErrorMessage = !!ariaErrorMessage;
+function AgeDisplay({ age, additionalInfo }: AgeDisplayProps): JSX.Element {
+  const { t } = useTranslation(['common']);
 
   return (
-    <div id={ids.wrapper} className="space-y-2">
-      <InputLabel id={ids.label} htmlFor={ids.input}>
-        {label}
-      </InputLabel>
-      <input
-        aria-describedby={ariaDescribedBy}
-        aria-errormessage={ariaErrorMessage}
-        aria-invalid={hasErrorMessage}
-        aria-labelledby={ids.label}
-        aria-required={required}
-        className={cn(inputStyles.base, inputStyles.disabled, hasErrorMessage && inputStyles.error, className)}
-        defaultValue={defaultValue}
-        disabled={disabled}
-        id={ids.input}
-        max={31}
-        min={1}
-        name={name}
-        required={required}
-        type="text"
-        inputMode="numeric"
-        pattern="[0-9]*"
-        maxLength={2}
-      />
+    <div role="alert" aria-live="assertive" className="space-y-1.5 sm:ml-30">
+      <label className="block">
+        <span className="font-semibold">{t('age-picker.your-age.label')}</span>
+      </label>
+
+      <div className="block max-w-prose">{`${age} ${t(age === 1 ? 'age-picker.your-age.value-suffix-singular' : 'age-picker.your-age.value-suffix-plural')}`}</div>
+
+      <div>{additionalInfo}</div>
     </div>
   );
 }

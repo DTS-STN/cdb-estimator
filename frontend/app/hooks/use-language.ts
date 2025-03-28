@@ -5,11 +5,11 @@ import { getAltLanguage, getLanguageFromResource } from '~/utils/i18n-utils';
 type UseLanguageReturnType = { altLanguage?: Language; currentLanguage?: Language };
 
 /**
- * A hook that returns the current language and its alternate language.
+ * A hook that returns the current language and its alternate language base on current location.
  *
- * @returns An object containing the current language the alternate language.
+ * @returns An object containing the current location language and the alternate language.
  */
-export function useLanguage(): UseLanguageReturnType {
+export function useLanguageFromLocation(): UseLanguageReturnType {
   const { pathname } = useLocation();
 
   const currentLanguage = getLanguageFromResource(pathname);

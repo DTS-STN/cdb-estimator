@@ -5,7 +5,7 @@ import { generatePath, Link } from 'react-router';
 
 import { AppError } from '~/errors/app-error';
 import { ErrorCodes } from '~/errors/error-codes';
-import { useLanguage } from '~/hooks/use-language';
+import { useLanguageFromLocation } from '~/hooks/use-language';
 import type { I18nRouteFile } from '~/i18n-routes';
 import { i18nRoutes } from '~/i18n-routes';
 import { getRouteByFile } from '~/utils/route-utils';
@@ -71,7 +71,7 @@ type InlineLinkProps = ComponentProps<typeof AppLink>;
  * @throws If the `lang` parameter is not provided and the current language cannot be determined.
  */
 export function AppLink({ children, disabled, hash, lang, params, file, search, to, ...props }: AppLinkProps): JSX.Element {
-  const { currentLanguage } = useLanguage();
+  const { currentLanguage } = useLanguageFromLocation();
 
   if (to !== undefined) {
     return (

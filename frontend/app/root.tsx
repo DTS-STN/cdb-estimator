@@ -4,6 +4,7 @@ import type { RouteHandle } from 'react-router';
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
 
 import { config as fontAwesomeConfig } from '@fortawesome/fontawesome-svg-core';
+import { useTranslation } from 'react-i18next';
 
 import type { Route } from './+types/root';
 import {
@@ -14,7 +15,7 @@ import {
 } from './components/error-boundaries';
 
 import { clientEnvironmentRevision } from '~/.server/environment';
-import { useLanguage } from '~/hooks/use-language';
+import { useLanguageFromLocation } from '~/hooks/use-language';
 import indexStyleSheet from '~/index.css?url';
 import tailwindStyleSheet from '~/tailwind.css?url';
 import * as adobeAnalytics from '~/utils/adobe-analytics-utils';
@@ -62,7 +63,8 @@ export function loader({ context }: Route.LoaderArgs) {
 }
 
 export default function App({ loaderData, matches, params }: Route.ComponentProps) {
-  const { currentLanguage } = useLanguage();
+  const { i18n } = useTranslation('common');
+  const currentLanguage = i18n.language as Language;
   const { ADOBE_ANALYTICS_JQUERY_SRC, ADOBE_ANALYTICS_SRC } = globalThis.__appEnvironment;
 
   useEffect(() => {
@@ -102,7 +104,7 @@ export default function App({ loaderData, matches, params }: Route.ComponentProp
 }
 
 export function ErrorBoundary(props: Route.ErrorBoundaryProps) {
-  const { currentLanguage } = useLanguage();
+  const { currentLanguage } = useLanguageFromLocation();
 
   if (is404Error(props.error)) {
     // prettier-ignore
