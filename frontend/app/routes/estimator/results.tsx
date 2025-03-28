@@ -2,7 +2,6 @@ import { data } from 'react-router';
 import type { RouteHandle } from 'react-router';
 
 import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
-import type { i18n } from 'i18next';
 import { Trans, useTranslation } from 'react-i18next';
 import * as v from 'valibot';
 
@@ -22,7 +21,7 @@ import { ButtonLink } from '~/components/button-link';
 import { ContextualAlert } from '~/components/contextual-alert';
 import { InlineLink } from '~/components/links';
 import { PageTitle } from '~/components/page-title';
-import { getTranslation, initI18next } from '~/i18n-config.server';
+import { getTranslation } from '~/i18n-config.server';
 import type { I18nRouteFile } from '~/i18n-routes';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 import { estimatorStepGate } from '~/utils/state-utils';
@@ -35,8 +34,7 @@ export const handle = {
 
 export async function loader({ context, params, request }: Route.LoaderArgs) {
   estimatorStepGate(context.session.estimator, 'routes/estimator/results.tsx', request);
-  const { t } = await getTranslation(request, handle.i18nNamespace);
-  const i18n = await initI18next();
+  const { t, lang } = await getTranslation(request, handle.i18nNamespace);
 
   if (context.session.estimator === undefined) {
     throw data({ errors: 'state is undefined' }, { status: 500 });
@@ -69,20 +67,20 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
         maritalStatus: t(`estimator:results.form-data-summary.enum-display.marital-status.${input.maritalStatus}`),
         income: {
           kind: input.income.kind,
-          netIncome: formatCurrency(input.income.netIncome, i18n),
-          workingIncome: formatCurrency(input.income.workingIncome, i18n),
-          claimedIncome: input.income.claimedIncome ? formatCurrency(input.income.claimedIncome, i18n) : undefined,
-          claimedRepayment: input.income.claimedRepayment ? formatCurrency(input.income.claimedRepayment, i18n) : undefined,
+          netIncome: formatCurrency(input.income.netIncome, lang),
+          workingIncome: formatCurrency(input.income.workingIncome, lang),
+          claimedIncome: input.income.claimedIncome ? formatCurrency(input.income.claimedIncome, lang) : undefined,
+          claimedRepayment: input.income.claimedRepayment ? formatCurrency(input.income.claimedRepayment, lang) : undefined,
           partner:
             input.income.kind === 'married'
               ? {
-                  netIncome: formatCurrency(input.income.partner.netIncome, i18n),
-                  workingIncome: formatCurrency(input.income.partner.workingIncome, i18n),
+                  netIncome: formatCurrency(input.income.partner.netIncome, lang),
+                  workingIncome: formatCurrency(input.income.partner.workingIncome, lang),
                   claimedIncome: input.income.partner.claimedIncome
-                    ? formatCurrency(input.income.partner.claimedIncome, i18n)
+                    ? formatCurrency(input.income.partner.claimedIncome, lang)
                     : undefined,
                   claimedRepayment: input.income.partner.claimedRepayment
-                    ? formatCurrency(input.income.partner.claimedRepayment, i18n)
+                    ? formatCurrency(input.income.partner.claimedRepayment, lang)
                     : undefined,
                 }
               : undefined,
@@ -91,12 +89,12 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
           input.income.kind === 'married'
             ? ({
                 kind: 'married',
-                estimation: formatCurrency(calculateEstimation(input.income).estimation, i18n),
-                estimationSplitBenefit: formatCurrency(calculateEstimation(input.income).estimationSplitBenefit ?? 0, i18n),
+                estimation: formatCurrency(calculateEstimation(input.income).estimation, lang),
+                estimationSplitBenefit: formatCurrency(calculateEstimation(input.income).estimationSplitBenefit ?? 0, lang),
               } as FormattedMarriedResults)
             : ({
                 kind: 'single',
-                estimation: formatCurrency(calculateEstimation(input.income).estimation, i18n),
+                estimation: formatCurrency(calculateEstimation(input.income).estimation, lang),
               } as FormattedSingleResults),
       };
     }),
@@ -120,8 +118,8 @@ export function meta({ data }: Route.MetaArgs) {
 
 export async function action({ context, request }: Route.ActionArgs) {}
 
-function formatCurrency(number: number, internationalization: i18n) {
-  return number.toLocaleString(internationalization.language === 'fr' ? 'fr-CA' : 'en-CA', {
+function formatCurrency(number: number, lang: Language) {
+  return number.toLocaleString(lang === 'fr' ? 'fr-CA' : 'en-CA', {
     style: 'currency',
     currency: 'CAD',
   });
