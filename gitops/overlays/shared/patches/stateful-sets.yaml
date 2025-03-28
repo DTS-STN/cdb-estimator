@@ -5,6 +5,7 @@ metadata:
   annotations:
     secret.reloader.stakater.com/auto: 'true'
 spec:
+  replicas: 2
   serviceName: redis-headless
   selector:
     matchLabels:
