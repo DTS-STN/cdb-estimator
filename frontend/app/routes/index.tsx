@@ -128,7 +128,7 @@ export default function Home() {
 
         <section className="my-10">
           <div>
-            <ButtonLink file="routes/estimator/step-age.tsx" variant="primary" size="lg">
+            <ButtonLink file="routes/estimator/step-marital-status.tsx" variant="primary" size="lg">
               {t('common:index.start')}
             </ButtonLink>
           </div>

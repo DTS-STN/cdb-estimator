@@ -1,22 +1,4 @@
 {
-  "age": {
-    "breadcrumb": "Age",
-    "fields": {
-      "date-of-birth": {
-        "error": {
-          "invalid-age": "You must be between 18 and 65.",
-          "invalid-month": "Month of birth is invalid.",
-          "invalid-year": "Year of birth is invalid.",
-          "required-month": "Month of birth is required.",
-          "required-year": "Year of birth is required."
-        },
-        "label": "When were you born?"
-      }
-    },
-    "max-eligible-age-info": "You may be eligible up to and including the month you turn 65.",
-    "min-eligible-age-info": "You can apply up to 6 months before your 18th birthday.",
-    "page-title": "Step 1 of 3: Age"
-  },
   "income": {
     "breadcrumb": "Income",
     "fields": {
@@ -112,7 +94,7 @@
         "text2": "If your working income is negative, enter ‘0’."
       }
     },
-    "page-title": "Step 3 of 3: Income"
+    "page-title": "Step 2 of 2: Income"
   },
   "marital-status": {
     "additional-info": {
@@ -145,7 +127,7 @@
         }
       }
     },
-    "page-title": "Step 2 of 3: Marital Status"
+    "page-title": "Step 1 of 2: Marital Status"
   },
   "results": {
     "breadcrumb": "Results",
@@ -171,7 +153,6 @@
     "disclaimer-alert": "The following is only an estimate based on the information you provided. Monthly payments are based on current rates.",
     "form-data-summary": {
       "edit-aria-labels": {
-        "age": "Edit your age",
         "marital-status": "Edit your marital status",
         "net-income": "Edit your net income",
         "partner-net-income": "Edit your partner's net income",
@@ -189,7 +170,6 @@
         }
       },
       "field-labels": {
-        "age": "Age",
         "marital-status": "Marital status",
         "net-income": "Your net income",
         "partner-net-income": "Your partner's net income",

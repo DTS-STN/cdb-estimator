@@ -10,43 +10,11 @@ describe('state-utils', () => {
       new Array<{ state: Partial<CDBEstimator>; url: string; route: I18nRouteFile }>(
         {
           state: {},
-          url: '/en/age',
-          route: 'routes/estimator/step-age.tsx',
-        },
-        {
-          state: {
-            dateOfBirth: { month: 5, year: 1999 },
-          },
-          url: '/en/age',
-          route: 'routes/estimator/step-age.tsx',
-        },
-        {
-          state: {
-            dateOfBirth: { month: 5, year: 1999 },
-            maritalStatus: 'single-divorced-separated-or-widowed',
-          },
-          url: '/en/age',
-          route: 'routes/estimator/step-age.tsx',
-        },
-        {
-          state: {
-            dateOfBirth: { month: 5, year: 1999 },
-            maritalStatus: 'single-divorced-separated-or-widowed',
-            income: { kind: 'single', netIncome: 0, workingIncome: 0 },
-          },
-          url: '/en/age',
-          route: 'routes/estimator/step-age.tsx',
-        },
-        {
-          state: {
-            dateOfBirth: { month: 5, year: 1999 },
-          },
           url: '/en/marital-status',
           route: 'routes/estimator/step-marital-status.tsx',
         },
         {
           state: {
-            dateOfBirth: { month: 5, year: 1999 },
             maritalStatus: 'single-divorced-separated-or-widowed',
           },
           url: '/en/marital-status',
@@ -54,7 +22,6 @@ describe('state-utils', () => {
         },
         {
           state: {
-            dateOfBirth: { month: 5, year: 1999 },
             maritalStatus: 'single-divorced-separated-or-widowed',
             income: { kind: 'single', netIncome: 0, workingIncome: 0 },
           },
@@ -63,7 +30,6 @@ describe('state-utils', () => {
         },
         {
           state: {
-            dateOfBirth: { month: 5, year: 1999 },
             maritalStatus: 'single-divorced-separated-or-widowed',
           },
           url: '/en/income',
@@ -71,7 +37,6 @@ describe('state-utils', () => {
         },
         {
           state: {
-            dateOfBirth: { month: 5, year: 1999 },
             maritalStatus: 'single-divorced-separated-or-widowed',
             income: { kind: 'single', netIncome: 0, workingIncome: 0 },
           },
@@ -80,7 +45,6 @@ describe('state-utils', () => {
         },
         {
           state: {
-            dateOfBirth: { month: 5, year: 1999 },
             maritalStatus: 'single-divorced-separated-or-widowed',
             income: { kind: 'single', netIncome: 0, workingIncome: 0 },
           },
@@ -97,31 +61,12 @@ describe('state-utils', () => {
       new Array<{ state: Partial<CDBEstimator>; url: string; route: I18nRouteFile; expectedRedirect: string }>(
         {
           state: {},
-          url: '/en/marital-status',
-          route: 'routes/estimator/step-marital-status.tsx',
-          expectedRedirect: '/en/age',
-        },
-        {
-          state: {},
-          url: '/en/income',
-          route: 'routes/estimator/step-income.tsx',
-          expectedRedirect: '/en/age',
-        },
-        {
-          state: {},
-          url: '/en/results',
-          route: 'routes/estimator/results.tsx',
-          expectedRedirect: '/en/age',
-        },
-        {
-          state: { dateOfBirth: { month: 5, year: 1999 } },
           url: '/en/results',
           route: 'routes/estimator/results.tsx',
           expectedRedirect: '/en/marital-status',
         },
         {
           state: {
-            dateOfBirth: { month: 5, year: 1999 },
             maritalStatus: 'married-or-common-law',
           },
           url: '/en/results',

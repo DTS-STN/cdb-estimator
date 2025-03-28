@@ -98,21 +98,16 @@ export const i18nRoutes = [
         children: [
           {
             id: 'EST-0001',
-            file: 'routes/estimator/step-age.tsx',
-            paths: { en: '/en/age', fr: '/fr/age' },
-          },
-          {
-            id: 'EST-0002',
             file: 'routes/estimator/step-marital-status.tsx',
             paths: { en: '/en/marital-status', fr: '/fr/etat-civil' },
           },
           {
-            id: 'EST-0003',
+            id: 'EST-0002',
             file: 'routes/estimator/step-income.tsx',
             paths: { en: '/en/income', fr: '/fr/revenus' },
           },
           {
-            id: 'EST-0004',
+            id: 'EST-0003',
             file: 'routes/estimator/results.tsx',
             paths: { en: '/en/results', fr: '/fr/resultats' },
           },

@@ -24,7 +24,6 @@ import { PageTitle } from '~/components/page-title';
 import { getTranslation, initI18next } from '~/i18n-config.server';
 import type { I18nRouteFile } from '~/i18n-routes';
 import { handle as parentHandle } from '~/routes/estimator/layout';
-import { calculateAge } from '~/utils/age-utils';
 import { estimatorStepGate } from '~/utils/state-utils';
 import { cn } from '~/utils/tailwind-utils';
 
@@ -51,11 +50,6 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
 
   const formattedResultsSchema = v.pipe(
     v.object({
-      dateOfBirth: v.object({
-        month: v.number(),
-        year: v.number(),
-      }),
-
       maritalStatus: v.picklist(validMaritalStatuses),
       income: v.variant('kind', [
         v.object({
@@ -71,7 +65,6 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
     }),
     v.transform((input) => {
       return {
-        age: calculateAge(input.dateOfBirth.month, input.dateOfBirth.year).toString(),
         maritalStatus: t(`estimator:results.form-data-summary.enum-display.marital-status.${input.maritalStatus}`),
         income: {
           kind: input.income.kind,
@@ -190,13 +183,13 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
 
             <div className="my-6 space-y-6 rounded border border-[#6F6F6F] px-8 py-6">
               <div>
-                <ButtonLink file="routes/estimator/step-age.tsx" variant="primary" startIcon={'external-link'} size="xl">
+                <ButtonLink to="http://canada.ca" variant="primary" startIcon={'external-link'} size="xl">
                   {t('estimator:results.content.next-steps.apply-cdb')}
                 </ButtonLink>
               </div>
 
               <div>
-                <ButtonLink file="routes/estimator/step-age.tsx" variant="alternative" startIcon={'external-link'} size="xl">
+                <ButtonLink to="http://canada.ca" variant="alternative" startIcon={'external-link'} size="xl">
                   {t('estimator:results.content.next-steps.learn-more')}
                 </ButtonLink>
               </div>
@@ -215,13 +208,6 @@ function DataSummary(formattedResults: FormattedCDBEstimator) {
     <div className="my-8 rounded bg-stone-100 p-5 md:mt-0 md:max-w-[360px]">
       <h3 className="font-lato text-xl font-bold">{t('estimator:results.form-data-summary.title')}</h3>
       <div>
-        {DataSummaryItem(
-          t('estimator:results.form-data-summary.field-labels.age'),
-          t('estimator:results.form-data-summary.edit-aria-labels.age'),
-          'routes/estimator/step-age.tsx',
-          formattedResults.age,
-          false,
-        )}
         {DataSummaryItem(
           t('estimator:results.form-data-summary.field-labels.marital-status'),
           t('estimator:results.form-data-summary.edit-aria-labels.marital-status'),
