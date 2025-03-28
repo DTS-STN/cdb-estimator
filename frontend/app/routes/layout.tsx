@@ -12,6 +12,7 @@ import { PageDetails } from '~/components/page-details';
 import { SkipNavigationLinks } from '~/components/skip-navigation-links';
 import { useLanguage } from '~/hooks/use-language';
 import { useRoute } from '~/hooks/use-route';
+import * as adobeAnalytics from '~/utils/adobe-analytics-utils';
 
 export const handle = {
   breadcrumbs: [
@@ -47,7 +48,7 @@ export default function Layout({ matches }: Route.ComponentProps) {
                 decoding="async"
               />
             </AppLink>
-            <LanguageSwitcher>
+            <LanguageSwitcher data-gc-analytics-customclick={adobeAnalytics.getCustomClick(`LanguageSwitcher:Toggle`)}>
               <span className="hidden md:block" lang={t('common:language-switcher.alt-lang-abbr-prop')}>
                 {t('common:language-switcher.alt-lang')}
               </span>
