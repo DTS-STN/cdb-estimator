@@ -58,12 +58,22 @@ export interface PersonIncome {
   claimedRepayment?: number;
 }
 
+export type FormattedMarriedResults = {
+  kind: 'married';
+  estimation: string;
+  estimationSplitBenefit: string;
+};
+
+export type FormattedSingleResults = {
+  kind: 'single';
+  estimation: string;
+};
+
 export type FormattedCDBEstimator = {
   age: string;
   maritalStatus: string;
   income: FormattedSingleIncome | FormattedMarriedIncome;
-  nonCdbPartnerEstimation: string;
-  cdbPartnerEstimation: string;
+  results: FormattedSingleResults | FormattedMarriedResults;
 };
 export interface FormattedPersonIncome {
   netIncome: string;
