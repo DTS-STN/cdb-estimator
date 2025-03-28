@@ -1,21 +1,32 @@
+import { data } from 'react-router';
 import type { RouteHandle } from 'react-router';
 
 import type { i18n } from 'i18next';
 import { Trans, useTranslation } from 'react-i18next';
+import * as v from 'valibot';
 
 import type { Route } from './+types/results';
-import type { CDBEstimator, FormattedCDBEstimator } from './@types';
+import type {
+  CDBEstimator,
+  FormattedCDBEstimator,
+  FormattedMarriedIncome,
+  FormattedMarriedResults,
+  FormattedSingleIncome,
+  FormattedSingleResults,
+} from './@types';
+import { calculateEstimation } from './calculator';
+import { validMaritalStatuses } from './types';
 
-import { i18nRedirect } from '~/.server/utils/route-utils';
 import { ButtonLink } from '~/components/button-link';
 import { ContextualAlert } from '~/components/contextual-alert';
 import { InlineLink } from '~/components/links';
 import { PageTitle } from '~/components/page-title';
-import { getTranslation } from '~/i18n-config.server';
+import { getTranslation, initI18next } from '~/i18n-config.server';
 import type { I18nRouteFile } from '~/i18n-routes';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 import { calculateAge } from '~/utils/age-utils';
 import { estimatorStepGate } from '~/utils/state-utils';
+import { cn } from '~/utils/tailwind-utils';
 
 export const handle = {
   breadcrumbs: [...parentHandle.breadcrumbs, { labelKey: 'estimator:results.breadcrumb' }],
@@ -25,14 +36,87 @@ export const handle = {
 export async function loader({ context, params, request }: Route.LoaderArgs) {
   estimatorStepGate(context.session.estimator, 'routes/estimator/results.tsx', request);
   const { t } = await getTranslation(request, handle.i18nNamespace);
+  const i18n = await initI18next();
 
   if (context.session.estimator === undefined) {
-    throw i18nRedirect('routes/index.tsx', request);
+    throw data({ errors: 'state is undefined' }, { status: 500 });
+  }
+
+  const formattedPersonIncomeSchema = v.object({
+    netIncome: v.number(),
+    workingIncome: v.number(),
+    claimedIncome: v.optional(v.number()),
+    claimedRepayment: v.optional(v.number()),
+  });
+
+  const formattedResultsSchema = v.pipe(
+    v.object({
+      dateOfBirth: v.object({
+        month: v.number(),
+        year: v.number(),
+      }),
+
+      maritalStatus: v.picklist(validMaritalStatuses),
+      income: v.variant('kind', [
+        v.object({
+          kind: v.literal('single'),
+          ...formattedPersonIncomeSchema.entries,
+        }),
+        v.object({
+          kind: v.literal('married'),
+          ...formattedPersonIncomeSchema.entries,
+          partner: formattedPersonIncomeSchema,
+        }),
+      ]),
+    }),
+    v.transform((input) => {
+      return {
+        age: calculateAge(input.dateOfBirth.month, input.dateOfBirth.year).toString(),
+        maritalStatus: t(`estimator:results.form-data-summary.enum-display.marital-status.${input.maritalStatus}`),
+        income: {
+          kind: input.income.kind,
+          netIncome: formatCurrency(input.income.netIncome, i18n),
+          workingIncome: formatCurrency(input.income.workingIncome, i18n),
+          claimedIncome: input.income.claimedIncome ? formatCurrency(input.income.claimedIncome, i18n) : undefined,
+          claimedRepayment: input.income.claimedRepayment ? formatCurrency(input.income.claimedRepayment, i18n) : undefined,
+          partner:
+            input.income.kind === 'married'
+              ? {
+                  netIncome: formatCurrency(input.income.partner.netIncome, i18n),
+                  workingIncome: formatCurrency(input.income.partner.workingIncome, i18n),
+                  claimedIncome: input.income.partner.claimedIncome
+                    ? formatCurrency(input.income.partner.claimedIncome, i18n)
+                    : undefined,
+                  claimedRepayment: input.income.partner.claimedRepayment
+                    ? formatCurrency(input.income.partner.claimedRepayment, i18n)
+                    : undefined,
+                }
+              : undefined,
+        } as FormattedMarriedIncome | FormattedSingleIncome,
+        results:
+          input.income.kind === 'married'
+            ? ({
+                kind: 'married',
+                estimation: formatCurrency(calculateEstimation(input.income).estimation, i18n),
+                estimationSplitBenefit: formatCurrency(calculateEstimation(input.income).estimationSplitBenefit ?? 0, i18n),
+              } as FormattedMarriedResults)
+            : ({
+                kind: 'single',
+                estimation: formatCurrency(calculateEstimation(input.income).estimation, i18n),
+              } as FormattedSingleResults),
+      };
+    }),
+  ) satisfies v.GenericSchema<CDBEstimator, FormattedCDBEstimator>;
+
+  const parsedResults = v.safeParse(formattedResultsSchema, context.session.estimator);
+  if (!parsedResults.success) {
+    throw data({ errors: v.flatten<typeof formattedResultsSchema>(parsedResults.issues) }, { status: 500 });
   }
 
   return {
     documentTitle: t('estimator:results.page-title'),
     results: context.session.estimator as CDBEstimator,
+    formattedResults: parsedResults.output,
   };
 }
 
@@ -50,46 +134,7 @@ function formatCurrency(number: number, internationalization: i18n) {
 }
 
 export default function Results({ actionData, loaderData, matches, params }: Route.ComponentProps) {
-  const { t, i18n } = useTranslation(handle.i18nNamespace);
-
-  const formattedResults: FormattedCDBEstimator = {
-    age: calculateAge(loaderData.results.dateOfBirth.month, loaderData.results.dateOfBirth.year).toString(),
-    maritalStatus: t(`estimator:results.form-data-summary.enum-display.marital-status.${loaderData.results.maritalStatus}`),
-    income:
-      loaderData.results.income.kind === 'single'
-        ? {
-            kind: 'single',
-            netIncome: formatCurrency(loaderData.results.income.netIncome, i18n),
-            workingIncome: formatCurrency(loaderData.results.income.workingIncome, i18n),
-            claimedIncome: loaderData.results.income.claimedIncome
-              ? formatCurrency(loaderData.results.income.claimedIncome, i18n)
-              : undefined,
-            claimedRepayment: loaderData.results.income.claimedRepayment
-              ? formatCurrency(loaderData.results.income.claimedRepayment, i18n)
-              : undefined,
-          }
-        : {
-            kind: 'married',
-            netIncome: formatCurrency(loaderData.results.income.netIncome, i18n),
-            workingIncome: formatCurrency(loaderData.results.income.workingIncome, i18n),
-            claimedIncome: loaderData.results.income.claimedIncome
-              ? formatCurrency(loaderData.results.income.claimedIncome, i18n)
-              : undefined,
-            claimedRepayment: loaderData.results.income.claimedRepayment
-              ? formatCurrency(loaderData.results.income.claimedRepayment, i18n)
-              : undefined,
-            partner: {
-              netIncome: formatCurrency(loaderData.results.income.partner.netIncome, i18n),
-              workingIncome: formatCurrency(loaderData.results.income.partner.workingIncome, i18n),
-              claimedIncome: loaderData.results.income.partner.claimedIncome
-                ? formatCurrency(loaderData.results.income.partner.claimedIncome, i18n)
-                : undefined,
-              claimedRepayment: loaderData.results.income.partner.claimedRepayment
-                ? formatCurrency(loaderData.results.income.partner.claimedRepayment, i18n)
-                : undefined,
-            },
-          },
-  };
+  const { t } = useTranslation(handle.i18nNamespace);
 
   return (
     <div className="space-y-3">
@@ -109,13 +154,17 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
                 <p className="mb-4">{t('estimator:results.content.your-estimate.single.intro')}</p>
                 <ul className="list-disc space-y-1 pl-7">
                   <li>
-                    <Trans ns={handle.i18nNamespace} i18nKey="estimator:results.content.your-estimate.single.result" />
+                    <Trans
+                      ns={handle.i18nNamespace}
+                      i18nKey="estimator:results.content.your-estimate.single.result"
+                      values={{ result: loaderData.formattedResults.results.estimation }}
+                    />
                   </li>
                 </ul>
               </>
             )}
 
-            {loaderData.results.maritalStatus === 'married-or-common-law' && (
+            {loaderData.formattedResults.results.kind === 'married' && (
               <>
                 <p className="mb-4">{t('estimator:results.content.your-estimate.married-common-law.intro')}</p>
                 <ul className="list-disc space-y-1 pl-7">
@@ -123,12 +172,14 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
                     <Trans
                       ns={handle.i18nNamespace}
                       i18nKey="estimator:results.content.your-estimate.married-common-law.non-cdb-partner-result"
+                      values={{ result: loaderData.formattedResults.results.estimation }}
                     />
                   </li>
                   <li>
                     <Trans
                       ns={handle.i18nNamespace}
                       i18nKey="estimator:results.content.your-estimate.married-common-law.cdb-partner-result"
+                      values={{ result: loaderData.formattedResults.results.estimationSplitBenefit }}
                     />
                   </li>
                 </ul>
@@ -151,100 +202,104 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
               </div>
             </div>
           </section>
-          <section className="col-span-1 row-span-2 space-y-4">
-            <div className="my-8 rounded bg-stone-100 p-5 md:mt-0 md:max-w-[360px]">
-              <h3 className="font-lato text-xl font-bold">{t('estimator:results.form-data-summary.title')}</h3>
-
-              <div className="space-y-4">
-                {InfoBlock(
-                  t('estimator:results.form-data-summary.field-labels.age'),
-                  t('estimator:results.form-data-summary.edit-aria-labels.age'),
-                  'routes/estimator/step-age.tsx',
-                  formattedResults.age,
-                  false,
-                )}
-                {InfoBlock(
-                  t('estimator:results.form-data-summary.field-labels.marital-status'),
-                  t('estimator:results.form-data-summary.edit-aria-labels.marital-status'),
-                  'routes/estimator/step-marital-status.tsx',
-                  formattedResults.maritalStatus,
-                  true,
-                )}
-                {InfoBlock(
-                  t('estimator:results.form-data-summary.field-labels.net-income'),
-                  t('estimator:results.form-data-summary.edit-aria-labels.net-income'),
-                  'routes/estimator/step-income.tsx',
-                  formattedResults.income.netIncome,
-                  true,
-                )}
-                {InfoBlock(
-                  t('estimator:results.form-data-summary.field-labels.working-income'),
-                  t('estimator:results.form-data-summary.edit-aria-labels.working-income'),
-                  'routes/estimator/step-income.tsx',
-                  formattedResults.income.workingIncome,
-                  true,
-                )}
-                {InfoBlock(
-                  t('estimator:results.form-data-summary.field-labels.uccb-rdsp-income'),
-                  t('estimator:results.form-data-summary.edit-aria-labels.uccb-rdsp-income'),
-                  'routes/estimator/step-income.tsx',
-                  formattedResults.income.claimedIncome ?? '-',
-                  true,
-                )}
-                {InfoBlock(
-                  t('estimator:results.form-data-summary.field-labels.uccb-rdsp-repayment'),
-                  t('estimator:results.form-data-summary.edit-aria-labels.uccb-rdsp-repayment'),
-                  'routes/estimator/step-income.tsx',
-                  formattedResults.income.claimedRepayment ?? '-',
-                  true,
-                )}
-
-                {formattedResults.income.kind === 'married' && (
-                  <>
-                    {InfoBlock(
-                      t('estimator:results.form-data-summary.field-labels.partner-net-income'),
-                      t('estimator:results.form-data-summary.edit-aria-labels.partner-net-income'),
-                      'routes/estimator/step-income.tsx',
-                      formattedResults.income.partner.netIncome,
-                      true,
-                    )}
-                    {InfoBlock(
-                      t('estimator:results.form-data-summary.field-labels.partner-working-income'),
-                      t('estimator:results.form-data-summary.edit-aria-labels.partner-working-income'),
-                      'routes/estimator/step-income.tsx',
-                      formattedResults.income.partner.workingIncome,
-                      true,
-                    )}
-                    {InfoBlock(
-                      t('estimator:results.form-data-summary.field-labels.partner-uccb-rdsp-income'),
-                      t('estimator:results.form-data-summary.edit-aria-labels.partner-uccb-rdsp-income'),
-                      'routes/estimator/step-income.tsx',
-                      formattedResults.income.partner.claimedIncome ?? '-',
-                      true,
-                    )}
-                    {InfoBlock(
-                      t('estimator:results.form-data-summary.field-labels.partner-uccb-rdsp-repayment'),
-                      t('estimator:results.form-data-summary.edit-aria-labels.partner-uccb-rdsp-repayment'),
-                      'routes/estimator/step-income.tsx',
-                      formattedResults.income.partner.claimedRepayment ?? '-',
-                      true,
-                    )}
-                  </>
-                )}
-              </div>
-            </div>
-          </section>
+          <section className="col-span-1 row-span-2 space-y-4">{DataSummary(loaderData.formattedResults)}</section>
         </div>
       </div>
     </div>
   );
 }
 
-function InfoBlock(title: string, editAriaLabel: string, editRoute: I18nRouteFile, value: string, showBorder: boolean) {
+function DataSummary(formattedResults: FormattedCDBEstimator) {
+  const { t } = useTranslation(handle.i18nNamespace);
+  return (
+    <div className="my-8 rounded bg-stone-100 p-5 md:mt-0 md:max-w-[360px]">
+      <h3 className="font-lato text-xl font-bold">{t('estimator:results.form-data-summary.title')}</h3>
+      <div>
+        {DataSummaryItem(
+          t('estimator:results.form-data-summary.field-labels.age'),
+          t('estimator:results.form-data-summary.edit-aria-labels.age'),
+          'routes/estimator/step-age.tsx',
+          formattedResults.age,
+          false,
+        )}
+        {DataSummaryItem(
+          t('estimator:results.form-data-summary.field-labels.marital-status'),
+          t('estimator:results.form-data-summary.edit-aria-labels.marital-status'),
+          'routes/estimator/step-marital-status.tsx',
+          formattedResults.maritalStatus,
+          true,
+        )}
+        {DataSummaryItem(
+          t('estimator:results.form-data-summary.field-labels.net-income'),
+          t('estimator:results.form-data-summary.edit-aria-labels.net-income'),
+          'routes/estimator/step-income.tsx',
+          formattedResults.income.netIncome,
+          true,
+        )}
+        {DataSummaryItem(
+          t('estimator:results.form-data-summary.field-labels.working-income'),
+          t('estimator:results.form-data-summary.edit-aria-labels.working-income'),
+          'routes/estimator/step-income.tsx',
+          formattedResults.income.workingIncome,
+          true,
+        )}
+        {DataSummaryItem(
+          t('estimator:results.form-data-summary.field-labels.uccb-rdsp-income'),
+          t('estimator:results.form-data-summary.edit-aria-labels.uccb-rdsp-income'),
+          'routes/estimator/step-income.tsx',
+          formattedResults.income.claimedIncome ?? '-',
+          true,
+        )}
+        {DataSummaryItem(
+          t('estimator:results.form-data-summary.field-labels.uccb-rdsp-repayment'),
+          t('estimator:results.form-data-summary.edit-aria-labels.uccb-rdsp-repayment'),
+          'routes/estimator/step-income.tsx',
+          formattedResults.income.claimedRepayment ?? '-',
+          true,
+        )}
+
+        {formattedResults.income.kind === 'married' && (
+          <>
+            {DataSummaryItem(
+              t('estimator:results.form-data-summary.field-labels.partner-net-income'),
+              t('estimator:results.form-data-summary.edit-aria-labels.partner-net-income'),
+              'routes/estimator/step-income.tsx',
+              formattedResults.income.partner.netIncome,
+              true,
+            )}
+            {DataSummaryItem(
+              t('estimator:results.form-data-summary.field-labels.partner-working-income'),
+              t('estimator:results.form-data-summary.edit-aria-labels.partner-working-income'),
+              'routes/estimator/step-income.tsx',
+              formattedResults.income.partner.workingIncome,
+              true,
+            )}
+            {DataSummaryItem(
+              t('estimator:results.form-data-summary.field-labels.partner-uccb-rdsp-income'),
+              t('estimator:results.form-data-summary.edit-aria-labels.partner-uccb-rdsp-income'),
+              'routes/estimator/step-income.tsx',
+              formattedResults.income.partner.claimedIncome ?? '-',
+              true,
+            )}
+            {DataSummaryItem(
+              t('estimator:results.form-data-summary.field-labels.partner-uccb-rdsp-repayment'),
+              t('estimator:results.form-data-summary.edit-aria-labels.partner-uccb-rdsp-repayment'),
+              'routes/estimator/step-income.tsx',
+              formattedResults.income.partner.claimedRepayment ?? '-',
+              true,
+            )}
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function DataSummaryItem(title: string, editAriaLabel: string, editRoute: I18nRouteFile, value: string, showBorder: boolean) {
   const { t } = useTranslation(handle.i18nNamespace);
 
   return (
-    <div className={showBorder ? 'border-t border-stone-600' : ''}>
+    <div className={cn('py-4', showBorder ? 'border-t border-stone-600' : '')}>
       <div>{title}</div>
       <div className="grid grid-cols-3 gap-0">
         <div className="col-span-2">
