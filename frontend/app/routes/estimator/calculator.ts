@@ -1,4 +1,4 @@
-import type { CDBEstimator, PersonIncome } from './@types';
+import type { MarriedIncome, PersonIncome, SingleIncome } from './@types';
 
 const INFLATION_FACTOR = 1; // Used to reflect inflation as a part of the calculation
 const SINGLE_WORKING_INCOME_EXEMPTION = 10000; // Working income exemption is the amount of working income that is excluded when calculating the benefit amount
@@ -9,24 +9,34 @@ const YEARLY_MAX_BENEFITS = 2400; // The maximum benefit
 const BENEFIT_REDUCTION_RATE = 0.2;
 const SPLIT_BENEFIT_REDUCTION_RATE = 0.1;
 
-export function calculateEstimation(data: CDBEstimator, partnerReceivesCDB: boolean) {
-  const estimation = (YEARLY_MAX_BENEFITS * INFLATION_FACTOR - GetB(data, partnerReceivesCDB)) / 12;
+function roundUp(value: number) {
+  return Math.round(value * 100) / 100;
+}
 
-  // Round to the nearest cent (or higher cent if equidistant)
-  return Math.round(estimation * 100) / 100;
+export function calculateEstimation(income: MarriedIncome | SingleIncome) {
+  return income.kind === 'married'
+    ? {
+        kind: 'married',
+        estimationSplitBenefit: Math.max(0, roundUp((YEARLY_MAX_BENEFITS * INFLATION_FACTOR - GetB(income, true)) / 12)),
+        estimation: Math.max(0, roundUp((YEARLY_MAX_BENEFITS * INFLATION_FACTOR - GetB(income, false)) / 12)),
+      }
+    : {
+        kind: 'single',
+        estimation: Math.max(0, roundUp((YEARLY_MAX_BENEFITS * INFLATION_FACTOR - GetB(income, false)) / 12)),
+      };
 }
 
 /**
  * B : Reduction Based on Income
  * @returns B
  */
-function GetB(data: CDBEstimator, partnerReceivesCDB: boolean) {
-  if (data.income.kind === 'married') {
+function GetB(income: MarriedIncome | SingleIncome, partnerReceivesCDB: boolean) {
+  if (income.kind === 'married') {
     return partnerReceivesCDB
-      ? SPLIT_BENEFIT_REDUCTION_RATE * (GetC(data) - GetE(data) - COUPLE_THRESHOLD * INFLATION_FACTOR)
-      : BENEFIT_REDUCTION_RATE * (GetC(data) - GetE(data) - COUPLE_THRESHOLD * INFLATION_FACTOR);
+      ? Math.max(0, SPLIT_BENEFIT_REDUCTION_RATE * (GetC(income) - GetE(income) - COUPLE_THRESHOLD * INFLATION_FACTOR))
+      : Math.max(0, BENEFIT_REDUCTION_RATE * (GetC(income) - GetE(income) - COUPLE_THRESHOLD * INFLATION_FACTOR));
   } else {
-    return BENEFIT_REDUCTION_RATE * (GetC(data) - GetD(data) - SINGLE_THRESHOLD * INFLATION_FACTOR);
+    return Math.max(0, BENEFIT_REDUCTION_RATE * (GetC(income) - GetD(income) - SINGLE_THRESHOLD * INFLATION_FACTOR));
   }
 }
 
@@ -34,8 +44,7 @@ function GetB(data: CDBEstimator, partnerReceivesCDB: boolean) {
  * C : Adjusted income
  * @returns C
  */
-function GetC(data: CDBEstimator) {
-  const { income } = data;
+function GetC(income: SingleIncome | MarriedIncome) {
   return income.kind === 'married' ? GetAdjustedIncome(income) + GetAdjustedIncome(income.partner) : GetAdjustedIncome(income);
 }
 
@@ -43,20 +52,19 @@ function GetC(data: CDBEstimator) {
  * D : The lesser of client’s working income or $10,000
  * @returns D
  */
-function GetD(data: CDBEstimator) {
+function GetD(singleIncome: SingleIncome) {
   const ceiling = SINGLE_WORKING_INCOME_EXEMPTION * INFLATION_FACTOR;
 
-  return Math.min(ceiling, data.income.workingIncome);
+  return Math.min(ceiling, singleIncome.workingIncome);
 }
 
 /**
  * E : Lesser of combined working income of client/spouse or $14,000
  * @returns E
  */
-function GetE(data: CDBEstimator) {
+function GetE(coupleIncome: MarriedIncome) {
   const ceiling = COUPLE_WORKING_INCOME_EXCEPTION * INFLATION_FACTOR;
-  const combinedWorkingIncome =
-    data.income.kind === 'married' ? data.income.workingIncome + data.income.partner.workingIncome : data.income.workingIncome;
+  const combinedWorkingIncome = coupleIncome.workingIncome + coupleIncome.partner.workingIncome;
 
   return Math.min(ceiling, combinedWorkingIncome);
 }

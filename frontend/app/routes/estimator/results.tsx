@@ -6,7 +6,14 @@ import { Trans, useTranslation } from 'react-i18next';
 import * as v from 'valibot';
 
 import type { Route } from './+types/results';
-import type { CDBEstimator, FormattedCDBEstimator, FormattedMarriedIncome, FormattedSingleIncome } from './@types';
+import type {
+  CDBEstimator,
+  FormattedCDBEstimator,
+  FormattedMarriedIncome,
+  FormattedMarriedResults,
+  FormattedSingleIncome,
+  FormattedSingleResults,
+} from './@types';
 import { calculateEstimation } from './calculator';
 import { validMaritalStatuses } from './types';
 
@@ -86,8 +93,17 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
                 }
               : undefined,
         } as FormattedMarriedIncome | FormattedSingleIncome,
-        nonCdbPartnerEstimation: formatCurrency(calculateEstimation(input, false), i18n),
-        cdbPartnerEstimation: formatCurrency(calculateEstimation(input, true), i18n),
+        results:
+          input.income.kind === 'married'
+            ? ({
+                kind: 'married',
+                estimation: formatCurrency(calculateEstimation(input.income).estimation, i18n),
+                estimationSplitBenefit: formatCurrency(calculateEstimation(input.income).estimationSplitBenefit ?? 0, i18n),
+              } as FormattedMarriedResults)
+            : ({
+                kind: 'single',
+                estimation: formatCurrency(calculateEstimation(input.income).estimation, i18n),
+              } as FormattedSingleResults),
       };
     }),
   ) satisfies v.GenericSchema<CDBEstimator, FormattedCDBEstimator>;
@@ -141,14 +157,14 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
                     <Trans
                       ns={handle.i18nNamespace}
                       i18nKey="estimator:results.content.your-estimate.single.result"
-                      values={{ result: loaderData.formattedResults.nonCdbPartnerEstimation }}
+                      values={{ result: loaderData.formattedResults.results.estimation }}
                     />
                   </li>
                 </ul>
               </>
             )}
 
-            {loaderData.results.maritalStatus === 'married-or-common-law' && (
+            {loaderData.formattedResults.results.kind === 'married' && (
               <>
                 <p className="mb-4">{t('estimator:results.content.your-estimate.married-common-law.intro')}</p>
                 <ul className="list-disc space-y-1 pl-7">
@@ -156,14 +172,14 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
                     <Trans
                       ns={handle.i18nNamespace}
                       i18nKey="estimator:results.content.your-estimate.married-common-law.non-cdb-partner-result"
-                      values={{ result: loaderData.formattedResults.nonCdbPartnerEstimation }}
+                      values={{ result: loaderData.formattedResults.results.estimation }}
                     />
                   </li>
                   <li>
                     <Trans
                       ns={handle.i18nNamespace}
                       i18nKey="estimator:results.content.your-estimate.married-common-law.cdb-partner-result"
-                      values={{ result: loaderData.formattedResults.cdbPartnerEstimation }}
+                      values={{ result: loaderData.formattedResults.results.estimationSplitBenefit }}
                     />
                   </li>
                 </ul>
