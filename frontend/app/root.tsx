@@ -17,7 +17,7 @@ import { clientEnvironmentRevision } from '~/.server/environment';
 import { useLanguage } from '~/hooks/use-language';
 import indexStyleSheet from '~/index.css?url';
 import tailwindStyleSheet from '~/tailwind.css?url';
-import * as adobeAnalytics from '~/utils/adobe-analytics';
+import * as adobeAnalytics from '~/utils/adobe-analytics-utils';
 
 // see: https://docs.fontawesome.com/web/dig-deeper/security#content-security-policy
 fontAwesomeConfig.autoAddCss = false;
