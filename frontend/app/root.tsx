@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import type { RouteHandle } from 'react-router';
-import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
+import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration, useLocation } from 'react-router';
 
 import { config as fontAwesomeConfig } from '@fortawesome/fontawesome-svg-core';
 import { useTranslation } from 'react-i18next';
@@ -13,9 +13,9 @@ import {
   UnilingualErrorBoundary,
   UnilingualNotFound,
 } from './components/error-boundaries';
+import { getLanguageFromResource } from './utils/i18n-utils';
 
 import { clientEnvironmentRevision } from '~/.server/environment';
-import { useLanguageFromLocation } from '~/hooks/use-language';
 import indexStyleSheet from '~/index.css?url';
 import tailwindStyleSheet from '~/tailwind.css?url';
 import * as adobeAnalytics from '~/utils/adobe-analytics-utils';
@@ -104,7 +104,9 @@ export default function App({ loaderData, matches, params }: Route.ComponentProp
 }
 
 export function ErrorBoundary(props: Route.ErrorBoundaryProps) {
-  const { currentLanguage } = useLanguageFromLocation();
+  // Show bilingual components when not on a unilingual route
+  const { pathname } = useLocation();
+  const currentLanguage = getLanguageFromResource(pathname);
 
   if (is404Error(props.error)) {
     // prettier-ignore
