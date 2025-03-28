@@ -1,6 +1,7 @@
 import { data } from 'react-router';
 import type { RouteHandle } from 'react-router';
 
+import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
 import type { i18n } from 'i18next';
 import { Trans, useTranslation } from 'react-i18next';
 import * as v from 'valibot';
@@ -183,13 +184,18 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
 
             <div className="my-6 space-y-6 rounded border border-[#6F6F6F] px-8 py-6">
               <div>
-                <ButtonLink to="http://canada.ca" variant="primary" startIcon={'external-link'} size="xl">
+                <ButtonLink to="http://canada.ca" variant="primary" startIcon={faExternalLink} size="xl">
                   {t('estimator:results.content.next-steps.apply-cdb')}
                 </ButtonLink>
               </div>
 
               <div>
-                <ButtonLink to="http://canada.ca" variant="alternative" startIcon={'external-link'} size="xl">
+                <ButtonLink
+                  to={t('estimator:results.content.next-steps.learn-more-href')}
+                  variant="alternative"
+                  startIcon={faExternalLink}
+                  size="xl"
+                >
                   {t('estimator:results.content.next-steps.learn-more')}
                 </ButtonLink>
               </div>
@@ -213,7 +219,7 @@ function DataSummary(formattedResults: FormattedCDBEstimator) {
           t('estimator:results.form-data-summary.edit-aria-labels.marital-status'),
           'routes/estimator/step-marital-status.tsx',
           formattedResults.maritalStatus,
-          true,
+          false,
         )}
         {DataSummaryItem(
           t('estimator:results.form-data-summary.field-labels.net-income'),
