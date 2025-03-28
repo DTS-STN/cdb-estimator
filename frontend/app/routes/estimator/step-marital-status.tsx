@@ -167,6 +167,7 @@ export default function StepMaritalStatus({ actionData, loaderData, matches, par
               value="next"
               variant="primary"
               id="continue-button"
+              size="lg"
             >
               {t('common:next')}
             </Button>
@@ -175,6 +176,7 @@ export default function StepMaritalStatus({ actionData, loaderData, matches, par
               name="action"
               value="back"
               id="back-button"
+              size="lg"
             >
               {t('common:previous')}
             </Button>
