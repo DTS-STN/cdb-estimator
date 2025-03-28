@@ -115,9 +115,8 @@
       },
       "estimator-steps": {
         "intro": "Si vous estimez que vous répondez aux critères d'admissibilité, utilisez l'estimateur de prestations pour savoir combien vous pourriez recevoir. L'estimateur vous posera des questions au sujet de votre :",
-        "step-1": "âge",
-        "step-2": "état matrimonial",
-        "step-3": "revenu"
+        "step-1": "état matrimonial",
+        "step-2": "revenu"
       },
       "result-disclaimer": "<strong>Cet outil ne donne qu'une estimation.</strong> Il ne garantit pas que vous serez admissible ou que vous recevrez le montant estimé.",
       "results": {
