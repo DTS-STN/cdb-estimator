@@ -116,9 +116,6 @@ export default function Home() {
             <li>
               <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.estimator-steps.step-2" />
             </li>
-            <li>
-              <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.estimator-steps.step-3" />
-            </li>
           </ol>
           <p>{t('common:index.content.completion-time')}</p>
           <p>

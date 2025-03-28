@@ -115,9 +115,8 @@
       },
       "estimator-steps": {
         "intro": "If you feel you meet the eligibility criteria, use the benefits estimator to see how much you may receive. The estimator will ask you questions about your:",
-        "step-1": "age",
-        "step-2": "marital status",
-        "step-3": "income"
+        "step-1": "marital status",
+        "step-2": "income"
       },
       "result-disclaimer": "<strong>This tool gives an estimate only.</strong> It doesn't guarantee that you'll be eligible or that you'll receive the amount estimated.",
       "results": {
