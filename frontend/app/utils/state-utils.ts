@@ -8,10 +8,9 @@ export type StateField = keyof CDBEstimator;
  * defines a mapping of route files to StateField. is used to determine which state fields to check for when attempting to load a given route
  */
 const stateMap = new Map<I18nRouteFile, StateField[]>([
-  ['routes/estimator/step-age.tsx', []],
-  ['routes/estimator/step-marital-status.tsx', ['dateOfBirth']],
-  ['routes/estimator/step-income.tsx', ['dateOfBirth', 'maritalStatus']],
-  ['routes/estimator/results.tsx', ['dateOfBirth', 'maritalStatus', 'income']],
+  ['routes/estimator/step-marital-status.tsx', []],
+  ['routes/estimator/step-income.tsx', ['maritalStatus']],
+  ['routes/estimator/results.tsx', ['maritalStatus', 'income']],
 ]);
 
 /**

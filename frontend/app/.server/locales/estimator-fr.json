@@ -1,22 +1,4 @@
 {
-  "age": {
-    "breadcrumb": "Âge",
-    "fields": {
-      "date-of-birth": {
-        "error": {
-          "invalid-age": "Vous devez avoir entre 18 et 65 ans.",
-          "invalid-month": "Le mois de naissance est invalide.",
-          "invalid-year": "L'année de naissance est invalide.",
-          "required-month": "Le mois de naissance est requis.",
-          "required-year": "L'année de naissance est requise."
-        },
-        "label": "Quel est votre mois de naissance?"
-      }
-    },
-    "max-eligible-age-info": "Vous pourriez être admissible jusqu'au mois de votre 65e anniversaire inclusivement.",
-    "min-eligible-age-info": "Vous pouvez présenter une demande jusqu'à 6 mois avant votre 18e anniversaire.",
-    "page-title": "Étape 1 de 3\u00A0: Âge"
-  },
   "income": {
     "breadcrumb": "Revenus",
     "fields": {
@@ -112,7 +94,7 @@
         "text2": "Si votre revenu de travail est négatif, entrez ‘0’."
       }
     },
-    "page-title": "Étape 3 de 3\u00A0: Revenus"
+    "page-title": "Étape 1 de 2\u00A0: Revenus"
   },
   "marital-status": {
     "additional-info": {
@@ -145,7 +127,7 @@
         }
       }
     },
-    "page-title": "Étape 2 de 3\u00A0: État civil"
+    "page-title": "Étape 1 de 2\u00A0: État civil"
   },
   "results": {
     "breadcrumb": "Résultats",
@@ -171,7 +153,6 @@
     "disclaimer-alert": "Ce qui suit n'est qu'une estimation basée sur les informations que vous avez fournies.",
     "form-data-summary": {
       "edit-aria-labels": {
-        "age": "Modifier votre âge",
         "marital-status": "Modifier votre état matrimonial",
         "net-income": "Modifier votre revenu net",
         "partner-net-income": "Modifier le revenu net de votre partenaire",
@@ -189,7 +170,6 @@
         }
       },
       "field-labels": {
-        "age": "Âge",
         "marital-status": "État matrimonial",
         "net-income": "Votre revenu net",
         "partner-net-income": "Le revenu net de votre partenaire",

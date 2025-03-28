@@ -4,11 +4,6 @@ import type { validMaritalStatuses } from './types';
 
 //forms and form fields:
 
-export type AgeForm = {
-  month: string;
-  year: string;
-};
-
 export type MaritalStatusForm = {
   maritalStatus: string;
 };
@@ -30,14 +25,8 @@ export interface MarriedIncomeForm extends PersonIncomeForm {
 
 // business objects
 export type CDBEstimator = {
-  dateOfBirth: DateOfBirth;
   maritalStatus: MaritalStatus;
   income: SingleIncome | MarriedIncome;
-};
-
-export type DateOfBirth = {
-  month: number;
-  year: number;
 };
 
 export type MaritalStatus = (typeof validMaritalStatuses)[number];
@@ -70,7 +59,6 @@ export type FormattedSingleResults = {
 };
 
 export type FormattedCDBEstimator = {
-  age: string;
   maritalStatus: string;
   income: FormattedSingleIncome | FormattedMarriedIncome;
   results: FormattedSingleResults | FormattedMarriedResults;
