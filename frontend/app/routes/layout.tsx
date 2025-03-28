@@ -10,7 +10,6 @@ import { LanguageSwitcher } from '~/components/language-switcher';
 import { AppLink } from '~/components/links';
 import { PageDetails } from '~/components/page-details';
 import { SkipNavigationLinks } from '~/components/skip-navigation-links';
-import { useLanguage } from '~/hooks/use-language';
 import { useRoute } from '~/hooks/use-route';
 import * as adobeAnalytics from '~/utils/adobe-analytics-utils';
 
@@ -24,8 +23,8 @@ export const handle = {
 } as const satisfies RouteHandle;
 
 export default function Layout({ matches }: Route.ComponentProps) {
-  const { currentLanguage } = useLanguage();
-  const { t } = useTranslation(['common']);
+  const { t, i18n } = useTranslation(['common']);
+  const currentLanguage = i18n.language as Language;
   const { id: pageId } = useRoute();
 
   const { BUILD_DATE, BUILD_VERSION } = globalThis.__appEnvironment;

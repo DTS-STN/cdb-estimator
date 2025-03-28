@@ -1,8 +1,8 @@
 import type React from 'react';
 
 import * as ProgressPrimitive from '@radix-ui/react-progress';
+import { useTranslation } from 'react-i18next';
 
-import { useLanguage } from '~/hooks/use-language';
 import { formatPercent } from '~/utils/string-utils';
 import { cn } from '~/utils/tailwind-utils';
 
@@ -43,11 +43,12 @@ export function Progress({
   label,
   ...props
 }: ProgressProps) {
-  const { currentLanguage } = useLanguage();
+  const { i18n } = useTranslation();
+  const currentLanguage = i18n.language as Language;
 
   return (
     <>
-      {label && currentLanguage && <p id={id} className="mb-2">{`${label} ${formatPercent(value, currentLanguage)}`}</p>}
+      {label && <p id={id} className="mb-2">{`${label} ${formatPercent(value, currentLanguage)}`}</p>}
       <ProgressPrimitive.Root
         className={cn(rootBaseClassName, sizes[size], className)}
         data-testid="progress-root"

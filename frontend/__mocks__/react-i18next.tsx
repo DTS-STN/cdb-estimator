@@ -42,6 +42,6 @@ export const Trans = vi.fn(({ children, components, i18nKey, ...rest }: TransPro
  * The vitest automock for react-i18next's useTranslation() hook.
  */
 export const useTranslation = vi.fn(() => ({
-  i18n: { getFixedT: () => tFunction },
+  i18n: { getFixedT: () => tFunction, language: 'en' },
   t: tFunction,
 }));

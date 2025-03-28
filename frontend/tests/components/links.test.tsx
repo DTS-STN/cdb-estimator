@@ -1,7 +1,8 @@
 import { createRoutesStub, useRouteError } from 'react-router';
 
 import { fireEvent, render } from '@testing-library/react';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { useTranslation } from 'react-i18next';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { AnchorLink, AppLink, InlineLink } from '~/components/links';
 import type { AppError } from '~/errors/app-error';
@@ -10,6 +11,10 @@ describe('links', () => {
   beforeEach(() => {
     // suppress any errors that are logged by the 'should throw' tests
     vi.spyOn(console, 'error').mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    vi.mocked(useTranslation).mockReset();
   });
 
   describe('AppLink', () => {
@@ -31,6 +36,9 @@ describe('links', () => {
     });
 
     it('should render a link with the current language if no specific language is provided', () => {
+      const translation = useTranslation();
+      vi.mocked(useTranslation).mockReturnValue({ ...translation, i18n: { ...translation.i18n, language: 'fr' } });
+
       const RoutesStub = createRoutesStub([
         {
           path: '/fr',
@@ -44,6 +52,11 @@ describe('links', () => {
     });
 
     it('should throw an error if no language is available', () => {
+      const translation = useTranslation();
+      vi.mocked(useTranslation).mockReturnValue({
+        ...translation,
+        i18n: { ...translation.i18n, language: undefined as unknown as string },
+      });
       const RoutesStub = createRoutesStub([
         {
           path: '/',
@@ -130,6 +143,9 @@ describe('links', () => {
 
   describe('InlineLink', () => {
     it('should correctly render an InlineLink when the file property is provided', () => {
+      const translation = useTranslation();
+      vi.mocked(useTranslation).mockReturnValue({ ...translation, i18n: { ...translation.i18n, language: 'fr' } });
+
       const RoutesStub = createRoutesStub([
         {
           path: '/fr',
@@ -143,6 +159,9 @@ describe('links', () => {
     });
 
     it('should correctly render an InlineLink when the to property is provided', () => {
+      const translation = useTranslation();
+      vi.mocked(useTranslation).mockReturnValue({ ...translation, i18n: { ...translation.i18n, language: 'fr' } });
+
       const RoutesStub = createRoutesStub([
         {
           path: '/fr',

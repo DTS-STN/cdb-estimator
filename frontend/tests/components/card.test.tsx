@@ -2,7 +2,8 @@ import { createRoutesStub } from 'react-router';
 
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { render } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { useTranslation } from 'react-i18next';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { Button } from '~/components/button';
 import {
@@ -19,6 +20,10 @@ import {
 import { AppLink } from '~/components/links';
 
 describe('Card', () => {
+  afterEach(() => {
+    vi.mocked(useTranslation).mockReset();
+  });
+
   it('should render a card', () => {
     const { container } = render(
       <Card>
@@ -32,6 +37,9 @@ describe('Card', () => {
   });
 
   it('should render a card with a link', () => {
+    const translation = useTranslation();
+    vi.mocked(useTranslation).mockReturnValue({ ...translation, i18n: { ...translation.i18n, language: 'fr' } });
+
     const RoutesStub = createRoutesStub([
       {
         path: '/fr',
@@ -53,6 +61,9 @@ describe('Card', () => {
   });
 
   it('should render a card with a link with an image', () => {
+    const translation = useTranslation();
+    vi.mocked(useTranslation).mockReturnValue({ ...translation, i18n: { ...translation.i18n, language: 'fr' } });
+
     const RoutesStub = createRoutesStub([
       {
         path: '/fr',
@@ -78,6 +89,9 @@ describe('Card', () => {
   });
 
   it('should render a card with a link with an icon', () => {
+    const translation = useTranslation();
+    vi.mocked(useTranslation).mockReturnValue({ ...translation, i18n: { ...translation.i18n, language: 'fr' } });
+
     const RoutesStub = createRoutesStub([
       {
         path: '/fr',
@@ -102,6 +116,9 @@ describe('Card', () => {
   });
 
   it('should render a card with a link with an icon, content, footer with button and heading2', () => {
+    const translation = useTranslation();
+    vi.mocked(useTranslation).mockReturnValue({ ...translation, i18n: { ...translation.i18n, language: 'fr' } });
+
     const RoutesStub = createRoutesStub([
       {
         path: '/fr',

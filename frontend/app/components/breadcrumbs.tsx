@@ -9,7 +9,6 @@ import { useTranslation } from 'react-i18next';
 
 import { InlineLink } from './links';
 
-import { useLanguage } from '~/hooks/use-language';
 import type { I18nRouteFile } from '~/i18n-routes';
 import * as adobeAnalytics from '~/utils/adobe-analytics-utils';
 
@@ -48,8 +47,8 @@ function getDestination(item: BreadcrumbItem, currentLanguage?: Language) {
 }
 
 export function Breadcrumbs({ className, items }: BreadcrumbsProps) {
-  const { t } = useTranslation(['common']);
-  const { currentLanguage } = useLanguage();
+  const { t, i18n } = useTranslation(['common']);
+  const currentLanguage = i18n.language as Language;
 
   return (
     <nav id="wb-bc" className={className} property="breadcrumb" aria-labelledby="breadcrumbs">
