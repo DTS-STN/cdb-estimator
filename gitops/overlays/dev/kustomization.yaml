@@ -9,7 +9,7 @@ commonLabels:
 labels:
   - pairs:
       app.kubernetes.io/part-of: canada-disability-benefit
-      app.kubernetes.io/managed-by: teamcity
+      app.kubernetes.io/managed-by: kustomize
       app.kubernetes.io/cluster: dts-dev-sced-rhp-spoke-aks
       app.kubernetes.io/environment: dev
       app.kubernetes.io/tier: nonprod
