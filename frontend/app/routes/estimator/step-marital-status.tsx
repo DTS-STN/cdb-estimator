@@ -19,6 +19,7 @@ import { PageTitle } from '~/components/page-title';
 import { useErrorTranslation } from '~/hooks/use-error-translation';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/estimator/layout';
+import * as adobeAnalytics from '~/utils/adobe-analytics-utils';
 import { estimatorStepGate } from '~/utils/state-utils';
 
 export const handle = {
@@ -160,10 +161,21 @@ export default function StepMaritalStatus({ actionData, loaderData, matches, par
             />
           </div>
           <div className="mt-8 flex flex-row-reverse flex-wrap items-center justify-end gap-3">
-            <Button name="action" value="next" variant="primary" id="continue-button">
+            <Button
+              data-gc-analytics-customclick={adobeAnalytics.getCustomClick('StepMaritalStatus:Next button')}
+              name="action"
+              value="next"
+              variant="primary"
+              id="continue-button"
+            >
               {t('common:next')}
             </Button>
-            <Button name="action" value="back" id="back-button">
+            <Button
+              data-gc-analytics-customclick={adobeAnalytics.getCustomClick('StepMaritalStatus:Previous button')}
+              name="action"
+              value="back"
+              id="back-button"
+            >
               {t('common:previous')}
             </Button>
           </div>

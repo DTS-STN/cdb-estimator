@@ -9,6 +9,7 @@ import { InlineLink } from '~/components/links';
 import { PageTitle } from '~/components/page-title';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
+import * as adobeAnalytics from '~/utils/adobe-analytics-utils';
 
 export const handle = {
   breadcrumbs: [...parentHandle.breadcrumbs, { labelKey: 'common:index.breadcrumb' }],
@@ -67,7 +68,12 @@ export default function Home() {
 
         <section className="my-10">
           <div>
-            <ButtonLink file="routes/estimator/step-marital-status.tsx" variant="primary" size="lg">
+            <ButtonLink
+              data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Dashboard:Start estimator button')}
+              file="routes/estimator/step-marital-status.tsx"
+              variant="primary"
+              size="lg"
+            >
               {t('common:index.start')}
             </ButtonLink>
           </div>

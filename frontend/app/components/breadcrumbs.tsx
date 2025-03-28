@@ -9,8 +9,8 @@ import { useTranslation } from 'react-i18next';
 
 import { InlineLink } from './links';
 
-import { useLanguage } from '~/hooks/use-language';
 import type { I18nRouteFile } from '~/i18n-routes';
+import * as adobeAnalytics from '~/utils/adobe-analytics-utils';
 
 export interface BreadcrumbRouteLink {
   file: I18nRouteFile;
@@ -47,8 +47,8 @@ function getDestination(item: BreadcrumbItem, currentLanguage?: Language) {
 }
 
 export function Breadcrumbs({ className, items }: BreadcrumbsProps) {
-  const { t } = useTranslation(['common']);
-  const { currentLanguage } = useLanguage();
+  const { t, i18n } = useTranslation(['common']);
+  const currentLanguage = i18n.language as Language;
 
   return (
     <nav id="wb-bc" className={className} property="breadcrumb" aria-labelledby="breadcrumbs">
@@ -63,7 +63,12 @@ export function Breadcrumbs({ className, items }: BreadcrumbsProps) {
             return (
               <li key={label} property="itemListElement" typeof="ListItem" className="flex items-center">
                 {idx !== 0 && <FontAwesomeIcon icon={faChevronRight} className="mr-2 size-3 text-slate-700" />}
-                <Breadcrumb destination={destination}>{label}</Breadcrumb>
+                <Breadcrumb
+                  destination={destination}
+                  data-gc-analytics-customclick={adobeAnalytics.getCustomClick(`Breadcrumb:${idx} link`)}
+                >
+                  {label}
+                </Breadcrumb>
               </li>
             );
           })}
@@ -77,7 +82,7 @@ function isBreadcrumbRouteLink(destination: To | BreadcrumbRouteLink): destinati
   return typeof destination === 'object' && 'file' in destination;
 }
 
-function Breadcrumb({ children, destination }: { children: ReactNode; destination?: To | BreadcrumbRouteLink }) {
+function Breadcrumb({ children, destination, ...rest }: { children: ReactNode; destination?: To | BreadcrumbRouteLink }) {
   if (!destination) {
     return <span property="name">{children}</span>;
   }
@@ -90,11 +95,12 @@ function Breadcrumb({ children, destination }: { children: ReactNode; destinatio
       search={destination.search}
       property="item"
       typeof="WebPage"
+      {...rest}
     >
       <span property="name">{children}</span>
     </InlineLink>
   ) : (
-    <InlineLink to={destination} property="item" typeof="WebPage">
+    <InlineLink to={destination} property="item" typeof="WebPage" {...rest}>
       <span property="name">{children}</span>
     </InlineLink>
   );

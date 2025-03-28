@@ -7,7 +7,6 @@ import type { Route } from '../+types/root';
 import { AppLink } from '~/components/links';
 import { PageTitle } from '~/components/page-title';
 import { isAppError } from '~/errors/app-error';
-import { useLanguage } from '~/hooks/use-language';
 
 /**
  * A bilingual error boundary that renders appropriate error messages in both languages.
@@ -149,7 +148,7 @@ export function BilingualErrorBoundary({ actionData, error, loaderData, params }
  * A bilingual 404 page that renders appropriate error messages in both languages.
  */
 export function BilingualNotFound({ actionData, error, loaderData, params }: Route.ErrorBoundaryProps) {
-  const { i18n, t } = useTranslation(['common']);
+  const { i18n } = useTranslation(['common']);
   const en = i18n.getFixedT('en');
   const fr = i18n.getFixedT('fr');
 
@@ -169,7 +168,7 @@ export function BilingualNotFound({ actionData, error, loaderData, params }: Rou
                 <img
                   className="h-8 w-auto"
                   src="https://www.canada.ca/etc/designs/canada/wet-boew/assets/sig-blk-en.svg"
-                  alt={t('common:header.govt-of-canada.text')}
+                  alt={en('common:header.govt-of-canada.text')}
                   width="300"
                   height="28"
                   decoding="async"
@@ -240,8 +239,8 @@ export function BilingualNotFound({ actionData, error, loaderData, params }: Rou
  * boundary to catch and render it, potentially leading to infinite error loops.
  */
 export function UnilingualErrorBoundary({ actionData, error, loaderData, params }: Route.ErrorBoundaryProps) {
-  const { currentLanguage } = useLanguage();
-  const { t } = useTranslation(['common']);
+  const { t, i18n } = useTranslation(['common']);
+  const currentLanguage = i18n.language as Language;
 
   return (
     <html lang={currentLanguage}>
@@ -326,8 +325,8 @@ export function UnilingualErrorBoundary({ actionData, error, loaderData, params 
  * A unilingual 404 page that renders appropriate error messages in the current language.
  */
 export function UnilingualNotFound({ actionData, error, loaderData, params }: Route.ErrorBoundaryProps) {
-  const { currentLanguage } = useLanguage();
-  const { t } = useTranslation(['common']);
+  const { t, i18n } = useTranslation(['common']);
+  const currentLanguage = i18n.language as Language;
 
   return (
     <html lang={currentLanguage}>

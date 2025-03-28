@@ -110,12 +110,12 @@ describe('error-boundaries', () => {
 
       const RoutesStub = createRoutesStub([
         {
-          path: '/',
+          path: '/en',
           Component: () => <UnilingualNotFound params={{}} error={new Response('Not found', { status: 404 })} />,
         },
       ]);
 
-      render(<RoutesStub />);
+      render(<RoutesStub initialEntries={['/en']} />);
 
       expect(document.documentElement).toMatchSnapshot('expected html');
     });
