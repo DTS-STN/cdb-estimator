@@ -150,7 +150,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
 
   return (
     <div className="space-y-3">
-      <PageTitle subTitle={t('common:application-title')}>{t('estimator:income.page-title')}</PageTitle>
+      <PageTitle subTitle={t('common:app.title')}>{t('estimator:income.page-title')}</PageTitle>
       <FetcherErrorSummary fetcherKey={fetcherKey}>
         <fetcher.Form method="post" noValidate>
           <div className="space-y-6">

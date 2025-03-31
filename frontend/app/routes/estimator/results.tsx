@@ -132,7 +132,7 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
 
   return (
     <div className="space-y-3">
-      <PageTitle subTitle={t('common:application-title')}>{t('estimator:results.page-title')}</PageTitle>
+      <PageTitle subTitle={t('common:app.title')}>{t('estimator:results.page-title')}</PageTitle>
 
       <div className="flex flex-col space-y-12">
         <div className="md:grid md:grid-cols-3 md:gap-12">

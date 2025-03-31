@@ -10,22 +10,24 @@ import { PageTitle } from '~/components/page-title';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
 import * as adobeAnalytics from '~/utils/adobe-analytics-utils';
+import { getLanguageFromResource } from '~/utils/i18n-utils';
 
 export const handle = {
-  breadcrumbs: [...parentHandle.breadcrumbs, { labelKey: 'common:index.breadcrumb' }],
-  i18nNamespace: [...parentHandle.i18nNamespace, 'common'],
+  breadcrumbs: [...parentHandle.breadcrumbs, { labelKey: 'estimator:index.breadcrumb' }],
+  i18nNamespace: [...parentHandle.i18nNamespace, 'common', 'estimator'],
 } as const satisfies RouteHandle;
 
 export async function loader({ request }: Route.LoaderArgs) {
   const { t } = await getTranslation(request, handle.i18nNamespace);
-  return { documentTitle: t('common:index.page-title') };
+
+  return { documentTitle: t('estimator:index.page-title') };
 }
 
 export function meta({ data }: Route.MetaArgs) {
   return [{ title: data.documentTitle }];
 }
 
-export default function Home() {
+export default function Home({ loaderData }: Route.ComponentProps) {
   const { t, i18n } = useTranslation(handle.i18nNamespace);
   const { ESTIMATOR_CDB_URL_EN, ESTIMATOR_CDB_URL_FR, ESTIMATOR_CDB_ELIGIBILITY_URL_EN, ESTIMATOR_CDB_ELIGIBILITY_URL_FR } =
     globalThis.__appEnvironment;
@@ -47,34 +49,34 @@ export default function Home() {
 
   return (
     <>
-      <PageTitle>{t('common:index.page-title')}</PageTitle>
+      <PageTitle>{t('estimator:index.page-title')}</PageTitle>
 
       <div className="space-y-6">
         <section className="space-y-6">
           <p>
-            <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.description" components={{ cdbLink }} />
+            <Trans ns={handle.i18nNamespace} i18nKey="estimator:index.content.description" components={{ cdbLink }} />
           </p>
-          <h2 className="font-lato mb-4 text-lg font-bold">{t('common:index.content.eligibility.header')}</h2>
+          <h2 className="font-lato mb-4 text-lg font-bold">{t('estimator:index.content.eligibility.header')}</h2>
           <p>
             <Trans
               ns={handle.i18nNamespace}
-              i18nKey="common:index.content.eligibility.intro"
+              i18nKey="estimator:index.content.eligibility.intro"
               components={{ cdbRequirementsLink }}
             />
           </p>
 
-          <p className="mb-4">{t('common:index.content.estimator-steps.intro')}</p>
+          <p className="mb-4">{t('estimator:index.content.estimator-steps.intro')}</p>
           <ol className="list-decimal space-y-1 pl-7">
             <li>
-              <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.estimator-steps.step-1" />
+              <Trans ns={handle.i18nNamespace} i18nKey="estimator:index.content.estimator-steps.step-1" />
             </li>
             <li>
-              <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.estimator-steps.step-2" />
+              <Trans ns={handle.i18nNamespace} i18nKey="estimator:index.content.estimator-steps.step-2" />
             </li>
           </ol>
-          <p>{t('common:index.content.completion-time')}</p>
+          <p>{t('estimator:index.content.completion-time')}</p>
           <p>
-            <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.result-disclaimer" />
+            <Trans ns={handle.i18nNamespace} i18nKey="estimator:index.content.result-disclaimer" />
           </p>
         </section>
 
@@ -86,15 +88,15 @@ export default function Home() {
               variant="primary"
               size="lg"
             >
-              {t('common:index.start')}
+              {t('estimator:index.start')}
             </ButtonLink>
           </div>
         </section>
 
         <section className="space-y-4">
-          <h2 className="font-lato text-lg font-bold">{t('common:index.content.results.header')}</h2>
+          <h2 className="font-lato text-lg font-bold">{t('estimator:index.content.results.header')}</h2>
           <p>
-            <Trans ns={handle.i18nNamespace} i18nKey="common:index.content.results.description" />
+            <Trans ns={handle.i18nNamespace} i18nKey="estimator:index.content.results.description" />
           </p>
         </section>
       </div>
