@@ -162,6 +162,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               name="net-income"
               label={t('estimator:income.fields.net-income.label')}
               required
+              maxLength={15}
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
                 <div className="my-4 space-y-4">
@@ -182,6 +183,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                 name="partner-net-income"
                 label={t('estimator:income.fields.partner.net-income.label')}
                 required
+                maxLength={15}
                 helpMessagePrimaryClassName="-max-w-prose text-black"
                 helpMessagePrimary={
                   <div className="my-4 space-y-4">
@@ -204,6 +206,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               name="working-income"
               label={t('estimator:income.fields.working-income.label')}
               required
+              maxLength={15}
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
                 <div className="my-4 space-y-4">
@@ -234,6 +237,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                 name="partner-working-income"
                 label={t('estimator:income.fields.partner.working-income.label')}
                 required
+                maxLength={15}
                 helpMessagePrimaryClassName="-max-w-prose text-black"
                 helpMessagePrimary={
                   <div className="my-4 space-y-4">
@@ -267,6 +271,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
             <InputField
               name="claimed-income"
               label={t('estimator:income.fields.claimed-income.label')}
+              maxLength={15}
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
                 <div className="my-4 space-y-4">
@@ -294,6 +299,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
             <InputField
               name="claimed-repayment"
               label={t('estimator:income.fields.claimed-repayment.label')}
+              maxLength={15}
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
                 <div className="my-4 space-y-4">
@@ -322,6 +328,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               <InputField
                 name="partner-claimed-income"
                 label={t('estimator:income.fields.partner.claimed-income.label')}
+                maxLength={15}
                 helpMessagePrimaryClassName="-max-w-prose text-black"
                 helpMessagePrimary={
                   <div className="my-4 space-y-4">
@@ -355,6 +362,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               <InputField
                 name="partner-claimed-repayment"
                 label={t('estimator:income.fields.partner.claimed-repayment.label')}
+                maxLength={15}
                 helpMessagePrimaryClassName="-max-w-prose text-black"
                 helpMessagePrimary={
                   <div className="my-4 space-y-4">
