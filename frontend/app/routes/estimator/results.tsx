@@ -126,7 +126,9 @@ function formatCurrency(number: number, lang: Language) {
 }
 
 export default function Results({ actionData, loaderData, matches, params }: Route.ComponentProps) {
-  const { t } = useTranslation(handle.i18nNamespace);
+  const { t, i18n } = useTranslation(handle.i18nNamespace);
+  const { ESTIMATOR_CDB_APPLY_URL_EN, ESTIMATOR_CDB_APPLY_URL_FR, ESTIMATOR_CDB_URL_EN, ESTIMATOR_CDB_URL_FR } =
+    globalThis.__appEnvironment;
 
   return (
     <div className="space-y-3">
@@ -184,7 +186,7 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
               <div>
                 <ButtonLink
                   data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Apply button')}
-                  to="http://canada.ca"
+                  to={i18n.language === 'fr' ? ESTIMATOR_CDB_APPLY_URL_FR : ESTIMATOR_CDB_APPLY_URL_EN}
                   variant="primary"
                   startIcon={faExternalLink}
                   size="xl"
@@ -196,7 +198,7 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
               <div>
                 <ButtonLink
                   data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Learn more button')}
-                  to={t('estimator:results.content.next-steps.learn-more-href')}
+                  to={i18n.language === 'fr' ? ESTIMATOR_CDB_URL_FR : ESTIMATOR_CDB_URL_EN}
                   variant="alternative"
                   startIcon={faExternalLink}
                   size="xl"

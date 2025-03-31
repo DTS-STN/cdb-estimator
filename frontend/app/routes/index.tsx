@@ -26,11 +26,23 @@ export function meta({ data }: Route.MetaArgs) {
 }
 
 export default function Home() {
-  const { t } = useTranslation(handle.i18nNamespace);
+  const { t, i18n } = useTranslation(handle.i18nNamespace);
+  const { ESTIMATOR_CDB_URL_EN, ESTIMATOR_CDB_URL_FR, ESTIMATOR_CDB_ELIGIBILITY_URL_EN, ESTIMATOR_CDB_ELIGIBILITY_URL_FR } =
+    globalThis.__appEnvironment;
 
-  const cdbLink = <InlineLink to={t('common:index.content.cdb-href')} className="external-link" target="_blank" />;
+  const cdbLink = (
+    <InlineLink
+      to={i18n.language === 'fr' ? ESTIMATOR_CDB_URL_FR : ESTIMATOR_CDB_URL_EN}
+      className="external-link"
+      target="_blank"
+    />
+  );
   const cdbRequirementsLink = (
-    <InlineLink to={t('common:index.content.eligibility.cdb-requirements-href')} className="external-link" target="_blank" />
+    <InlineLink
+      to={i18n.language === 'fr' ? ESTIMATOR_CDB_ELIGIBILITY_URL_FR : ESTIMATOR_CDB_ELIGIBILITY_URL_EN}
+      className="external-link"
+      target="_blank"
+    />
   );
 
   return (
