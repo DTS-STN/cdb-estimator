@@ -18,8 +18,8 @@
       },
       "net-income": {
         "error": {
-          "invalid": "Your Net income is invalid",
-          "required": "Your Net income is required"
+          "invalid": "Your net income is invalid",
+          "required": "Your net income is required"
         },
         "info-label": "How to calculate your net income",
         "label": "Your net income"
@@ -44,7 +44,7 @@
             "invalid": "Your partner's net income is invalid",
             "required": "Your partner's net income is required"
           },
-          "info-label": "How to calculate your partner’s net income",
+          "info-label": "How to calculate your partner's net income",
           "label": "Your partner's net income"
         },
         "working-income": {
@@ -52,38 +52,38 @@
             "invalid": "Your partner's working income is invalid",
             "required": "Your partner's working income is required"
           },
-          "info-label": "How to calculate your partner’s working income",
+          "info-label": "How to calculate your partner's working income",
           "label": "Your partner's working income"
         }
       },
       "working-income": {
         "error": {
-          "invalid": "Your Working income is invalid",
-          "required": "Your Working income is required"
+          "invalid": "Your working income is invalid",
+          "required": "Your working income is required"
         },
         "info-label": "How to calculate your working income",
         "label": "Your working income"
       }
     },
     "form-instructions": {
-      "married": "To estimate your benefits, we will need the following information from your {{year}} tax return and your partner’s {{year}} tax return.",
+      "married": "To estimate your benefits, we will need the following information from your {{year}} tax return and your partner's {{year}} tax return.",
       "single": "To estimate your benefits, we will need the following information from your {{year}} tax return:"
     },
     "info": {
       "CDB": "<strong>CDB:</strong> Canada Disability Benefit",
       "claimed-income": "Income claimed by you (line 11700 and line 12500 of your tax return). If field is left blank, we will assume it is zero.",
       "claimed-repayment": "Repayment claimed by you (line 21300 and line 23200 of your tax return). If field is left blank, we will assume it is zero.",
-      "net-income": "Line 23600 on your tax return. If your net income is negative, enter ‘0’",
+      "net-income": "Line 23600 on your tax return. If your net income is negative, enter '0'",
       "partner-claimed-income": "Income claimed by your spouse/partner (line 11700 and line 12500 of their tax return). If field is left blank, we will assume it is zero.",
       "partner-claimed-repayment": "Repayment claimed by your spouse/partner (line 21300 and line 23200 of their tax return). If field is left blank, we will assume it is zero.",
-      "partner-net-income": "Line 23600 on your spouse/partners tax return. If your the net income is negative, enter ‘0’",
+      "partner-net-income": "Line 23600 on your spouse/partners tax return. If your the net income is negative, enter '0'",
       "RDSP": "<strong>RDSP:</strong> Registered Disability Savings Plan",
       "UCCB": "<strong>UCCB:</strong> Universal Child Care Benefit",
       "working-income": {
         "items": [
           "Employment income (line 10100)",
           "Other employment income (line 10400)",
-          "Taxable scholarships, fellowships, bursaries and artists’ project grants (line 13010)",
+          "Taxable scholarships, fellowships, bursaries and artists' project grants (line 13010)",
           "Business income (use 0 if the amount is negative) (line 13500)",
           "Professional income (use 0 if the amount is negative) (line 13700)",
           "Commission income (use 0 if the amount is negative) (line 13900)",
@@ -91,7 +91,7 @@
           "Fishing income (use 0 if the amount is negative) (line 14300)"
         ],
         "text1": "To determine your working income, add up all the following types of income:",
-        "text2": "If your working income is negative, enter ‘0’."
+        "text2": "If your working income is negative, enter '0'."
       }
     },
     "page-title": "Step 2 of 2: Income"
