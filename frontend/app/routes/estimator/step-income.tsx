@@ -19,6 +19,7 @@ import { useErrorTranslation } from '~/hooks/use-error-translation';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 import * as adobeAnalytics from '~/utils/adobe-analytics-utils';
+import { getPreviousTaxYear } from '~/utils/date-utils';
 import { estimatorStepGate } from '~/utils/state-utils';
 
 export const handle = {
@@ -145,7 +146,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
   const fetcher = useFetcher<Info['actionData']>({ key: fetcherKey });
   const errors = fetcher.data?.errors;
   const isMarried = loaderData.isMarried;
-  const year = '2024'; //TODO: read from config
+  const previousIncomeTaxReturnYear = getPreviousTaxYear().toString();
 
   return (
     <div className="space-y-3">
@@ -155,8 +156,8 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
           <div className="space-y-6">
             <h2>
               {isMarried
-                ? t('estimator:income.form-instructions.married', { year: year })
-                : t('estimator:income.form-instructions.single', { year: year })}
+                ? t('estimator:income.form-instructions.married', { year: previousIncomeTaxReturnYear })
+                : t('estimator:income.form-instructions.single', { year: previousIncomeTaxReturnYear })}
             </h2>
             <InputField
               name="net-income"
