@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import type { Route } from './+types/layout';
 
 import { Breadcrumbs } from '~/components/breadcrumbs';
+import { Footer } from '~/components/footer';
 import { LanguageSwitcher } from '~/components/language-switcher';
 import { AppLink } from '~/components/links';
 import { PageDetails } from '~/components/page-details';
@@ -63,7 +64,8 @@ export default function Layout({ matches }: Route.ComponentProps) {
         <Outlet />
         <PageDetails buildDate={BUILD_DATE} buildVersion={BUILD_VERSION} pageId={pageId} />
       </main>
-      <footer id="wb-info" tabIndex={-1} className="bg-stone-50 print:hidden">
+      <Footer />
+      {/* <footer id="wb-info" tabIndex={-1} className="bg-stone-50 print:hidden">
         <div className="container flex items-center justify-end gap-6 py-2.5 sm:py-3.5">
           <div>
             <h2 className="sr-only">{t('common:footer.about-site')}</h2>
@@ -78,7 +80,7 @@ export default function Layout({ matches }: Route.ComponentProps) {
             </div>
           </div>
         </div>
-      </footer>
+      </footer> */}
     </>
   );
 }
