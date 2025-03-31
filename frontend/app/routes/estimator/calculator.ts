@@ -1,28 +1,30 @@
 import type { MarriedIncome, PersonIncome, SingleIncome } from './@types';
 
-const INFLATION_FACTOR = 1; // Used to reflect inflation as a part of the calculation
-const SINGLE_WORKING_INCOME_EXEMPTION = 10000; // Working income exemption is the amount of working income that is excluded when calculating the benefit amount
-const COUPLE_WORKING_INCOME_EXCEPTION = 14000; // Working income exemption is the amount of working income that is excluded when calculating the benefit amount
-const COUPLE_THRESHOLD = 32500; // The income threshold is the maximum amount of income before the benefit amount is reduced
-const SINGLE_THRESHOLD = 23000; // The income threshold is the maximum amount of income before the benefit amount is reduced
-const YEARLY_MAX_BENEFITS = 2400; // The maximum benefit
-const BENEFIT_REDUCTION_RATE = 0.2;
-const SPLIT_BENEFIT_REDUCTION_RATE = 0.1;
-
 function roundUp(value: number) {
   return Math.round(value * 100) / 100;
 }
 
 export function calculateEstimation(income: MarriedIncome | SingleIncome) {
+  const { ESTIMATOR_INFLATION_FACTOR, ESTIMATOR_YEARLY_MAX_BENEFITS } = globalThis.__appEnvironment;
+
   return income.kind === 'married'
     ? {
         kind: 'married',
-        estimationSplitBenefit: Math.max(0, roundUp((YEARLY_MAX_BENEFITS * INFLATION_FACTOR - GetB(income, true)) / 12)),
-        estimation: Math.max(0, roundUp((YEARLY_MAX_BENEFITS * INFLATION_FACTOR - GetB(income, false)) / 12)),
+        estimationSplitBenefit: Math.max(
+          0,
+          roundUp((ESTIMATOR_YEARLY_MAX_BENEFITS * ESTIMATOR_INFLATION_FACTOR - GetB(income, true)) / 12),
+        ),
+        estimation: Math.max(
+          0,
+          roundUp((ESTIMATOR_YEARLY_MAX_BENEFITS * ESTIMATOR_INFLATION_FACTOR - GetB(income, false)) / 12),
+        ),
       }
     : {
         kind: 'single',
-        estimation: Math.max(0, roundUp((YEARLY_MAX_BENEFITS * INFLATION_FACTOR - GetB(income, false)) / 12)),
+        estimation: Math.max(
+          0,
+          roundUp((ESTIMATOR_YEARLY_MAX_BENEFITS * ESTIMATOR_INFLATION_FACTOR - GetB(income, false)) / 12),
+        ),
       };
 }
 
@@ -31,12 +33,32 @@ export function calculateEstimation(income: MarriedIncome | SingleIncome) {
  * @returns B
  */
 function GetB(income: MarriedIncome | SingleIncome, partnerReceivesCDB: boolean) {
+  const {
+    ESTIMATOR_INFLATION_FACTOR,
+    ESTIMATOR_COUPLE_THRESHOLD,
+    ESTIMATOR_SINGLE_THRESHOLD,
+    ESTIMATOR_BENEFIT_REDUCTION_RATE,
+    ESTIMATOR_SPLIT_BENEFIT_REDUCTION_RATE,
+  } = globalThis.__appEnvironment;
+
   if (income.kind === 'married') {
     return partnerReceivesCDB
-      ? Math.max(0, SPLIT_BENEFIT_REDUCTION_RATE * (GetC(income) - GetE(income) - COUPLE_THRESHOLD * INFLATION_FACTOR))
-      : Math.max(0, BENEFIT_REDUCTION_RATE * (GetC(income) - GetE(income) - COUPLE_THRESHOLD * INFLATION_FACTOR));
+      ? Math.max(
+          0,
+          ESTIMATOR_SPLIT_BENEFIT_REDUCTION_RATE *
+            (GetC(income) - GetE(income) - ESTIMATOR_COUPLE_THRESHOLD * ESTIMATOR_INFLATION_FACTOR),
+        )
+      : Math.max(
+          0,
+          ESTIMATOR_BENEFIT_REDUCTION_RATE *
+            (GetC(income) - GetE(income) - ESTIMATOR_COUPLE_THRESHOLD * ESTIMATOR_INFLATION_FACTOR),
+        );
   } else {
-    return Math.max(0, BENEFIT_REDUCTION_RATE * (GetC(income) - GetD(income) - SINGLE_THRESHOLD * INFLATION_FACTOR));
+    return Math.max(
+      0,
+      ESTIMATOR_BENEFIT_REDUCTION_RATE *
+        (GetC(income) - GetD(income) - ESTIMATOR_SINGLE_THRESHOLD * ESTIMATOR_INFLATION_FACTOR),
+    );
   }
 }
 
@@ -53,7 +75,9 @@ function GetC(income: SingleIncome | MarriedIncome) {
  * @returns D
  */
 function GetD(singleIncome: SingleIncome) {
-  const ceiling = SINGLE_WORKING_INCOME_EXEMPTION * INFLATION_FACTOR;
+  const { ESTIMATOR_INFLATION_FACTOR, ESTIMATOR_SINGLE_WORKING_INCOME_EXEMPTION } = globalThis.__appEnvironment;
+
+  const ceiling = ESTIMATOR_SINGLE_WORKING_INCOME_EXEMPTION * ESTIMATOR_INFLATION_FACTOR;
 
   return Math.min(ceiling, singleIncome.workingIncome);
 }
@@ -63,7 +87,9 @@ function GetD(singleIncome: SingleIncome) {
  * @returns E
  */
 function GetE(coupleIncome: MarriedIncome) {
-  const ceiling = COUPLE_WORKING_INCOME_EXCEPTION * INFLATION_FACTOR;
+  const { ESTIMATOR_INFLATION_FACTOR, ESTIMATOR_COUPLE_WORKING_INCOME_EXCEPTION } = globalThis.__appEnvironment;
+
+  const ceiling = ESTIMATOR_COUPLE_WORKING_INCOME_EXCEPTION * ESTIMATOR_INFLATION_FACTOR;
   const combinedWorkingIncome = coupleIncome.workingIncome + coupleIncome.partner.workingIncome;
 
   return Math.min(ceiling, combinedWorkingIncome);

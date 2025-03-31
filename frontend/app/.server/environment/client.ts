@@ -1,6 +1,7 @@
 import * as v from 'valibot';
 
 import { adobeAnalytics, defaults as adobeAnalyticsDefaults } from './adobe-analytics';
+import { estimator, defaults as estimatorDefaults } from './estimator';
 
 import { breadcrumbs, defaults as breadcrumbsDefaults } from '~/.server/environment/breadcrumbs';
 import { buildinfo, defaults as buildinfoDefaults } from '~/.server/environment/buildinfo';
@@ -12,6 +13,7 @@ export const defaults = {
   ...adobeAnalyticsDefaults,
   ...buildinfoDefaults,
   ...breadcrumbsDefaults,
+  ...estimatorDefaults,
 } as const;
 
 /**
@@ -22,6 +24,7 @@ export const client = v.object({
   ...adobeAnalytics.entries,
   ...buildinfo.entries,
   ...breadcrumbs.entries,
+  ...estimator.entries,
   I18NEXT_DEBUG: v.optional(stringToBooleanSchema()),
   isProduction: v.boolean(),
 });
