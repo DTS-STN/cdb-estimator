@@ -392,6 +392,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               value="next"
               variant="primary"
               id="continue-button"
+              size="lg"
             >
               {t('common:next')}
             </Button>
@@ -400,6 +401,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               name="action"
               value="back"
               id="back-button"
+              size="lg"
             >
               {t('common:previous')}
             </Button>
