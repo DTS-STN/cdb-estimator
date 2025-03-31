@@ -3,9 +3,10 @@ import type { ComponentProps, JSX, MouseEvent } from 'react';
 import type { Params, Path } from 'react-router';
 import { generatePath, Link } from 'react-router';
 
+import { useTranslation } from 'react-i18next';
+
 import { AppError } from '~/errors/app-error';
 import { ErrorCodes } from '~/errors/error-codes';
-import { useLanguage } from '~/hooks/use-language';
 import type { I18nRouteFile } from '~/i18n-routes';
 import { i18nRoutes } from '~/i18n-routes';
 import { getRouteByFile } from '~/utils/route-utils';
@@ -71,7 +72,8 @@ type InlineLinkProps = ComponentProps<typeof AppLink>;
  * @throws If the `lang` parameter is not provided and the current language cannot be determined.
  */
 export function AppLink({ children, disabled, hash, lang, params, file, search, to, ...props }: AppLinkProps): JSX.Element {
-  const { currentLanguage } = useLanguage();
+  const { i18n } = useTranslation('common');
+  const currentLanguage = i18n.language as Language | undefined;
 
   if (to !== undefined) {
     return (
@@ -102,11 +104,10 @@ export function AppLink({ children, disabled, hash, lang, params, file, search, 
   const route = getRouteByFile(file, i18nRoutes);
   const pathname = generatePath(route.paths[targetLanguage], params);
 
-  const langProp = targetLanguage !== currentLanguage ? targetLanguage : undefined;
   const reloadDocumentProp = props.reloadDocument ?? lang !== undefined;
 
   return (
-    <Link lang={langProp} to={{ hash, pathname, search }} reloadDocument={reloadDocumentProp} {...props}>
+    <Link lang={lang} to={{ hash, pathname, search }} reloadDocument={reloadDocumentProp} {...props}>
       {children}
     </Link>
   );

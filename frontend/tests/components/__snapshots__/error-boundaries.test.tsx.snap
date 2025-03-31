@@ -691,7 +691,9 @@ exports[`error-boundaries > UnilingualErrorBoundary > should correctly render th
 `;
 
 exports[`error-boundaries > UnilingualNotFound > should correctly render the unilingual 404 when it catches a 404 error > expected html 1`] = `
-<html>
+<html
+  lang="en"
+>
   <head>
     <meta
       charset="utf-8"
