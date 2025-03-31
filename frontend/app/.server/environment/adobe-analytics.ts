@@ -25,6 +25,6 @@ export const adobeAnalytics = v.object({
   ADOBE_ANALYTICS_ENABLED: v.optional(stringToBooleanSchema(), defaults.ADOBE_ANALYTICS_ENABLED),
   ADOBE_ANALYTICS_DEBUG: v.optional(stringToBooleanSchema(), defaults.ADOBE_ANALYTICS_DEBUG),
   ADOBE_ANALYTICS_SERVICE_NAME: v.optional(v.string(), defaults.ADOBE_ANALYTICS_SERVICE_NAME),
-  ADOBE_ANALYTICS_CUSTOM_CLICK_PREFIX: v.optional(v.string(), `${defaults.ADOBE_ANALYTICS_SERVICE_NAME}:`),
-  ADOBE_ANALYTICS_ERROR_NAME: v.optional(v.string(), `${defaults.ADOBE_ANALYTICS_ERROR_NAME}:`),
+  ADOBE_ANALYTICS_CUSTOM_CLICK_PREFIX: v.optional(v.string(), `${defaults.ADOBE_ANALYTICS_SERVICE_NAME}`),
+  ADOBE_ANALYTICS_ERROR_NAME: v.optional(v.string(), `${defaults.ADOBE_ANALYTICS_ERROR_NAME}`),
 });

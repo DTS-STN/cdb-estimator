@@ -6,6 +6,18 @@ declare global {
   }
 }
 
+/**
+ *
+ * @param value colon seperated identifier value example: 'Dashboard:NextButton'
+ * @returns undefined if AA is not enabled. a string otherwise
+ */
+export function getCustomClick(value: string) {
+  if (!isEnabled()) return undefined;
+
+  const { ADOBE_ANALYTICS_CUSTOM_CLICK_PREFIX } = globalThis.__appEnvironment;
+  return `${ADOBE_ANALYTICS_CUSTOM_CLICK_PREFIX}:${value}`;
+}
+
 export function isEnabled() {
   const { ADOBE_ANALYTICS_ENABLED } = globalThis.__appEnvironment;
   return ADOBE_ANALYTICS_ENABLED;

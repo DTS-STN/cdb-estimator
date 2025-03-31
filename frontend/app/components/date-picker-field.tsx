@@ -7,7 +7,6 @@ import { InputError } from '~/components/input-error';
 import { InputHelp } from '~/components/input-help';
 import { InputLabel } from '~/components/input-label';
 import { InputLegend } from '~/components/input-legend';
-import { useLanguage } from '~/hooks/use-language';
 import { extractDateParts, getLocalizedMonths } from '~/utils/date-utils';
 import { cn } from '~/utils/tailwind-utils';
 
@@ -74,8 +73,8 @@ export const DatePickerField = ({
   names,
   required,
 }: DatePickerFieldProps): JSX.Element => {
-  const { t } = useTranslation(['common']);
-  const { currentLanguage = 'en' } = useLanguage(); // english by default
+  const { t, i18n } = useTranslation(['common']);
+  const currentLanguage = i18n.language as Language;
   const currentDatePartOrder = DATE_PART_ORDER[currentLanguage];
 
   // Generate unique IDs for accessibility
