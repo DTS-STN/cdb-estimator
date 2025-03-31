@@ -96,6 +96,31 @@
     },
     "page-title": "Step 2 of 2: Income"
   },
+  "index": {
+    "about": "The CDB Estimator is a tool to help users estimate their potential Canada Disability Benefit amount",
+    "breadcrumb": "Estimator",
+    "content": {
+      "completion-time": "It will take about 5 to 10 minutes to complete.",
+      "description": "Use this estimator to find out how much money you could get from the <cdbLink>Canada Disability Benefit</cdbLink>. This is not an application for benefits. ",
+      "eligibility": {
+        "header": "Before you begin",
+        "intro": "To receive the Canada Disability Benefit, you must meet specific eligibility criteria. <cdbRequirementsLink>Consult the benefit eligibility requirements</cdbRequirementsLink>."
+      },
+      "estimator-steps": {
+        "intro": "If you meet the eligibility criteria, use the benefits estimator to find out how much you may receive. The estimator will ask you questions about your:",
+        "step-1": "marital status",
+        "step-2": "income"
+      },
+      "result-disclaimer": "<strong>This tool provides an estimate only.</strong> It doesn't guarantee that you'll be eligible or that you'll receive the amount estimated.",
+      "results": {
+        "description": "This estimator provides estimated benefit amounts for payment made between July 2025 and June 2026. Future benefit amounts may be higher. The results are not financial advice and are subject to change. For a more accurate assessment of your estimated benefits amount, please contact us.",
+        "header": "About the results"
+      }
+    },
+    "navigate": "Go to dashboard",
+    "page-title": "Canada Disability Benefit Estimator",
+    "start": "Start benefits estimator"
+  },
   "marital-status": {
     "additional-info": {
       "common-law": {

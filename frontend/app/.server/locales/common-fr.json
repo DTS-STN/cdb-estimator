@@ -1,11 +1,8 @@
 {
   "additional-information-label": "Informations additionnelles",
   "app": {
-    "form": "Forme",
-    "menu": "Menu",
     "title": "Estimateur de la prestation canadienne pour les personnes handicapées"
   },
-  "application-title": "Estimateur de la Prestation canadienne pour les personnes handicapées",
   "breadcrumbs": {
     "you-are-here": "Vous êtes ici\u00a0:"
   },
@@ -50,31 +47,6 @@
     "govt-of-canada.text": "Gouvernement du Canada",
     "language-selection": "Sélection de la langue"
   },
-  "index": {
-    "about": "L'estimateur de la PCPH est un outil pour aider les utilisateurs à estimer le montant potentiel de leur Prestation canadienne pour les personnes handicapées",
-    "breadcrumb": "Estimateur",
-    "content": {
-      "completion-time": "Il vous faudra environ 5 à 10 minutes pour obtenir une estimation.",
-      "description": "Utilisez cet outil pour déterminer le montant que vous pourriez recevoir de la <cdbLink>Prestations canadiennes des personnes handicapées</cdbLink>. Il ne s'agit pas d'une demande de prestations.",
-      "eligibility": {
-        "header": "Avant de commencer",
-        "intro": "Pour être admissible aux prestations canadiennes des personnes handicapées, vous devez répondre aux critères spécifiques d'admissibilité. <cdbRequirementsLink>Consulter les critères d'admissibilité.</cdbRequirementsLink>"
-      },
-      "estimator-steps": {
-        "intro": "Si vous estimez que vous répondez aux critères d'admissibilité, utilisez l'estimateur de prestations pour savoir combien vous pourriez recevoir. L'estimateur vous posera des questions au sujet de votre :",
-        "step-1": "état matrimonial",
-        "step-2": "revenu"
-      },
-      "result-disclaimer": "<strong>Cet outil ne donne qu'une estimation.</strong> Il ne garantit pas que vous serez admissible ou que vous recevrez le montant estimé.",
-      "results": {
-        "description": "Les résultats ne sont pas des conseils financiers et peuvent changer. Pour une évaluation plus précise de votre montant de prestations estimé, veuillez communiquer avec nous.",
-        "header": "À propos des résultats"
-      }
-    },
-    "navigate": "Accédez au tableau de bord",
-    "page-title": "Estimateur de la Prestation canadienne pour les personnes handicapées",
-    "start": "Démarrer l'estimateur de prestations"
-  },
   "input-file": {
     "choose-file": "Choisir un fichier",
     "no-file": "Aucun fichier choisi"
@@ -99,6 +71,7 @@
     "skip-to-about": "Passer à «\u00a0À propos de ce site\u00a0»",
     "skip-to-content": "Passer au contenu principal"
   },
+  "next": "Suivant",
   "not-found": {
     "document-title": "Page introuvable",
     "page-message": "Nous sommes désolés que vous ayez abouti ici. Il arrive parfois qu'une page ait été déplacée ou supprimée. Heureusement, nous pouvons vous aider à trouver ce que vous cherchez.",
@@ -111,6 +84,7 @@
     "screen-id": "Identificateur d'écran\u00a0:",
     "version": "Version\u00a0:"
   },
+  "previous": "Précédent",
   "resource": "public/locales/public-fr.json",
   "server-error": {
     "correlation-id": "<strong>ID de corrélation\u00a0:</strong> <span>{{correlationId}}</span>",
@@ -125,7 +99,5 @@
     "description": "Votre session expirera automatiquement dans {{timeRemaining}}. Sélectionnez «\u00a0Continuer la session\u00a0» pour prolonger votre session.",
     "end-session": "Mettre fin à la session",
     "header": "Avertissement d'expiration de la session"
-  },
-  "next": "Suivant",
-  "previous": "Précédent"
+  }
 }
