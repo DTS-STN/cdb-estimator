@@ -2,6 +2,15 @@ import * as v from 'valibot';
 
 // Default estimator configuration object
 export const defaults = {
+  ESTIMATOR_CDB_URL_EN: 'https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html',
+  ESTIMATOR_CDB_URL_FR:
+    'https://www.canada.ca/fr/services/prestations/handicap/prestation-canadienne-personnes-situation-handicap.html',
+  ESTIMATOR_CDB_ELIGIBILITY_URL_EN: 'https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html', //TODO: this is a placeholder
+  ESTIMATOR_CDB_ELIGIBILITY_URL_FR:
+    'https://www.canada.ca/fr/services/prestations/handicap/prestation-canadienne-personnes-situation-handicap.html', //TODO: this is a placeholder
+  ESTIMATOR_CDB_APPLY_URL_EN: 'https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html', //TODO: this is a placeholder
+  ESTIMATOR_CDB_APPLY_URL_FR:
+    'https://www.canada.ca/fr/services/prestations/handicap/prestation-canadienne-personnes-situation-handicap.html', //TODO: this is a placeholder
   ESTIMATOR_INFLATION_FACTOR: '1',
   ESTIMATOR_SINGLE_WORKING_INCOME_EXEMPTION: '10000',
   ESTIMATOR_COUPLE_WORKING_INCOME_EXCEPTION: '14000',
@@ -14,6 +23,31 @@ export const defaults = {
 
 // Define schema for the environment variable
 export const estimator = v.object({
+  /**
+   * Canada Disability Benefit landing page url (en)
+   */
+  ESTIMATOR_CDB_URL_EN: v.optional(stringToURLSchema(), defaults.ESTIMATOR_CDB_URL_EN),
+  /**
+   * Canada Disability Benefit landing page url (fr)
+   */
+  ESTIMATOR_CDB_URL_FR: v.optional(stringToURLSchema(), defaults.ESTIMATOR_CDB_URL_FR),
+  /**
+   * Canada Disability Benefit eligibility requirements url (en)
+   */
+  ESTIMATOR_CDB_ELIGIBILITY_URL_EN: v.optional(stringToURLSchema(), defaults.ESTIMATOR_CDB_ELIGIBILITY_URL_EN),
+  /**
+   * Canada Disability Benefit eligibility requirements url (fr)
+   */
+  ESTIMATOR_CDB_ELIGIBILITY_URL_FR: v.optional(stringToURLSchema(), defaults.ESTIMATOR_CDB_ELIGIBILITY_URL_FR),
+  /**
+   * Canada Disability Benefit application url (en)
+   */
+  ESTIMATOR_CDB_APPLY_URL_EN: v.optional(stringToURLSchema(), defaults.ESTIMATOR_CDB_APPLY_URL_EN),
+  /**
+   * Canada Disability Benefit application url (fr)
+   */
+  ESTIMATOR_CDB_APPLY_URL_FR: v.optional(stringToURLSchema(), defaults.ESTIMATOR_CDB_APPLY_URL_FR),
+
   /**
    * Reflects inflation as a part of the calculation
    */
@@ -58,4 +92,14 @@ export type Estimator = Readonly<v.InferOutput<typeof estimator>>;
 
 export function stringToNumberSchema(): v.GenericSchema<string, number> {
   return v.pipe(v.string(), v.transform(Number));
+}
+
+export function stringToURLSchema(): v.GenericSchema<string, URL> {
+  return v.pipe(
+    v.string(),
+    v.url('must be a valid url'),
+    v.transform((val) => {
+      return new URL(val);
+    }),
+  );
 }

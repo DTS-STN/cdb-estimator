@@ -1,32 +1,12 @@
 {
   "additional-information-label": "Additional information",
-  "age-picker": {
-    "month": {
-      "label": "Month",
-      "placeholder": "Select month"
-    },
-    "year": {
-      "label": "Year (YYYY)"
-    },
-    "your-age": {
-      "label": "Your age :",
-      "value-suffix-plural": "years old",
-      "value-suffix-singular": "year old"
-    }
-  },
   "app": {
-    "account": "Account",
     "form": "Form",
-    "logout": "Logout",
     "menu": "Menu",
-    "profile": "Profile",
     "title": "Canada Disability Benefit Estimator"
   },
   "application-title": "Canada Disability Benefit Estimator",
   "breadcrumbs": {
-    "canada-ca": "Canada.ca",
-    "canada-ca-url": "https://www.canada.ca/en.html",
-    "home": "My Service Canada Account",
     "you-are-here": "You are here:"
   },
   "date-picker": {
@@ -54,13 +34,7 @@
     "gc-corporate": "Government of Canada Corporate",
     "gc-symbol": "Symbol of the Government of Canada",
     "main-band": {
-      "header": "Service Canada",
-      "links": {
-        "contact-us": {
-          "content": "Contact us",
-          "href": "https://www.canada.ca/en/services/benefits/dental/dental-care-plan/contact.html"
-        }
-      }
+      "header": "Service Canada"
     },
     "privacy": {
       "href": "https://www.canada.ca/en/transparency/privacy.html",
@@ -80,13 +54,11 @@
     "about": "The CDB Estimator is a tool to help users estimate their potential Canada Disability Benefit amount",
     "breadcrumb": "Estimator",
     "content": {
-      "cdb-href": "https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html",
       "completion-time": "It will take about 5 to 10 minutes to complete.",
       "description": "Use this estimator to find out how much money you could get from the <cdbLink>Canada Disability Benefit</cdbLink>. This is not an application for benefits. ",
       "eligibility": {
         "header": "Before you begin",
-        "intro": "To receive the Canada Disability Benefit, you must meet specific eligibility criteria. <cdbRequirementsLink>Consult the benefit eligibility requirements</cdbRequirementsLink>.",
-        "cdb-requirements-href": "https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html"
+        "intro": "To receive the Canada Disability Benefit, you must meet specific eligibility criteria. <cdbRequirementsLink>Consult the benefit eligibility requirements</cdbRequirementsLink>."
       },
       "estimator-steps": {
         "intro": "If you meet the eligibility criteria, use the benefits estimator to find out how much you may receive. The estimator will ask you questions about your:",
