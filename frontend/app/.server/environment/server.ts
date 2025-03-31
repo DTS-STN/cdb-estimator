@@ -38,6 +38,7 @@ export const server = v.pipe(
     ...redis.entries,
     ...session.entries,
     ...telemetry.entries,
+
     BASE_TIMEZONE: v.optional(v.pipe(v.string(), v.check(isValidTimeZone)), defaults.BASE_TIMEZONE),
     NODE_ENV: v.optional(v.picklist(['production', 'development', 'test']), defaults.NODE_ENV),
     PORT: v.optional(v.pipe(stringToIntegerSchema(), v.minValue(0)), defaults.PORT),
