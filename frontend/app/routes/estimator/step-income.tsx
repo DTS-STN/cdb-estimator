@@ -411,7 +411,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               id="continue-button"
               size="lg"
             >
-              {t('common:next')}
+              {t('estimator:income.estimate-benefit')}
             </Button>
             <Button
               data-gc-analytics-customclick={adobeAnalytics.getCustomClick('StepIncome:Previous button')}

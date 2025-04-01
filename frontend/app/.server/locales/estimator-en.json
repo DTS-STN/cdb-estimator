@@ -1,6 +1,7 @@
 {
   "income": {
     "breadcrumb": "Income",
+    "estimate-benefit": "Estimate my Benefit",
     "fields": {
       "claimed-income": {
         "error": {
@@ -176,6 +177,7 @@
         }
       }
     },
+    "disclaimer-alert": "This estimate is based on the information you provided and assumes that you meet the eligibility criteria for the Canada Disability Benefit.",
     "form-data-summary": {
       "edit-aria-labels": {
         "marital-status": "Edit your marital status",

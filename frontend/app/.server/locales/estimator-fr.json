@@ -1,6 +1,7 @@
 {
   "income": {
     "breadcrumb": "Revenus",
+    "estimate-benefit": "Estimer mes prestations",
     "fields": {
       "claimed-income": {
         "error": {
@@ -176,6 +177,7 @@
         }
       }
     },
+    "disclaimer-alert": "Ce qui suit n'est qu'une estimation basée sur les informations que vous avez fournies.",
     "form-data-summary": {
       "edit-aria-labels": {
         "marital-status": "Modifier votre état matrimonial",
