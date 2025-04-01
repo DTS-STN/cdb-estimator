@@ -26,27 +26,27 @@ export const estimator = v.object({
   /**
    * Canada Disability Benefit landing page url (en)
    */
-  ESTIMATOR_CDB_URL_EN: v.optional(stringToURLSchema(), defaults.ESTIMATOR_CDB_URL_EN),
+  ESTIMATOR_CDB_URL_EN: v.optional(stringAsUrl(), defaults.ESTIMATOR_CDB_URL_EN),
   /**
    * Canada Disability Benefit landing page url (fr)
    */
-  ESTIMATOR_CDB_URL_FR: v.optional(stringToURLSchema(), defaults.ESTIMATOR_CDB_URL_FR),
+  ESTIMATOR_CDB_URL_FR: v.optional(stringAsUrl(), defaults.ESTIMATOR_CDB_URL_FR),
   /**
    * Canada Disability Benefit eligibility requirements url (en)
    */
-  ESTIMATOR_CDB_ELIGIBILITY_URL_EN: v.optional(stringToURLSchema(), defaults.ESTIMATOR_CDB_ELIGIBILITY_URL_EN),
+  ESTIMATOR_CDB_ELIGIBILITY_URL_EN: v.optional(stringAsUrl(), defaults.ESTIMATOR_CDB_ELIGIBILITY_URL_EN),
   /**
    * Canada Disability Benefit eligibility requirements url (fr)
    */
-  ESTIMATOR_CDB_ELIGIBILITY_URL_FR: v.optional(stringToURLSchema(), defaults.ESTIMATOR_CDB_ELIGIBILITY_URL_FR),
+  ESTIMATOR_CDB_ELIGIBILITY_URL_FR: v.optional(stringAsUrl(), defaults.ESTIMATOR_CDB_ELIGIBILITY_URL_FR),
   /**
    * Canada Disability Benefit application url (en)
    */
-  ESTIMATOR_CDB_APPLY_URL_EN: v.optional(stringToURLSchema(), defaults.ESTIMATOR_CDB_APPLY_URL_EN),
+  ESTIMATOR_CDB_APPLY_URL_EN: v.optional(stringAsUrl(), defaults.ESTIMATOR_CDB_APPLY_URL_EN),
   /**
    * Canada Disability Benefit application url (fr)
    */
-  ESTIMATOR_CDB_APPLY_URL_FR: v.optional(stringToURLSchema(), defaults.ESTIMATOR_CDB_APPLY_URL_FR),
+  ESTIMATOR_CDB_APPLY_URL_FR: v.optional(stringAsUrl(), defaults.ESTIMATOR_CDB_APPLY_URL_FR),
 
   /**
    * Reflects inflation as a part of the calculation
@@ -94,12 +94,6 @@ export function stringToNumberSchema(): v.GenericSchema<string, number> {
   return v.pipe(v.string(), v.transform(Number));
 }
 
-export function stringToURLSchema(): v.GenericSchema<string, URL> {
-  return v.pipe(
-    v.string(),
-    v.url('must be a valid url'),
-    v.transform((val) => {
-      return new URL(val);
-    }),
-  );
+export function stringAsUrl(): v.GenericSchema<string, string> {
+  return v.pipe(v.string(), v.url('must be a valid url'));
 }

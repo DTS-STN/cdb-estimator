@@ -19,7 +19,9 @@ export const handle = {
 export async function loader({ request }: Route.LoaderArgs) {
   const { t } = await getTranslation(request, handle.i18nNamespace);
 
-  return { documentTitle: t('estimator:index.page-title') };
+  return {
+    documentTitle: t('estimator:index.page-title'),
+  };
 }
 
 export function meta({ data }: Route.MetaArgs) {
@@ -38,6 +40,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
       target="_blank"
     />
   );
+
   const cdbRequirementsLink = (
     <InlineLink
       to={i18n.language === 'fr' ? ESTIMATOR_CDB_ELIGIBILITY_URL_FR : ESTIMATOR_CDB_ELIGIBILITY_URL_EN}
