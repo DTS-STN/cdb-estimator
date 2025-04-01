@@ -1,5 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
+import { cn } from '~/utils/tailwind-utils';
+
 export function Footer() {
   const { t } = useTranslation(['common']);
 
@@ -13,153 +15,50 @@ export function Footer() {
         <div className="bg-[url('/footer_bg_img.svg')] bg-clip-border bg-bottom bg-no-repeat sm:bg-right-bottom">
           <nav role="navigation" aria-labelledby="accessibleSectionHeader1">
             <ul className="container flex flex-col pb-[22px] sm:grid sm:grid-cols-3">
-              <li className="footerLine relative my-1 mb-3 w-64 list-none pb-[26px] sm:w-56 lg:w-80">
-                <a className="text-[14px] leading-[19px] font-[400] !text-white" href={'common:footer.all-contacts.href'}>
-                  {t('common:footer.all-contacts.text')}
-                </a>
-              </li>
-              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a
-                  className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href={t('common:footer.department-and-agencies.href')}
-                >
-                  {t('common:footer.department-and-agencies.text')}
-                </a>
-              </li>
-              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a
-                  className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href={t('common:footer.about-government.href')}
-                >
-                  {t('common:footer.about-government.text')}
-                </a>
-              </li>
-              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a className="text-[14px] leading-[19px] font-[400] !text-white" href={t('common:footer.jobs.href')}>
-                  {t('common:footer.jobs.text')}
-                </a>
-              </li>
-              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a className="text-[14px] leading-[19px] font-[400] !text-white" href={t('common:footer.taxes.href')}>
-                  {t('common:footer.taxes.text')}
-                </a>
-              </li>
-              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a
-                  className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href={t('common:footer.canada-and-world.href')}
-                >
-                  {t('common:footer.canada-and-world.text')}
-                </a>
-              </li>
-              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a
-                  className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href={t('common:footer.immigration-and-citizenship.href')}
-                >
-                  {t('common:footer.immigration-and-citizenship.text')}
-                </a>
-              </li>
-              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a
-                  className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href={t('common:footer.environment-and-natural-resources.href')}
-                >
-                  {t('common:footer.environment-and-natural-resources.text')}
-                </a>
-              </li>
-              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a
-                  className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href={t('common:footer.money-and-finance.href')}
-                >
-                  {t('common:footer.money-and-finance.text')}
-                </a>
-              </li>
-              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a
-                  className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href={t('common:footer.travel-and-tourism.href')}
-                >
-                  {t('common:footer.travel-and-tourism.text')}
-                </a>
-              </li>
-              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a
-                  className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href={t('common:footer.national-security-and-defence.href')}
-                >
-                  {t('common:footer.national-security-and-defence.text')}
-                </a>
-              </li>
-              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a
-                  className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href={t('common:footer.science-and-innovation.href')}
-                >
-                  {t('common:footer.science-and-innovation.text')}
-                </a>
-              </li>
-              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a className="text-[14px] leading-[19px] font-[400] !text-white" href={t('common:footer.business.href')}>
-                  {t('common:footer.business.text')}
-                </a>
-              </li>
-              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a
-                  className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href={t('common:footer.culture-history-and-sports.href')}
-                >
-                  {t('common:footer.culture-history-and-sports.text')}
-                </a>
-              </li>
-              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a
-                  className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href={t('common:footer.indigenous-peoples.href')}
-                >
-                  {t('common:footer.indigenous-peoples.text')}
-                </a>
-              </li>
-              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a className="text-[14px] leading-[19px] font-[400] !text-white" href={t('common:footer.benefits.href')}>
-                  {t('common:footer.benefits.text')}
-                </a>
-              </li>
-              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a
-                  className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href={t('common:footer.policing-justice-and-emergencies.href')}
-                >
-                  {t('common:footer.policing-justice-and-emergencies.text')}
-                </a>
-              </li>
-              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a
-                  className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href={t('common:footer.veterans-and-military.href')}
-                >
-                  {t('common:footer.veterans-and-military.text')}
-                </a>
-              </li>
-              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a className="text-[14px] leading-[19px] font-[400] !text-white" href={t('common:footer.health.href')}>
-                  {t('common:footer.health.text')}
-                </a>
-              </li>
-              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a
-                  className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href={t('common:footer.transport-and-infrastructure.href')}
-                >
-                  {t('common:footer.transport-and-infrastructure.text')}
-                </a>
-              </li>
-              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a className="text-[14px] leading-[19px] font-[400] !text-white" href={t('common:footer.youth.href')}>
-                  {t('common:footer.youth.text')}
-                </a>
-              </li>
+              {FooterItem(
+                t('common:footer.all-contacts.text'),
+                t('common:footer.all-contacts.href'),
+                'footerLine mb-3 relative pb-[26px]',
+              )}
+
+              {FooterItem(t('common:footer.department-and-agencies.text'), t('common:footer.department-and-agencies.href'))}
+              {FooterItem(t('common:footer.about-government.text'), t('common:footer.about-government.href'))}
+              {FooterItem(t('common:footer.jobs.text'), t('common:footer.jobs.href'))}
+              {FooterItem(t('common:footer.taxes.text'), t('common:footer.taxes.href'))}
+              {FooterItem(t('common:footer.canada-and-world.text'), t('common:footer.canada-and-world.href'))}
+              {FooterItem(
+                t('common:footer.immigration-and-citizenship.text'),
+                t('common:footer.immigration-and-citizenship.href'),
+              )}
+              {FooterItem(
+                t('common:footer.environment-and-natural-resources.text'),
+                t('common:footer.environment-and-natural-resources.href'),
+              )}
+              {FooterItem(t('common:footer.money-and-finance.text'), t('common:footer.money-and-finance.href'))}
+              {FooterItem(t('common:footer.travel-and-tourism.text'), t('common:footer.travel-and-tourism.href'))}
+              {FooterItem(
+                t('common:footer.national-security-and-defence.text'),
+                t('common:footer.national-security-and-defence.href'),
+              )}
+              {FooterItem(t('common:footer.science-and-innovation.text'), t('common:footer.science-and-innovation.href'))}
+              {FooterItem(t('common:footer.business.text'), t('common:footer.business.href'))}
+              {FooterItem(
+                t('common:footer.culture-history-and-sports.text'),
+                t('common:footer.culture-history-and-sports.href'),
+              )}
+              {FooterItem(t('common:footer.indigenous-peoples.text'), t('common:footer.indigenous-peoples.href'))}
+              {FooterItem(t('common:footer.benefits.text'), t('common:footer.benefits.href'))}
+              {FooterItem(
+                t('common:footer.policing-justice-and-emergencies.text'),
+                t('common:footer.policing-justice-and-emergencies.href'),
+              )}
+              {FooterItem(t('common:footer.veterans-and-military.text'), t('common:footer.veterans-and-military.href'))}
+              {FooterItem(t('common:footer.health.text'), t('common:footer.health.href'))}
+              {FooterItem(
+                t('common:footer.transport-and-infrastructure.text'),
+                t('common:footer.transport-and-infrastructure.href'),
+              )}
+              {FooterItem(t('common:footer.youth.text'), t('common:footer.youth.href'))}
             </ul>
           </nav>
         </div>
@@ -171,44 +70,12 @@ export function Footer() {
               <h2 className="sr-only" id="accessibleSectionHeader2">
                 {t('common:footer.about-site')}
               </h2>
-              <ul className="flex list-disc flex-col py-4 whitespace-nowrap md:flex-row">
-                <li className="my-1 pr-4">
-                  <a
-                    className="text-[14px] leading-[19px] font-[400] text-[#284162]"
-                    href={t('common:footer.social-media.href')}
-                  >
-                    {t('common:footer.social-media.text')}
-                  </a>
-                </li>
-                <li className="md:custom-bullet my-1 pr-4">
-                  <a
-                    className="text-[14px] leading-[19px] font-[400] text-[#284162]"
-                    href={t('common:footer.mobile-applications.href')}
-                  >
-                    {t('common:footer.mobile-applications.text')}
-                  </a>
-                </li>
-                <li className="md:custom-bullet my-1 pr-4">
-                  <a
-                    className="text-[14px] leading-[19px] font-[400] text-[#284162]"
-                    href={t('common:footer.about-canada-ca.href')}
-                  >
-                    {t('common:footer.about-canada-ca.text')}
-                  </a>
-                </li>
-                <li className="md:custom-bullet my-1 pr-4">
-                  <a
-                    className="text-[14px] leading-[19px] font-[400] text-[#284162]"
-                    href={t('common:footer.terms-and-conditions.href')}
-                  >
-                    {t('common:footer.terms-and-conditions.text')}
-                  </a>
-                </li>
-                <li className="md:custom-bullet my-1 pr-4">
-                  <a className="text-[14px] leading-[19px] font-[400] text-[#284162]" href={t('common:footer.privacy.href')}>
-                    {t('common:footer.privacy.text')}
-                  </a>
-                </li>
+              <ul className="flex flex-col py-4 whitespace-nowrap md:flex-row">
+                {SubFooterItem(t('common:footer.social-media.text'), t('common:footer.social-media.href'), 'first')}
+                {SubFooterItem(t('common:footer.mobile-applications.text'), t('common:footer.mobile-applications.href'))}
+                {SubFooterItem(t('common:footer.about-canada-ca.text'), t('common:footer.about-canada-ca.href'))}
+                {SubFooterItem(t('common:footer.terms-and-conditions.text'), t('common:footer.terms-and-conditions.href'))}
+                {SubFooterItem(t('common:footer.privacy.text'), t('common:footer.privacy.href'))}
               </ul>
             </nav>
           </div>
@@ -222,5 +89,25 @@ export function Footer() {
         </div>
       </section>
     </footer>
+  );
+}
+
+function FooterItem(text: string, href: string, className: string | undefined = undefined) {
+  return (
+    <li className={cn('my-1 w-64 list-none sm:w-56 lg:w-80', className)}>
+      <a className="text-[14px] leading-[19px] font-[400] !text-white" href={href}>
+        {text}
+      </a>
+    </li>
+  );
+}
+
+function SubFooterItem(text: string, href: string, type: 'first' | 'subsequent' = 'subsequent') {
+  return (
+    <li className={cn('my-1 pr-4', type !== 'first' ? "md:before:mr-3 md:before:content-['•']" : undefined)}>
+      <a className="text-[14px] leading-[19px] font-[400] text-[#284162]" href={href}>
+        {text}
+      </a>
+    </li>
   );
 }
