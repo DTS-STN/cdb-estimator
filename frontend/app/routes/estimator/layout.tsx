@@ -6,7 +6,7 @@ import { handle as parentHandle } from '../layout';
 export const handle = {
   breadcrumbs: [
     ...parentHandle.breadcrumbs,
-    { labelKey: 'common:index.breadcrumb', destinationRoute: { file: 'routes/index.tsx' } },
+    { labelKey: 'estimator:index.breadcrumb', destinationRoute: { file: 'routes/index.tsx' } },
   ],
   i18nNamespace: ['common', 'estimator'],
 } as const satisfies RouteHandle;
