@@ -4,14 +4,14 @@
     "fields": {
       "claimed-income": {
         "error": {
-          "invalid": "Your UCCB RDSP income is invalid"
+          "invalid": "Your UCCB and RDSP income is invalid"
         },
         "info-label": "Information",
         "label": "Your UCCB and RDSP income"
       },
       "claimed-repayment": {
         "error": {
-          "invalid": "Your UCCB RDSP repayment is invalid"
+          "invalid": "Your UCCB and RDSP repayment is invalid"
         },
         "info-label": "Information",
         "label": "Your UCCB and RDSP repayment"
@@ -27,14 +27,14 @@
       "partner": {
         "claimed-income": {
           "error": {
-            "invalid": "Your partner's UCCB RDSP income is invalid"
+            "invalid": "Your partner's UCCB and RDSP income is invalid"
           },
           "info-label": "Information",
           "label": "Your partner's UCCB and RDSP income"
         },
         "claimed-repayment": {
           "error": {
-            "invalid": "Your partner's UCCB RDSP repayment is invalid"
+            "invalid": "Your partner's UCCB and RDSP repayment is invalid"
           },
           "info-label": "Information",
           "label": "Your partner's UCCB and RDSP repayment"
