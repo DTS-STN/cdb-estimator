@@ -6,18 +6,6 @@
   "breadcrumbs": {
     "you-are-here": "Vous êtes ici\u00a0:"
   },
-  "date-picker": {
-    "day": {
-      "label": "Jour (JJ)"
-    },
-    "month": {
-      "label": "Mois",
-      "placeholder": "Sélectionnez le mois"
-    },
-    "year": {
-      "label": "Année (AAAA)"
-    }
-  },
   "dialog": {
     "close": "Fermer"
   },
@@ -140,10 +128,6 @@
     "govt-of-canada.href": "https://www.canada.ca/fr.html",
     "govt-of-canada.text": "Gouvernement du Canada",
     "language-selection": "Sélection de la langue"
-  },
-  "input-file": {
-    "choose-file": "Choisir un fichier",
-    "no-file": "Aucun fichier choisi"
   },
   "input-label": {
     "required": "obligatoire"
