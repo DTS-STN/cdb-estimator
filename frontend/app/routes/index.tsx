@@ -10,7 +10,6 @@ import { PageTitle } from '~/components/page-title';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
 import * as adobeAnalytics from '~/utils/adobe-analytics-utils';
-import { getLanguageFromResource } from '~/utils/i18n-utils';
 
 export const handle = {
   breadcrumbs: [...parentHandle.breadcrumbs, { labelKey: 'estimator:index.breadcrumb' }],
