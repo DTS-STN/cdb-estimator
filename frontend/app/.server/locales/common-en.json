@@ -6,18 +6,6 @@
   "breadcrumbs": {
     "you-are-here": "You are here:"
   },
-  "date-picker": {
-    "day": {
-      "label": "Day (DD)"
-    },
-    "month": {
-      "label": "Month",
-      "placeholder": "Select month"
-    },
-    "year": {
-      "label": "Year (YYYY)"
-    }
-  },
   "dialog": {
     "close": "Close"
   },
@@ -141,19 +129,11 @@
     "govt-of-canada.text": "Government of Canada",
     "language-selection": "Language selection"
   },
-  "input-file": {
-    "choose-file": "Choose File",
-    "no-file": "No file chosen"
-  },
   "input-label": {
     "required": "required"
   },
   "input-legend": {
     "required": "required"
-  },
-  "input-option": {
-    "no": "No",
-    "yes": "Yes"
   },
   "language": "English",
   "language-switcher": {
