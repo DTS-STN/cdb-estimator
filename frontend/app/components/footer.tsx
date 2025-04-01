@@ -1,174 +1,163 @@
+import { useTranslation } from 'react-i18next';
+
 export function Footer() {
+  const { t } = useTranslation(['common']);
+
   return (
     <footer id="footer" className="bg-[#26374A]">
       <section>
         <h2 className="sr-only" id="accessibleSectionHeader1">
-          About Government
+          {t('common:footer.header-accessible')}
         </h2>
-        <h3 className="container pt-[24px] pb-2 text-[19px] leading-[21px] font-bold text-white">Government of Canada</h3>
+        <h3 className="container pt-[24px] pb-2 text-[19px] leading-[21px] font-bold text-white">{t('footer.header')}</h3>
         <div className="bg-[url('/footer_bg_img.svg')] bg-clip-border bg-bottom bg-no-repeat sm:bg-right-bottom">
           <nav role="navigation" aria-labelledby="accessibleSectionHeader1">
             <ul className="container flex flex-col pb-[22px] sm:grid sm:grid-cols-3">
               <li className="footerLine relative my-1 mb-3 w-64 list-none pb-[26px] sm:w-56 lg:w-80">
-                <a className="text-[14px] leading-[19px] font-[400] !text-white" href="https://www.canada.ca/en/contact.html">
-                  All contacts
+                <a className="text-[14px] leading-[19px] font-[400] !text-white" href={'common:footer.all-contacts.href'}>
+                  {t('common:footer.all-contacts.text')}
                 </a>
               </li>
               <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
                 <a
                   className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href="https://www.canada.ca/en/government/dept.html"
+                  href={t('common:footer.department-and-agencies.href')}
                 >
-                  Departments and agencies
+                  {t('common:footer.department-and-agencies.text')}
                 </a>
               </li>
               <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
                 <a
                   className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href="https://www.canada.ca/en/government/system.html"
+                  href={t('common:footer.about-government.href')}
                 >
-                  About government
+                  {t('common:footer.about-government.text')}
+                </a>
+              </li>
+              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
+                <a className="text-[14px] leading-[19px] font-[400] !text-white" href={t('common:footer.jobs.href')}>
+                  {t('common:footer.jobs.text')}
+                </a>
+              </li>
+              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
+                <a className="text-[14px] leading-[19px] font-[400] !text-white" href={t('common:footer.taxes.href')}>
+                  {t('common:footer.taxes.text')}
                 </a>
               </li>
               <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
                 <a
                   className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href="https://www.canada.ca/en/services/jobs.html"
+                  href={t('common:footer.canada-and-world.href')}
                 >
-                  Jobs
+                  {t('common:footer.canada-and-world.text')}
                 </a>
               </li>
               <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
                 <a
                   className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href="https://www.canada.ca/en/services/taxes.html"
+                  href={t('common:footer.immigration-and-citizenship.href')}
                 >
-                  Taxes
+                  {t('common:footer.immigration-and-citizenship.text')}
                 </a>
               </li>
               <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
                 <a
                   className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href="https://international.gc.ca/world-monde/index.aspx?lang=eng"
+                  href={t('common:footer.environment-and-natural-resources.href')}
                 >
-                  Canada and the world
+                  {t('common:footer.environment-and-natural-resources.text')}
                 </a>
               </li>
               <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
                 <a
                   className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href="https://www.canada.ca/en/services/immigration-citizenship.html"
+                  href={t('common:footer.money-and-finance.href')}
                 >
-                  Immigration and citizenship
+                  {t('common:footer.money-and-finance.text')}
                 </a>
               </li>
               <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
                 <a
                   className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href="https://www.canada.ca/en/services/environment.html"
+                  href={t('common:footer.travel-and-tourism.href')}
                 >
-                  Environment and natural resources
+                  {t('common:footer.travel-and-tourism.text')}
                 </a>
               </li>
               <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
                 <a
                   className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href="https://www.canada.ca/en/services/finance.html"
+                  href={t('common:footer.national-security-and-defence.href')}
                 >
-                  Money and finance
-                </a>
-              </li>
-              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a className="text-[14px] leading-[19px] font-[400] !text-white" href="https://travel.gc.ca/">
-                  Travel and tourism
+                  {t('common:footer.national-security-and-defence.text')}
                 </a>
               </li>
               <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
                 <a
                   className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href="https://www.canada.ca/en/services/defence.html"
+                  href={t('common:footer.science-and-innovation.href')}
                 >
-                  National security and defence
+                  {t('common:footer.science-and-innovation.text')}
+                </a>
+              </li>
+              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
+                <a className="text-[14px] leading-[19px] font-[400] !text-white" href={t('common:footer.business.href')}>
+                  {t('common:footer.business.text')}
                 </a>
               </li>
               <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
                 <a
                   className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href="https://www.canada.ca/en/services/science.html"
+                  href={t('common:footer.culture-history-and-sports.href')}
                 >
-                  Science and innovation
+                  {t('common:footer.culture-history-and-sports.text')}
                 </a>
               </li>
               <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
                 <a
                   className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href="https://www.canada.ca/en/services/business.html"
+                  href={t('common:footer.indigenous-peoples.href')}
                 >
-                  Business
+                  {t('common:footer.indigenous-peoples.text')}
+                </a>
+              </li>
+              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
+                <a className="text-[14px] leading-[19px] font-[400] !text-white" href={t('common:footer.benefits.href')}>
+                  {t('common:footer.benefits.text')}
                 </a>
               </li>
               <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
                 <a
                   className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href="https://www.canada.ca/en/services/culture.html"
+                  href={t('common:footer.policing-justice-and-emergencies.href')}
                 >
-                  Culture, history and sport
+                  {t('common:footer.policing-justice-and-emergencies.text')}
                 </a>
               </li>
               <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
                 <a
                   className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href="https://www.canada.ca/en/services/indigenous-peoples.html"
+                  href={t('common:footer.veterans-and-military.href')}
                 >
-                  Indigenous peoples
+                  {t('common:footer.veterans-and-military.text')}
+                </a>
+              </li>
+              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
+                <a className="text-[14px] leading-[19px] font-[400] !text-white" href={t('common:footer.health.href')}>
+                  {t('common:footer.health.text')}
                 </a>
               </li>
               <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
                 <a
                   className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href="https://www.canada.ca/en/services/benefits.html"
+                  href={t('common:footer.transport-and-infrastructure.href')}
                 >
-                  Benefits
+                  {t('common:footer.transport-and-infrastructure.text')}
                 </a>
               </li>
               <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a
-                  className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href="https://www.canada.ca/en/services/policing.html"
-                >
-                  Policing, justice and emergencies
-                </a>
-              </li>
-              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a
-                  className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href="https://www.canada.ca/en/services/veterans-military.html"
-                >
-                  Veterans and military
-                </a>
-              </li>
-              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a
-                  className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href="https://www.canada.ca/en/services/health.html"
-                >
-                  Health
-                </a>
-              </li>
-              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a
-                  className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href="https://www.canada.ca/en/services/transport.html"
-                >
-                  Transport and infrastructure
-                </a>
-              </li>
-              <li className="my-1 w-64 list-none sm:w-56 lg:w-80">
-                <a
-                  className="text-[14px] leading-[19px] font-[400] !text-white"
-                  href="https://www.canada.ca/en/services/youth.html"
-                >
-                  Youth
+                <a className="text-[14px] leading-[19px] font-[400] !text-white" href={t('common:footer.youth.href')}>
+                  {t('common:footer.youth.text')}
                 </a>
               </li>
             </ul>
@@ -180,47 +169,44 @@ export function Footer() {
           <div className="flex flex-row items-center">
             <nav role="navigation" aria-labelledby="accessibleSectionHeader2">
               <h2 className="sr-only" id="accessibleSectionHeader2">
-                About this site
+                {t('common:footer.about-site')}
               </h2>
-              <ul className="flex flex-col py-4 whitespace-nowrap md:flex-row">
+              <ul className="flex list-disc flex-col py-4 whitespace-nowrap md:flex-row">
                 <li className="my-1 pr-4">
                   <a
                     className="text-[14px] leading-[19px] font-[400] text-[#284162]"
-                    href="https://www.canada.ca/en/social.html"
+                    href={t('common:footer.social-media.href')}
                   >
-                    Social media
+                    {t('common:footer.social-media.text')}
                   </a>
                 </li>
                 <li className="md:custom-bullet my-1 pr-4">
                   <a
                     className="text-[14px] leading-[19px] font-[400] text-[#284162]"
-                    href="https://www.canada.ca/en/mobile.html"
+                    href={t('common:footer.mobile-applications.href')}
                   >
-                    Mobile applications
+                    {t('common:footer.mobile-applications.text')}
                   </a>
                 </li>
                 <li className="md:custom-bullet my-1 pr-4">
                   <a
                     className="text-[14px] leading-[19px] font-[400] text-[#284162]"
-                    href="https://www.canada.ca/en/government/about.html"
+                    href={t('common:footer.about-canada-ca.href')}
                   >
-                    About Canada.ca
+                    {t('common:footer.about-canada-ca.text')}
                   </a>
                 </li>
                 <li className="md:custom-bullet my-1 pr-4">
                   <a
                     className="text-[14px] leading-[19px] font-[400] text-[#284162]"
-                    href="https://www.canada.ca/en/transparency/terms.html"
+                    href={t('common:footer.terms-and-conditions.href')}
                   >
-                    Terms and conditions
+                    {t('common:footer.terms-and-conditions.text')}
                   </a>
                 </li>
                 <li className="md:custom-bullet my-1 pr-4">
-                  <a
-                    className="text-[14px] leading-[19px] font-[400] text-[#284162]"
-                    href="https://www.canada.ca/en/transparency/privacy.html"
-                  >
-                    Privacy
+                  <a className="text-[14px] leading-[19px] font-[400] text-[#284162]" href={t('common:footer.privacy.href')}>
+                    {t('common:footer.privacy.text')}
                   </a>
                 </li>
               </ul>
@@ -229,8 +215,8 @@ export function Footer() {
           <div className="mr-[5px] flex min-h-[96px] shrink-0 items-end md:items-center">
             <img
               className="my-[15px] h-[25px] w-[105px] md:h-[40px] md:w-[164px]"
-              src="https://www.canada.ca/etc/designs/canada/wet-boew/assets/wmms-blk.svg"
-              alt="Symbol of the Government of Canada"
+              src="/wmms-blk.svg"
+              alt={t('common:footer.gc-symbol')}
             />
           </div>
         </div>

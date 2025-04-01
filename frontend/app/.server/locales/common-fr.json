@@ -27,19 +27,113 @@
     "header_other": "Les {{count}} erreurs suivantes ont été trouvées dans le formulaire\u00a0:"
   },
   "footer": {
+    "about-canada-ca": {
+      "href": "https://conception.canada.ca/a-propos/",
+      "text": "À propos de Canada.ca"
+    },
+    "about-government": {
+      "href": "https://www.canada.ca/fr/gouvernement/systeme.html",
+      "text": "À propos du gouvernement"
+    },
     "about-site": "À propos de ce site",
-    "gc-corporate": "Organisation du gouvernement du Canada",
+    "all-contacts": {
+      "href": "https://www.canada.ca/fr/contact.html",
+      "text": "Toutes les coordonnées"
+    },
+    "benefits": {
+      "href": "https://www.canada.ca/fr/services/prestations.html",
+      "text": "Prestations"
+    },
+    "business": {
+      "href": "https://www.canada.ca/fr/services/entreprises.html",
+      "text": "Entreprises"
+    },
+    "canada-and-world": {
+      "href": "https://www.international.gc.ca/world-monde/index.aspx?lang=fra",
+      "text": "Le Canada et le monde"
+    },
+    "culture-history-and-sports": {
+      "href": "https://www.canada.ca/fr/services/culture.html",
+      "text": "Culture, histoire et sport"
+    },
+    "department-and-agencies": {
+      "href": "https://www.canada.ca/fr/gouvernement/min.html",
+      "text": "Ministères et organismes"
+    },
+    "environment-and-natural-resources": {
+      "href": "https://www.canada.ca/fr/services/environnement.html",
+      "text": "Environnement et ressources naturelles"
+    },
     "gc-symbol": "Symbole du gouvernement du Canada",
-    "main-band": {
-      "header": "Service Canada"
+    "header": "Gouvernement du Canada",
+    "header-accessible": "Au sujet du gouvernement",
+    "health": {
+      "href": "https://www.canada.ca/fr/services/sante.html",
+      "text": "Santé"
+    },
+    "immigration-and-citizenship": {
+      "href": "https://www.canada.ca/fr/services/immigration-citoyennete.html",
+      "text": "Immigration et citoyenneté"
+    },
+    "indigenous-peoples": {
+      "href": "https://www.canada.ca/fr/services/autochtones.html",
+      "text": "Autochtones"
+    },
+    "jobs": {
+      "href": "https://www.canada.ca/fr/services/emplois.html",
+      "text": "Emplois"
+    },
+    "mobile-applications": {
+      "href": "https://www.canada.ca/fr/mobile.html",
+      "text": "Applications mobiles"
+    },
+    "money-and-finance": {
+      "href": "https://www.canada.ca/fr/services/finance.html",
+      "text": "Argent et finances"
+    },
+    "national-security-and-defence": {
+      "href": "https://www.canada.ca/fr/services/defense.html",
+      "text": "Sécurité nationale et défense"
+    },
+    "policing-justice-and-emergencies": {
+      "href": "https://www.canada.ca/fr/services/police.html",
+      "text": "Services de police, justice et urgences"
     },
     "privacy": {
       "href": "https://www.canada.ca/fr/transparence/confidentialite.html",
       "text": "Confidentialité"
     },
-    "terms-conditions": {
+    "science-and-innovation": {
+      "href": "https://www.canada.ca/fr/services/science.html",
+      "text": "Science et innovation"
+    },
+    "social-media": {
+      "href": "https://www.canada.ca/fr/sociaux.html",
+      "text": "Médias sociaux"
+    },
+    "taxes": {
+      "href": "https://www.canada.ca/fr/services/impots.html",
+      "text": "Impôts"
+    },
+    "terms-and-conditions": {
       "href": "https://www.canada.ca/fr/transparence/avis.html",
       "text": "Avis"
+    },
+    "transport-and-infrastructure": {
+      "href": "https://www.canada.ca/fr/services/transport.html",
+      "text": "Transport et infrastructure"
+    },
+    "travel-and-tourism": {
+      "href": "https://voyage.gc.ca/",
+      "text": "Voyage et tourisme"
+    },
+    "veterans-and-military": {
+      "href": "https://www.canada.ca/fr/services/veterans-militaire.html",
+      "text": "Vétérans et militaires"
+    },
+    "youth": {
+      "href": "https://www.canada.ca/fr/services/jeunesse.html",
+      "text": "Jeunesse"
     }
   },
   "header": {

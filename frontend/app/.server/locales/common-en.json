@@ -27,19 +27,113 @@
     "header_other": "The following {{count}} errors were found in the form:"
   },
   "footer": {
+    "about-canada-ca": {
+      "href": "https://design.canada.ca/about/",
+      "text": "About Canada.ca"
+    },
+    "about-government": {
+      "href": "https://www.canada.ca/en/government/system.html",
+      "text": "About government"
+    },
     "about-site": "About this site",
-    "gc-corporate": "Government of Canada Corporate",
+    "all-contacts": {
+      "href": "https://www.canada.ca/en/contact.html",
+      "text": "All contacts"
+    },
+    "benefits": {
+      "href": "https://www.canada.ca/en/services/benefits.html",
+      "text": "Benefits"
+    },
+    "business": {
+      "href": "https://www.canada.ca/en/services/business.html",
+      "text": "Business"
+    },
+    "canada-and-world": {
+      "href": "https://www.international.gc.ca/world-monde/index.aspx?lang=eng",
+      "text": "Canada and the world"
+    },
+    "culture-history-and-sports": {
+      "href": "https://www.canada.ca/en/services/culture.html",
+      "text": "Culture, history and sport"
+    },
+    "department-and-agencies": {
+      "href": "https://www.canada.ca/en/government/dept.html",
+      "text": "Departments and agencies"
+    },
+    "environment-and-natural-resources": {
+      "href": "https://www.canada.ca/en/services/environment.html",
+      "text": "Environment and natural resources"
+    },
     "gc-symbol": "Symbol of the Government of Canada",
-    "main-band": {
-      "header": "Service Canada"
+    "header": "Government of canada",
+    "header-accessible": "About Government",
+    "health": {
+      "href": "https://www.canada.ca/en/services/health.html",
+      "text": "Health"
+    },
+    "immigration-and-citizenship": {
+      "href": "https://www.canada.ca/en/services/immigration-citizenship.html",
+      "text": "Immigration and citizenship"
+    },
+    "indigenous-peoples": {
+      "href": "https://www.canada.ca/en/services/indigenous-peoples.html",
+      "text": "Indigenous Peoples"
+    },
+    "jobs": {
+      "href": "https://www.canada.ca/en/services/jobs.html",
+      "text": "Jobs"
+    },
+    "mobile-applications": {
+      "href": "https://www.canada.ca/en/mobile.html",
+      "text": "Mobile applications"
+    },
+    "money-and-finance": {
+      "href": "https://www.canada.ca/en/services/finance.html",
+      "text": "Money and finance"
+    },
+    "national-security-and-defence": {
+      "href": "https://www.canada.ca/en/services/defence.html",
+      "text": "National security and defence"
+    },
+    "policing-justice-and-emergencies": {
+      "href": "https://www.canada.ca/en/services/policing.html",
+      "text": "Policing, justice and emergencies"
     },
     "privacy": {
       "href": "https://www.canada.ca/en/transparency/privacy.html",
       "text": "Privacy"
     },
-    "terms-conditions": {
+    "science-and-innovation": {
+      "href": "https://www.canada.ca/en/services/science.html",
+      "text": "Science and innovation"
+    },
+    "social-media": {
+      "href": "https://www.canada.ca/en/social.html",
+      "text": "Social media"
+    },
+    "taxes": {
+      "href": "https://www.canada.ca/en/services/taxes.html",
+      "text": "Taxes"
+    },
+    "terms-and-conditions": {
       "href": "https://www.canada.ca/en/transparency/terms.html",
       "text": "Terms and conditions"
+    },
+    "transport-and-infrastructure": {
+      "href": "https://www.canada.ca/en/services/transport.html",
+      "text": "Transport and infrastructure"
+    },
+    "travel-and-tourism": {
+      "href": "https://travel.gc.ca/",
+      "text": "Travel and tourism"
+    },
+    "veterans-and-military": {
+      "href": "https://www.canada.ca/en/services/veterans-military.html",
+      "text": "Veterans and military"
+    },
+    "youth": {
+      "href": "https://www.canada.ca/en/services/youth.html",
+      "text": "Youth"
     }
   },
   "header": {
