@@ -67,18 +67,18 @@ export default function Splash() {
           <div className="w-7/12 md:w-8/12">
             <AppLink
               className="text-slate-700 hover:text-blue-700 hover:underline focus:text-blue-700"
-              to={en('common:footer.terms-conditions.href')}
+              to={en('common:footer.terms-and-conditions.href')}
               lang="en"
             >
-              {en('common:footer.terms-conditions.text')}
+              {en('common:footer.terms-and-conditions.text')}
             </AppLink>
             <span className="text-gray-400"> • </span>
             <AppLink
               className="text-slate-700 hover:text-blue-700 hover:underline focus:text-blue-700"
-              to={fr('common:footer.terms-conditions.href')}
+              to={fr('common:footer.terms-and-conditions.href')}
               lang="fr"
             >
-              {fr('common:footer.terms-conditions.text')}
+              {fr('common:footer.terms-and-conditions.text')}
             </AppLink>
           </div>
           <div className="w-5/12 md:w-4/12">
