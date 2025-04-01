@@ -178,6 +178,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               }
               defaultValue={loaderData.defaultFormValues?.netIncome}
               errorMessage={errT(errors?.nested?.netIncome?.at(0))}
+              autoComplete="off"
             />
             {isMarried && (
               <InputField
@@ -201,6 +202,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   loaderData.defaultFormValues?.kind === 'married' ? loaderData.defaultFormValues.partner.netIncome : undefined
                 }
                 errorMessage={errT(`partner.${errors?.nested?.['partner.netIncome']?.at(0)}`)}
+                autoComplete="off"
               />
             )}
             <InputField
@@ -232,6 +234,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               }
               defaultValue={loaderData.defaultFormValues?.workingIncome}
               errorMessage={errT(errors?.nested?.workingIncome?.at(0))}
+              autoComplete="off"
             />
             {isMarried && (
               <InputField
@@ -267,6 +270,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                     : undefined
                 }
                 errorMessage={errT(`partner.${errors?.nested?.['partner.workingIncome']?.at(0)}`)}
+                autoComplete="off"
               />
             )}
             <InputField
@@ -296,6 +300,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               }
               defaultValue={loaderData.defaultFormValues?.claimedIncome}
               errorMessage={errT(errors?.nested?.claimedIncome?.at(0))}
+              autoComplete="off"
             />
             <InputField
               name="claimed-repayment"
@@ -324,6 +329,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               }
               defaultValue={loaderData.defaultFormValues?.claimedRepayment}
               errorMessage={errT(errors?.nested?.claimedRepayment?.at(0))}
+              autoComplete="off"
             />
             {isMarried && (
               <InputField
@@ -357,6 +363,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                     : undefined
                 }
                 errorMessage={errT(`partner.${errors?.nested?.['partner.claimedIncome']?.at(0)}`)}
+                autoComplete="off"
               />
             )}
             {isMarried && (
@@ -391,6 +398,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                     : undefined
                 }
                 errorMessage={errT(`partner.${errors?.nested?.['partner.claimedRepayment']?.at(0)}`)}
+                autoComplete="off"
               />
             )}
           </div>
