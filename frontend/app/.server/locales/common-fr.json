@@ -130,10 +130,10 @@
     "language-selection": "Sélection de la langue"
   },
   "input-label": {
-    "required": "requis"
+    "required": "obligatoire"
   },
   "input-legend": {
-    "required": "requis"
+    "required": "obligatoire"
   },
   "input-option": {
     "no": "Non",
