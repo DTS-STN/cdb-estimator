@@ -129,7 +129,7 @@ export function AnchorLink({ anchorElementId, children, onClick, ...restProps }:
    */
   function handleOnSkipLinkClick(event: MouseEvent<HTMLAnchorElement>) {
     event.preventDefault();
-    scrollAndFocusFromAnchorLink(event.currentTarget.href);
+    scrollAndFocusToElement(anchorElementId);
     onClick?.(event);
   }
 
@@ -168,21 +168,15 @@ export function InlineLink({ className, children, file, hash, params, search, to
 }
 
 /**
- * Scrolls and focuses on the element identified by the anchor link's hash.
+ * Scrolls and focuses on the element identified.
  *
- * @param href - The anchor link URL.
+ * @param id - The element ID to scroll to and focus on.
  */
-function scrollAndFocusFromAnchorLink(href: string): void {
-  if (URL.canParse(href)) {
-    const { hash } = new URL(href);
+function scrollAndFocusToElement(id: string): void {
+  const targetElement = document.getElementById(id);
 
-    if (hash) {
-      const targetElement = document.getElementById(hash.replace('#', ''));
-
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-        targetElement.focus();
-      }
-    }
+  if (targetElement) {
+    targetElement.scrollIntoView({ behavior: 'smooth' });
+    targetElement.focus();
   }
 }
