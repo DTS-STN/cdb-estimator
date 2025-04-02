@@ -18,6 +18,7 @@ import { calculateEstimation } from './calculator';
 import { validMaritalStatuses } from './types';
 
 import { ButtonLink } from '~/components/button-link';
+import { ContextualAlert } from '~/components/contextual-alert';
 import { InlineLink } from '~/components/links';
 import { PageTitle } from '~/components/page-title';
 import { getTranslation } from '~/i18n-config.server';
@@ -133,6 +134,10 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
   return (
     <div className="space-y-3">
       <PageTitle subTitle={t('common:app.title')}>{t('estimator:results.page-title')}</PageTitle>
+
+      <ContextualAlert type="info" className="my-6">
+        <p>{t('estimator:results.disclaimer-alert')}</p>
+      </ContextualAlert>
 
       <div className="flex flex-col space-y-12">
         <div className="md:grid md:grid-cols-3 md:gap-12">
