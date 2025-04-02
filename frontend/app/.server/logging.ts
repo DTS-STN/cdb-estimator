@@ -1,3 +1,12 @@
+/**
+ * This module provides a centralized logging configuration for the application.
+ * It uses the `winston` library to create and manage loggers, allowing for
+ * structured logging with various levels (none, error, warn, info, audit, debug, trace).
+ * The module supports console logging and includes features for formatting log messages,
+ * handling exceptions and rejections, and dynamically adjusting the log level based on
+ * environment variables. It also provides a factory for creating and retrieving logger
+ * instances for different categories within the application.
+ */
 import util from 'node:util';
 import type { Logform, Logger } from 'winston';
 import winston, { format, transports } from 'winston';
@@ -36,7 +45,14 @@ export const LogFactory = {
       return winston.loggers.get(category);
     }
 
-    return winston.loggers.add(category, {
+    // accommodate the extra uncaughtException and unhandledRejection listeners used by the console transport
+    // This fixes the following warnings that are logged by nodejs: MaxListenersExceededWarning: Possible EventEmitter memory leak detected
+    // see: https://github.com/winstonjs/winston/blob/v3.17.0/lib/winston/exception-handler.js#L51
+    // see: https://github.com/winstonjs/winston/blob/v3.17.0/lib/winston/rejection-handler.js#L51
+    const maxListeners = process.getMaxListeners();
+    process.setMaxListeners(maxListeners + 2);
+
+    const logger = winston.loggers.add(category, {
       level: getLogLevel(),
       levels: logLevels,
       format: format.combine(
@@ -48,6 +64,10 @@ export const LogFactory = {
       ),
       transports: [consoleTransport],
     });
+
+    logger.trace('process.maxListeners increased to %s', process.getMaxListeners());
+
+    return logger;
   },
 };
 
