@@ -95,7 +95,7 @@
         "text2": "Si votre revenu de travail est négatif, entrez '0'."
       }
     },
-    "page-title": "Étape 1 de 2\u00A0: Revenus"
+    "page-title": "Étape 2 de 2\u00A0: Revenu"
   },
   "index": {
     "about": "L'estimateur de la PCPH est un outil pour aider les utilisateurs à estimer le montant potentiel de leur Prestation canadienne pour les personnes handicapées",
@@ -105,21 +105,21 @@
       "description": "Utilisez cet outil pour déterminer le montant que vous pourriez recevoir de la <cdbLink>Prestations canadiennes des personnes handicapées</cdbLink>. Il ne s'agit pas d'une demande de prestations.",
       "eligibility": {
         "header": "Avant de commencer",
-        "intro": "Pour être admissible aux prestations canadiennes des personnes handicapées, vous devez répondre aux critères spécifiques d'admissibilité. <cdbRequirementsLink>Consulter les critères d'admissibilité.</cdbRequirementsLink>"
+        "intro": "Pour recevoir la Prestation canadienne pour les personnes handicapées, vous devez répondre aux critères spécifiques d'admissibilité. Pour en savoir plus sur la Prestation canadienne des personnes handicapées et les critères d'admissibilité, veuillez consulter <cdbRequirementsLink>canada.ca/prestation-handicap</cdbRequirementsLink>."
       },
       "estimator-steps": {
-        "intro": "Si vous estimez que vous répondez aux critères d'admissibilité, utilisez l'estimateur de prestations pour savoir combien vous pourriez recevoir. L'estimateur vous posera des questions au sujet de votre :",
+        "intro": "Si vous répondez aux critères d'admissibilité, utilisez l'estimateur de prestations pour savoir combien vous pourriez recevoir. L'estimateur vous posera des questions au sujet de votre\u00A0:",
         "step-1": "état matrimonial",
         "step-2": "revenu"
       },
-      "result-disclaimer": "<strong>Cet outil ne donne qu'une estimation.</strong> Il ne garantit pas que vous serez admissible ou que vous recevrez le montant estimé.",
+      "result-disclaimer": "<strong>Cet outil fournit une estimation seulement. Il ne garantit pas que vous serez admissible ou que vous recevrez le montant estimé.</strong>",
       "results": {
-        "description": "Les résultats ne sont pas des conseils financiers et peuvent changer. Pour une évaluation plus précise de votre montant de prestations estimé, veuillez communiquer avec nous.",
+        "description": "Cet estimateur fournit des montants estimés de prestation pour les paiements effectués entre juillet 2025 et juin 2026. Les montants des prestations futures pourraient être plus élevés en raison de l'inflation. Les résultats ne sont pas des conseils financiers et peuvent changer. Pour une évaluation plus précise de votre montant de prestations estimé, veuillez communiquer avec nous.",
         "header": "À propos des résultats"
       }
     },
     "navigate": "Accédez au tableau de bord",
-    "page-title": "Estimateur de la Prestation canadienne pour les personnes handicapées",
+    "page-title": "Estimateur des prestations canadiennes pour les personnes handicapées",
     "start": "Démarrer l'estimateur de prestations"
   },
   "marital-status": {
@@ -140,20 +140,20 @@
       "single": "<strong>Célibataire\u00a0:</strong> vous êtes célibataire et aucune des situations ci-dessus ne s'applique à vous",
       "widowed": "<strong>Veuf\u00a0:</strong> votre époux ou conjoint de fait est décédé."
     },
-    "breadcrumb": "État civil",
+    "breadcrumb": "État matrimonial",
     "fields": {
       "status": {
         "error": {
-          "required": "L'état civil est requis"
+          "required": "L'état matrimonial est requis"
         },
-        "label": "Quel est votre état civil?",
+        "label": "Quel est votre état matrimonial?",
         "options": {
           "married": "Marié ou conjoint de fait",
           "single": "Célibataire, divorcé, séparé ou veuf"
         }
       }
     },
-    "page-title": "Étape 1 de 2\u00A0: État civil"
+    "page-title": "Étape 1 de 2\u00A0: État matrimonial"
   },
   "results": {
     "breadcrumb": "Résultats",
@@ -167,17 +167,17 @@
         "header": "Votre estimation",
         "married-common-law": {
           "cdb-partner-result": "Si vous et votre partenaire recevez tous les deux la Prestation canadienne pour les personnes handicapées, vous pourriez recevoir un montant mensuel de <strong>{{result}}</strong>.",
-          "intro": "Vous pourriez être admissible à recevoir un montant de prestation mensuelle qui dépend du fait que votre partenaire reçoit ou non la Prestation canadienne pour les personnes handicapées.",
+          "intro": "Le montant de la prestation mensuelle que vous pourriez recevoir dépend du fait que votre partenaire reçoive ou non la Prestation canadienne pour les personnes handicapées.",
           "non-cdb-partner-result": "Si votre partenaire ne reçoit pas la Prestation canadienne pour les personnes handicapées, vous pourriez recevoir un montant mensuel de <strong>{{result}}</strong>."
         },
-        "note": "Veuillez noter que vous pourriez être en mesure de recevoir des paiements rétroactifs pour les mois passés auxquels vous étiez admissible, mais pas pour les mois antérieurs à juin 2025. Contactez-nous pour en savoir plus.",
+        "note": "<strong>Veuillez noter que vous pourriez recevoir des paiements rétroactifs pour les mois précédents auxquels vous étiez admissible, mais pas pour les mois antérieurs à juin 2025.",
         "single": {
-          "intro": "Vous pourriez être admissible à recevoir:",
+          "intro": "Vous pourriez être admissible à recevoir\u00a0:",
           "result": "Un montant mensuel de <strong>{{result}}</strong> provenant de la Prestation canadienne pour les personnes handicapées."
         }
       }
     },
-    "disclaimer-alert": "Ce qui suit n'est qu'une estimation basée sur les informations que vous avez fournies.",
+    "disclaimer-alert": " Cette estimation est basée sur l'information que vous avez fournie et suppose que vous répondez aux critères d'admissibilité à la Prestation canadienne pour les personnes handicapées.",
     "form-data-summary": {
       "edit-aria-labels": {
         "marital-status": "Modifier votre état matrimonial",
