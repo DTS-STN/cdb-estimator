@@ -112,9 +112,9 @@
         "step-1": "marital status",
         "step-2": "income"
       },
-      "result-disclaimer": "<strong>This tool provides an estimate only.</strong> It doesn't guarantee that you'll be eligible or that you'll receive the amount estimated.",
+      "result-disclaimer": "<strong>This tool provides an estimate only. It doesn't guarantee that you'll be eligible or that you'll receive the amount estimated.</strong>",
       "results": {
-        "description": "This estimator provides estimated benefit amounts for payment made between July 2025 and June 2026. Future benefit amounts may be higher. The results are not financial advice and are subject to change. For a more accurate assessment of your estimated benefits amount, please contact us.",
+        "description": "This estimator provides estimated benefit amounts for payments made between July 2025 and June 2026. Future benefit amounts may be higher. The results are not financial advice and are subject to change. For a more accurate assessment of your estimated benefits amount, please contact us.",
         "header": "About the results"
       }
     },
@@ -170,7 +170,7 @@
           "intro": "The monthly benefit amount you could receive depends on whether your partner is receiving the Canada Disability Benefit.",
           "non-cdb-partner-result": "If your partner is not receiving the Canada Disability Benefit, you could receive a monthly amount of <strong>{{result}}</strong>."
         },
-        "note": "<strong>Please note that you may be able to receive retroactive payments for past months that you were elligible, but not for months before June 2025. Contact us to find out more.</strong>",
+        "note": "<strong>Please note that you may be able to receive retroactive payments for past months that you were elligible, but not for months before June 2025.</strong> Contact us to find out more.",
         "single": {
           "intro": "You could be eligible to receive:",
           "result": "A monthly amount of <strong>{{result}}</strong> from the Canada Disability Benefit."
