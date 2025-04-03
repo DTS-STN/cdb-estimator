@@ -30,16 +30,7 @@ export function meta({ data }: Route.MetaArgs) {
 
 export default function Home({ loaderData }: Route.ComponentProps) {
   const { t, i18n } = useTranslation(handle.i18nNamespace);
-  const { ESTIMATOR_CDB_URL_EN, ESTIMATOR_CDB_URL_FR, ESTIMATOR_CDB_ELIGIBILITY_URL_EN, ESTIMATOR_CDB_ELIGIBILITY_URL_FR } =
-    globalThis.__appEnvironment;
-
-  const cdbLink = (
-    <InlineLink
-      to={i18n.language === 'fr' ? ESTIMATOR_CDB_URL_FR : ESTIMATOR_CDB_URL_EN}
-      className="external-link"
-      target="_blank"
-    />
-  );
+  const { ESTIMATOR_CDB_ELIGIBILITY_URL_EN, ESTIMATOR_CDB_ELIGIBILITY_URL_FR } = globalThis.__appEnvironment;
 
   const cdbRequirementsLink = (
     <InlineLink
@@ -56,7 +47,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
       <div className="space-y-6">
         <section className="space-y-6">
           <p>
-            <Trans ns={handle.i18nNamespace} i18nKey="estimator:index.content.description" components={{ cdbLink }} />
+            <Trans ns={handle.i18nNamespace} i18nKey="estimator:index.content.description" />
           </p>
           <h2 className="font-lato mb-4 text-lg font-bold">{t('estimator:index.content.eligibility.header')}</h2>
           <p>
