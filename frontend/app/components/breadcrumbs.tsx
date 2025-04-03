@@ -48,7 +48,7 @@ function getDestination(item: BreadcrumbItem, currentLanguage?: Language) {
 
 export function Breadcrumbs({ className, items }: BreadcrumbsProps) {
   const { t, i18n } = useTranslation(['common']);
-  const currentLanguage = i18n.language as Language;
+  const currentLanguage = i18n.language;
 
   return (
     <nav id="wb-bc" className={className} property="breadcrumb" aria-labelledby="breadcrumbs">

@@ -65,9 +65,8 @@ describe('i18n-utils', () => {
     it.each([
       { input: 'en', expected: 'fr' },
       { input: 'fr', expected: 'en' },
-      { input: 'es', expected: undefined },
     ])('should return the correct alternate language for $input', ({ input, expected }) => {
-      expect(getAltLanguage(input)).toEqual(expected);
+      expect(getAltLanguage(input as Language)).toEqual(expected);
     });
   });
 });

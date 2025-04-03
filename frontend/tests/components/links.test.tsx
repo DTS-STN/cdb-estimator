@@ -55,7 +55,7 @@ describe('links', () => {
       const translation = useTranslation();
       vi.mocked(useTranslation).mockReturnValue({
         ...translation,
-        i18n: { ...translation.i18n, language: undefined as unknown as string },
+        i18n: { ...translation.i18n, language: undefined as unknown as Language },
       });
       const RoutesStub = createRoutesStub([
         {

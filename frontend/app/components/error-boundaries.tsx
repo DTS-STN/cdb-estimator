@@ -240,7 +240,7 @@ export function BilingualNotFound({ actionData, error, loaderData, params }: Rou
  */
 export function UnilingualErrorBoundary({ actionData, error, loaderData, params }: Route.ErrorBoundaryProps) {
   const { t, i18n } = useTranslation(['common']);
-  const currentLanguage = i18n.language as Language;
+  const currentLanguage = i18n.language;
 
   return (
     <html lang={currentLanguage}>
@@ -326,7 +326,7 @@ export function UnilingualErrorBoundary({ actionData, error, loaderData, params 
  */
 export function UnilingualNotFound({ actionData, error, loaderData, params }: Route.ErrorBoundaryProps) {
   const { t, i18n } = useTranslation(['common']);
-  const currentLanguage = i18n.language as Language;
+  const currentLanguage = i18n.language;
 
   return (
     <html lang={currentLanguage}>

@@ -7,7 +7,7 @@ import type { I18nResources } from '~/.server/locales';
 import { i18nResources } from '~/.server/locales';
 import { AppError } from '~/errors/app-error';
 import { ErrorCodes } from '~/errors/error-codes';
-import { getLanguageFromResource } from '~/utils/i18n-utils';
+import { DEFAULT_LANGUAGE, getLanguageFromResource, SUPPORTED_LANGUAGES } from '~/utils/i18n-utils';
 
 /**
  * Gets a fixed translation function for a given language and namespace.
@@ -79,10 +79,10 @@ export async function initI18next(language?: Language): Promise<i18n> {
   await i18n.init({
     debug: debug,
     defaultNS: false,
-    fallbackLng: 'en',
+    fallbackLng: DEFAULT_LANGUAGE,
     lng: language,
-    preload: ['en', 'fr'],
-    supportedLngs: ['en', 'fr'],
+    preload: [...SUPPORTED_LANGUAGES],
+    supportedLngs: [...SUPPORTED_LANGUAGES],
     ns: namespaces,
     resources: i18nResources,
     interpolation: { escapeValue: false },
@@ -95,7 +95,7 @@ export async function initI18next(language?: Language): Promise<i18n> {
     },
   });
 
-  return i18n;
+  return i18n as i18n;
 }
 
 function getNamespaces<T extends I18nResources, U extends keyof T['en']>(resources: T): U[] {

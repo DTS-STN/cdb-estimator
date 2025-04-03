@@ -64,7 +64,7 @@ export function loader({ context }: Route.LoaderArgs) {
 
 export default function App({ loaderData, matches, params }: Route.ComponentProps) {
   const { i18n } = useTranslation('common');
-  const currentLanguage = i18n.language as Language;
+  const currentLanguage = i18n.language;
   const { ADOBE_ANALYTICS_JQUERY_SRC, ADOBE_ANALYTICS_SRC } = globalThis.__appEnvironment;
 
   useEffect(() => {
