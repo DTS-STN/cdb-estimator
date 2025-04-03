@@ -1,4 +1,4 @@
-import { useId } from 'react';
+import { useId, useState } from 'react';
 
 import { data, useFetcher } from 'react-router';
 import type { RouteHandle } from 'react-router';
@@ -13,6 +13,7 @@ import { i18nRedirect } from '~/.server/utils/route-utils';
 import { Button } from '~/components/button';
 import { Collapsible } from '~/components/collapsible';
 import { FetcherErrorSummary } from '~/components/error-summary';
+import type { InputFieldProps } from '~/components/input-field';
 import { InputField } from '~/components/input-field';
 import { PageTitle } from '~/components/page-title';
 import { useErrorTranslation } from '~/hooks/use-error-translation';
@@ -46,13 +47,15 @@ export async function action({ context, request }: Route.ActionArgs) {
   const formData = await request.formData();
   const action = formData.get('action');
   const isMarried = context.session.estimator?.maritalStatus === 'married-or-common-law';
+  const { lang } = await getTranslation(request, handle.i18nNamespace);
 
+  console.log(lang);
   switch (action) {
     case 'back': {
       throw i18nRedirect('routes/estimator/step-marital-status.tsx', request);
     }
     case 'next': {
-      const result = processIncome(formData, isMarried);
+      const result = processIncome(formData, isMarried, lang);
 
       if (result.errors) {
         return data({ errors: result.errors }, { status: 400 });
@@ -65,13 +68,16 @@ export async function action({ context, request }: Route.ActionArgs) {
   }
 }
 
-function processIncome(formData: FormData, isMarried: boolean) {
+function processIncome(formData: FormData, isMarried: boolean, lang: Language) {
   const positiveDecimal = new RegExp(/^\d*(\.\d\d?)?$/);
   // Base schema for PersonIncome fields
   const personIncomeSchema = v.object({
     netIncome: v.pipe(
       v.string('net-income.error.required'),
       v.nonEmpty('net-income.error.required'),
+      v.transform((input) => {
+        return unformatDecimalString(input, lang);
+      }),
       v.regex(positiveDecimal, 'net-income.error.invalid'),
       v.transform(Number),
       v.number('net-income.error.invalid'),
@@ -80,6 +86,9 @@ function processIncome(formData: FormData, isMarried: boolean) {
     workingIncome: v.pipe(
       v.string('working-income.error.required'),
       v.nonEmpty('working-income.error.required'),
+      v.transform((input) => {
+        return unformatDecimalString(input, lang);
+      }),
       v.regex(positiveDecimal, 'working-income.error.invalid'),
       v.transform(Number),
       v.number('working-income.error.invalid'),
@@ -87,6 +96,9 @@ function processIncome(formData: FormData, isMarried: boolean) {
     ),
     claimedIncome: v.pipe(
       v.optional(v.string(), '0'),
+      v.transform((input) => {
+        return unformatDecimalString(input, lang);
+      }),
       v.regex(positiveDecimal, 'claimed-income.error.invalid'),
       v.transform(Number),
       v.number('claimed-income.error.invalid'),
@@ -94,6 +106,9 @@ function processIncome(formData: FormData, isMarried: boolean) {
     ),
     claimedRepayment: v.pipe(
       v.optional(v.string(), '0'),
+      v.transform((input) => {
+        return unformatDecimalString(input, lang);
+      }),
       v.regex(positiveDecimal, 'claimed-repayment.error.invalid'),
       v.transform(Number),
       v.number('claimed-repayment.error.invalid'),
@@ -138,9 +153,95 @@ function processIncome(formData: FormData, isMarried: boolean) {
   }
   return { output: parseResult.output };
 }
+function extract(str: string, pattern: RegExp) {
+  return (str.match(pattern) ?? []).pop();
+}
+
+function extractDecimal(str: string, lang: Language) {
+  switch (lang) {
+    case 'en': {
+      return extract(str, /^\d*\.?(\d\d?)?$/gm);
+    }
+    case 'fr': {
+      return extract(str, /^\d*[.,]?(\d\d?)?$/gm);
+    }
+  }
+}
+
+function formatDecimalString(input: string, lang: Language): string {
+  if (input.trim() === '') {
+    return '';
+  }
+
+  // 2. Split the string into integer and decimal parts (if any)
+  const parts = input.split('.');
+  const integerPart = parts[0];
+  // Keep the decimal part including the dot/comma, or set to empty string if no decimal part
+  const decimalPart = parts.length > 1 ? (lang === 'en' ? '.' : ',') + parts[1] : '';
+
+  // 3. Handle cases where there's no integer part (e.g., ".50"/",50")
+  if (integerPart === '') {
+    return decimalPart;
+  }
+
+  // 4. Use a regular expression to insert commas into the integer part
+  // Regex explanation:
+  // \B       Assert position is not a word boundary. This prevents matching
+  //          at the beginning of the string or right after a potential minus sign.
+  // (?=      Start positive lookahead. Checks ahead without consuming characters.
+  // (\d{3})+ Match one or more groups (\d{3}) of exactly three digits.
+  // (?!\d)   Negative lookahead. Assert that the position is NOT followed by a digit.
+  //          This ensures the groups of three are anchored to the end of the integer part.
+  // )        End positive lookahead.
+  // /g       Global flag: find all matches, not just the first one.
+  // ', '/' ' Replacement string: insert a space at the matched positions.
+  const formattedIntegerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, lang === 'en' ? ', ' : ' ');
+
+  // 5. Combine the formatted integer part and the original decimal part
+  return formattedIntegerPart + decimalPart;
+}
+
+export function unformatDecimalString(input: string, lang: Language): string {
+  switch (lang) {
+    case 'en': {
+      return input.replaceAll(' ', '').replaceAll(',', '');
+    }
+    case 'fr': {
+      return input.replaceAll(' ', '').replaceAll(',', '.');
+    }
+  }
+}
+
+interface MoneyInputFieldProps extends InputFieldProps {}
+function MoneyInputField({ defaultValue, ...rest }: MoneyInputFieldProps) {
+  const { i18n } = useTranslation(handle.i18nNamespace);
+  const [unformattedValue, setUnformattedValue] = useState<string>('');
+
+  return (
+    <>
+      <InputField
+        data-value={unformattedValue}
+        value={formatDecimalString(unformattedValue, i18n.language as Language)}
+        inputMode="decimal"
+        beforeField={i18n.language === 'en' ? <span className="mr-1">$</span> : undefined}
+        afterField={i18n.language === 'fr' ? <span className="ml-1">$</span> : undefined}
+        className={'inline'}
+        onChange={(e) => {
+          const proposedNewUnformattedValue = unformatDecimalString(e.target.value, i18n.language as Language);
+          const newUnformattedValue =
+            extractDecimal(proposedNewUnformattedValue, i18n.language as Language) ?? unformattedValue;
+          console.log({ unformattedValue, proposedNewUnformattedValue, newUnformattedValue });
+          setUnformattedValue(newUnformattedValue);
+        }}
+        {...rest}
+      />
+    </>
+  );
+}
 
 export default function StepIncome({ actionData, loaderData, matches, params }: Route.ComponentProps) {
   const { t } = useTranslation(handle.i18nNamespace);
+
   const errT = useErrorTranslation('estimator', 'income.fields');
   const fetcherKey = useId();
   const fetcher = useFetcher<Info['actionData']>({ key: fetcherKey });
@@ -159,7 +260,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                 ? t('estimator:income.form-instructions.married', { year: previousIncomeTaxReturnYear })
                 : t('estimator:income.form-instructions.single', { year: previousIncomeTaxReturnYear })}
             </h2>
-            <InputField
+            <MoneyInputField
               name="net-income"
               label={t('estimator:income.fields.net-income.label')}
               required
@@ -181,7 +282,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               autoComplete="off"
             />
             {isMarried && (
-              <InputField
+              <MoneyInputField
                 name="partner-net-income"
                 label={t('estimator:income.fields.partner.net-income.label')}
                 required
@@ -205,7 +306,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                 autoComplete="off"
               />
             )}
-            <InputField
+            <MoneyInputField
               name="working-income"
               label={t('estimator:income.fields.working-income.label')}
               required
@@ -237,7 +338,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               autoComplete="off"
             />
             {isMarried && (
-              <InputField
+              <MoneyInputField
                 name="partner-working-income"
                 label={t('estimator:income.fields.partner.working-income.label')}
                 required
@@ -273,7 +374,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                 autoComplete="off"
               />
             )}
-            <InputField
+            <MoneyInputField
               name="claimed-income"
               label={t('estimator:income.fields.claimed-income.label')}
               maxLength={15}
@@ -302,7 +403,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               errorMessage={errT(errors?.nested?.claimedIncome?.at(0))}
               autoComplete="off"
             />
-            <InputField
+            <MoneyInputField
               name="claimed-repayment"
               label={t('estimator:income.fields.claimed-repayment.label')}
               maxLength={15}
@@ -332,7 +433,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               autoComplete="off"
             />
             {isMarried && (
-              <InputField
+              <MoneyInputField
                 name="partner-claimed-income"
                 label={t('estimator:income.fields.partner.claimed-income.label')}
                 maxLength={15}
@@ -367,7 +468,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               />
             )}
             {isMarried && (
-              <InputField
+              <MoneyInputField
                 name="partner-claimed-repayment"
                 label={t('estimator:income.fields.partner.claimed-repayment.label')}
                 maxLength={15}

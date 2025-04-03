@@ -1,3 +1,4 @@
+import type React from 'react';
 import { useId } from 'react';
 import type { ComponentProps } from 'react';
 
@@ -7,6 +8,8 @@ import { InputLabel } from '~/components/input-label';
 import { cn } from '~/utils/tailwind-utils';
 
 export interface InputFieldProps extends ComponentProps<'input'> {
+  afterField?: React.ReactNode;
+  beforeField?: React.ReactNode;
   errorMessage?: string;
   helpMessagePrimary?: React.ReactNode;
   helpMessagePrimaryClassName?: string;
@@ -18,7 +21,9 @@ export interface InputFieldProps extends ComponentProps<'input'> {
 }
 
 export function InputField({
+  afterField,
   'aria-describedby': ariaDescribedby,
+  beforeField,
   errorMessage,
   className,
   helpMessagePrimary,
@@ -29,6 +34,7 @@ export function InputField({
   label,
   required,
   type = 'text',
+
   ...rest
 }: InputFieldProps) {
   const defaultId = useId();
@@ -68,6 +74,7 @@ export function InputField({
           {helpMessagePrimary}
         </InputHelp>
       )}
+      {beforeField && beforeField}
       <input
         aria-describedby={ariaDescribedbyIds}
         aria-errormessage={errorMessage ? ids.error : undefined}
@@ -86,6 +93,7 @@ export function InputField({
         type={type}
         {...rest}
       />
+      {afterField && afterField}
       {helpMessageSecondary && (
         <InputHelp id={ids.help.secondary} className={helpMessageSecondaryClassName}>
           {helpMessageSecondary}
