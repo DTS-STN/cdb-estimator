@@ -4,6 +4,14 @@ import type { CDBEstimator } from '~/routes/estimator/@types';
 
 export type StateField = keyof CDBEstimator;
 
+export function storeFormFieldValues(session: AppSession, namespace: string, formData: FormData) {
+  for (const [name, value] of formData.entries()) {
+    const map = new Map<string, string | undefined>(session.formFieldValues ?? []);
+    map.set(`${namespace}:${name}`, value.toString());
+    session.formFieldValues = Array.from(map.entries());
+  }
+}
+
 /**
  * defines a mapping of route files to StateField. is used to determine which state fields to check for when attempting to load a given route
  */
