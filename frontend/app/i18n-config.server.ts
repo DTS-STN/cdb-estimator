@@ -78,7 +78,7 @@ export async function initI18next(language?: Language): Promise<i18n> {
 
   await i18n.init({
     debug: debug,
-    defaultNS: false,
+    defaultNS: 'common',
     fallbackLng: DEFAULT_LANGUAGE,
     lng: language,
     preload: [...SUPPORTED_LANGUAGES],
