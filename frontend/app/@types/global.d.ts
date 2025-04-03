@@ -20,11 +20,6 @@ declare global {
   type Language = (typeof SUPPORTED_LANGUAGES)[number];
 
   /**
-   * The application's supported roles.
-   */
-  type Role = 'admin' | 'user';
-
-  /**
    * Add the client-side environment to the global namespace.
    */
   var __appEnvironment: ClientEnvironment;
