@@ -1,4 +1,4 @@
-import { useId } from 'react';
+import { useId, useMemo } from 'react';
 
 import { data, useFetcher } from 'react-router';
 import type { RouteHandle } from 'react-router';
@@ -20,7 +20,7 @@ import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 import * as adobeAnalytics from '~/utils/adobe-analytics-utils';
 import { getPreviousTaxYear } from '~/utils/date-utils';
-import { estimatorStepGate } from '~/utils/state-utils';
+import { estimatorStepGate, storeFormFieldValues } from '~/utils/state-utils';
 
 export const handle = {
   breadcrumbs: [...parentHandle.breadcrumbs, { labelKey: 'estimator:income.breadcrumb' }],
@@ -34,6 +34,7 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
   return {
     documentTitle: t('estimator:income.page-title'),
     defaultFormValues: context.session.estimator?.income,
+    previousFormValues: context.session.formFieldValues ?? [],
     isMarried: context.session.estimator?.maritalStatus === 'married-or-common-law',
   };
 }
@@ -59,7 +60,7 @@ export async function action({ context, request }: Route.ActionArgs) {
       }
 
       (context.session.estimator ??= {}).income = result.output;
-
+      storeFormFieldValues(context.session, 'income', formData);
       throw i18nRedirect('routes/estimator/results.tsx', request);
     }
   }
@@ -148,6 +149,12 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
   const isMarried = loaderData.isMarried;
   const previousIncomeTaxReturnYear = getPreviousTaxYear().toString();
 
+  //convert previous form values array to map
+  const previousFormValues = useMemo(
+    () => new Map<string, string | undefined>(loaderData.previousFormValues),
+    [loaderData.previousFormValues],
+  );
+
   return (
     <div className="space-y-3">
       <PageTitle subTitle={t('common:app.title')}>{t('estimator:income.page-title')}</PageTitle>
@@ -176,7 +183,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   </Collapsible>
                 </div>
               }
-              defaultValue={loaderData.defaultFormValues?.netIncome}
+              defaultValue={loaderData.defaultFormValues?.netIncome ?? previousFormValues.get('income:net-income')}
               errorMessage={errT(errors?.nested?.netIncome?.at(0))}
               autoComplete="off"
             />
@@ -199,7 +206,9 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   </div>
                 }
                 defaultValue={
-                  loaderData.defaultFormValues?.kind === 'married' ? loaderData.defaultFormValues.partner.netIncome : undefined
+                  (loaderData.defaultFormValues?.kind === 'married'
+                    ? loaderData.defaultFormValues.partner.netIncome
+                    : undefined) ?? previousFormValues.get('income:partner-net-income')
                 }
                 errorMessage={errT(`partner.${errors?.nested?.['partner.netIncome']?.at(0)}`)}
                 autoComplete="off"
@@ -232,7 +241,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   </Collapsible>
                 </div>
               }
-              defaultValue={loaderData.defaultFormValues?.workingIncome}
+              defaultValue={loaderData.defaultFormValues?.workingIncome ?? previousFormValues.get('income:working-income')}
               errorMessage={errT(errors?.nested?.workingIncome?.at(0))}
               autoComplete="off"
             />
@@ -249,14 +258,15 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                       <div className="space-y-4">
                         <p>
                           <Trans i18nKey={'estimator:income.info.working-income.text1'} />
-                          <ul className="list-disc space-y-2 pl-5">
-                            {(t('estimator:income.info.working-income.items', { returnObjects: true }) as string[]).map(
-                              (item, index) => (
-                                <li key={index}>{item}</li>
-                              ),
-                            )}
-                          </ul>
                         </p>
+                        <ul className="list-disc space-y-2 pl-5">
+                          {(t('estimator:income.info.working-income.items', { returnObjects: true }) as string[]).map(
+                            (item, index) => (
+                              <li key={index}>{item}</li>
+                            ),
+                          )}
+                        </ul>
+
                         <p>
                           <Trans i18nKey={'estimator:income.info.working-income.text2'} />
                         </p>
@@ -265,9 +275,9 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   </div>
                 }
                 defaultValue={
-                  loaderData.defaultFormValues?.kind === 'married'
+                  (loaderData.defaultFormValues?.kind === 'married'
                     ? loaderData.defaultFormValues.partner.workingIncome
-                    : undefined
+                    : undefined) ?? previousFormValues.get('income:partner-working-income')
                 }
                 errorMessage={errT(`partner.${errors?.nested?.['partner.workingIncome']?.at(0)}`)}
                 autoComplete="off"
@@ -298,7 +308,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   </Collapsible>
                 </div>
               }
-              defaultValue={loaderData.defaultFormValues?.claimedIncome}
+              defaultValue={loaderData.defaultFormValues?.claimedIncome ?? previousFormValues.get('income:claimed-income')}
               errorMessage={errT(errors?.nested?.claimedIncome?.at(0))}
               autoComplete="off"
             />
@@ -327,7 +337,9 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   </Collapsible>
                 </div>
               }
-              defaultValue={loaderData.defaultFormValues?.claimedRepayment}
+              defaultValue={
+                loaderData.defaultFormValues?.claimedRepayment ?? previousFormValues.get('income:claimed-repayment')
+              }
               errorMessage={errT(errors?.nested?.claimedRepayment?.at(0))}
               autoComplete="off"
             />
@@ -358,9 +370,9 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   </div>
                 }
                 defaultValue={
-                  loaderData.defaultFormValues?.kind === 'married'
+                  (loaderData.defaultFormValues?.kind === 'married'
                     ? loaderData.defaultFormValues.partner.claimedIncome
-                    : undefined
+                    : undefined) ?? previousFormValues.get('income:partner-claimed-income')
                 }
                 errorMessage={errT(`partner.${errors?.nested?.['partner.claimedIncome']?.at(0)}`)}
                 autoComplete="off"
@@ -393,9 +405,9 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   </div>
                 }
                 defaultValue={
-                  loaderData.defaultFormValues?.kind === 'married'
+                  (loaderData.defaultFormValues?.kind === 'married'
                     ? loaderData.defaultFormValues.partner.claimedRepayment
-                    : undefined
+                    : undefined) ?? previousFormValues.get('income:partner-claimed-repayment')
                 }
                 errorMessage={errT(`partner.${errors?.nested?.['partner.claimedRepayment']?.at(0)}`)}
                 autoComplete="off"

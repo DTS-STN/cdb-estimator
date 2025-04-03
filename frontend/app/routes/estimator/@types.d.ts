@@ -75,9 +75,14 @@ export interface FormattedMarriedIncome extends FormattedPersonIncome {
   partner: FormattedPersonIncome;
 }
 
+export type FormValue = [string, string | undefined];
+
+export type FormValues = FormValue[];
+
 declare module 'express-session' {
   interface SessionData {
-    estimator: Partial<CDBEstimator>;
+    estimator: Partial<CDBEstimator>; //tracks business objects
+    formFieldValues: FormValues; //tracks form field values on successful form posts
   }
 }
 
