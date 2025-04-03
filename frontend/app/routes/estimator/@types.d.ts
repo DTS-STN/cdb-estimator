@@ -64,10 +64,7 @@ export type FormattedCDBEstimator = {
   results: FormattedSingleResults | FormattedMarriedResults;
 };
 export interface FormattedPersonIncome {
-  netIncome: string;
-  workingIncome: string;
-  claimedIncome?: string;
-  claimedRepayment?: string;
+  totalIncome: string;
 }
 
 export interface FormattedSingleIncome extends FormattedPersonIncome {

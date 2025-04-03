@@ -2,6 +2,7 @@ import { data } from 'react-router';
 import type { RouteHandle } from 'react-router';
 
 import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
+import { HTTPFLAVORVALUES_HTTP_1_0 } from '@opentelemetry/semantic-conventions';
 import { Trans, useTranslation } from 'react-i18next';
 import * as v from 'valibot';
 
@@ -13,6 +14,7 @@ import type {
   FormattedMarriedResults,
   FormattedSingleIncome,
   FormattedSingleResults,
+  PersonIncome,
 } from './@types';
 import { calculateEstimation } from './calculator';
 import { validMaritalStatuses } from './types';
@@ -68,21 +70,11 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
         maritalStatus: t(`estimator:results.form-data-summary.enum-display.marital-status.${input.maritalStatus}`),
         income: {
           kind: input.income.kind,
-          netIncome: formatCurrency(input.income.netIncome, lang),
-          workingIncome: formatCurrency(input.income.workingIncome, lang),
-          claimedIncome: input.income.claimedIncome ? formatCurrency(input.income.claimedIncome, lang) : undefined,
-          claimedRepayment: input.income.claimedRepayment ? formatCurrency(input.income.claimedRepayment, lang) : undefined,
+          totalIncome: formatCurrency(getTotalIncome(input.income), lang),
           partner:
             input.income.kind === 'married'
               ? {
-                  netIncome: formatCurrency(input.income.partner.netIncome, lang),
-                  workingIncome: formatCurrency(input.income.partner.workingIncome, lang),
-                  claimedIncome: input.income.partner.claimedIncome
-                    ? formatCurrency(input.income.partner.claimedIncome, lang)
-                    : undefined,
-                  claimedRepayment: input.income.partner.claimedRepayment
-                    ? formatCurrency(input.income.partner.claimedRepayment, lang)
-                    : undefined,
+                  totalIncome: formatCurrency(getTotalIncome(input.income.partner), lang),
                 }
               : undefined,
         } as FormattedMarriedIncome | FormattedSingleIncome,
@@ -124,6 +116,10 @@ function formatCurrency(number: number, lang: Language) {
     style: 'currency',
     currency: 'CAD',
   });
+}
+
+function getTotalIncome(income: PersonIncome) {
+  return income.netIncome + income.workingIncome + (income.claimedIncome ?? 0) - (income.claimedRepayment ?? 0);
 }
 
 export default function Results({ actionData, loaderData, matches, params }: Route.ComponentProps) {
@@ -227,86 +223,37 @@ function DataSummary(formattedResults: FormattedCDBEstimator) {
       <h3 className="font-lato text-xl font-bold">{t('estimator:results.form-data-summary.title')}</h3>
       <div>
         <DataSummaryItem
+          className=""
           title={t('estimator:results.form-data-summary.field-labels.marital-status')}
           editAriaLabel={t('estimator:results.form-data-summary.edit-aria-labels.marital-status')}
           editRoute={'routes/estimator/step-marital-status.tsx'}
           value={formattedResults.maritalStatus}
           showBorder={false}
+          showEditButton={true}
           data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Edit marital status button')}
         />
         <DataSummaryItem
-          title={t('estimator:results.form-data-summary.field-labels.net-income')}
-          editAriaLabel={t('estimator:results.form-data-summary.edit-aria-labels.net-income')}
+          className="pb-2"
+          title={t('estimator:results.form-data-summary.field-labels.total-income')}
+          editAriaLabel={t('estimator:results.form-data-summary.edit-aria-labels.income')}
           editRoute={'routes/estimator/step-income.tsx'}
-          value={formattedResults.income.netIncome}
+          value={formattedResults.income.totalIncome}
           showBorder={true}
-          data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Edit net-income button')}
-        />
-        <DataSummaryItem
-          title={t('estimator:results.form-data-summary.field-labels.working-income')}
-          editAriaLabel={t('estimator:results.form-data-summary.edit-aria-labels.working-income')}
-          editRoute={'routes/estimator/step-income.tsx'}
-          value={formattedResults.income.workingIncome}
-          showBorder={true}
-          data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Edit working-income button')}
-        />
-
-        <DataSummaryItem
-          title={t('estimator:results.form-data-summary.field-labels.uccb-rdsp-income')}
-          editAriaLabel={t('estimator:results.form-data-summary.edit-aria-labels.uccb-rdsp-income')}
-          editRoute={'routes/estimator/step-income.tsx'}
-          value={formattedResults.income.claimedIncome ?? '-'}
-          showBorder={true}
-          data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Edit claimed-income button')}
-        />
-
-        <DataSummaryItem
-          title={t('estimator:results.form-data-summary.field-labels.uccb-rdsp-repayment')}
-          editAriaLabel={t('estimator:results.form-data-summary.edit-aria-labels.uccb-rdsp-repayment')}
-          editRoute={'routes/estimator/step-income.tsx'}
-          value={formattedResults.income.claimedRepayment ?? '-'}
-          showBorder={true}
-          data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Edit claimed-repayment button')}
+          showEditButton={formattedResults.income.kind !== 'married'}
+          data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Edit income button')}
         />
 
         {formattedResults.income.kind === 'married' && (
-          <>
-            <DataSummaryItem
-              title={t('estimator:results.form-data-summary.field-labels.partner-net-income')}
-              editAriaLabel={t('estimator:results.form-data-summary.edit-aria-labels.partner-net-income')}
-              editRoute={'routes/estimator/step-income.tsx'}
-              value={formattedResults.income.partner.netIncome}
-              showBorder={true}
-              data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Edit partner-net-income button')}
-            />
-
-            <DataSummaryItem
-              title={t('estimator:results.form-data-summary.field-labels.partner-working-income')}
-              editAriaLabel={t('estimator:results.form-data-summary.edit-aria-labels.partner-working-income')}
-              editRoute={'routes/estimator/step-income.tsx'}
-              value={formattedResults.income.partner.workingIncome}
-              showBorder={true}
-              data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Edit partner-working-income button')}
-            />
-
-            <DataSummaryItem
-              title={t('estimator:results.form-data-summary.field-labels.partner-uccb-rdsp-income')}
-              editAriaLabel={t('estimator:results.form-data-summary.edit-aria-labels.partner-uccb-rdsp-income')}
-              editRoute={'routes/estimator/step-income.tsx'}
-              value={formattedResults.income.partner.claimedIncome ?? '-'}
-              showBorder={true}
-              data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Edit partner-claimed-income button')}
-            />
-
-            <DataSummaryItem
-              title={t('estimator:results.form-data-summary.field-labels.partner-uccb-rdsp-repayment')}
-              editAriaLabel={t('estimator:results.form-data-summary.edit-aria-labels.partner-uccb-rdsp-repayment')}
-              editRoute={'routes/estimator/step-income.tsx'}
-              value={formattedResults.income.partner.claimedRepayment ?? '-'}
-              showBorder={true}
-              data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Edit partner-claimed-repayment button')}
-            />
-          </>
+          <DataSummaryItem
+            className="pt-0"
+            title={t('estimator:results.form-data-summary.field-labels.partner-total-income')}
+            editAriaLabel={t('estimator:results.form-data-summary.edit-aria-labels.income')}
+            editRoute={'routes/estimator/step-income.tsx'}
+            value={formattedResults.income.partner.totalIncome}
+            showBorder={false}
+            showEditButton={true}
+            data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Edit income button')}
+          />
         )}
       </div>
     </div>
@@ -317,23 +264,37 @@ interface DataSummaryItemProps {
   editAriaLabel: string;
   editRoute: I18nRouteFile;
   value: string;
+  showEditButton: boolean;
   showBorder: boolean;
+  className: string;
 }
-function DataSummaryItem({ title, editAriaLabel, editRoute, value, showBorder, ...rest }: DataSummaryItemProps) {
+function DataSummaryItem({
+  title,
+  editAriaLabel,
+  editRoute,
+  value,
+  showBorder,
+  showEditButton,
+  className,
+  ...rest
+}: DataSummaryItemProps) {
   const { t } = useTranslation(handle.i18nNamespace);
 
   return (
-    <div className={cn('py-4', showBorder ? 'border-t border-stone-600' : '')}>
+    <div className={cn('py-4', className, showBorder ? 'border-t border-stone-600' : '')}>
       <div>{title}</div>
       <div className="grid grid-cols-3 gap-0">
         <div className="col-span-2">
           <strong>{value}</strong>
         </div>
-        <div className="self-end justify-self-end">
-          <InlineLink {...rest} file={editRoute} aria-label={editAriaLabel}>
-            {t('common:edit')}
-          </InlineLink>
-        </div>
+
+        {showEditButton && (
+          <div className="self-end justify-self-end">
+            <InlineLink {...rest} file={editRoute} aria-label={editAriaLabel}>
+              {t('common:edit')}
+            </InlineLink>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -181,14 +181,7 @@
     "form-data-summary": {
       "edit-aria-labels": {
         "marital-status": "Modifier votre état matrimonial",
-        "net-income": "Modifier votre revenu net",
-        "partner-net-income": "Modifier le revenu net de votre partenaire",
-        "partner-uccb-rdsp-income": "Modifier le revenu de PUGE et REEI de votre partenaire",
-        "partner-uccb-rdsp-repayment": "Modifier le remboursement de PUGE et REEI de votre partenaire",
-        "partner-working-income": "Modifier le revenu d'emploi de votre partenaire",
-        "uccb-rdsp-income": "Modifier votre revenu de PUGE et REEI",
-        "uccb-rdsp-repayment": "Modifier votre remboursement de PUGE et REEI",
-        "working-income": "Modifier votre revenu d'emploi"
+        "income": "Modifier les informations de revenu"
       },
       "enum-display": {
         "marital-status": {
@@ -198,14 +191,8 @@
       },
       "field-labels": {
         "marital-status": "État matrimonial",
-        "net-income": "Votre revenu net",
-        "partner-net-income": "Le revenu net de votre partenaire",
-        "partner-uccb-rdsp-income": "Le revenu de PUGE et REEI de votre partenaire",
-        "partner-uccb-rdsp-repayment": "Le remboursement de PUGE et REEI de votre partenaire",
-        "partner-working-income": "Le revenu d'emploi de votre partenaire",
-        "uccb-rdsp-income": "Votre revenu de PUGE et REEI",
-        "uccb-rdsp-repayment": "Votre remboursement de PUGE et REEI",
-        "working-income": "Votre revenu d'emploi"
+        "total-income": "Revenus totaux",
+        "partner-total-income": "Revenus totaux de votre partenaire"
       },
       "title": "Vos renseignements"
     },

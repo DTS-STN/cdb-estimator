@@ -181,14 +181,7 @@
     "form-data-summary": {
       "edit-aria-labels": {
         "marital-status": "Edit your marital status",
-        "net-income": "Edit your net income",
-        "partner-net-income": "Edit your partner's net income",
-        "partner-uccb-rdsp-income": "Edit your partner's UCCB and RDSP income",
-        "partner-uccb-rdsp-repayment": "Edit your partner's UCCB and RDSP repayment",
-        "partner-working-income": "Edit your partner's working income",
-        "uccb-rdsp-income": "Edit your UCCB and RDSP income",
-        "uccb-rdsp-repayment": "Edit your UCCB and RDSP repayment",
-        "working-income": "Edit your working income"
+        "income": "Edit income informations"
       },
       "enum-display": {
         "marital-status": {
@@ -198,14 +191,8 @@
       },
       "field-labels": {
         "marital-status": "Marital status",
-        "net-income": "Your net income",
-        "partner-net-income": "Your partner's net income",
-        "partner-uccb-rdsp-income": "Your partner's UCCB and RDSP income",
-        "partner-uccb-rdsp-repayment": "Your partner's UCCB and RDSP repayment",
-        "partner-working-income": "Your partner's working income",
-        "uccb-rdsp-income": "Your UCCB and RDSP income",
-        "uccb-rdsp-repayment": "Your UCCB and RDSP repayment",
-        "working-income": "Your working income"
+        "total-income": "Total income",
+        "partner-total-income": "Partner's total income"
       },
       "title": "What you told us"
     },
