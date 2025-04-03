@@ -4,6 +4,7 @@ import type { Request } from 'express';
 
 import type { ClientEnvironment } from '~/.server/environment';
 import type { InstanceName } from '~/.server/utils/instance-registry';
+import type { SUPPORTED_LANGUAGES } from '~/utils/i18n-utils';
 
 /* eslint-disable no-var */
 
@@ -16,7 +17,7 @@ declare global {
   /**
    * The application's supported languages: English and French.
    */
-  type Language = 'en' | 'fr';
+  type Language = (typeof SUPPORTED_LANGUAGES)[number];
 
   /**
    * The application's supported roles.

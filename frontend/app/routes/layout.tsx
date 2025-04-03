@@ -25,7 +25,7 @@ export const handle = {
 
 export default function Layout({ matches }: Route.ComponentProps) {
   const { t, i18n } = useTranslation(['common']);
-  const currentLanguage = i18n.language as Language;
+  const currentLanguage = i18n.language;
   const { id: pageId } = useRoute();
 
   const { BUILD_DATE, BUILD_VERSION } = globalThis.__appEnvironment;
