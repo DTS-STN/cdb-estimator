@@ -2,7 +2,6 @@ import { data } from 'react-router';
 import type { RouteHandle } from 'react-router';
 
 import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
-import { HTTPFLAVORVALUES_HTTP_1_0 } from '@opentelemetry/semantic-conventions';
 import { Trans, useTranslation } from 'react-i18next';
 import * as v from 'valibot';
 
