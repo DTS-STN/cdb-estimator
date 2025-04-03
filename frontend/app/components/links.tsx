@@ -72,7 +72,7 @@ type InlineLinkProps = ComponentProps<typeof AppLink>;
  * @throws If the `lang` parameter is not provided and the current language cannot be determined.
  */
 export function AppLink({ children, disabled, hash, lang, params, file, search, to, ...props }: AppLinkProps): JSX.Element {
-  const { i18n } = useTranslation('common');
+  const { i18n } = useTranslation();
   const currentLanguage = i18n.language as Language | undefined;
 
   if (to !== undefined) {

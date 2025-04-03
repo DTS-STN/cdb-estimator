@@ -3,6 +3,8 @@ import i18Next from 'i18next';
 import I18NextFetchBackend from 'i18next-fetch-backend';
 import { initReactI18next } from 'react-i18next';
 
+import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from './utils/i18n-utils';
+
 /**
  * Initializes the global i18next for client-side rendering.
  *
@@ -25,10 +27,10 @@ export async function initI18next(namespace: Namespace): Promise<i18n> {
     .init({
       debug: I18NEXT_DEBUG,
       ns: namespace,
-      fallbackLng: 'en',
-      defaultNS: false,
-      preload: ['en', 'fr'],
-      supportedLngs: ['en', 'fr'],
+      fallbackLng: DEFAULT_LANGUAGE,
+      defaultNS: 'common',
+      preload: [...SUPPORTED_LANGUAGES],
+      supportedLngs: [...SUPPORTED_LANGUAGES],
       backend: { loadPath: `/api/translations?ns={{ns}}&lng={{lng}}&v=${BUILD_REVISION}` },
       interpolation: { escapeValue: false },
       react: {
