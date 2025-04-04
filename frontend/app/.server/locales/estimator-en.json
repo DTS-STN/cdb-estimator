@@ -1,7 +1,7 @@
 {
   "income": {
     "breadcrumb": "Income",
-    "estimate-benefit": "Estimate my Benefit",
+    "estimate-benefit": "Estimate my benefit",
     "fields": {
       "claimed-income": {
         "error": {
@@ -102,7 +102,7 @@
     "breadcrumb": "Estimator",
     "content": {
       "completion-time": "It will take about 5 to 10 minutes to complete.",
-      "description": "Use this estimator to find out how much money you could get from the <cdbLink>Canada Disability Benefit</cdbLink>. This is not an application for benefits. ",
+      "description": "Use this estimator to find out how much money you could get from the Canada Disability Benefit. This is not an application for benefits. ",
       "eligibility": {
         "header": "Before you begin",
         "intro": "To receive the Canada Disability Benefit, you must meet specific eligibility criteria. <cdbRequirementsLink>Consult the benefit eligibility requirements</cdbRequirementsLink>."
@@ -191,7 +191,7 @@
       },
       "field-labels": {
         "marital-status": "Marital status",
-        "total-income": "Total income",
+        "total-income": "Your total income",
         "partner-total-income": "Partner's total income"
       },
       "title": "What you told us"

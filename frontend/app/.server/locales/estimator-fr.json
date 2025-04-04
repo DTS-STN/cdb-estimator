@@ -102,7 +102,7 @@
     "breadcrumb": "Estimateur",
     "content": {
       "completion-time": "Il vous faudra environ 5 à 10 minutes pour obtenir une estimation.",
-      "description": "Utilisez cet outil pour déterminer le montant que vous pourriez recevoir de la <cdbLink>Prestations canadiennes des personnes handicapées</cdbLink>. Il ne s'agit pas d'une demande de prestations.",
+      "description": "Utilisez cet outil pour déterminer le montant que vous pourriez recevoir de la Prestations canadiennes des personnes handicapées. Il ne s'agit pas d'une demande de prestations.",
       "eligibility": {
         "header": "Avant de commencer",
         "intro": "Pour recevoir la Prestation canadienne pour les personnes handicapées, vous devez répondre aux critères spécifiques d'admissibilité. Pour en savoir plus sur la Prestation canadienne des personnes handicapées et les critères d'admissibilité, veuillez consulter <cdbRequirementsLink>canada.ca/prestation-handicap</cdbRequirementsLink>."
@@ -191,7 +191,7 @@
       },
       "field-labels": {
         "marital-status": "État matrimonial",
-        "total-income": "Revenus totaux",
+        "total-income": "Vos revenus totaux",
         "partner-total-income": "Revenus totaux de votre partenaire"
       },
       "title": "Vos renseignements"
