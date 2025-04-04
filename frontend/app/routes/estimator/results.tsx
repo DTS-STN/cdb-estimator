@@ -185,6 +185,7 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
             <div className="my-6 space-y-6 rounded border border-[#6F6F6F] px-8 py-6">
               <div>
                 <ButtonLink
+                  target="_blank"
                   data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Apply button')}
                   to={i18n.language === 'fr' ? ESTIMATOR_CDB_APPLY_URL_FR : ESTIMATOR_CDB_APPLY_URL_EN}
                   variant="primary"
@@ -197,6 +198,7 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
 
               <div>
                 <ButtonLink
+                  target="_blank"
                   data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Learn more button')}
                   to={i18n.language === 'fr' ? ESTIMATOR_CDB_URL_FR : ESTIMATOR_CDB_URL_EN}
                   variant="alternative"
