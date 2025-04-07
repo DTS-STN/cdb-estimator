@@ -5,6 +5,7 @@ import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
 import { Trans, useTranslation } from 'react-i18next';
 import * as v from 'valibot';
 
+import { calculateEstimation } from '../../utils/cdb-calculator';
 import type { Route } from './+types/results';
 import type {
   CDBEstimator,
@@ -15,7 +16,6 @@ import type {
   FormattedSingleResults,
   PersonIncome,
 } from './@types';
-import { calculateEstimation } from './calculator';
 import { validMaritalStatuses } from './types';
 
 import { ButtonLink } from '~/components/button-link';
@@ -118,7 +118,7 @@ function formatCurrency(number: number, lang: Language) {
 }
 
 function getTotalIncome(income: PersonIncome) {
-  return income.netIncome + income.workingIncome + (income.claimedIncome ?? 0) - (income.claimedRepayment ?? 0);
+  return income.netIncome + (income.claimedIncome ?? 0) - (income.claimedRepayment ?? 0);
 }
 
 export default function Results({ actionData, loaderData, matches, params }: Route.ComponentProps) {
