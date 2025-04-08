@@ -1,0 +1,36 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AdobeAnalytics > AdobeAnalyticsBottomScript > AdobeAnalyticsBottomScript should render the correct script tag based on config > expected html 1`] = `
+<div>
+  <script
+    id="gc-analytics-bottom-script"
+  >
+    _satellite.setDebug(true); _satellite.pageBottom();
+  </script>
+</div>
+`;
+
+exports[`AdobeAnalytics > AdobeAnalyticsBottomScript > AdobeAnalyticsBottomScript should render the correct script tag based on config > expected html 2`] = `
+<div>
+  <script
+    id="gc-analytics-bottom-script"
+  >
+    _satellite.pageBottom();
+  </script>
+</div>
+`;
+
+exports[`AdobeAnalytics > AdobeAnalyticsBottomScript > AdobeAnalyticsBottomScript should render the correct script tag based on config > expected html 3`] = `<div />`;
+
+exports[`AdobeAnalytics > AdobeAnalyticsHeadScript > AdobeAnalyticsHeadScript should render the correct script tag based on config > expected html 1`] = `
+<div>
+  <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+  />
+  <script
+    src="https://assets.adobedtm.com/be5dfd287373/0127575cd23a/launch-913b1beddf7a-staging.min.js"
+  />
+</div>
+`;
+
+exports[`AdobeAnalytics > AdobeAnalyticsHeadScript > AdobeAnalyticsHeadScript should render the correct script tag based on config > expected html 2`] = `<div />`;
