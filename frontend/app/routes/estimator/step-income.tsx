@@ -55,7 +55,7 @@ export async function action({ context, request }: Route.ActionArgs) {
       const result = processIncome(formData, isMarried);
 
       if (result.errors) {
-        return data({ errors: result.errors }, { status: 400 });
+        return data({ errors: result.errors, ts: new Date() }, { status: 400 });
       }
 
       (context.session.estimator ??= {}).income = result.output;
