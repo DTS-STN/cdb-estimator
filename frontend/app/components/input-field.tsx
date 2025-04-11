@@ -7,6 +7,8 @@ import { InputLabel } from '~/components/input-label';
 import { cn } from '~/utils/tailwind-utils';
 
 export interface InputFieldProps extends ComponentProps<'input'> {
+  beforeInput?: React.ReactNode;
+  afterInput?: React.ReactNode;
   errorMessage?: string;
   helpMessagePrimary?: React.ReactNode;
   helpMessagePrimaryClassName?: string;
@@ -18,6 +20,8 @@ export interface InputFieldProps extends ComponentProps<'input'> {
 }
 
 export function InputField({
+  beforeInput,
+  afterInput,
   'aria-describedby': ariaDescribedby,
   errorMessage,
   className,
@@ -68,6 +72,7 @@ export function InputField({
           {helpMessagePrimary}
         </InputHelp>
       )}
+      {beforeInput}
       <input
         aria-describedby={ariaDescribedbyIds}
         aria-errormessage={errorMessage ? ids.error : undefined}
@@ -86,6 +91,7 @@ export function InputField({
         type={type}
         {...rest}
       />
+      {afterInput}
       {helpMessageSecondary && (
         <InputHelp id={ids.help.secondary} className={helpMessageSecondaryClassName}>
           {helpMessageSecondary}
