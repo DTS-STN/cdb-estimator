@@ -37,6 +37,7 @@ describe('CurrencyField', () => {
     { lang: 'fr', input: ',56', output: ',56' },
     { lang: 'fr', input: '56', output: '56,00' },
     { lang: 'fr', input: 'bla bla', output: '' },
+    { lang: 'fr', input: '12.34', output: '12,34' },
   ])('should render currency field component with correct value', ({ lang, input, output }) => {
     const translation = useTranslation();
     vi.mocked(useTranslation).mockReturnValue({ ...translation, i18n: { ...translation.i18n, language: lang as Language } });
