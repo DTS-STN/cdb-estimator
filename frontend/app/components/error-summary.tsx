@@ -23,6 +23,11 @@ export interface ErrorSummaryItem {
  * Props for the ErrorSummary component.
  */
 export interface ErrorSummaryProps extends OmitStrict<ComponentPropsWithoutRef<'section'>, 'role' | 'tabIndex'> {
+  /**
+   * The action data from a React Router Form or Fetcher.
+   * This triggers focus/scroll when form or Fetcher data changes.
+   */
+  actionData?: unknown;
   /** A list of error items to display. */
   errors: readonly ErrorSummaryItem[];
 }
@@ -38,17 +43,20 @@ export interface ErrorSummaryProps extends OmitStrict<ComponentPropsWithoutRef<'
  *
  * @returns The rendered component or `null` if there are no errors.
  */
-export function ErrorSummary({ className, errors, ...rest }: ErrorSummaryProps): JSX.Element | null {
+export function ErrorSummary({ className, actionData, errors, ...rest }: ErrorSummaryProps): JSX.Element | null {
   const { t } = useTranslation(['common']);
   const sectionRef = useRef<HTMLElement>(null);
 
   // Scroll and focus on the error summary when errors are updated.
+  // TODO: KaB : Ideally this scrolling action would be triggered by the page.
   useEffect(() => {
     if (errors.length > 0 && sectionRef.current) {
-      sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+      // useEffects has issues with smooth scrolling.
+      // An other alternative is to use a setTimeout 0 with smooth scrolling but it's also quirky.
+      sectionRef.current.scrollIntoView({ behavior: 'instant' });
       sectionRef.current.focus();
     }
-  }, [errors]);
+  }, [actionData, errors.length]);
 
   if (errors.length === 0) {
     return null;
@@ -123,7 +131,7 @@ export function ActionDataErrorSummary({ actionData, children, ...rest }: Action
 
   return (
     <div ref={containerRef} {...rest}>
-      {errors.length > 0 && <ErrorSummary errors={errors} />}
+      {errors.length > 0 && <ErrorSummary actionData={actionData} errors={errors} />}
       {children}
     </div>
   );

@@ -10,10 +10,10 @@ import type { Info, Route } from './+types/step-income';
 import type { MarriedIncome, MarriedIncomeForm, SingleIncome, SingleIncomeForm } from './@types';
 
 import { i18nRedirect } from '~/.server/utils/route-utils';
+import { CurrencyField } from '~/components/CurrencyField';
 import { Button } from '~/components/button';
 import { Collapsible } from '~/components/collapsible';
 import { FetcherErrorSummary } from '~/components/error-summary';
-import { InputField } from '~/components/input-field';
 import { PageTitle } from '~/components/page-title';
 import { useErrorTranslation } from '~/hooks/use-error-translation';
 import { getTranslation } from '~/i18n-config.server';
@@ -21,6 +21,7 @@ import { handle as parentHandle } from '~/routes/estimator/layout';
 import * as adobeAnalytics from '~/utils/adobe-analytics-utils';
 import { getPreviousTaxYear } from '~/utils/date-utils';
 import { estimatorStepGate, storeFormFieldValues } from '~/utils/state-utils';
+import { removeNumericFormatting } from '~/utils/string-utils';
 
 export const handle = {
   breadcrumbs: [...parentHandle.breadcrumbs, { labelKey: 'estimator:income.breadcrumb' }],
@@ -33,7 +34,7 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
 
   return {
     documentTitle: t('estimator:income.page-title'),
-    defaultFormValues: context.session.estimator?.income,
+    formValues: context.session.estimator?.income,
     previousFormValues: context.session.formFieldValues ?? [],
     isMarried: context.session.estimator?.maritalStatus === 'married-or-common-law',
   };
@@ -44,6 +45,7 @@ export function meta({ data }: Route.MetaArgs) {
 }
 
 export async function action({ context, request }: Route.ActionArgs) {
+  const { lang } = await getTranslation(request, handle.i18nNamespace);
   const formData = await request.formData();
   const action = formData.get('action');
   const isMarried = context.session.estimator?.maritalStatus === 'married-or-common-law';
@@ -53,7 +55,7 @@ export async function action({ context, request }: Route.ActionArgs) {
       throw i18nRedirect('routes/estimator/step-marital-status.tsx', request);
     }
     case 'next': {
-      const result = processIncome(formData, isMarried);
+      const result = processIncome(formData, isMarried, lang);
 
       if (result.errors) {
         return data({ errors: result.errors }, { status: 400 });
@@ -66,13 +68,14 @@ export async function action({ context, request }: Route.ActionArgs) {
   }
 }
 
-function processIncome(formData: FormData, isMarried: boolean) {
+function processIncome(formData: FormData, isMarried: boolean, lang: Language) {
   const positiveDecimal = new RegExp(/^\d*(\.\d\d?)?$/);
   // Base schema for PersonIncome fields
   const personIncomeSchema = v.object({
     netIncome: v.pipe(
       v.string('net-income.error.required'),
       v.nonEmpty('net-income.error.required'),
+      v.transform((input) => removeNumericFormatting(input, lang)),
       v.regex(positiveDecimal, 'net-income.error.invalid'),
       v.transform(Number),
       v.number('net-income.error.invalid'),
@@ -81,6 +84,7 @@ function processIncome(formData: FormData, isMarried: boolean) {
     workingIncome: v.pipe(
       v.string('working-income.error.required'),
       v.nonEmpty('working-income.error.required'),
+      v.transform((input) => removeNumericFormatting(input, lang)),
       v.regex(positiveDecimal, 'working-income.error.invalid'),
       v.transform(Number),
       v.number('working-income.error.invalid'),
@@ -88,6 +92,7 @@ function processIncome(formData: FormData, isMarried: boolean) {
     ),
     claimedIncome: v.pipe(
       v.optional(v.string(), '0'),
+      v.transform((input) => removeNumericFormatting(input, lang)),
       v.regex(positiveDecimal, 'claimed-income.error.invalid'),
       v.transform(Number),
       v.number('claimed-income.error.invalid'),
@@ -95,6 +100,7 @@ function processIncome(formData: FormData, isMarried: boolean) {
     ),
     claimedRepayment: v.pipe(
       v.optional(v.string(), '0'),
+      v.transform((input) => removeNumericFormatting(input, lang)),
       v.regex(positiveDecimal, 'claimed-repayment.error.invalid'),
       v.transform(Number),
       v.number('claimed-repayment.error.invalid'),
@@ -166,11 +172,10 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                 ? t('estimator:income.form-instructions.married', { year: previousIncomeTaxReturnYear })
                 : t('estimator:income.form-instructions.single', { year: previousIncomeTaxReturnYear })}
             </h2>
-            <InputField
+            <CurrencyField
               name="net-income"
               label={t('estimator:income.fields.net-income.label')}
               required
-              maxLength={15}
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
                 <div className="my-4 space-y-4">
@@ -183,16 +188,15 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   </Collapsible>
                 </div>
               }
-              defaultValue={loaderData.defaultFormValues?.netIncome ?? previousFormValues.get('income:net-income')}
+              defaultValue={loaderData.formValues?.netIncome ?? previousFormValues.get('income:net-income')}
               errorMessage={errT(errors?.nested?.netIncome?.at(0))}
               autoComplete="off"
             />
             {isMarried && (
-              <InputField
+              <CurrencyField
                 name="partner-net-income"
                 label={t('estimator:income.fields.partner.net-income.label')}
                 required
-                maxLength={15}
                 helpMessagePrimaryClassName="-max-w-prose text-black"
                 helpMessagePrimary={
                   <div className="my-4 space-y-4">
@@ -206,19 +210,17 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   </div>
                 }
                 defaultValue={
-                  (loaderData.defaultFormValues?.kind === 'married'
-                    ? loaderData.defaultFormValues.partner.netIncome
-                    : undefined) ?? previousFormValues.get('income:partner-net-income')
+                  (loaderData.formValues?.kind === 'married' ? loaderData.formValues.partner.netIncome : undefined) ??
+                  previousFormValues.get('income:partner-net-income')
                 }
                 errorMessage={errT(`partner.${errors?.nested?.['partner.netIncome']?.at(0)}`)}
                 autoComplete="off"
               />
             )}
-            <InputField
+            <CurrencyField
               name="working-income"
               label={t('estimator:income.fields.working-income.label')}
               required
-              maxLength={15}
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
                 <div className="my-4 space-y-4">
@@ -241,16 +243,15 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   </Collapsible>
                 </div>
               }
-              defaultValue={loaderData.defaultFormValues?.workingIncome ?? previousFormValues.get('income:working-income')}
+              defaultValue={loaderData.formValues?.workingIncome ?? previousFormValues.get('income:working-income')}
               errorMessage={errT(errors?.nested?.workingIncome?.at(0))}
               autoComplete="off"
             />
             {isMarried && (
-              <InputField
+              <CurrencyField
                 name="partner-working-income"
                 label={t('estimator:income.fields.partner.working-income.label')}
                 required
-                maxLength={15}
                 helpMessagePrimaryClassName="-max-w-prose text-black"
                 helpMessagePrimary={
                   <div className="my-4 space-y-4">
@@ -275,18 +276,16 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   </div>
                 }
                 defaultValue={
-                  (loaderData.defaultFormValues?.kind === 'married'
-                    ? loaderData.defaultFormValues.partner.workingIncome
-                    : undefined) ?? previousFormValues.get('income:partner-working-income')
+                  (loaderData.formValues?.kind === 'married' ? loaderData.formValues.partner.workingIncome : undefined) ??
+                  previousFormValues.get('income:partner-working-income')
                 }
                 errorMessage={errT(`partner.${errors?.nested?.['partner.workingIncome']?.at(0)}`)}
                 autoComplete="off"
               />
             )}
-            <InputField
+            <CurrencyField
               name="claimed-income"
               label={t('estimator:income.fields.claimed-income.label')}
-              maxLength={15}
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
                 <div className="my-4 space-y-4">
@@ -308,14 +307,13 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   </Collapsible>
                 </div>
               }
-              defaultValue={loaderData.defaultFormValues?.claimedIncome ?? previousFormValues.get('income:claimed-income')}
+              defaultValue={loaderData.formValues?.claimedIncome ?? previousFormValues.get('income:claimed-income')}
               errorMessage={errT(errors?.nested?.claimedIncome?.at(0))}
               autoComplete="off"
             />
-            <InputField
+            <CurrencyField
               name="claimed-repayment"
               label={t('estimator:income.fields.claimed-repayment.label')}
-              maxLength={15}
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
                 <div className="my-4 space-y-4">
@@ -337,17 +335,14 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   </Collapsible>
                 </div>
               }
-              defaultValue={
-                loaderData.defaultFormValues?.claimedRepayment ?? previousFormValues.get('income:claimed-repayment')
-              }
+              defaultValue={loaderData.formValues?.claimedRepayment ?? previousFormValues.get('income:claimed-repayment')}
               errorMessage={errT(errors?.nested?.claimedRepayment?.at(0))}
               autoComplete="off"
             />
             {isMarried && (
-              <InputField
+              <CurrencyField
                 name="partner-claimed-income"
                 label={t('estimator:income.fields.partner.claimed-income.label')}
-                maxLength={15}
                 helpMessagePrimaryClassName="-max-w-prose text-black"
                 helpMessagePrimary={
                   <div className="my-4 space-y-4">
@@ -370,19 +365,17 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   </div>
                 }
                 defaultValue={
-                  (loaderData.defaultFormValues?.kind === 'married'
-                    ? loaderData.defaultFormValues.partner.claimedIncome
-                    : undefined) ?? previousFormValues.get('income:partner-claimed-income')
+                  (loaderData.formValues?.kind === 'married' ? loaderData.formValues.partner.claimedIncome : undefined) ??
+                  previousFormValues.get('income:partner-claimed-income')
                 }
                 errorMessage={errT(`partner.${errors?.nested?.['partner.claimedIncome']?.at(0)}`)}
                 autoComplete="off"
               />
             )}
             {isMarried && (
-              <InputField
+              <CurrencyField
                 name="partner-claimed-repayment"
                 label={t('estimator:income.fields.partner.claimed-repayment.label')}
-                maxLength={15}
                 helpMessagePrimaryClassName="-max-w-prose text-black"
                 helpMessagePrimary={
                   <div className="my-4 space-y-4">
@@ -405,9 +398,8 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   </div>
                 }
                 defaultValue={
-                  (loaderData.defaultFormValues?.kind === 'married'
-                    ? loaderData.defaultFormValues.partner.claimedRepayment
-                    : undefined) ?? previousFormValues.get('income:partner-claimed-repayment')
+                  (loaderData.formValues?.kind === 'married' ? loaderData.formValues.partner.claimedRepayment : undefined) ??
+                  previousFormValues.get('income:partner-claimed-repayment')
                 }
                 errorMessage={errT(`partner.${errors?.nested?.['partner.claimedRepayment']?.at(0)}`)}
                 autoComplete="off"

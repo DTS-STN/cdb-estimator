@@ -63,7 +63,7 @@ export async function action({ context, request }: Route.ActionArgs) {
       const parseResult = v.safeParse(martialSatusSchema, input, { lang });
 
       if (!parseResult.success) {
-        return data({ errors: v.flatten<typeof martialSatusSchema>(parseResult.issues) }, { status: 400 });
+        return data({ errors: v.flatten<typeof martialSatusSchema>(parseResult.issues), ts: new Date() }, { status: 400 });
       }
 
       if ((context.session.estimator ??= {}).maritalStatus !== parseResult.output) {

@@ -1,4 +1,4 @@
-import type { MarriedIncome, PersonIncome, SingleIncome } from './@types';
+import type { MarriedIncome, PersonIncome, SingleIncome } from '../routes/estimator/@types';
 
 function roundUp(value: number) {
   return Math.round(value * 100) / 100;
