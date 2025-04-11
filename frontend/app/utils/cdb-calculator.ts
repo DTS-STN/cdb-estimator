@@ -1,7 +1,7 @@
 import type { MarriedIncome, PersonIncome, SingleIncome } from '../routes/estimator/@types';
 
 function roundUp(value: number) {
-  return Math.round(value * 100) / 100;
+  return Math.round(value * 10000) / 10000;
 }
 
 export function calculateEstimation(income: MarriedIncome | SingleIncome) {
