@@ -1,7 +1,7 @@
 import type { MarriedIncome, PersonIncome, SingleIncome } from '../routes/estimator/@types';
 
 function roundUp(value: number) {
-  return Math.round(value * 100) / 100;
+  return Math.round(value * 10000) / 10000;
 }
 
 export function calculateEstimation(income: MarriedIncome | SingleIncome) {
@@ -40,6 +40,10 @@ function GetB(income: MarriedIncome | SingleIncome, partnerReceivesCDB: boolean)
     ESTIMATOR_BENEFIT_REDUCTION_RATE,
     ESTIMATOR_SPLIT_BENEFIT_REDUCTION_RATE,
   } = globalThis.__appEnvironment;
+
+  const reductionRate =
+    income.kind === 'married' && partnerReceivesCDB ? ESTIMATOR_SPLIT_BENEFIT_REDUCTION_RATE : ESTIMATOR_BENEFIT_REDUCTION_RATE;
+  const threshold = income.kind === 'married' ? ESTIMATOR_COUPLE_THRESHOLD : ESTIMATOR_SINGLE_THRESHOLD;
 
   if (income.kind === 'married') {
     return partnerReceivesCDB

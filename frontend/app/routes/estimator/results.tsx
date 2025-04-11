@@ -118,7 +118,7 @@ function formatCurrency(number: number, lang: Language) {
 }
 
 function getTotalIncome(income: PersonIncome) {
-  return income.netIncome + (income.claimedIncome ?? 0) - (income.claimedRepayment ?? 0);
+  return income.netIncome - (income.claimedIncome ?? 0) + (income.claimedRepayment ?? 0);
 }
 
 export default function Results({ actionData, loaderData, matches, params }: Route.ComponentProps) {
