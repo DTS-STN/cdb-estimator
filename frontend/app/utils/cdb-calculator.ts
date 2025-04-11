@@ -41,10 +41,6 @@ function GetB(income: MarriedIncome | SingleIncome, partnerReceivesCDB: boolean)
     ESTIMATOR_SPLIT_BENEFIT_REDUCTION_RATE,
   } = globalThis.__appEnvironment;
 
-  const reductionRate =
-    income.kind === 'married' && partnerReceivesCDB ? ESTIMATOR_SPLIT_BENEFIT_REDUCTION_RATE : ESTIMATOR_BENEFIT_REDUCTION_RATE;
-  const threshold = income.kind === 'married' ? ESTIMATOR_COUPLE_THRESHOLD : ESTIMATOR_SINGLE_THRESHOLD;
-
   if (income.kind === 'married') {
     return partnerReceivesCDB
       ? Math.max(
