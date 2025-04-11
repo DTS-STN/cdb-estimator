@@ -3,13 +3,18 @@ import type { I18nRouteFile } from '~/i18n-routes';
 import type { CDBEstimator } from '~/routes/estimator/@types';
 
 export type StateField = keyof CDBEstimator;
-
+/**
+ * stores a form's fields to session storage
+ * @param session the AppSession to store the data in
+ * @param namespace the namespace to tag the fields with
+ * @param formData the FormData to store
+ */
 export function storeFormFieldValues(session: AppSession, namespace: string, formData: FormData) {
+  const map = new Map<string, string | undefined>(session.formFieldValues ?? []);
   for (const [name, value] of formData.entries()) {
-    const map = new Map<string, string | undefined>(session.formFieldValues ?? []);
     map.set(`${namespace}:${name}`, value.toString());
-    session.formFieldValues = Array.from(map.entries());
   }
+  session.formFieldValues = Array.from(map.entries());
 }
 
 /**
