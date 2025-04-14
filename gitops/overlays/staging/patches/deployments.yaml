@@ -18,6 +18,6 @@ spec:
           # we must manually attach the generated secret
           envFrom:
             - configMapRef:
-                name: cdb-estimator-frontend-dev
+                name: cdb-estimator-frontend-staging
             - secretRef:
-                name: cdb-estimator-frontend-dev
+                name: cdb-estimator-frontend-staging
