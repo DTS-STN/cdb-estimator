@@ -1,7 +1,17 @@
 import type { MarriedIncome, PersonIncome, SingleIncome } from '../routes/estimator/@types';
 
 function roundUp(value: number) {
-  return Math.round(value * 10000) / 10000;
+  //const result = Number(value.toFixed(2));
+  const result = Math.round((value + Number.EPSILON) * 100) / 100;
+  console.log({ roundUp_Before: value, roundUp_After: result });
+  return result;
+}
+
+function roundUp3(value: number) {
+  //const result = Number(value.toFixed(2));
+  const result = Math.round((value + Number.EPSILON) * 1000) / 1000;
+  console.log({ roundUp3_Before: value, roundUp3_After: result });
+  return result;
 }
 
 export function calculateEstimation(income: MarriedIncome | SingleIncome) {
@@ -40,26 +50,35 @@ function GetB(income: MarriedIncome | SingleIncome, partnerReceivesCDB: boolean)
     ESTIMATOR_BENEFIT_REDUCTION_RATE,
     ESTIMATOR_SPLIT_BENEFIT_REDUCTION_RATE,
   } = globalThis.__appEnvironment;
-
+  let result = 0;
   if (income.kind === 'married') {
-    return partnerReceivesCDB
-      ? Math.max(
-          0,
-          ESTIMATOR_SPLIT_BENEFIT_REDUCTION_RATE *
-            (GetC(income) - GetE(income) - ESTIMATOR_COUPLE_THRESHOLD * ESTIMATOR_INFLATION_FACTOR),
-        )
-      : Math.max(
-          0,
-          ESTIMATOR_BENEFIT_REDUCTION_RATE *
-            (GetC(income) - GetE(income) - ESTIMATOR_COUPLE_THRESHOLD * ESTIMATOR_INFLATION_FACTOR),
-        );
+    if (partnerReceivesCDB) {
+      result = Math.max(
+        0,
+        ESTIMATOR_SPLIT_BENEFIT_REDUCTION_RATE *
+          (GetC(income) - GetE(income) - ESTIMATOR_COUPLE_THRESHOLD * ESTIMATOR_INFLATION_FACTOR),
+      );
+      result = roundUp3(result); //Number(result.toFixed(3));
+      console.log({ B_split: result });
+    } else {
+      result = Math.max(
+        0,
+        ESTIMATOR_BENEFIT_REDUCTION_RATE *
+          (GetC(income) - GetE(income) - ESTIMATOR_COUPLE_THRESHOLD * ESTIMATOR_INFLATION_FACTOR),
+      );
+      result = roundUp3(result); //Number(result.toFixed(3));
+      console.log({ B_married: result });
+    }
   } else {
-    return Math.max(
+    result = Math.max(
       0,
       ESTIMATOR_BENEFIT_REDUCTION_RATE *
         (GetC(income) - GetD(income) - ESTIMATOR_SINGLE_THRESHOLD * ESTIMATOR_INFLATION_FACTOR),
     );
+    result = roundUp3(result); //Number(result.toFixed(3));
+    console.log({ B_single: result });
   }
+  return result;
 }
 
 /**
@@ -67,7 +86,13 @@ function GetB(income: MarriedIncome | SingleIncome, partnerReceivesCDB: boolean)
  * @returns C
  */
 function GetC(income: SingleIncome | MarriedIncome) {
-  return income.kind === 'married' ? GetAdjustedIncome(income) + GetAdjustedIncome(income.partner) : GetAdjustedIncome(income);
+  let result =
+    income.kind === 'married'
+      ? GetAdjustedIncome(income, false) + GetAdjustedIncome(income.partner, true)
+      : GetAdjustedIncome(income, false);
+  result = roundUp3(result); //Number(result.toFixed(3));
+  console.log({ C: result });
+  return result;
 }
 
 /**
@@ -79,7 +104,10 @@ function GetD(singleIncome: SingleIncome) {
 
   const ceiling = ESTIMATOR_SINGLE_WORKING_INCOME_EXEMPTION * ESTIMATOR_INFLATION_FACTOR;
 
-  return Math.min(ceiling, singleIncome.workingIncome);
+  let result = Math.min(ceiling, singleIncome.workingIncome);
+  result = roundUp3(result); //Number(result.toFixed(3));
+  console.log({ D: result });
+  return result;
 }
 
 /**
@@ -92,9 +120,19 @@ function GetE(coupleIncome: MarriedIncome) {
   const ceiling = ESTIMATOR_COUPLE_WORKING_INCOME_EXCEPTION * ESTIMATOR_INFLATION_FACTOR;
   const combinedWorkingIncome = coupleIncome.workingIncome + coupleIncome.partner.workingIncome;
 
-  return Math.min(ceiling, combinedWorkingIncome);
+  let result = Math.min(ceiling, combinedWorkingIncome);
+  result = roundUp3(result); //Number(result.toFixed(3));
+  console.log({ E: result });
+  return result;
 }
 
-function GetAdjustedIncome(personIncome: PersonIncome) {
-  return personIncome.netIncome - (personIncome.claimedIncome ?? 0) + (personIncome.claimedRepayment ?? 0);
+function GetAdjustedIncome(personIncome: PersonIncome, isPartner: boolean) {
+  let result = personIncome.netIncome - (personIncome.claimedIncome ?? 0) + (personIncome.claimedRepayment ?? 0);
+  result = roundUp3(result); //Number(result.toFixed(3));
+  if (isPartner) {
+    console.log({ AdjustedIncome_Partner: result });
+  } else {
+    console.log({ AdjustedIncome_Person: result });
+  }
+  return result;
 }
