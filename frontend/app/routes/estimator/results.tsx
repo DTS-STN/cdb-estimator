@@ -26,8 +26,8 @@ import { getTranslation } from '~/i18n-config.server';
 import type { I18nRouteFile } from '~/i18n-routes';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 import * as adobeAnalytics from '~/utils/adobe-analytics-utils';
+import { formatCurrency } from '~/utils/currency-utils';
 import { estimatorStepGate } from '~/utils/state-utils';
-import { formatCurrency } from '~/utils/string-utils';
 import { cn } from '~/utils/tailwind-utils';
 
 export const handle = {
