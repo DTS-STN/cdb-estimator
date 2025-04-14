@@ -1,0 +1,381 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Breadcrumbs > should render links > expected html 1`] = `
+<div>
+  <nav
+    aria-labelledby="breadcrumbs"
+    id="wb-bc"
+    property="breadcrumb"
+  >
+    <h2
+      class="sr-only"
+      id="breadcrumbs"
+    >
+      common:breadcrumbs.you-are-here
+    </h2>
+    <div
+      class="container"
+    >
+      <ol
+        class="flex flex-wrap items-center gap-x-3 gap-y-1"
+        typeof="BreadcrumbList"
+      />
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`Breadcrumbs > should render links > expected html 2`] = `
+<div>
+  <nav
+    aria-labelledby="breadcrumbs"
+    id="wb-bc"
+    property="breadcrumb"
+  >
+    <h2
+      class="sr-only"
+      id="breadcrumbs"
+    >
+      common:breadcrumbs.you-are-here
+    </h2>
+    <div
+      class="container"
+    >
+      <ol
+        class="flex flex-wrap items-center gap-x-3 gap-y-1"
+        typeof="BreadcrumbList"
+      >
+        <li
+          class="flex items-center"
+          property="itemListElement"
+          typeof="ListItem"
+        >
+          <a
+            class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+            href="https://www.canada.ca/fr.html"
+            property="item"
+            typeof="WebPage"
+          >
+            <span
+              property="name"
+            >
+              Canada.ca fr
+            </span>
+          </a>
+        </li>
+      </ol>
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`Breadcrumbs > should render links > expected html 3`] = `
+<div>
+  <nav
+    aria-labelledby="breadcrumbs"
+    id="wb-bc"
+    property="breadcrumb"
+  >
+    <h2
+      class="sr-only"
+      id="breadcrumbs"
+    >
+      common:breadcrumbs.you-are-here
+    </h2>
+    <div
+      class="container"
+    >
+      <ol
+        class="flex flex-wrap items-center gap-x-3 gap-y-1"
+        typeof="BreadcrumbList"
+      >
+        <li
+          class="flex items-center"
+          property="itemListElement"
+          typeof="ListItem"
+        >
+          <a
+            class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+            href="https://www.canada.ca/en.html"
+            property="item"
+            typeof="WebPage"
+          >
+            <span
+              property="name"
+            >
+              Canada.ca en
+            </span>
+          </a>
+        </li>
+      </ol>
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`Breadcrumbs > should render links > expected html 4`] = `
+<div>
+  <nav
+    aria-labelledby="breadcrumbs"
+    id="wb-bc"
+    property="breadcrumb"
+  >
+    <h2
+      class="sr-only"
+      id="breadcrumbs"
+    >
+      common:breadcrumbs.you-are-here
+    </h2>
+    <div
+      class="container"
+    >
+      <ol
+        class="flex flex-wrap items-center gap-x-3 gap-y-1"
+        typeof="BreadcrumbList"
+      >
+        <li
+          class="flex items-center"
+          property="itemListElement"
+          typeof="ListItem"
+        >
+          <a
+            class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+            data-discover="true"
+            href="/fr"
+            property="item"
+            typeof="WebPage"
+          >
+            <span
+              property="name"
+            >
+              estimator:index.breadcrumb
+            </span>
+          </a>
+        </li>
+      </ol>
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`Breadcrumbs > should render links > expected html 5`] = `
+<div>
+  <nav
+    aria-labelledby="breadcrumbs"
+    id="wb-bc"
+    property="breadcrumb"
+  >
+    <h2
+      class="sr-only"
+      id="breadcrumbs"
+    >
+      common:breadcrumbs.you-are-here
+    </h2>
+    <div
+      class="container"
+    >
+      <ol
+        class="flex flex-wrap items-center gap-x-3 gap-y-1"
+        typeof="BreadcrumbList"
+      >
+        <li
+          class="flex items-center"
+          property="itemListElement"
+          typeof="ListItem"
+        >
+          <a
+            class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+            data-discover="true"
+            href="/en"
+            property="item"
+            typeof="WebPage"
+          >
+            <span
+              property="name"
+            >
+              estimator:index.breadcrumb
+            </span>
+          </a>
+        </li>
+      </ol>
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`Breadcrumbs > should render links > expected html 6`] = `
+<div>
+  <nav
+    aria-labelledby="breadcrumbs"
+    id="wb-bc"
+    property="breadcrumb"
+  >
+    <h2
+      class="sr-only"
+      id="breadcrumbs"
+    >
+      common:breadcrumbs.you-are-here
+    </h2>
+    <div
+      class="container"
+    >
+      <ol
+        class="flex flex-wrap items-center gap-x-3 gap-y-1"
+        typeof="BreadcrumbList"
+      >
+        <li
+          class="flex items-center"
+          property="itemListElement"
+          typeof="ListItem"
+        >
+          <a
+            class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+            href="https://www.canada.ca/en.html"
+            property="item"
+            typeof="WebPage"
+          >
+            <span
+              property="name"
+            >
+              Canada.ca
+            </span>
+          </a>
+        </li>
+        <li
+          class="flex items-center"
+          property="itemListElement"
+          typeof="ListItem"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-chevron-right mr-2 size-3 text-slate-700"
+            data-icon="chevron-right"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 320 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+              fill="currentColor"
+            />
+          </svg>
+          <a
+            class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+            href="https://www.canada.ca/en/services/benefits.html"
+            property="item"
+            typeof="WebPage"
+          >
+            <span
+              property="name"
+            >
+              Benefits
+            </span>
+          </a>
+        </li>
+        <li
+          class="flex items-center"
+          property="itemListElement"
+          typeof="ListItem"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-chevron-right mr-2 size-3 text-slate-700"
+            data-icon="chevron-right"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 320 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+              fill="currentColor"
+            />
+          </svg>
+          <a
+            class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+            href="https://www.canada.ca/en/services/benefits/disability.html"
+            property="item"
+            typeof="WebPage"
+          >
+            <span
+              property="name"
+            >
+              Disability benefits
+            </span>
+          </a>
+        </li>
+        <li
+          class="flex items-center"
+          property="itemListElement"
+          typeof="ListItem"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-chevron-right mr-2 size-3 text-slate-700"
+            data-icon="chevron-right"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 320 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+              fill="currentColor"
+            />
+          </svg>
+          <a
+            class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+            href="https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html"
+            property="item"
+            typeof="WebPage"
+          >
+            <span
+              property="name"
+            >
+              Canada Disability Benefit
+            </span>
+          </a>
+        </li>
+        <li
+          class="flex items-center"
+          property="itemListElement"
+          typeof="ListItem"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-chevron-right mr-2 size-3 text-slate-700"
+            data-icon="chevron-right"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 320 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+              fill="currentColor"
+            />
+          </svg>
+          <a
+            class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+            data-discover="true"
+            href="/en"
+            property="item"
+            typeof="WebPage"
+          >
+            <span
+              property="name"
+            >
+              estimator:index.breadcrumb
+            </span>
+          </a>
+        </li>
+      </ol>
+    </div>
+  </nav>
+</div>
+`;
