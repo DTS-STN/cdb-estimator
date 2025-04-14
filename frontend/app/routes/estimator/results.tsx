@@ -27,6 +27,7 @@ import type { I18nRouteFile } from '~/i18n-routes';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 import * as adobeAnalytics from '~/utils/adobe-analytics-utils';
 import { estimatorStepGate } from '~/utils/state-utils';
+import { formatCurrency } from '~/utils/string-utils';
 import { cn } from '~/utils/tailwind-utils';
 
 export const handle = {
@@ -109,13 +110,6 @@ export function meta({ data }: Route.MetaArgs) {
 }
 
 export async function action({ context, request }: Route.ActionArgs) {}
-
-function formatCurrency(number: number, lang: Language) {
-  return number.toLocaleString(lang === 'fr' ? 'fr-CA' : 'en-CA', {
-    style: 'currency',
-    currency: 'CAD',
-  });
-}
 
 function getTotalIncome(income: PersonIncome) {
   return income.netIncome - (income.claimedIncome ?? 0) + (income.claimedRepayment ?? 0);
