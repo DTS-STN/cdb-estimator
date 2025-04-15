@@ -15,12 +15,14 @@ export interface PersonIncomeForm {
   claimedRepayment?: string;
 }
 
-export interface SingleIncomeForm extends PersonIncomeForm {
+export interface SingleIncomeForm {
   kind: 'single';
+  individualIncome: PersonIncomeForm;
 }
-export interface MarriedIncomeForm extends PersonIncomeForm {
+export interface MarriedIncomeForm {
   kind: 'married';
-  partner: PersonIncomeForm;
+  individualIncome: PersonIncomeForm;
+  partnerIncome: PersonIncomeForm;
 }
 
 // business objects
@@ -31,13 +33,15 @@ export type CDBEstimator = {
 
 export type MaritalStatus = (typeof validMaritalStatuses)[number];
 
-export interface SingleIncome extends PersonIncome {
+export interface SingleIncome {
   kind: 'single';
+  individualIncome: PersonIncome;
 }
 
-export interface MarriedIncome extends PersonIncome {
+export interface MarriedIncome {
   kind: 'married';
-  partner: PersonIncome;
+  individualIncome: PersonIncome;
+  partnerIncome: PersonIncome;
 }
 
 export interface PersonIncome {
@@ -67,12 +71,14 @@ export interface FormattedPersonIncome {
   totalIncome: string;
 }
 
-export interface FormattedSingleIncome extends FormattedPersonIncome {
+export interface FormattedSingleIncome {
   kind: 'single';
+  individualIncome: FormattedPersonIncome;
 }
-export interface FormattedMarriedIncome extends FormattedPersonIncome {
+export interface FormattedMarriedIncome {
   kind: 'married';
-  partner: FormattedPersonIncome;
+  individualIncome: FormattedPersonIncome;
+  partnerIncome: FormattedPersonIncome;
 }
 
 export type FormValue = [string, string | undefined];
