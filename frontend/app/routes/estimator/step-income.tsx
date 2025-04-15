@@ -70,66 +70,79 @@ export async function action({ context, request }: Route.ActionArgs) {
 
 function processIncome(formData: FormData, isMarried: boolean, lang: Language) {
   const positiveDecimal = new RegExp(/^\d*(\.\d\d?)?$/);
-  // Base schema for PersonIncome fields
-  const personIncomeSchema = v.object({
-    netIncome: v.pipe(
-      v.string('net-income.error.required'),
-      v.nonEmpty('net-income.error.required'),
-      v.transform((input) => removeNumericFormatting(input, lang)),
-      v.regex(positiveDecimal, 'net-income.error.invalid'),
-      v.transform(Number),
-      v.number('net-income.error.invalid'),
-      v.minValue(0, 'net-income.error.invalid'),
+
+  const personIncomeSchema = v.pipe(
+    v.object({
+      netIncome: v.pipe(
+        v.string('net-income.error.required'),
+        v.nonEmpty('net-income.error.required'),
+        v.transform((input) => removeNumericFormatting(input, lang)),
+        v.regex(positiveDecimal, 'net-income.error.invalid'),
+        v.transform(Number),
+        v.number('net-income.error.invalid'),
+        v.minValue(0, 'net-income.error.invalid'),
+      ),
+      workingIncome: v.pipe(
+        v.string('working-income.error.required'),
+        v.nonEmpty('working-income.error.required'),
+        v.transform((input) => removeNumericFormatting(input, lang)),
+        v.regex(positiveDecimal, 'working-income.error.invalid'),
+        v.transform(Number),
+        v.number('working-income.error.invalid'),
+        v.minValue(0, 'working-income.error.invalid'),
+      ),
+      claimedIncome: v.pipe(
+        v.optional(v.string(), '0'),
+        v.transform((input) => removeNumericFormatting(input, lang)),
+        v.regex(positiveDecimal, 'claimed-income.error.invalid'),
+        v.transform(Number),
+        v.number('claimed-income.error.invalid'),
+        v.minValue(0, 'claimed-income.error.invalid'),
+      ),
+      claimedRepayment: v.pipe(
+        v.optional(v.string(), '0'),
+        v.transform((input) => removeNumericFormatting(input, lang)),
+        v.regex(positiveDecimal, 'claimed-repayment.error.invalid'),
+        v.transform(Number),
+        v.number('claimed-repayment.error.invalid'),
+        v.minValue(0, 'claimed-repayment.error.invalid'),
+      ),
+    }),
+    v.forward(
+      v.partialCheck(
+        [['workingIncome'], ['netIncome']],
+        (input) => input.workingIncome <= input.netIncome,
+        'working-income.error.should-not-exceed-net-income',
+      ),
+      ['workingIncome'],
     ),
-    workingIncome: v.pipe(
-      v.string('working-income.error.required'),
-      v.nonEmpty('working-income.error.required'),
-      v.transform((input) => removeNumericFormatting(input, lang)),
-      v.regex(positiveDecimal, 'working-income.error.invalid'),
-      v.transform(Number),
-      v.number('working-income.error.invalid'),
-      v.minValue(0, 'working-income.error.invalid'),
-    ),
-    claimedIncome: v.pipe(
-      v.optional(v.string(), '0'),
-      v.transform((input) => removeNumericFormatting(input, lang)),
-      v.regex(positiveDecimal, 'claimed-income.error.invalid'),
-      v.transform(Number),
-      v.number('claimed-income.error.invalid'),
-      v.minValue(0, 'claimed-income.error.invalid'),
-    ),
-    claimedRepayment: v.pipe(
-      v.optional(v.string(), '0'),
-      v.transform((input) => removeNumericFormatting(input, lang)),
-      v.regex(positiveDecimal, 'claimed-repayment.error.invalid'),
-      v.transform(Number),
-      v.number('claimed-repayment.error.invalid'),
-      v.minValue(0, 'claimed-repayment.error.invalid'),
-    ),
-  });
+  );
 
   // Combined schema with variants for single and married
   const incomeFormSchema = v.variant('kind', [
     // SingleIncomeForm
     v.object({
       kind: v.literal('single'),
-      ...personIncomeSchema.entries,
+      individualIncome: personIncomeSchema,
     }),
+
     // MarriedIncomeForm
     v.object({
       kind: v.literal('married'),
-      ...personIncomeSchema.entries,
-      partner: personIncomeSchema,
+      individualIncome: personIncomeSchema,
+      partnerIncome: personIncomeSchema,
     }),
   ]) satisfies v.GenericSchema<SingleIncomeForm | MarriedIncomeForm, SingleIncome | MarriedIncome>;
 
   const input = {
     kind: isMarried ? 'married' : 'single',
-    netIncome: formData.get('net-income') as string,
-    workingIncome: formData.get('working-income') as string,
-    claimedIncome: formData.get('claimed-income') as string,
-    claimedRepayment: formData.get('claimed-repayment') as string,
-    partner: isMarried
+    individualIncome: {
+      netIncome: formData.get('individual-net-income') as string,
+      workingIncome: formData.get('individual-working-income') as string,
+      claimedIncome: formData.get('individual-claimed-income') as string,
+      claimedRepayment: formData.get('individual-claimed-repayment') as string,
+    },
+    partnerIncome: isMarried
       ? {
           netIncome: formData.get('partner-net-income') as string,
           workingIncome: formData.get('partner-working-income') as string,
@@ -173,7 +186,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                 : t('estimator:income.form-instructions.single', { year: previousIncomeTaxReturnYear })}
             </h2>
             <CurrencyField
-              name="net-income"
+              name="individual-net-income"
               label={t('estimator:income.fields.net-income.label')}
               required
               helpMessagePrimaryClassName="-max-w-prose text-black"
@@ -188,8 +201,10 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   </Collapsible>
                 </div>
               }
-              defaultValue={loaderData.formValues?.netIncome ?? previousFormValues.get('income:net-income')}
-              errorMessage={errT(errors?.nested?.netIncome?.at(0))}
+              defaultValue={
+                loaderData.formValues?.individualIncome.netIncome ?? previousFormValues.get('income:individual-net-income')
+              }
+              errorMessage={errT(errors?.nested?.['individualIncome.netIncome']?.at(0))}
               autoComplete="off"
             />
             {isMarried && (
@@ -210,15 +225,15 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   </div>
                 }
                 defaultValue={
-                  (loaderData.formValues?.kind === 'married' ? loaderData.formValues.partner.netIncome : undefined) ??
+                  (loaderData.formValues?.kind === 'married' ? loaderData.formValues.partnerIncome.netIncome : undefined) ??
                   previousFormValues.get('income:partner-net-income')
                 }
-                errorMessage={errT(`partner.${errors?.nested?.['partner.netIncome']?.at(0)}`)}
+                errorMessage={errT(`partner.${errors?.nested?.['partnerIncome.netIncome']?.at(0)}`)}
                 autoComplete="off"
               />
             )}
             <CurrencyField
-              name="working-income"
+              name="individual-working-income"
               label={t('estimator:income.fields.working-income.label')}
               required
               helpMessagePrimaryClassName="-max-w-prose text-black"
@@ -243,8 +258,11 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   </Collapsible>
                 </div>
               }
-              defaultValue={loaderData.formValues?.workingIncome ?? previousFormValues.get('income:working-income')}
-              errorMessage={errT(errors?.nested?.workingIncome?.at(0))}
+              defaultValue={
+                loaderData.formValues?.individualIncome.workingIncome ??
+                previousFormValues.get('income:individual-working-income')
+              }
+              errorMessage={errT(errors?.nested?.['individualIncome.workingIncome']?.at(0))}
               autoComplete="off"
             />
             {isMarried && (
@@ -276,15 +294,15 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   </div>
                 }
                 defaultValue={
-                  (loaderData.formValues?.kind === 'married' ? loaderData.formValues.partner.workingIncome : undefined) ??
+                  (loaderData.formValues?.kind === 'married' ? loaderData.formValues.partnerIncome.workingIncome : undefined) ??
                   previousFormValues.get('income:partner-working-income')
                 }
-                errorMessage={errT(`partner.${errors?.nested?.['partner.workingIncome']?.at(0)}`)}
+                errorMessage={errT(`partner.${errors?.nested?.['partnerIncome.workingIncome']?.at(0)}`)}
                 autoComplete="off"
               />
             )}
             <CurrencyField
-              name="claimed-income"
+              name="individual-claimed-income"
               label={t('estimator:income.fields.claimed-income.label')}
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
@@ -307,12 +325,15 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   </Collapsible>
                 </div>
               }
-              defaultValue={loaderData.formValues?.claimedIncome ?? previousFormValues.get('income:claimed-income')}
-              errorMessage={errT(errors?.nested?.claimedIncome?.at(0))}
+              defaultValue={
+                loaderData.formValues?.individualIncome.claimedIncome ??
+                previousFormValues.get('income:individual-claimed-income')
+              }
+              errorMessage={errT(errors?.nested?.['individualIncome.claimedIncome']?.at(0))}
               autoComplete="off"
             />
             <CurrencyField
-              name="claimed-repayment"
+              name="individual-claimed-repayment"
               label={t('estimator:income.fields.claimed-repayment.label')}
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
@@ -335,8 +356,11 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   </Collapsible>
                 </div>
               }
-              defaultValue={loaderData.formValues?.claimedRepayment ?? previousFormValues.get('income:claimed-repayment')}
-              errorMessage={errT(errors?.nested?.claimedRepayment?.at(0))}
+              defaultValue={
+                loaderData.formValues?.individualIncome.claimedRepayment ??
+                previousFormValues.get('income:individual-claimed-repayment')
+              }
+              errorMessage={errT(errors?.nested?.['individualIncome.claimedRepayment']?.at(0))}
               autoComplete="off"
             />
             {isMarried && (
@@ -365,10 +389,10 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   </div>
                 }
                 defaultValue={
-                  (loaderData.formValues?.kind === 'married' ? loaderData.formValues.partner.claimedIncome : undefined) ??
+                  (loaderData.formValues?.kind === 'married' ? loaderData.formValues.partnerIncome.claimedIncome : undefined) ??
                   previousFormValues.get('income:partner-claimed-income')
                 }
-                errorMessage={errT(`partner.${errors?.nested?.['partner.claimedIncome']?.at(0)}`)}
+                errorMessage={errT(`partner.${errors?.nested?.['partnerIncome.claimedIncome']?.at(0)}`)}
                 autoComplete="off"
               />
             )}
@@ -398,10 +422,11 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   </div>
                 }
                 defaultValue={
-                  (loaderData.formValues?.kind === 'married' ? loaderData.formValues.partner.claimedRepayment : undefined) ??
-                  previousFormValues.get('income:partner-claimed-repayment')
+                  (loaderData.formValues?.kind === 'married'
+                    ? loaderData.formValues.partnerIncome.claimedRepayment
+                    : undefined) ?? previousFormValues.get('income:partner-claimed-repayment')
                 }
-                errorMessage={errT(`partner.${errors?.nested?.['partner.claimedRepayment']?.at(0)}`)}
+                errorMessage={errT(`partner.${errors?.nested?.['partnerIncome.claimedRepayment']?.at(0)}`)}
                 autoComplete="off"
               />
             )}
