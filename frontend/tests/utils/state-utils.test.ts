@@ -23,7 +23,7 @@ describe('state-utils', () => {
         {
           state: {
             maritalStatus: 'single-divorced-separated-or-widowed',
-            income: { kind: 'single', netIncome: 0, workingIncome: 0 },
+            income: { kind: 'single', individualIncome: { netIncome: 0, workingIncome: 0 } },
           },
           url: '/en/marital-status',
           route: 'routes/estimator/step-marital-status.tsx',
@@ -38,7 +38,7 @@ describe('state-utils', () => {
         {
           state: {
             maritalStatus: 'single-divorced-separated-or-widowed',
-            income: { kind: 'single', netIncome: 0, workingIncome: 0 },
+            income: { kind: 'single', individualIncome: { netIncome: 0, workingIncome: 0 } },
           },
           url: '/en/income',
           route: 'routes/estimator/step-income.tsx',
@@ -46,7 +46,7 @@ describe('state-utils', () => {
         {
           state: {
             maritalStatus: 'single-divorced-separated-or-widowed',
-            income: { kind: 'single', netIncome: 0, workingIncome: 0 },
+            income: { kind: 'single', individualIncome: { netIncome: 0, workingIncome: 0 } },
           },
           url: '/en/results',
           route: 'routes/estimator/results.tsx',

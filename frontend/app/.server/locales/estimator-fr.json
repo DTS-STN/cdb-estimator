@@ -51,7 +51,8 @@
         "working-income": {
           "error": {
             "invalid": "Le revenu d'empoi de votre partenaire est invalide",
-            "required": "Le revenu d'emploi de votre partenaire est requis"
+            "required": "Le revenu d'emploi de votre partenaire est requis",
+            "should-not-exceed-net-income": "Le revenu d'empoi de votre partenaire ne doit pas dépasser leur revenu net"
           },
           "info-label": "Comment calculer le revenu d'emploi de votre partenaire ?",
           "label": "Le revenu d'emploi de votre partenaire"
@@ -60,7 +61,8 @@
       "working-income": {
         "error": {
           "invalid": "Votre revenu d'emploi est invalide",
-          "required": "Votre revenu d'emploi est requis"
+          "required": "Votre revenu d'emploi est requis",
+          "should-not-exceed-net-income": "Votre revenu d'empoi ne doit pas dépasser votre revenu net"
         },
         "info-label": "Comment calculer votre revenu d'emploi ?",
         "label": "Votre revenu d'emploi"
