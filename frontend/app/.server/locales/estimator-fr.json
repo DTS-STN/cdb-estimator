@@ -116,7 +116,8 @@
       },
       "result-disclaimer": "<strong>Cet outil fournit une estimation seulement. Il ne garantit pas que vous serez admissible ou que vous recevrez le montant estimé.</strong>",
       "results": {
-        "description": "Cet estimateur fournit des montants estimés de prestation pour les paiements effectués entre juillet 2025 et juin 2026. Les montants des prestations futures pourraient être plus élevés en raison de l'inflation. Les résultats ne sont pas des conseils financiers et peuvent changer. Pour une évaluation plus précise de votre montant de prestations estimé, veuillez communiquer avec nous.",
+        "contact": " Pour une évaluation plus précise de votre montant de prestations estimé, veuillez <cdbContactLink>communiquer avec nous</cdbContactLink>.",
+        "description": "Cet estimateur fournit des montants estimés de prestation pour les paiements effectués entre juillet 2025 et juin 2026. Les montants des prestations futures pourraient être plus élevés en raison de l'inflation. Les résultats ne sont pas des conseils financiers et peuvent changer.",
         "header": "À propos des résultats"
       }
     },
@@ -166,6 +167,7 @@
         "learn-more": "Pour apprendre plus de la Prestation canadienne pour les personnes handicapées"
       },
       "your-estimate": {
+        "contact": " <cdbContactLink>Contactez-nous</cdbContactLink> pour en savoir plus.",
         "header": "Votre estimation",
         "married-common-law": {
           "cdb-partner-result": "Si vous et votre partenaire recevez tous les deux la Prestation canadienne pour les personnes handicapées, vous pourriez recevoir un montant mensuel de <strong>{{result}}</strong>.",

@@ -30,11 +30,24 @@ export function meta({ data }: Route.MetaArgs) {
 
 export default function Home({ loaderData }: Route.ComponentProps) {
   const { t, i18n } = useTranslation(handle.i18nNamespace);
-  const { ESTIMATOR_CDB_ELIGIBILITY_URL_EN, ESTIMATOR_CDB_ELIGIBILITY_URL_FR } = globalThis.__appEnvironment;
+  const {
+    ESTIMATOR_CDB_CONTACT_URL_EN,
+    ESTIMATOR_CDB_CONTACT_URL_FR,
+    ESTIMATOR_CDB_ELIGIBILITY_URL_EN,
+    ESTIMATOR_CDB_ELIGIBILITY_URL_FR,
+  } = globalThis.__appEnvironment;
 
   const cdbRequirementsLink = (
     <InlineLink
       to={i18n.language === 'fr' ? ESTIMATOR_CDB_ELIGIBILITY_URL_FR : ESTIMATOR_CDB_ELIGIBILITY_URL_EN}
+      className="external-link"
+      target="_blank"
+    />
+  );
+
+  const cdbContactLink = (
+    <InlineLink
+      to={i18n.language === 'fr' ? (ESTIMATOR_CDB_CONTACT_URL_FR ?? '') : (ESTIMATOR_CDB_CONTACT_URL_EN ?? '')}
       className="external-link"
       target="_blank"
     />
@@ -90,6 +103,22 @@ export default function Home({ loaderData }: Route.ComponentProps) {
           <h2 className="font-lato text-lg font-bold">{t('estimator:index.content.results.header')}</h2>
           <p>
             <Trans ns={handle.i18nNamespace} i18nKey="estimator:index.content.results.description" />
+
+            {i18n.language === 'fr' && ESTIMATOR_CDB_CONTACT_URL_FR && (
+              <Trans
+                ns={handle.i18nNamespace}
+                i18nKey="estimator:index.content.results.contact"
+                components={{ cdbContactLink }}
+              />
+            )}
+
+            {i18n.language === 'en' && ESTIMATOR_CDB_CONTACT_URL_EN && (
+              <Trans
+                ns={handle.i18nNamespace}
+                i18nKey="estimator:index.content.results.contact"
+                components={{ cdbContactLink }}
+              />
+            )}
           </p>
         </section>
       </div>
