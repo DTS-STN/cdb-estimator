@@ -10,9 +10,9 @@ import type { Info, Route } from './+types/step-income';
 import type { MarriedIncome, MarriedIncomeForm, SingleIncome, SingleIncomeForm } from './@types';
 
 import { i18nRedirect } from '~/.server/utils/route-utils';
-import { CurrencyField } from '~/components/CurrencyField';
 import { Button } from '~/components/button';
 import { Collapsible } from '~/components/collapsible';
+import { CurrencyField } from '~/components/currency-field';
 import { FetcherErrorSummary } from '~/components/error-summary';
 import { PageTitle } from '~/components/page-title';
 import { useErrorTranslation } from '~/hooks/use-error-translation';
