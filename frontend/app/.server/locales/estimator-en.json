@@ -116,7 +116,8 @@
       },
       "result-disclaimer": "<strong>This tool provides an estimate only. It doesn't guarantee that you'll be eligible or that you'll receive the amount estimated.</strong>",
       "results": {
-        "description": "This estimator provides estimated benefit amounts for payments made between July 2025 and June 2026. Future benefit amounts may be higher. The results are not financial advice and are subject to change. For a more accurate assessment of your estimated benefits amount, please contact us.",
+        "contact": " For a more accurate assessment of your estimated benefits amount, please <cdbContactLink>contact us</cdbContactLink>.",
+        "description": "This estimator provides estimated benefit amounts for payments made between July 2025 and June 2026. Future benefit amounts may be higher.",
         "header": "About the results"
       }
     },
@@ -166,13 +167,14 @@
         "learn-more": "Learn more about the Canada Disability Benefit"
       },
       "your-estimate": {
+        "contact": " <cdbContactLink>Contact us</cdbContactLink> to find out more.",
         "header": "Your estimate",
         "married-common-law": {
           "cdb-partner-result": "If both you and your partner are receiving the Canada Disability Benefit, you could receive a monthly amount of <strong>{{result}}</strong>.",
           "intro": "The monthly benefit amount you could receive depends on whether your partner is receiving the Canada Disability Benefit.",
           "non-cdb-partner-result": "If your partner is not receiving the Canada Disability Benefit, you could receive a monthly amount of <strong>{{result}}</strong>."
         },
-        "note": "<strong>Please note that you may be able to receive retroactive payments for past months that you were elligible, but not for months before June 2025.</strong> Contact us to find out more.",
+        "note": "<strong>Please note that you may be able to receive retroactive payments for past months that you were elligible, but not for months before June 2025.</strong>",
         "single": {
           "intro": "You could be eligible to receive:",
           "result": "A monthly amount of <strong>{{result}}</strong> from the Canada Disability Benefit."

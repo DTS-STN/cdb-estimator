@@ -121,8 +121,22 @@ function getTotalIncome(income: PersonIncome) {
 
 export default function Results({ actionData, loaderData, matches, params }: Route.ComponentProps) {
   const { t, i18n } = useTranslation(handle.i18nNamespace);
-  const { ESTIMATOR_CDB_APPLY_URL_EN, ESTIMATOR_CDB_APPLY_URL_FR, ESTIMATOR_CDB_URL_EN, ESTIMATOR_CDB_URL_FR } =
-    globalThis.__appEnvironment;
+  const {
+    ESTIMATOR_CDB_CONTACT_URL_EN,
+    ESTIMATOR_CDB_CONTACT_URL_FR,
+    ESTIMATOR_CDB_APPLY_URL_EN,
+    ESTIMATOR_CDB_APPLY_URL_FR,
+    ESTIMATOR_CDB_URL_EN,
+    ESTIMATOR_CDB_URL_FR,
+  } = globalThis.__appEnvironment;
+
+  const cdbContactLink = (
+    <InlineLink
+      to={i18n.language === 'fr' ? (ESTIMATOR_CDB_CONTACT_URL_FR ?? '') : (ESTIMATOR_CDB_CONTACT_URL_EN ?? '')}
+      className="external-link"
+      target="_blank"
+    />
+  );
 
   return (
     <div className="space-y-3">
@@ -176,6 +190,22 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
 
             <p>
               <Trans ns={handle.i18nNamespace} i18nKey="estimator:results.content.your-estimate.note" />
+
+              {i18n.language === 'fr' && ESTIMATOR_CDB_CONTACT_URL_FR && (
+                <Trans
+                  ns={handle.i18nNamespace}
+                  i18nKey="estimator:results.content.your-estimate.contact"
+                  components={{ cdbContactLink }}
+                />
+              )}
+
+              {i18n.language === 'en' && ESTIMATOR_CDB_CONTACT_URL_EN && (
+                <Trans
+                  ns={handle.i18nNamespace}
+                  i18nKey="estimator:results.content.your-estimate.contact"
+                  components={{ cdbContactLink }}
+                />
+              )}
             </p>
 
             <h2 className="font-lato mb-4 text-lg font-bold">{t('estimator:results.content.next-steps.header')}</h2>
