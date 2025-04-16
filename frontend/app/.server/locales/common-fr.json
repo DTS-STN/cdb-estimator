@@ -1,4 +1,14 @@
 {
+  "meta": {
+    "author": "Emploi et Développement social Canada",
+    "description": "L'Estimateur de la prestation canadienne pour les personnes handicapées est un outil pour déterminer le montant que vous pourriez recevoir de la Prestations canadiennes des personnes handicapées. Il ne s'agit pas d'une demande de prestations.",
+    "site-name": "Estimateur de la prestation canadienne pour les personnes handicapées - Canada.ca",
+    "subject": "Économie et industrie;Avantages sociaux,Santé et sécurité;Déficience,Personne handicapée",
+    "title": {
+      "default": "Estimateur de la prestation canadienne pour les personnes handicapées - Canada.ca",
+      "template": "{{title}} - Estimateur de la prestation canadienne pour les personnes handicapées - Canada.ca"
+    }
+  },
   "additional-information-label": "Informations additionnelles",
   "app": {
     "title": "Estimateur de la prestation canadienne pour les personnes handicapées"

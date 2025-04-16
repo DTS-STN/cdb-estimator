@@ -13,9 +13,11 @@ import {
   UnilingualNotFound,
 } from './components/error-boundaries';
 import { usePushPageviewEvent } from './hooks/use-push-pageview-event';
+import { getTranslation } from './i18n-config.server';
 import { getLanguageFromResource } from './utils/i18n-utils';
+import { getDescriptionMetaTags, getTitleMetaTags } from './utils/seo-utils';
 
-import { clientEnvironmentRevision } from '~/.server/environment';
+import { clientEnvironmentRevision, serverEnvironment } from '~/.server/environment';
 import indexStyleSheet from '~/index.css?url';
 import tailwindStyleSheet from '~/tailwind.css?url';
 
@@ -54,10 +56,47 @@ export function links(): Route.LinkDescriptors {
   ];
 }
 
-export function loader({ context }: Route.LoaderArgs) {
+export const meta: Route.MetaFunction = ({ data }) => {
+  return [
+    ...getTitleMetaTags(data.meta.title),
+    ...getDescriptionMetaTags(data.meta.description),
+    { name: 'author', content: data.meta.author },
+    { name: 'dcterms.accessRights', content: '2' },
+    { name: 'dcterms.creator', content: data.meta.author },
+    { name: 'dcterms.language', content: data.meta.language },
+    { name: 'dcterms.service', content: data.meta.service },
+    { name: 'dcterms.spatial', content: 'Canada' },
+    { name: 'dcterms.subject', content: data.meta.subject },
+    { property: 'og:locale', content: data.meta.locale },
+    { property: 'og:site_name', content: data.meta.siteName },
+    { property: 'og:type', content: 'website' },
+  ];
+};
+
+export const headers: Route.HeadersFunction = () => {
+  return {
+    'Cache-Control': `private, no-cache, no-store, must-revalidate, max-age=0`,
+  };
+};
+
+export async function loader({ context, request }: Route.LoaderArgs) {
+  const { t, lang } = await getTranslation(request, handle.i18nNamespace);
+
+  const meta = {
+    author: t('common:meta.author'),
+    description: t('common:meta.description'),
+    language: lang === 'fr' ? 'fra' : 'eng',
+    locale: `${lang}_CA`,
+    siteName: t('common:meta.site-name'),
+    subject: t('common:meta.subject'),
+    title: t('common:app.title'), // default title
+    service: serverEnvironment.ADOBE_ANALYTICS_SERVICE_NAME,
+  };
+
   return {
     nonce: context.nonce,
     clientEnvRevision: clientEnvironmentRevision,
+    meta,
   };
 }
 
