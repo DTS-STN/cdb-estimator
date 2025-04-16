@@ -56,3 +56,14 @@ export function padWithZero(value: number, maxLength: number): string {
 export function trimToUndefined(str: string | undefined): string | undefined {
   return Number(str?.trim().length) > 0 ? str : undefined;
 }
+
+/**
+ * Normalizes spaces in a string by replacing all whitespace characters
+ * (including non-breaking spaces) with regular spaces.
+ *
+ * @param str - The string to normalize.
+ * @returns The normalized string with all spaces replaced by regular spaces.
+ */
+export function normalizeSpaces(str: string) {
+  return str.replace(/[\s\u00a0]/g, ' ');
+}

@@ -16,7 +16,6 @@ import { DEFAULT_LANGUAGE, getLanguageFromResource, SUPPORTED_LANGUAGES } from '
  * @param namespace - The namespace to get the translation function for.
  * @param keyPrefix - The key prefix to use for the translation function.
  * @returns A translation function for the given language and namespace.
- * @throws {AppError} If no language is found in the `languageOrRequest`.
  */
 export async function getFixedT<NS extends Namespace, TKPrefix extends KeyPrefix<NS> = undefined>(
   languageOrRequest: Language | Request,
@@ -25,16 +24,13 @@ export async function getFixedT<NS extends Namespace, TKPrefix extends KeyPrefix
 ): Promise<TFunction<NS, TKPrefix>> {
   const isRequest = languageOrRequest instanceof Request;
 
-  const language = isRequest //
-    ? getLanguageFromResource(new URL(languageOrRequest.url))
-    : languageOrRequest;
+  const lang =
+    (isRequest //
+      ? getLanguageFromResource(new URL(languageOrRequest.url))
+      : languageOrRequest) ?? DEFAULT_LANGUAGE;
 
-  if (language === undefined) {
-    throw new AppError('No language found in request', ErrorCodes.NO_LANGUAGE_FOUND);
-  }
-
-  const i18n = await initI18next(language);
-  return i18n.getFixedT(language, namespace, keyPrefix);
+  const i18n = await initI18next(lang);
+  return i18n.getFixedT(lang, namespace, keyPrefix);
 }
 
 /**
@@ -45,7 +41,6 @@ export async function getFixedT<NS extends Namespace, TKPrefix extends KeyPrefix
  * @param namespace - The namespace to get the translation function for.
  * @param keyPrefix - The key prefix to use for the translation function.
  * @returns A Promise resolving to an object containing the language code (`lang`) and a translation function (`t`) for the given namespace.
- * @throws {AppError} If no language is found in the `languageOrRequest`.
  */
 export async function getTranslation<NS extends Namespace, TKPrefix extends KeyPrefix<NS> = undefined>(
   languageOrRequest: Language | Request,
@@ -54,15 +49,12 @@ export async function getTranslation<NS extends Namespace, TKPrefix extends KeyP
 ): Promise<{ lang: Language; t: TFunction<NS, TKPrefix> }> {
   const isRequest = languageOrRequest instanceof Request;
 
-  const lang = isRequest //
-    ? getLanguageFromResource(new URL(languageOrRequest.url))
-    : languageOrRequest;
+  const lang =
+    (isRequest //
+      ? getLanguageFromResource(new URL(languageOrRequest.url))
+      : languageOrRequest) ?? DEFAULT_LANGUAGE;
 
-  if (lang === undefined) {
-    throw new AppError('No language found in request', ErrorCodes.NO_LANGUAGE_FOUND);
-  }
-
-  return { lang, t: await getFixedT(languageOrRequest, namespace, keyPrefix) };
+  return { lang, t: await getFixedT(lang, namespace, keyPrefix) };
 }
 
 /**

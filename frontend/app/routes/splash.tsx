@@ -4,23 +4,53 @@ import { useTranslation } from 'react-i18next';
 
 import type { Route } from './+types/splash';
 
+import { serverEnvironment } from '~/.server/environment';
 import { ButtonLink } from '~/components/button-link';
 import { AppLink } from '~/components/links';
 import { getFixedT } from '~/i18n-config.server';
+import { mergeMeta } from '~/utils/meta-utils';
+import { getDescriptionMetaTags, getTitleMetaTags } from '~/utils/seo-utils';
 
 export const handle = {
   breadcrumbs: [],
   i18nNamespace: ['common'],
 } as const satisfies RouteHandle;
 
+export const meta: Route.MetaFunction = mergeMeta(({ data }) => {
+  return [
+    ...getTitleMetaTags(data.meta.title),
+    ...getDescriptionMetaTags(data.meta.description),
+    { name: 'author', content: data.meta.eng.author },
+    { name: 'author', lang: 'fr', content: data.meta.fra.author },
+    { name: 'dcterms.accessRights', content: '2' },
+    { name: 'dcterms.creator', content: data.meta.eng.author },
+    { name: 'dcterms.creator', lang: 'fr', content: data.meta.fra.author },
+    { name: 'dcterms.language', content: 'eng' },
+    { name: 'dcterms.language', lang: 'fr', content: 'fra' },
+    { name: 'dcterms.service', content: data.meta.service },
+    { name: 'dcterms.spatial', content: 'Canada' },
+    { name: 'dcterms.subject', content: data.meta.eng.subject },
+    { name: 'dcterms.subject', lang: 'fr', content: data.meta.fra.subject },
+    { property: 'og:locale', content: 'en_CA' },
+    { property: 'og:site_name', content: data.meta.siteName },
+    { property: 'og:type', content: 'website' },
+  ];
+});
+
 export async function loader() {
   const en = await getFixedT('en', handle.i18nNamespace);
   const fr = await getFixedT('fr', handle.i18nNamespace);
-  return { documentTitle: `${en('header.govt-of-canada.text')} / ${fr('header.govt-of-canada.text')}` };
-}
 
-export function meta({ data }: Route.MetaArgs) {
-  return [{ title: data.documentTitle }];
+  const meta = {
+    title: `${en('common:app.title')} | ${fr('common:app.title')} - Canada.ca`,
+    siteName: `${en('common:app.title')} | ${fr('common:app.title')} - Canada.ca`,
+    description: `${en('common:meta.description')} | ${fr('common:meta.description')} - Canada.ca`,
+    service: serverEnvironment.ADOBE_ANALYTICS_SERVICE_NAME,
+    eng: { author: en('common:meta.author'), subject: en('common:meta.subject') },
+    fra: { author: fr('common:meta.author'), subject: fr('common:meta.subject') },
+  };
+
+  return { meta };
 }
 
 export default function Splash() {
