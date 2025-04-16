@@ -20,6 +20,8 @@ import { useErrorTranslation } from '~/hooks/use-error-translation';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 import * as adobeAnalytics from '~/utils/adobe-analytics-utils';
+import { mergeMeta } from '~/utils/meta-utils';
+import { getTitleMetaTags } from '~/utils/seo-utils';
 import { estimatorStepGate } from '~/utils/state-utils';
 
 export const handle = {
@@ -27,12 +29,18 @@ export const handle = {
   i18nNamespace: [...parentHandle.i18nNamespace],
 } as const satisfies RouteHandle;
 
+export const meta: Route.MetaFunction = mergeMeta(({ data }) => {
+  return getTitleMetaTags(data.meta.title);
+});
+
 export async function loader({ context, params, request }: Route.LoaderArgs) {
   estimatorStepGate(context.session.estimator, 'routes/estimator/step-marital-status.tsx', request);
   const { t } = await getTranslation(request, handle.i18nNamespace);
 
+  const meta = { title: t('common:meta.title.template', { title: t('estimator:marital-status.page-title') }) };
+
   return {
-    documentTitle: t('estimator:marital-status.page-title'),
+    meta,
     defaultFormValues: context.session.estimator?.maritalStatus,
   };
 }
@@ -75,10 +83,6 @@ export async function action({ context, request }: Route.ActionArgs) {
       throw i18nRedirect('routes/estimator/step-income.tsx', request);
     }
   }
-}
-
-export function meta({ data }: Route.MetaArgs) {
-  return [{ title: data.documentTitle }];
 }
 
 export default function StepMaritalStatus({ actionData, loaderData, matches, params }: Route.ComponentProps) {
