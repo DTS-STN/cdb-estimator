@@ -12,8 +12,9 @@ export interface CurrencyFieldProps extends Omit<InputFieldProps, 'type' | 'valu
   defaultValue?: string | number | null;
 }
 
-export function CurrencyField({ allowNegative = false, maxLength = 15, ...rest }: CurrencyFieldProps) {
+export function CurrencyField({ allowNegative = false, maxLength, ...rest }: CurrencyFieldProps) {
   const { i18n } = useTranslation(['common']);
+
   return (
     <NumericFormat
       customInput={InputField}
@@ -22,9 +23,9 @@ export function CurrencyField({ allowNegative = false, maxLength = 15, ...rest }
       allowNegative={allowNegative}
       decimalScale={2}
       decimalSeparator={i18n.language === 'fr' ? ',' : '.'}
-      fixedDecimalScale={true}
+      fixedDecimalScale={false}
       thousandsGroupStyle={'thousand'}
-      maxLength={maxLength}
+      maxLength={maxLength ?? (i18n.language === 'en' ? 15 : 16)}
       type="text"
       beforeInput={i18n.language === 'en' ? <span className="mr-1">$</span> : undefined}
       afterInput={i18n.language === 'fr' ? <span className="ml-1">$</span> : undefined}
