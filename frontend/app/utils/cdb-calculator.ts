@@ -1,7 +1,7 @@
 import type { MarriedIncome, PersonIncome, SingleIncome } from '../routes/estimator/@types';
 
 function roundUp(value: number) {
-  return Math.round(value * 100) / 100;
+  return Math.round(value * 10000) / 10000;
 }
 
 export function calculateEstimation(income: MarriedIncome | SingleIncome) {
@@ -67,7 +67,9 @@ function GetB(income: MarriedIncome | SingleIncome, partnerReceivesCDB: boolean)
  * @returns C
  */
 function GetC(income: SingleIncome | MarriedIncome) {
-  return income.kind === 'married' ? GetAdjustedIncome(income) + GetAdjustedIncome(income.partner) : GetAdjustedIncome(income);
+  return income.kind === 'married'
+    ? GetAdjustedIncome(income.individualIncome) + GetAdjustedIncome(income.partnerIncome)
+    : GetAdjustedIncome(income.individualIncome);
 }
 
 /**
@@ -79,7 +81,7 @@ function GetD(singleIncome: SingleIncome) {
 
   const ceiling = ESTIMATOR_SINGLE_WORKING_INCOME_EXEMPTION * ESTIMATOR_INFLATION_FACTOR;
 
-  return Math.min(ceiling, singleIncome.workingIncome);
+  return Math.min(ceiling, singleIncome.individualIncome.workingIncome);
 }
 
 /**
@@ -90,7 +92,7 @@ function GetE(coupleIncome: MarriedIncome) {
   const { ESTIMATOR_INFLATION_FACTOR, ESTIMATOR_COUPLE_WORKING_INCOME_EXCEPTION } = globalThis.__appEnvironment;
 
   const ceiling = ESTIMATOR_COUPLE_WORKING_INCOME_EXCEPTION * ESTIMATOR_INFLATION_FACTOR;
-  const combinedWorkingIncome = coupleIncome.workingIncome + coupleIncome.partner.workingIncome;
+  const combinedWorkingIncome = coupleIncome.individualIncome.workingIncome + coupleIncome.partnerIncome.workingIncome;
 
   return Math.min(ceiling, combinedWorkingIncome);
 }

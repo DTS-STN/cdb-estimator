@@ -26,6 +26,7 @@ import { getTranslation } from '~/i18n-config.server';
 import type { I18nRouteFile } from '~/i18n-routes';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 import * as adobeAnalytics from '~/utils/adobe-analytics-utils';
+import { formatCurrency } from '~/utils/currency-utils';
 import { estimatorStepGate } from '~/utils/state-utils';
 import { cn } from '~/utils/tailwind-utils';
 
@@ -55,12 +56,12 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
       income: v.variant('kind', [
         v.object({
           kind: v.literal('single'),
-          ...formattedPersonIncomeSchema.entries,
+          individualIncome: formattedPersonIncomeSchema,
         }),
         v.object({
           kind: v.literal('married'),
-          ...formattedPersonIncomeSchema.entries,
-          partner: formattedPersonIncomeSchema,
+          individualIncome: formattedPersonIncomeSchema,
+          partnerIncome: formattedPersonIncomeSchema,
         }),
       ]),
     }),
@@ -69,11 +70,11 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
         maritalStatus: t(`estimator:results.form-data-summary.enum-display.marital-status.${input.maritalStatus}`),
         income: {
           kind: input.income.kind,
-          totalIncome: formatCurrency(getTotalIncome(input.income), lang),
-          partner:
+          individualIncome: { totalIncome: formatCurrency(getTotalIncome(input.income.individualIncome), lang) },
+          partnerIncome:
             input.income.kind === 'married'
               ? {
-                  totalIncome: formatCurrency(getTotalIncome(input.income.partner), lang),
+                  totalIncome: formatCurrency(getTotalIncome(input.income.partnerIncome), lang),
                 }
               : undefined,
         } as FormattedMarriedIncome | FormattedSingleIncome,
@@ -110,15 +111,8 @@ export function meta({ data }: Route.MetaArgs) {
 
 export async function action({ context, request }: Route.ActionArgs) {}
 
-function formatCurrency(number: number, lang: Language) {
-  return number.toLocaleString(lang === 'fr' ? 'fr-CA' : 'en-CA', {
-    style: 'currency',
-    currency: 'CAD',
-  });
-}
-
 function getTotalIncome(income: PersonIncome) {
-  return income.netIncome + (income.claimedIncome ?? 0) - (income.claimedRepayment ?? 0);
+  return income.netIncome - (income.claimedIncome ?? 0) + (income.claimedRepayment ?? 0);
 }
 
 export default function Results({ actionData, loaderData, matches, params }: Route.ComponentProps) {
@@ -238,7 +232,7 @@ function DataSummary(formattedResults: FormattedCDBEstimator) {
           title={t('estimator:results.form-data-summary.field-labels.total-income')}
           editAriaLabel={t('estimator:results.form-data-summary.edit-aria-labels.income')}
           editRoute={'routes/estimator/step-income.tsx'}
-          value={formattedResults.income.totalIncome}
+          value={formattedResults.income.individualIncome.totalIncome}
           showBorder={true}
           showEditButton={formattedResults.income.kind !== 'married'}
           data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Edit income button')}
@@ -250,7 +244,7 @@ function DataSummary(formattedResults: FormattedCDBEstimator) {
             title={t('estimator:results.form-data-summary.field-labels.partner-total-income')}
             editAriaLabel={t('estimator:results.form-data-summary.edit-aria-labels.income')}
             editRoute={'routes/estimator/step-income.tsx'}
-            value={formattedResults.income.partner.totalIncome}
+            value={formattedResults.income.partnerIncome.totalIncome}
             showBorder={false}
             showEditButton={true}
             data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Edit income button')}
