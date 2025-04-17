@@ -1,0 +1,60 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Collapsible > should render open: false > expected html 1`] = `
+<div>
+  <details
+    id="«r1»"
+  >
+    <summary
+      class="cursor-pointer marker:text-blue-900"
+      id="«r1»-summary"
+    >
+      <div
+        class="ml-4 inline-block text-blue-900 hover:underline"
+      >
+        <div>
+          summary
+        </div>
+      </div>
+    </summary>
+    <div
+      class="mt-2 border-l-[6px] border-gray-400 px-6 py-4"
+      id="«r1»-content"
+    >
+      <div>
+        test
+      </div>
+    </div>
+  </details>
+</div>
+`;
+
+exports[`Collapsible > should render open: true > expected html 1`] = `
+<div>
+  <details
+    id="«r0»"
+    open=""
+  >
+    <summary
+      class="cursor-pointer marker:text-blue-900"
+      id="«r0»-summary"
+    >
+      <div
+        class="ml-4 inline-block text-blue-900 hover:underline"
+      >
+        <div>
+          summary
+        </div>
+      </div>
+    </summary>
+    <div
+      class="mt-2 border-l-[6px] border-gray-400 px-6 py-4"
+      id="«r0»-content"
+    >
+      <div>
+        test
+      </div>
+    </div>
+  </details>
+</div>
+`;
