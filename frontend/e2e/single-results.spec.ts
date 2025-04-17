@@ -20,5 +20,6 @@ test('Single person can obtain results', async ({ page }) => {
   await page.getByRole('button', { name: /estimate/i }).click();
 
   // result
+  await page.locator('html').waitFor();
   await expect(page.getByRole('main')).toContainText('$199.99');
 });
