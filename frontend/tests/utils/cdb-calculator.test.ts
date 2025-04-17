@@ -1,24 +1,73 @@
 import { describe, it, expect, beforeAll } from 'vitest';
 
-import type { MarriedIncome, SingleIncome } from '~/routes/estimator/@types';
-import { calculateEstimation } from '~/utils/cdb-calculator';
+import type { MarriedIncome, PersonIncome, SingleIncome } from '~/routes/estimator/@types';
+import { calculateEstimation, calculateTotalIncome } from '~/utils/cdb-calculator';
 
-// Mock global environment
-beforeAll(() => {
-  globalThis.__appEnvironment = {
-    ...globalThis.__appEnvironment,
-    ESTIMATOR_INFLATION_FACTOR: 1,
-    ESTIMATOR_SINGLE_WORKING_INCOME_EXEMPTION: 10000,
-    ESTIMATOR_COUPLE_WORKING_INCOME_EXCEPTION: 14000,
-    ESTIMATOR_COUPLE_THRESHOLD: 32500,
-    ESTIMATOR_SINGLE_THRESHOLD: 23000,
-    ESTIMATOR_YEARLY_MAX_BENEFITS: 2400,
-    ESTIMATOR_BENEFIT_REDUCTION_RATE: 0.2,
-    ESTIMATOR_SPLIT_BENEFIT_REDUCTION_RATE: 0.1,
-  };
+describe('calculateTotalIncome', () => {
+  it.each([
+    {
+      name: 'UCCB|RDSP income > netIncome',
+      income: {
+        netIncome: 0,
+        claimedIncome: 10,
+      } as PersonIncome,
+      expected: 0,
+    },
+    {
+      name: 'UCCB|RDSP income < netIncome',
+      income: {
+        netIncome: 100,
+        claimedIncome: 10,
+      } as PersonIncome,
+      expected: 90,
+    },
+    {
+      name: 'UCCB|RDSP repayment AND netIncome',
+      income: {
+        netIncome: 100,
+        claimedRepayment: 10,
+      } as PersonIncome,
+      expected: 110,
+    },
+    {
+      name: 'UCCB|RDSP income > UCCB|RDSP repayment',
+      income: {
+        netIncome: 0,
+        claimedIncome: 20,
+        claimedRepayment: 10,
+      } as PersonIncome,
+      expected: 0,
+    },
+    {
+      name: 'UCCB|RDSP income < UCCB|RDSP repayment',
+      income: {
+        netIncome: 0,
+        claimedIncome: 10,
+        claimedRepayment: 20,
+      } as PersonIncome,
+      expected: 10,
+    },
+  ])('$name', ({ income, expected }) => {
+    const result = calculateTotalIncome(income);
+    expect(result).toBeCloseTo(expected);
+  });
 });
 
 describe('calculateEstimation', () => {
+  // Mock global environment
+  beforeAll(() => {
+    globalThis.__appEnvironment = {
+      ...globalThis.__appEnvironment,
+      ESTIMATOR_INFLATION_FACTOR: 1,
+      ESTIMATOR_SINGLE_WORKING_INCOME_EXEMPTION: 10000,
+      ESTIMATOR_COUPLE_WORKING_INCOME_EXCEPTION: 14000,
+      ESTIMATOR_COUPLE_THRESHOLD: 32500,
+      ESTIMATOR_SINGLE_THRESHOLD: 23000,
+      ESTIMATOR_YEARLY_MAX_BENEFITS: 2400,
+      ESTIMATOR_BENEFIT_REDUCTION_RATE: 0.2,
+      ESTIMATOR_SPLIT_BENEFIT_REDUCTION_RATE: 0.1,
+    };
+  });
   it.each([
     {
       name: 'TC_001: Single with working income at zero',

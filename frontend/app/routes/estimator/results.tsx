@@ -5,7 +5,7 @@ import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
 import { Trans, useTranslation } from 'react-i18next';
 import * as v from 'valibot';
 
-import { calculateEstimation } from '../../utils/cdb-calculator';
+import { calculateEstimation, calculateTotalIncome } from '../../utils/cdb-calculator';
 import type { Route } from './+types/results';
 import type {
   CDBEstimator,
@@ -14,7 +14,6 @@ import type {
   FormattedMarriedResults,
   FormattedSingleIncome,
   FormattedSingleResults,
-  PersonIncome,
 } from './@types';
 import { validMaritalStatuses } from './types';
 
@@ -76,11 +75,11 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
         maritalStatus: t(`estimator:results.form-data-summary.enum-display.marital-status.${input.maritalStatus}`),
         income: {
           kind: input.income.kind,
-          individualIncome: { totalIncome: formatCurrency(getTotalIncome(input.income.individualIncome), lang) },
+          individualIncome: { totalIncome: formatCurrency(calculateTotalIncome(input.income.individualIncome), lang) },
           partnerIncome:
             input.income.kind === 'married'
               ? {
-                  totalIncome: formatCurrency(getTotalIncome(input.income.partnerIncome), lang),
+                  totalIncome: formatCurrency(calculateTotalIncome(input.income.partnerIncome), lang),
                 }
               : undefined,
         } as FormattedMarriedIncome | FormattedSingleIncome,
@@ -114,10 +113,6 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
 }
 
 export async function action({ context, request }: Route.ActionArgs) {}
-
-function getTotalIncome(income: PersonIncome) {
-  return income.netIncome - (income.claimedIncome ?? 0) + (income.claimedRepayment ?? 0);
-}
 
 export default function Results({ actionData, loaderData, matches, params }: Route.ComponentProps) {
   const { t, i18n } = useTranslation(handle.i18nNamespace);
