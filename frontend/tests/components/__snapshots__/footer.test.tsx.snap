@@ -1,0 +1,333 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Footer > should render footer > expected html 1`] = `
+<div>
+  <footer
+    class="bg-[#26374A]"
+    id="footer"
+  >
+    <section>
+      <h2
+        class="sr-only"
+        id="accessibleSectionHeader1"
+      >
+        common:footer.header-accessible
+      </h2>
+      <h3
+        class="container pt-[24px] pb-2 text-[19px] leading-[21px] font-bold text-white"
+      >
+        footer.header
+      </h3>
+      <div
+        class="bg-[url('/footer_bg_img.svg')] bg-clip-border bg-bottom bg-no-repeat sm:bg-right-bottom"
+      >
+        <nav
+          aria-labelledby="accessibleSectionHeader1"
+          role="navigation"
+        >
+          <ul
+            class="container flex flex-col pb-[22px] sm:grid sm:grid-cols-3"
+          >
+            <li
+              class="my-1 w-64 list-none sm:w-56 lg:w-80 footerLine mb-3 relative pb-[26px]"
+            >
+              <a
+                class="text-[14px] leading-[19px] font-[400] !text-white"
+                href="common:footer.all-contacts.href"
+              >
+                common:footer.all-contacts.text
+              </a>
+            </li>
+            <li
+              class="my-1 w-64 list-none sm:w-56 lg:w-80"
+            >
+              <a
+                class="text-[14px] leading-[19px] font-[400] !text-white"
+                href="common:footer.department-and-agencies.href"
+              >
+                common:footer.department-and-agencies.text
+              </a>
+            </li>
+            <li
+              class="my-1 w-64 list-none sm:w-56 lg:w-80"
+            >
+              <a
+                class="text-[14px] leading-[19px] font-[400] !text-white"
+                href="common:footer.about-government.href"
+              >
+                common:footer.about-government.text
+              </a>
+            </li>
+            <li
+              class="my-1 w-64 list-none sm:w-56 lg:w-80"
+            >
+              <a
+                class="text-[14px] leading-[19px] font-[400] !text-white"
+                href="common:footer.jobs.href"
+              >
+                common:footer.jobs.text
+              </a>
+            </li>
+            <li
+              class="my-1 w-64 list-none sm:w-56 lg:w-80"
+            >
+              <a
+                class="text-[14px] leading-[19px] font-[400] !text-white"
+                href="common:footer.taxes.href"
+              >
+                common:footer.taxes.text
+              </a>
+            </li>
+            <li
+              class="my-1 w-64 list-none sm:w-56 lg:w-80"
+            >
+              <a
+                class="text-[14px] leading-[19px] font-[400] !text-white"
+                href="common:footer.canada-and-world.href"
+              >
+                common:footer.canada-and-world.text
+              </a>
+            </li>
+            <li
+              class="my-1 w-64 list-none sm:w-56 lg:w-80"
+            >
+              <a
+                class="text-[14px] leading-[19px] font-[400] !text-white"
+                href="common:footer.immigration-and-citizenship.href"
+              >
+                common:footer.immigration-and-citizenship.text
+              </a>
+            </li>
+            <li
+              class="my-1 w-64 list-none sm:w-56 lg:w-80"
+            >
+              <a
+                class="text-[14px] leading-[19px] font-[400] !text-white"
+                href="common:footer.environment-and-natural-resources.href"
+              >
+                common:footer.environment-and-natural-resources.text
+              </a>
+            </li>
+            <li
+              class="my-1 w-64 list-none sm:w-56 lg:w-80"
+            >
+              <a
+                class="text-[14px] leading-[19px] font-[400] !text-white"
+                href="common:footer.money-and-finance.href"
+              >
+                common:footer.money-and-finance.text
+              </a>
+            </li>
+            <li
+              class="my-1 w-64 list-none sm:w-56 lg:w-80"
+            >
+              <a
+                class="text-[14px] leading-[19px] font-[400] !text-white"
+                href="common:footer.travel-and-tourism.href"
+              >
+                common:footer.travel-and-tourism.text
+              </a>
+            </li>
+            <li
+              class="my-1 w-64 list-none sm:w-56 lg:w-80"
+            >
+              <a
+                class="text-[14px] leading-[19px] font-[400] !text-white"
+                href="common:footer.national-security-and-defence.href"
+              >
+                common:footer.national-security-and-defence.text
+              </a>
+            </li>
+            <li
+              class="my-1 w-64 list-none sm:w-56 lg:w-80"
+            >
+              <a
+                class="text-[14px] leading-[19px] font-[400] !text-white"
+                href="common:footer.science-and-innovation.href"
+              >
+                common:footer.science-and-innovation.text
+              </a>
+            </li>
+            <li
+              class="my-1 w-64 list-none sm:w-56 lg:w-80"
+            >
+              <a
+                class="text-[14px] leading-[19px] font-[400] !text-white"
+                href="common:footer.business.href"
+              >
+                common:footer.business.text
+              </a>
+            </li>
+            <li
+              class="my-1 w-64 list-none sm:w-56 lg:w-80"
+            >
+              <a
+                class="text-[14px] leading-[19px] font-[400] !text-white"
+                href="common:footer.culture-history-and-sports.href"
+              >
+                common:footer.culture-history-and-sports.text
+              </a>
+            </li>
+            <li
+              class="my-1 w-64 list-none sm:w-56 lg:w-80"
+            >
+              <a
+                class="text-[14px] leading-[19px] font-[400] !text-white"
+                href="common:footer.indigenous-peoples.href"
+              >
+                common:footer.indigenous-peoples.text
+              </a>
+            </li>
+            <li
+              class="my-1 w-64 list-none sm:w-56 lg:w-80"
+            >
+              <a
+                class="text-[14px] leading-[19px] font-[400] !text-white"
+                href="common:footer.benefits.href"
+              >
+                common:footer.benefits.text
+              </a>
+            </li>
+            <li
+              class="my-1 w-64 list-none sm:w-56 lg:w-80"
+            >
+              <a
+                class="text-[14px] leading-[19px] font-[400] !text-white"
+                href="common:footer.policing-justice-and-emergencies.href"
+              >
+                common:footer.policing-justice-and-emergencies.text
+              </a>
+            </li>
+            <li
+              class="my-1 w-64 list-none sm:w-56 lg:w-80"
+            >
+              <a
+                class="text-[14px] leading-[19px] font-[400] !text-white"
+                href="common:footer.veterans-and-military.href"
+              >
+                common:footer.veterans-and-military.text
+              </a>
+            </li>
+            <li
+              class="my-1 w-64 list-none sm:w-56 lg:w-80"
+            >
+              <a
+                class="text-[14px] leading-[19px] font-[400] !text-white"
+                href="common:footer.health.href"
+              >
+                common:footer.health.text
+              </a>
+            </li>
+            <li
+              class="my-1 w-64 list-none sm:w-56 lg:w-80"
+            >
+              <a
+                class="text-[14px] leading-[19px] font-[400] !text-white"
+                href="common:footer.transport-and-infrastructure.href"
+              >
+                common:footer.transport-and-infrastructure.text
+              </a>
+            </li>
+            <li
+              class="my-1 w-64 list-none sm:w-56 lg:w-80"
+            >
+              <a
+                class="text-[14px] leading-[19px] font-[400] !text-white"
+                href="common:footer.youth.href"
+              >
+                common:footer.youth.text
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+    <section
+      class="bg-[#F8F8F8]"
+    >
+      <div
+        class="container flex min-h-[96px] justify-between"
+      >
+        <div
+          class="flex flex-row items-center"
+        >
+          <nav
+            aria-labelledby="accessibleSectionHeader2"
+            role="navigation"
+          >
+            <h2
+              class="sr-only"
+              id="accessibleSectionHeader2"
+            >
+              common:footer.about-site
+            </h2>
+            <ul
+              class="flex flex-col py-4 whitespace-nowrap md:flex-row"
+            >
+              <li
+                class="my-1 pr-4"
+              >
+                <a
+                  class="text-[14px] leading-[19px] font-[400] text-[#284162]"
+                  href="common:footer.social-media.href"
+                >
+                  common:footer.social-media.text
+                </a>
+              </li>
+              <li
+                class="my-1 pr-4 md:before:mr-3 md:before:content-['•']"
+              >
+                <a
+                  class="text-[14px] leading-[19px] font-[400] text-[#284162]"
+                  href="common:footer.mobile-applications.href"
+                >
+                  common:footer.mobile-applications.text
+                </a>
+              </li>
+              <li
+                class="my-1 pr-4 md:before:mr-3 md:before:content-['•']"
+              >
+                <a
+                  class="text-[14px] leading-[19px] font-[400] text-[#284162]"
+                  href="common:footer.about-canada-ca.href"
+                >
+                  common:footer.about-canada-ca.text
+                </a>
+              </li>
+              <li
+                class="my-1 pr-4 md:before:mr-3 md:before:content-['•']"
+              >
+                <a
+                  class="text-[14px] leading-[19px] font-[400] text-[#284162]"
+                  href="common:footer.terms-and-conditions.href"
+                >
+                  common:footer.terms-and-conditions.text
+                </a>
+              </li>
+              <li
+                class="my-1 pr-4 md:before:mr-3 md:before:content-['•']"
+              >
+                <a
+                  class="text-[14px] leading-[19px] font-[400] text-[#284162]"
+                  href="common:footer.privacy.href"
+                >
+                  common:footer.privacy.text
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div
+          class="mr-[5px] flex min-h-[96px] shrink-0 items-end md:items-center"
+        >
+          <img
+            alt="common:footer.gc-symbol"
+            class="my-[15px] h-[25px] w-[105px] md:h-[40px] md:w-[164px]"
+            src="/wmms-blk.svg"
+          />
+        </div>
+      </div>
+    </section>
+  </footer>
+</div>
+`;
