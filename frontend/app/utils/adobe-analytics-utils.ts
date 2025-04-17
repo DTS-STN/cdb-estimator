@@ -32,10 +32,10 @@ export const getRouteParamsString = (query: Record<string, string | string[] | u
   return Object.entries(query)
     .map(([key, value]) => {
       const sanitizedValue = Array.isArray(value)
-        ? value.map((v) => v.replace(/-/g, '_')).join(',') // Handle arrays
-        : value?.replace(/-/g, '_'); // Handle single values
+        ? value.map((v) => v.replaceAll(/-/g, '_').replaceAll(/\|/g, '_')).join(',') // Handle arrays
+        : value?.replaceAll(/-/g, '_').replaceAll(/\|/g, '_'); // Handle single values
 
-      return `${key}-${sanitizedValue}`;
+      return `${key.replaceAll(/-/g, '_').replaceAll(/\|/g, '_')}-${sanitizedValue}`;
     })
     .join('|');
 };
