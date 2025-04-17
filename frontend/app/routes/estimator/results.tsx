@@ -27,6 +27,8 @@ import type { I18nRouteFile } from '~/i18n-routes';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 import * as adobeAnalytics from '~/utils/adobe-analytics-utils';
 import { formatCurrency } from '~/utils/currency-utils';
+import { mergeMeta } from '~/utils/meta-utils';
+import { getTitleMetaTags } from '~/utils/seo-utils';
 import { estimatorStepGate } from '~/utils/state-utils';
 import { cn } from '~/utils/tailwind-utils';
 
@@ -34,6 +36,10 @@ export const handle = {
   breadcrumbs: [...parentHandle.breadcrumbs, { labelKey: 'estimator:results.breadcrumb' }],
   i18nNamespace: [...parentHandle.i18nNamespace],
 } as const satisfies RouteHandle;
+
+export const meta: Route.MetaFunction = mergeMeta(({ data }) => {
+  return getTitleMetaTags(data.meta.title);
+});
 
 export async function loader({ context, params, request }: Route.LoaderArgs) {
   estimatorStepGate(context.session.estimator, 'routes/estimator/results.tsx', request);
@@ -98,15 +104,13 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
     throw data({ errors: v.flatten<typeof formattedResultsSchema>(parsedResults.issues) }, { status: 500 });
   }
 
+  const meta = { title: t('common:meta.title.template', { title: t('estimator:results.page-title') }) };
+
   return {
-    documentTitle: t('estimator:results.page-title'),
+    meta,
     results: context.session.estimator as CDBEstimator,
     formattedResults: parsedResults.output,
   };
-}
-
-export function meta({ data }: Route.MetaArgs) {
-  return [{ title: data.documentTitle }];
 }
 
 export async function action({ context, request }: Route.ActionArgs) {}
@@ -117,8 +121,22 @@ function getTotalIncome(income: PersonIncome) {
 
 export default function Results({ actionData, loaderData, matches, params }: Route.ComponentProps) {
   const { t, i18n } = useTranslation(handle.i18nNamespace);
-  const { ESTIMATOR_CDB_APPLY_URL_EN, ESTIMATOR_CDB_APPLY_URL_FR, ESTIMATOR_CDB_URL_EN, ESTIMATOR_CDB_URL_FR } =
-    globalThis.__appEnvironment;
+  const {
+    ESTIMATOR_CDB_CONTACT_URL_EN,
+    ESTIMATOR_CDB_CONTACT_URL_FR,
+    ESTIMATOR_CDB_APPLY_URL_EN,
+    ESTIMATOR_CDB_APPLY_URL_FR,
+    ESTIMATOR_CDB_URL_EN,
+    ESTIMATOR_CDB_URL_FR,
+  } = globalThis.__appEnvironment;
+
+  const cdbContactLink = (
+    <InlineLink
+      to={i18n.language === 'fr' ? (ESTIMATOR_CDB_CONTACT_URL_FR ?? '') : (ESTIMATOR_CDB_CONTACT_URL_EN ?? '')}
+      className="external-link"
+      target="_blank"
+    />
+  );
 
   return (
     <div className="space-y-3">
@@ -172,6 +190,22 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
 
             <p>
               <Trans ns={handle.i18nNamespace} i18nKey="estimator:results.content.your-estimate.note" />
+
+              {i18n.language === 'fr' && ESTIMATOR_CDB_CONTACT_URL_FR && (
+                <Trans
+                  ns={handle.i18nNamespace}
+                  i18nKey="estimator:results.content.your-estimate.contact"
+                  components={{ cdbContactLink }}
+                />
+              )}
+
+              {i18n.language === 'en' && ESTIMATOR_CDB_CONTACT_URL_EN && (
+                <Trans
+                  ns={handle.i18nNamespace}
+                  i18nKey="estimator:results.content.your-estimate.contact"
+                  components={{ cdbContactLink }}
+                />
+              )}
             </p>
 
             <h2 className="font-lato mb-4 text-lg font-bold">{t('estimator:results.content.next-steps.header')}</h2>

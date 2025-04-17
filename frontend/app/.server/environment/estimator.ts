@@ -2,6 +2,8 @@ import * as v from 'valibot';
 
 // Default estimator configuration object
 export const defaults = {
+  ESTIMATOR_CDB_CONTACT_URL_EN: undefined,
+  ESTIMATOR_CDB_CONTACT_URL_FR: undefined,
   ESTIMATOR_CDB_URL_EN: 'https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html',
   ESTIMATOR_CDB_URL_FR:
     'https://www.canada.ca/fr/services/prestations/handicap/prestation-canadienne-personnes-situation-handicap.html',
@@ -23,6 +25,15 @@ export const defaults = {
 
 // Define schema for the environment variable
 export const estimator = v.object({
+  /**
+   * Canada Disability Benefit english contact URL
+   */
+  ESTIMATOR_CDB_CONTACT_URL_EN: v.optional(stringAsUrl(), defaults.ESTIMATOR_CDB_CONTACT_URL_EN),
+  /**
+   * Canada Disability Benefit english contact URL
+   */
+  ESTIMATOR_CDB_CONTACT_URL_FR: v.optional(stringAsUrl(), defaults.ESTIMATOR_CDB_CONTACT_URL_FR),
+
   /**
    * Canada Disability Benefit landing page url (en)
    */

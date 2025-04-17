@@ -20,6 +20,8 @@ import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 import * as adobeAnalytics from '~/utils/adobe-analytics-utils';
 import { getPreviousTaxYear } from '~/utils/date-utils';
+import { mergeMeta } from '~/utils/meta-utils';
+import { getTitleMetaTags } from '~/utils/seo-utils';
 import { estimatorStepGate, storeFormFieldValues } from '~/utils/state-utils';
 import { removeNumericFormatting } from '~/utils/string-utils';
 
@@ -28,20 +30,22 @@ export const handle = {
   i18nNamespace: [...parentHandle.i18nNamespace],
 } as const satisfies RouteHandle;
 
+export const meta: Route.MetaFunction = mergeMeta(({ data }) => {
+  return getTitleMetaTags(data.meta.title);
+});
+
 export async function loader({ context, params, request }: Route.LoaderArgs) {
   estimatorStepGate(context.session.estimator, 'routes/estimator/step-income.tsx', request);
   const { t } = await getTranslation(request, handle.i18nNamespace);
 
+  const meta = { title: t('common:meta.title.template', { title: t('estimator:income.page-title') }) };
+
   return {
-    documentTitle: t('estimator:income.page-title'),
+    meta,
     formValues: context.session.estimator?.income,
     previousFormValues: context.session.formFieldValues ?? [],
     isMarried: context.session.estimator?.maritalStatus === 'married-or-common-law',
   };
-}
-
-export function meta({ data }: Route.MetaArgs) {
-  return [{ title: data.documentTitle }];
 }
 
 export async function action({ context, request }: Route.ActionArgs) {

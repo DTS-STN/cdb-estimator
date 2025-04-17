@@ -10,31 +10,48 @@ import { PageTitle } from '~/components/page-title';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
 import * as adobeAnalytics from '~/utils/adobe-analytics-utils';
+import { mergeMeta } from '~/utils/meta-utils';
+import { getTitleMetaTags } from '~/utils/seo-utils';
 
 export const handle = {
   breadcrumbs: [...parentHandle.breadcrumbs, { labelKey: 'estimator:index.breadcrumb' }],
   i18nNamespace: [...parentHandle.i18nNamespace, 'common', 'estimator'],
 } as const satisfies RouteHandle;
 
+export const meta: Route.MetaFunction = mergeMeta(({ data }) => {
+  return getTitleMetaTags(data.meta.title);
+});
+
 export async function loader({ request }: Route.LoaderArgs) {
   const { t } = await getTranslation(request, handle.i18nNamespace);
 
-  return {
-    documentTitle: t('estimator:index.page-title'),
-  };
-}
+  const meta = { title: t('common:meta.title.template', { title: t('estimator:index.page-title') }) };
 
-export function meta({ data }: Route.MetaArgs) {
-  return [{ title: data.documentTitle }];
+  return {
+    meta,
+  };
 }
 
 export default function Home({ loaderData }: Route.ComponentProps) {
   const { t, i18n } = useTranslation(handle.i18nNamespace);
-  const { ESTIMATOR_CDB_ELIGIBILITY_URL_EN, ESTIMATOR_CDB_ELIGIBILITY_URL_FR } = globalThis.__appEnvironment;
+  const {
+    ESTIMATOR_CDB_CONTACT_URL_EN,
+    ESTIMATOR_CDB_CONTACT_URL_FR,
+    ESTIMATOR_CDB_ELIGIBILITY_URL_EN,
+    ESTIMATOR_CDB_ELIGIBILITY_URL_FR,
+  } = globalThis.__appEnvironment;
 
   const cdbRequirementsLink = (
     <InlineLink
       to={i18n.language === 'fr' ? ESTIMATOR_CDB_ELIGIBILITY_URL_FR : ESTIMATOR_CDB_ELIGIBILITY_URL_EN}
+      className="external-link"
+      target="_blank"
+    />
+  );
+
+  const cdbContactLink = (
+    <InlineLink
+      to={i18n.language === 'fr' ? (ESTIMATOR_CDB_CONTACT_URL_FR ?? '') : (ESTIMATOR_CDB_CONTACT_URL_EN ?? '')}
       className="external-link"
       target="_blank"
     />
@@ -90,6 +107,22 @@ export default function Home({ loaderData }: Route.ComponentProps) {
           <h2 className="font-lato text-lg font-bold">{t('estimator:index.content.results.header')}</h2>
           <p>
             <Trans ns={handle.i18nNamespace} i18nKey="estimator:index.content.results.description" />
+
+            {i18n.language === 'fr' && ESTIMATOR_CDB_CONTACT_URL_FR && (
+              <Trans
+                ns={handle.i18nNamespace}
+                i18nKey="estimator:index.content.results.contact"
+                components={{ cdbContactLink }}
+              />
+            )}
+
+            {i18n.language === 'en' && ESTIMATOR_CDB_CONTACT_URL_EN && (
+              <Trans
+                ns={handle.i18nNamespace}
+                i18nKey="estimator:index.content.results.contact"
+                components={{ cdbContactLink }}
+              />
+            )}
           </p>
         </section>
       </div>
