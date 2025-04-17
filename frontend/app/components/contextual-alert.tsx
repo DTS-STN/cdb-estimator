@@ -44,7 +44,7 @@ export function ContextualAlert(props: ContextualAlertProps) {
   );
 }
 
-function Icon({ type }: { type: string }) {
+function Icon({ type }: { type: AlertType }) {
   switch (type) {
     case 'warning':
       return <FontAwesomeIcon icon={faExclamationTriangle} className="h-6 w-6 text-amber-700" data-testid="warning" />;
