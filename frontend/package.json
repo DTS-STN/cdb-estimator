@@ -20,6 +20,7 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
+    "@axe-core/playwright": "^4.10.1",
     "@date-fns/tz": "^1.2.0",
     "@dts-stn/health-checks": "^2.0.0",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",

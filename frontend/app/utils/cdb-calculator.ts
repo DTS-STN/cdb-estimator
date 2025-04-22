@@ -4,6 +4,10 @@ function roundUp(value: number) {
   return Math.round(value * 10000) / 10000;
 }
 
+export function calculateTotalIncome(income: PersonIncome) {
+  return Math.max(0, income.netIncome - (income.claimedIncome ?? 0) + (income.claimedRepayment ?? 0));
+}
+
 export function calculateEstimation(income: MarriedIncome | SingleIncome) {
   const { ESTIMATOR_INFLATION_FACTOR, ESTIMATOR_YEARLY_MAX_BENEFITS } = globalThis.__appEnvironment;
 
