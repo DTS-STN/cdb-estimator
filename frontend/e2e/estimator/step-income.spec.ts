@@ -1,6 +1,7 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 import { seedSessionData } from 'e2e/__supports/session-supports';
+import { formatHtml } from 'e2e/__supports/string-utils';
 
 const stagedSession = {
   estimator: {
@@ -14,14 +15,14 @@ test('Navigating to /en/income renders the english income page', async ({ page }
 
   await page.goto('/en/income');
 
-  expect(await page.locator('main').innerHTML()).toMatchSnapshot();
+  expect(await formatHtml(await page.locator('main').innerHTML())).toMatchSnapshot();
 });
 
 test('Navigating to /fr/revenus renders the french income page', async ({ page }) => {
   await seedSessionData(page, stagedSession);
   await page.goto('/fr/revenus');
 
-  expect(await page.locator('main').innerHTML()).toMatchSnapshot();
+  expect(await formatHtml(await page.locator('main').innerHTML())).toMatchSnapshot();
 });
 
 test('/en/income passes a11y checks', async ({ page }) => {

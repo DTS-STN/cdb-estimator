@@ -1,16 +1,18 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
+import { formatHtml } from './__supports/string-utils';
+
 test('Navigating to /en renders the english dashboard page', async ({ page }) => {
   await page.goto('/en');
 
-  expect(await page.locator('main').innerHTML()).toMatchSnapshot();
+  expect(await formatHtml(await page.locator('main').innerHTML())).toMatchSnapshot();
 });
 
 test('Navigating to /fr renders the french dashboard page', async ({ page }) => {
   await page.goto('/fr');
 
-  expect(await page.locator('main').innerHTML()).toMatchSnapshot();
+  expect(await formatHtml(await page.locator('main').innerHTML())).toMatchSnapshot();
 });
 
 test('/en passes a11y checks', async ({ page }) => {

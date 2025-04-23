@@ -1,0 +1,84 @@
+<div class="mt-10 mb-8">
+  <h1
+    id="wb-cont"
+    tabindex="-1"
+    class="font-lato text-3xl font-bold focus-visible:ring-3 after:mt-2 after:block after:h-1.5 after:w-18 after:bg-red-700"
+  >
+    Estimateur des prestations canadiennes pour les personnes handicapées
+  </h1>
+</div>
+<div class="space-y-6">
+  <section class="space-y-6">
+    <p>
+      Utilisez cet outil pour déterminer le montant que vous pourriez recevoir
+      de la Prestations canadiennes des personnes handicapées. Il ne s'agit pas
+      d'une demande de prestations.
+    </p>
+    <h2 class="font-lato mb-4 text-lg font-bold">Avant de commencer</h2>
+    <p>
+      Pour recevoir la Prestation canadienne pour les personnes handicapées,
+      vous devez répondre aux critères spécifiques d'admissibilité. Pour en
+      savoir plus sur la Prestation canadienne des personnes handicapées et les
+      critères d'admissibilité, veuillez consulter
+      <a
+        class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700 external-link"
+        href="https://www.canada.ca/fr/services/prestations/handicap/prestation-canadienne-personnes-situation-handicap.html"
+        target="_blank"
+        >canada.ca/prestation-handicap</a
+      >.
+    </p>
+    <p class="mb-4">
+      Si vous répondez aux critères d'admissibilité, utilisez l'estimateur de
+      prestations pour savoir combien vous pourriez recevoir. L'estimateur vous
+      posera des questions au sujet de votre&nbsp;:
+    </p>
+    <ol class="list-decimal space-y-1 pl-7">
+      <li>état matrimonial</li>
+      <li>revenu</li>
+    </ol>
+    <p>Il vous faudra environ 5 à 10 minutes pour obtenir une estimation.</p>
+    <p>
+      <strong
+        >Cet outil fournit une estimation seulement. Il ne garantit pas que vous
+        serez admissible ou que vous recevrez le montant estimé.</strong
+      >
+    </p>
+  </section>
+  <section class="my-10">
+    <div>
+      <a
+        class="font-lato inline-flex items-center justify-center rounded-sm border align-middle no-underline outline-offset-4 px-5 py-3 text-base border-slate-700 bg-slate-700 text-white hover:bg-sky-800 focus:bg-sky-800"
+        data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:Dashboard:Start estimator button"
+        href="/fr/etat-civil"
+        data-discover="true"
+        >Démarrer l'estimateur de prestations</a
+      >
+    </div>
+  </section>
+  <section class="space-y-4">
+    <h2 class="font-lato text-lg font-bold">À propos des résultats</h2>
+    <p>
+      Cet estimateur fournit des montants estimés de prestation pour les
+      paiements effectués entre juillet 2025 et juin 2026. Les montants des
+      prestations futures pourraient être plus élevés en raison de l'inflation.
+      Les résultats ne sont pas des conseils financiers et peuvent changer.
+    </p>
+  </section>
+</div>
+<section class="mt-16 mb-8">
+  <h2 class="sr-only">Détails de la page</h2>
+  <dl id="wb-dtmd" class="space-y-1">
+    <div class="flex gap-2">
+      <dt>Identificateur d'écran&nbsp;:</dt>
+      <dd>PUBL-0001</dd>
+    </div>
+    <div class="flex gap-2">
+      <dt>Date de modification&nbsp;:</dt>
+      <dd><time>1970-01-01</time></dd>
+    </div>
+    <div class="flex gap-2">
+      <dt>Version&nbsp;:</dt>
+      <dd>0.0.0-000000-00000000</dd>
+    </div>
+  </dl>
+</section>
