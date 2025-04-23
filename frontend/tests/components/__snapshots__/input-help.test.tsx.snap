@@ -2,12 +2,12 @@
 
 exports[`InputHelp > should render input help component > expected html 1`] = `
 <div>
-  <span
-    class="block max-w-prose text-gray-500"
+  <div
+    class="max-w-prose text-gray-500"
     data-testid="input-help"
     id="id"
   >
     input help
-  </span>
+  </div>
 </div>
 `;

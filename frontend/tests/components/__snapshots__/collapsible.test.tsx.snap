@@ -9,13 +9,13 @@ exports[`Collapsible > should render open: false > expected html 1`] = `
       class="cursor-pointer marker:text-blue-900"
       id="«r1»-summary"
     >
-      <div
+      <span
         class="ml-4 inline-block text-blue-900 hover:underline"
       >
         <div>
           summary
         </div>
-      </div>
+      </span>
     </summary>
     <div
       class="mt-2 border-l-[6px] border-gray-400 px-6 py-4"
@@ -39,13 +39,13 @@ exports[`Collapsible > should render open: true > expected html 1`] = `
       class="cursor-pointer marker:text-blue-900"
       id="«r0»-summary"
     >
-      <div
+      <span
         class="ml-4 inline-block text-blue-900 hover:underline"
       >
         <div>
           summary
         </div>
-      </div>
+      </span>
     </summary>
     <div
       class="mt-2 border-l-[6px] border-gray-400 px-6 py-4"

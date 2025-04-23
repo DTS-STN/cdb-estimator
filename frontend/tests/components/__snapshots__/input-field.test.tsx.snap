@@ -96,13 +96,13 @@ exports[`InputField > should render input field with help message > expected htm
       type="text"
       value="default value"
     />
-    <span
-      class="block max-w-prose text-gray-500"
+    <div
+      class="max-w-prose text-gray-500"
       data-testid="input-help"
       id="input-text-field-test-id-help-secondary"
     >
       help message
-    </span>
+    </div>
   </div>
 </div>
 `;
