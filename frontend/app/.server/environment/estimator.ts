@@ -130,10 +130,6 @@ export const estimator = v.object({
 
 export type Estimator = Readonly<v.InferOutput<typeof estimator>>;
 
-export function stringToNumberSchema(): v.GenericSchema<string, number> {
-  return v.pipe(v.string(), v.transform(Number));
-}
-
 export function stringToIsoDateSchema(): v.GenericSchema<string, string> {
   return v.pipe(v.string(), v.isoDate());
 }
