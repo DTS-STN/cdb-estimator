@@ -51,8 +51,7 @@
         "working-income": {
           "error": {
             "invalid": "Your partner's working income is invalid",
-            "required": "Your partner's working income is required",
-            "should-not-exceed-net-income": "Your partner's working income should not exceed their net income"
+            "required": "Your partner's working income is required"
           },
           "info-label": "How to calculate your partner's working income",
           "label": "Your partner's working income"
@@ -61,8 +60,7 @@
       "working-income": {
         "error": {
           "invalid": "Your working income is invalid",
-          "required": "Your working income is required",
-          "should-not-exceed-net-income": "Your working income should not exceed your net income"
+          "required": "Your working income is required"
         },
         "info-label": "How to calculate your working income",
         "label": "Your working income"
@@ -117,6 +115,7 @@
       "result-disclaimer": "<strong>This tool provides an estimate only. It doesn't guarantee that you'll be eligible or that you'll receive the amount estimated.</strong>",
       "results": {
         "contact": " For a more accurate assessment of your estimated benefits amount, please <cdbContactLink>contact us</cdbContactLink>.",
+        "description": "This estimator provides estimated benefit amounts for payments made between {{paymentPeriodStart}} and {{paymentPeriodEnd}}. Future benefit amounts may be higher. The results are not financial advice and are subject to change.",
         "description": "This estimator provides estimated benefit amounts for payments made between July 2025 and June 2026. Future benefit amounts may be higher. The results are not financial advice and are subject to change.",
         "header": "About the results"
       }
