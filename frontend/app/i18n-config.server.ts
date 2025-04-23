@@ -83,7 +83,7 @@ export async function initI18next(language?: Language): Promise<i18n> {
       throw new AppError(`Missing translation key: ${key}`, ErrorCodes.MISSING_TRANSLATION_KEY);
     },
     react: {
-      transKeepBasicHtmlNodesFor: ['br', 'strong', 'i', 'p', 'b', 'em'],
+      transKeepBasicHtmlNodesFor: ['br', 'strong', 'i', 'p', 'b', 'em', 'dl', 'dt', 'dd'],
     },
   });
 

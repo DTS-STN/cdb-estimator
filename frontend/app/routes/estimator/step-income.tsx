@@ -305,15 +305,8 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                 <div className="my-4 space-y-4">
                   <Collapsible summary={<>{t('estimator:income.fields.claimed-income.info-label')}</>}>
                     <div className="space-y-4">
-                      <p>
-                        <Trans i18nKey={'estimator:income.info.UCCB'} />
-                      </p>
-                      <p>
-                        <Trans i18nKey={'estimator:income.info.RDSP'} />
-                      </p>
-                      <p>
-                        <Trans i18nKey={'estimator:income.info.CDB'} />
-                      </p>
+                      <DefinitionList />
+
                       <p>
                         <Trans i18nKey={'estimator:income.info.claimed-income'} />
                       </p>
@@ -336,15 +329,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                 <div className="my-4 space-y-4">
                   <Collapsible summary={<>{t('estimator:income.fields.claimed-repayment.info-label')}</>}>
                     <div className="space-y-4">
-                      <p>
-                        <Trans i18nKey={'estimator:income.info.UCCB'} />
-                      </p>
-                      <p>
-                        <Trans i18nKey={'estimator:income.info.RDSP'} />
-                      </p>
-                      <p>
-                        <Trans i18nKey={'estimator:income.info.CDB'} />
-                      </p>
+                      <DefinitionList />
                       <p>
                         <Trans i18nKey={'estimator:income.info.claimed-repayment'} />
                       </p>
@@ -368,15 +353,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   <div className="my-4 space-y-4">
                     <Collapsible summary={<>{t('estimator:income.fields.partner.claimed-income.info-label')}</>}>
                       <div className="space-y-4">
-                        <p>
-                          <Trans i18nKey={'estimator:income.info.UCCB'} />
-                        </p>
-                        <p>
-                          <Trans i18nKey={'estimator:income.info.RDSP'} />
-                        </p>
-                        <p>
-                          <Trans i18nKey={'estimator:income.info.CDB'} />
-                        </p>
+                        <DefinitionList />
                         <p>
                           <Trans i18nKey={'estimator:income.info.partner-claimed-income'} />
                         </p>
@@ -401,15 +378,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   <div className="my-4 space-y-4">
                     <Collapsible summary={<>{t('estimator:income.fields.partner.claimed-repayment.info-label')}</>}>
                       <div className="space-y-4">
-                        <p>
-                          <Trans i18nKey={'estimator:income.info.UCCB'} />
-                        </p>
-                        <p>
-                          <Trans i18nKey={'estimator:income.info.RDSP'} />
-                        </p>
-                        <p>
-                          <Trans i18nKey={'estimator:income.info.CDB'} />
-                        </p>
+                        <DefinitionList />
                         <p>
                           <Trans i18nKey={'estimator:income.info.partner-claimed-repayment'} />
                         </p>
@@ -452,4 +421,20 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
       </FetcherErrorSummary>
     </div>
   );
+
+  function DefinitionList() {
+    return (
+      <dl className="mt-2 space-y-2 [&>div>dd]:ml-2 [&>div>dd]:inline [&>div>dt]:inline [&>div>dt]:font-bold">
+        <div>
+          <Trans i18nKey={'estimator:income.info.UCCB'} />
+        </div>
+        <div>
+          <Trans i18nKey={'estimator:income.info.RDSP'} />
+        </div>
+        <div>
+          <Trans i18nKey={'estimator:income.info.CDB'} />
+        </div>
+      </dl>
+    );
+  }
 }
