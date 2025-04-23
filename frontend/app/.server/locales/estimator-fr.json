@@ -117,7 +117,7 @@
       "result-disclaimer": "<strong>Cet outil fournit une estimation seulement. Il ne garantit pas que vous serez admissible ou que vous recevrez le montant estimé.</strong>",
       "results": {
         "contact": " Pour une évaluation plus précise de votre montant de prestations estimé, veuillez <cdbContactLink>communiquer avec nous</cdbContactLink>.",
-        "description": "Cet estimateur fournit des montants estimés de prestation pour les paiements effectués entre juillet 2025 et juin 2026. Les montants des prestations futures pourraient être plus élevés en raison de l'inflation. Les résultats ne sont pas des conseils financiers et peuvent changer.",
+        "description": "Cet estimateur fournit des montants estimés de prestation pour les paiements effectués entre {{paymentPeriodStart}} et {{paymentPeriodEnd}}. Les montants des prestations futures pourraient être plus élevés en raison de l'inflation. Les résultats ne sont pas des conseils financiers et peuvent changer.",
         "header": "À propos des résultats"
       }
     },

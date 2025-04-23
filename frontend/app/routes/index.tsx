@@ -32,9 +32,21 @@ export async function loader({ request }: Route.LoaderArgs) {
   };
 }
 
+function formatBenefitPaymentsPeriodDate(date: Date, lang: 'fr' | 'en' | undefined) {
+  const options: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: 'long',
+    timeZone: 'UTC',
+  };
+
+  return date.toLocaleDateString(lang === 'fr' ? 'fr-CA' : 'en-CA', options);
+}
+
 export default function Home({ loaderData }: Route.ComponentProps) {
   const { t, i18n } = useTranslation(handle.i18nNamespace);
   const {
+    ESTIMATOR_CDB_BENEFIT_PAYMENT_PERIOD_START,
+    ESTIMATOR_CDB_BENEFIT_PAYMENT_PERIOD_END,
     ESTIMATOR_CDB_CONTACT_URL_EN,
     ESTIMATOR_CDB_CONTACT_URL_FR,
     ESTIMATOR_CDB_ELIGIBILITY_URL_EN,
@@ -106,7 +118,18 @@ export default function Home({ loaderData }: Route.ComponentProps) {
         <section className="space-y-4">
           <h2 className="font-lato text-lg font-bold">{t('estimator:index.content.results.header')}</h2>
           <p>
-            <Trans ns={handle.i18nNamespace} i18nKey="estimator:index.content.results.description" />
+            {t('estimator:index.content.results.description', {
+              // paymentPeriodStart: ESTIMATOR_CDB_BENEFIT_PAYMENT_PERIOD_START,
+              // paymentPeriodEnd: ESTIMATOR_CDB_BENEFIT_PAYMENT_PERIOD_END,
+              paymentPeriodStart: formatBenefitPaymentsPeriodDate(
+                new Date(ESTIMATOR_CDB_BENEFIT_PAYMENT_PERIOD_START),
+                i18n.language,
+              ),
+              paymentPeriodEnd: formatBenefitPaymentsPeriodDate(
+                new Date(ESTIMATOR_CDB_BENEFIT_PAYMENT_PERIOD_END),
+                i18n.language,
+              ),
+            })}
 
             {i18n.language === 'fr' && ESTIMATOR_CDB_CONTACT_URL_FR && (
               <Trans
