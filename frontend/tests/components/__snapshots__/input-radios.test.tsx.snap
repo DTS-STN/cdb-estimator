@@ -104,13 +104,13 @@ exports[`InputRadios > displays helpMessagePrimary > expected html 1`] = `
         Test Legend
       </span>
     </legend>
-    <span
-      class="block max-w-prose text-gray-500 mb-2"
+    <div
+      class="max-w-prose text-gray-500 mb-2"
       data-testid="input-field-help-primary-it"
       id="input-radios-it-help-primary"
     >
       Primary help message
-    </span>
+    </div>
     <ul
       class="space-y-2"
     >
@@ -243,13 +243,13 @@ exports[`InputRadios > displays helpMessageSecondary > expected html 1`] = `
         </div>
       </li>
     </ul>
-    <span
-      class="block max-w-prose text-gray-500 mt-2"
+    <div
+      class="max-w-prose text-gray-500 mt-2"
       data-testid="input-field-help-secondary-it"
       id="input-radios-it-help-secondary"
     >
       Secondary help message
-    </span>
+    </div>
   </fieldset>
 </div>
 `;
