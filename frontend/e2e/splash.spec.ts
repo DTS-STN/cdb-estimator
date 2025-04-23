@@ -1,10 +1,12 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
+import { formatHtml } from './__supports/string-utils';
+
 test('Navigating to / renders the language chooser page', async ({ page }) => {
   await page.goto('/');
 
-  expect(await page.locator('main').innerHTML()).toMatchSnapshot();
+  expect(await formatHtml(await page.locator('main').innerHTML())).toMatchSnapshot();
 });
 
 test('passes a11y checks', async ({ page }) => {

@@ -1,0 +1,15 @@
+<div id="wb-bnr">
+  <div
+    class="container flex items-center justify-between gap-6 py-2.5 sm:py-3.5"
+  >
+    <a href="https://canada.ca/"
+      ><img
+        class="h-8 w-auto"
+        src="https://www.canada.ca/etc/designs/canada/wet-boew/assets/sig-blk-en.svg"
+        alt="Government of Canada"
+        width="300"
+        height="28"
+        decoding="async"
+    /></a>
+  </div>
+</div>
