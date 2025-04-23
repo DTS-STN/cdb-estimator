@@ -51,8 +51,7 @@
         "working-income": {
           "error": {
             "invalid": "Your partner's working income is invalid",
-            "required": "Your partner's working income is required",
-            "should-not-exceed-net-income": "Your partner's working income should not exceed their net income"
+            "required": "Your partner's working income is required"
           },
           "info-label": "How to calculate your partner's working income",
           "label": "Your partner's working income"
@@ -61,8 +60,7 @@
       "working-income": {
         "error": {
           "invalid": "Your working income is invalid",
-          "required": "Your working income is required",
-          "should-not-exceed-net-income": "Your working income should not exceed your net income"
+          "required": "Your working income is required"
         },
         "info-label": "How to calculate your working income",
         "label": "Your working income"
