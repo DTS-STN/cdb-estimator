@@ -34,7 +34,7 @@ export async function initI18next(namespace: Namespace): Promise<i18n> {
       backend: { loadPath: `/api/translations?ns={{ns}}&lng={{lng}}&v=${BUILD_REVISION}` },
       interpolation: { escapeValue: false },
       react: {
-        transKeepBasicHtmlNodesFor: ['br', 'strong', 'i', 'p', 'b', 'em'],
+        transKeepBasicHtmlNodesFor: ['br', 'strong', 'i', 'p', 'b', 'em', 'dl', 'dt', 'dd'],
       },
     });
 

@@ -71,15 +71,15 @@
       "single": "Pour estimer vos prestations, nous aurons besoin des renseignements suivants de votre déclaration de revenus de {{year}}. "
     },
     "info": {
-      "CDB": "<strong>PCPH\u00A0:</strong> Prestation canadienne des personnes handicapées",
+      "CDB": "<dt>PCPH\u00A0:</dt><dd>Prestation canadienne des personnes handicapées</dd>",
       "claimed-income": "Revenu que vous avez demandé (ligne 11700 et ligne 12500 de votre déclaration de revenus). Si le champ est laisse vide, nous supposerons qu'il est égal à zéro.",
       "claimed-repayment": "Remboursement que vous avez demandé (ligne 21300 et ligne 23200 de votre déclaration de revenus). Si le champ est laisse vide, nous supposerons qu'il est égal à zéro.",
       "net-income": "Ligne 23600 de votre déclaration. Si votre revenu net est négatif, entrez '0'",
       "partner-claimed-income": "Revenu que votre conjoint a demandé (ligne 11700 et ligne 12500 de leur déclaration de revenus). Si le champ est laisse vide, nous supposerons qu'il est égal à zéro.",
       "partner-claimed-repayment": "Remboursement que votre conjoint a demandé (ligne 21300 et ligne 23200 de leur déclaration de revenus). Si le champ est laisse vide, nous supposerons qu'il est égal à zéro.",
       "partner-net-income": "Ligne 23600 de la déclaration de votre conjoint.",
-      "RDSP": "<strong>REEI\u00A0:</strong> Revenus d'un régime enregistré d'épargne-invalidité",
-      "UCCB": "<strong>PUGE\u00A0:</strong> Prestation universelle pour la garde d'enfants",
+      "RDSP": "<dt>REEI\u00A0:</dt><dd>Revenus d'un régime enregistré d'épargne-invalidité</dd>",
+      "UCCB": "<dt>PUGE\u00A0:</dt><dd>Prestation universelle pour la garde d'enfants</dd>",
       "working-income": {
         "items": [
           "Revenus d'emploi (linge 10100)",
