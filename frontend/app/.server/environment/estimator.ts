@@ -1,5 +1,9 @@
 import * as v from 'valibot';
 
+import { stringToBooleanSchema } from '../validation/string-to-boolean-schema';
+import { stringToNumberSchema } from '../validation/string-to-number-schema';
+import { stringToUrlSchema } from '../validation/string-to-url-schema';
+
 // Default estimator configuration object
 export const defaults = {
   ESTIMATOR_CDB_CONTACT_URL_EN: undefined,
@@ -21,6 +25,7 @@ export const defaults = {
   ESTIMATOR_YEARLY_MAX_BENEFITS: '2400',
   ESTIMATOR_BENEFIT_REDUCTION_RATE: '0.2',
   ESTIMATOR_SPLIT_BENEFIT_REDUCTION_RATE: '0.1',
+  ESTIMATOR_WORKING_INCOME_SPECIAL_VALIDATION_ENABLED: 'true',
 } as const;
 
 // Define schema for the environment variable
@@ -28,36 +33,36 @@ export const estimator = v.object({
   /**
    * Canada Disability Benefit english contact URL
    */
-  ESTIMATOR_CDB_CONTACT_URL_EN: v.optional(stringAsUrl(), defaults.ESTIMATOR_CDB_CONTACT_URL_EN),
+  ESTIMATOR_CDB_CONTACT_URL_EN: v.optional(stringToUrlSchema(), defaults.ESTIMATOR_CDB_CONTACT_URL_EN),
   /**
    * Canada Disability Benefit english contact URL
    */
-  ESTIMATOR_CDB_CONTACT_URL_FR: v.optional(stringAsUrl(), defaults.ESTIMATOR_CDB_CONTACT_URL_FR),
+  ESTIMATOR_CDB_CONTACT_URL_FR: v.optional(stringToUrlSchema(), defaults.ESTIMATOR_CDB_CONTACT_URL_FR),
 
   /**
    * Canada Disability Benefit landing page url (en)
    */
-  ESTIMATOR_CDB_URL_EN: v.optional(stringAsUrl(), defaults.ESTIMATOR_CDB_URL_EN),
+  ESTIMATOR_CDB_URL_EN: v.optional(stringToUrlSchema(), defaults.ESTIMATOR_CDB_URL_EN),
   /**
    * Canada Disability Benefit landing page url (fr)
    */
-  ESTIMATOR_CDB_URL_FR: v.optional(stringAsUrl(), defaults.ESTIMATOR_CDB_URL_FR),
+  ESTIMATOR_CDB_URL_FR: v.optional(stringToUrlSchema(), defaults.ESTIMATOR_CDB_URL_FR),
   /**
    * Canada Disability Benefit eligibility requirements url (en)
    */
-  ESTIMATOR_CDB_ELIGIBILITY_URL_EN: v.optional(stringAsUrl(), defaults.ESTIMATOR_CDB_ELIGIBILITY_URL_EN),
+  ESTIMATOR_CDB_ELIGIBILITY_URL_EN: v.optional(stringToUrlSchema(), defaults.ESTIMATOR_CDB_ELIGIBILITY_URL_EN),
   /**
    * Canada Disability Benefit eligibility requirements url (fr)
    */
-  ESTIMATOR_CDB_ELIGIBILITY_URL_FR: v.optional(stringAsUrl(), defaults.ESTIMATOR_CDB_ELIGIBILITY_URL_FR),
+  ESTIMATOR_CDB_ELIGIBILITY_URL_FR: v.optional(stringToUrlSchema(), defaults.ESTIMATOR_CDB_ELIGIBILITY_URL_FR),
   /**
    * Canada Disability Benefit application url (en)
    */
-  ESTIMATOR_CDB_APPLY_URL_EN: v.optional(stringAsUrl(), defaults.ESTIMATOR_CDB_APPLY_URL_EN),
+  ESTIMATOR_CDB_APPLY_URL_EN: v.optional(stringToUrlSchema(), defaults.ESTIMATOR_CDB_APPLY_URL_EN),
   /**
    * Canada Disability Benefit application url (fr)
    */
-  ESTIMATOR_CDB_APPLY_URL_FR: v.optional(stringAsUrl(), defaults.ESTIMATOR_CDB_APPLY_URL_FR),
+  ESTIMATOR_CDB_APPLY_URL_FR: v.optional(stringToUrlSchema(), defaults.ESTIMATOR_CDB_APPLY_URL_FR),
 
   /**
    * Reflects inflation as a part of the calculation
@@ -97,14 +102,14 @@ export const estimator = v.object({
    * Benefit reduction rate (split)
    */
   ESTIMATOR_SPLIT_BENEFIT_REDUCTION_RATE: v.optional(stringToNumberSchema(), defaults.ESTIMATOR_SPLIT_BENEFIT_REDUCTION_RATE),
+
+  /**
+   * Enable or disable working income < net income validation
+   */
+  ESTIMATOR_WORKING_INCOME_SPECIAL_VALIDATION_ENABLED: v.optional(
+    stringToBooleanSchema(),
+    defaults.ESTIMATOR_WORKING_INCOME_SPECIAL_VALIDATION_ENABLED,
+  ),
 });
 
 export type Estimator = Readonly<v.InferOutput<typeof estimator>>;
-
-export function stringToNumberSchema(): v.GenericSchema<string, number> {
-  return v.pipe(v.string(), v.transform(Number));
-}
-
-export function stringAsUrl(): v.GenericSchema<string, string> {
-  return v.pipe(v.string(), v.url('must be a valid url'));
-}
