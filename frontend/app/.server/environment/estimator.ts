@@ -1,11 +1,14 @@
 import * as v from 'valibot';
 
 import { stringToBooleanSchema } from '../validation/string-to-boolean-schema';
+import { stringToIsoDateSchema } from '../validation/string-to-iso-date-schema';
 import { stringToNumberSchema } from '../validation/string-to-number-schema';
 import { stringToUrlSchema } from '../validation/string-to-url-schema';
 
 // Default estimator configuration object
 export const defaults = {
+  ESTIMATOR_CDB_BENEFIT_PAYMENT_PERIOD_START: '2025-07-01',
+  ESTIMATOR_CDB_BENEFIT_PAYMENT_PERIOD_END: '2026-06-01',
   ESTIMATOR_CDB_CONTACT_URL_EN: undefined,
   ESTIMATOR_CDB_CONTACT_URL_FR: undefined,
   ESTIMATOR_CDB_URL_EN: 'https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html',
@@ -30,6 +33,20 @@ export const defaults = {
 
 // Define schema for the environment variable
 export const estimator = v.object({
+  /**
+   * Benefits payments period start date shown on index page (YYYY-MM-DD)
+   */
+  ESTIMATOR_CDB_BENEFIT_PAYMENT_PERIOD_START: v.optional(
+    stringToIsoDateSchema(),
+    defaults.ESTIMATOR_CDB_BENEFIT_PAYMENT_PERIOD_START,
+  ),
+  /**
+   * Benefits payments period end date shown on index page (YYYY-MM-DD)
+   */
+  ESTIMATOR_CDB_BENEFIT_PAYMENT_PERIOD_END: v.optional(
+    stringToIsoDateSchema(),
+    defaults.ESTIMATOR_CDB_BENEFIT_PAYMENT_PERIOD_END,
+  ),
   /**
    * Canada Disability Benefit english contact URL
    */

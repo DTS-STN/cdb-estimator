@@ -117,6 +117,7 @@
       "result-disclaimer": "<strong>This tool provides an estimate only. It doesn't guarantee that you'll be eligible or that you'll receive the amount estimated.</strong>",
       "results": {
         "contact": " For a more accurate assessment of your estimated benefits amount, please <cdbContactLink>contact us</cdbContactLink>.",
+        "description": "This estimator provides estimated benefit amounts for payments made between {{paymentPeriodStart}} and {{paymentPeriodEnd}}. Future benefit amounts may be higher. The results are not financial advice and are subject to change.",
         "description": "This estimator provides estimated benefit amounts for payments made between July 2025 and June 2026. Future benefit amounts may be higher. The results are not financial advice and are subject to change.",
         "header": "About the results"
       }
