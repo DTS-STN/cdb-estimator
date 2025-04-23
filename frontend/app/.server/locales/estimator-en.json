@@ -71,15 +71,15 @@
       "single": "To estimate your benefits, we will need the following information from your {{year}} tax return:"
     },
     "info": {
-      "CDB": "<strong>CDB:</strong> Canada Disability Benefit",
+      "CDB": "<dt>CDB:</dt><dd>Canada Disability Benefit</dd>",
       "claimed-income": "Income claimed by you (line 11700 and line 12500 of your tax return). If field is left blank, we will assume it is zero.",
       "claimed-repayment": "Repayment claimed by you (line 21300 and line 23200 of your tax return). If field is left blank, we will assume it is zero.",
       "net-income": "Line 23600 on your tax return. If your net income is negative, enter '0'",
       "partner-claimed-income": "Income claimed by your spouse/partner (line 11700 and line 12500 of their tax return). If field is left blank, we will assume it is zero.",
       "partner-claimed-repayment": "Repayment claimed by your spouse/partner (line 21300 and line 23200 of their tax return). If field is left blank, we will assume it is zero.",
       "partner-net-income": "Line 23600 on your spouse/partners tax return. If your the net income is negative, enter '0'",
-      "RDSP": "<strong>RDSP:</strong> Registered Disability Savings Plan",
-      "UCCB": "<strong>UCCB:</strong> Universal Child Care Benefit",
+      "RDSP": "<dt>RDSP:</dt><dd>Registered Disability Savings Plan</dd>",
+      "UCCB": "<dt>UCCB:</dt><dd>Universal Child Care Benefit</dd>",
       "working-income": {
         "items": [
           "Employment income (line 10100)",
@@ -116,7 +116,6 @@
       "results": {
         "contact": " For a more accurate assessment of your estimated benefits amount, please <cdbContactLink>contact us</cdbContactLink>.",
         "description": "This estimator provides estimated benefit amounts for payments made between {{paymentPeriodStart}} and {{paymentPeriodEnd}}. Future benefit amounts may be higher. The results are not financial advice and are subject to change.",
-        "description": "This estimator provides estimated benefit amounts for payments made between July 2025 and June 2026. Future benefit amounts may be higher. The results are not financial advice and are subject to change.",
         "header": "About the results"
       }
     },
