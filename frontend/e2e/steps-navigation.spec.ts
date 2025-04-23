@@ -19,7 +19,7 @@ test('Navigating marital-status -> results routes to marital-status', async ({ p
 test('Navigating income -> results routes to income', async ({ page }) => {
   await page.goto('/en/marital-status');
   await page.getByRole('radio', { name: /single/i }).check();
-  await page.getByRole('button', { name: /next/i }).click();
+  await page.getByRole('button', { name: /continue/i }).click();
 
   await expect(page).toHaveURL(/income/);
   await page.goto('/en/results');

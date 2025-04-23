@@ -13,9 +13,11 @@
   "app": {
     "title": "Canada Disability Benefit Estimator"
   },
+  "back": "Back",
   "breadcrumbs": {
     "you-are-here": "You are here:"
   },
+  "continue": "Continue",
   "dialog": {
     "close": "Close"
   },
@@ -155,7 +157,6 @@
     "skip-to-about": "Skip to About this site",
     "skip-to-content": "Skip to main content"
   },
-  "next": "Next",
   "not-found": {
     "document-title": "Not found",
     "page-message": "We're sorry you ended up here. Sometimes a page gets moved or deleted, but hopefully we can help you find what you're looking for.",
@@ -168,7 +169,6 @@
     "screen-id": "Screen identifier:",
     "version": "Version:"
   },
-  "previous": "Previous",
   "resource": "public/locales/public-en.json",
   "server-error": {
     "correlation-id": "<strong>Correlation ID:</strong> <span>{{correlationId}}</span>",

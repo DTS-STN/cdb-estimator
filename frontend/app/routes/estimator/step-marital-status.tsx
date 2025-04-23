@@ -173,7 +173,7 @@ export default function StepMaritalStatus({ actionData, loaderData, matches, par
               id="continue-button"
               size="lg"
             >
-              {t('common:next')}
+              {t('common:continue')}
             </Button>
             <Button
               data-gc-analytics-customclick={adobeAnalytics.getCustomClick('StepMaritalStatus:Previous button')}
@@ -182,7 +182,7 @@ export default function StepMaritalStatus({ actionData, loaderData, matches, par
               id="back-button"
               size="lg"
             >
-              {t('common:previous')}
+              {t('common:back')}
             </Button>
           </div>
         </fetcher.Form>
