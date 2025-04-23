@@ -456,7 +456,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               id="back-button"
               size="lg"
             >
-              {t('common:previous')}
+              {t('common:back')}
             </Button>
           </div>
         </fetcher.Form>
