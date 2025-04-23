@@ -1,6 +1,5 @@
 import * as v from 'valibot';
 
-import { stringToBooleanSchema } from '../validation/string-to-boolean-schema';
 import { stringToIsoDateSchema } from '../validation/string-to-iso-date-schema';
 import { stringToNumberSchema } from '../validation/string-to-number-schema';
 import { stringToUrlSchema } from '../validation/string-to-url-schema';
@@ -28,7 +27,6 @@ export const defaults = {
   ESTIMATOR_YEARLY_MAX_BENEFITS: '2400',
   ESTIMATOR_BENEFIT_REDUCTION_RATE: '0.2',
   ESTIMATOR_SPLIT_BENEFIT_REDUCTION_RATE: '0.1',
-  ESTIMATOR_WORKING_INCOME_SPECIAL_VALIDATION_ENABLED: 'true',
 } as const;
 
 // Define schema for the environment variable
@@ -119,14 +117,6 @@ export const estimator = v.object({
    * Benefit reduction rate (split)
    */
   ESTIMATOR_SPLIT_BENEFIT_REDUCTION_RATE: v.optional(stringToNumberSchema(), defaults.ESTIMATOR_SPLIT_BENEFIT_REDUCTION_RATE),
-
-  /**
-   * Enable or disable working income < net income validation
-   */
-  ESTIMATOR_WORKING_INCOME_SPECIAL_VALIDATION_ENABLED: v.optional(
-    stringToBooleanSchema(),
-    defaults.ESTIMATOR_WORKING_INCOME_SPECIAL_VALIDATION_ENABLED,
-  ),
 });
 
 export type Estimator = Readonly<v.InferOutput<typeof estimator>>;
