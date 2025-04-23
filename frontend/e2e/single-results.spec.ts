@@ -10,7 +10,7 @@ test('Single person can obtain results', async ({ page }) => {
 
   // marital-status
   await page.getByRole('radio', { name: /single/i }).check();
-  await page.getByRole('button', { name: /next/i }).click();
+  await page.getByRole('button', { name: /continue/i }).click();
 
   // income
   await page.getByRole('textbox', { name: /net income/i }).fill('23000.31');

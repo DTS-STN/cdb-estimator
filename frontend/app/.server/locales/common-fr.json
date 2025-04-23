@@ -13,9 +13,11 @@
   "app": {
     "title": "Estimateur de la prestation canadienne pour les personnes handicapées"
   },
+  "back": "Retour",
   "breadcrumbs": {
     "you-are-here": "Vous êtes ici\u00a0:"
   },
+  "continue": "Continuer",
   "dialog": {
     "close": "Fermer"
   },
@@ -159,7 +161,6 @@
     "skip-to-about": "Passer à «\u00a0À propos de ce site\u00a0»",
     "skip-to-content": "Passer au contenu principal"
   },
-  "next": "Suivant",
   "not-found": {
     "document-title": "Page introuvable",
     "page-message": "Nous sommes désolés que vous ayez abouti ici. Il arrive parfois qu'une page ait été déplacée ou supprimée. Heureusement, nous pouvons vous aider à trouver ce que vous cherchez.",
@@ -172,7 +173,6 @@
     "screen-id": "Identificateur d'écran\u00a0:",
     "version": "Version\u00a0:"
   },
-  "previous": "Précédent",
   "resource": "public/locales/public-fr.json",
   "server-error": {
     "correlation-id": "<strong>ID de corrélation\u00a0:</strong> <span>{{correlationId}}</span>",
