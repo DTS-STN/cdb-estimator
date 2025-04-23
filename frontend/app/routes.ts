@@ -48,9 +48,10 @@ export default [
   // i18n routes
   ...toRouteConfigEntries(i18nRoutes),
 
-  // dev-only routes
+  // dev/test-only routes
   route('/debug-session', 'routes/dev/debug-session.tsx', { id: 'DEV-0001' }),
   route('/error', 'routes/dev/error.tsx', { id: 'ERR-0001' }),
   route('/en/error', 'routes/dev/error.tsx', { id: 'ERR-0001-EN' }),
   route('/fr/erreur', 'routes/dev/error.tsx', { id: 'ERR-0001-FR' }),
+  route('/stage-session', 'routes/dev/stage-session.tsx', { id: 'DEV-0002' }),
 ] satisfies RouteConfigEntry[];

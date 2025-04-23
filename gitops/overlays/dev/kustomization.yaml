@@ -2,17 +2,17 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: canada-disability-benefit
 nameSuffix: -dev
-commonLabels:
-  # commonLabels must have at least one unique label
-  # per environment to ensure selectors are applied correctly
-  app.kubernetes.io/instance: dev
 labels:
   - pairs:
-      app.kubernetes.io/part-of: canada-disability-benefit
-      app.kubernetes.io/managed-by: kustomize
       app.kubernetes.io/cluster: dts-dev-sced-rhp-spoke-aks
       app.kubernetes.io/environment: dev
+      app.kubernetes.io/managed-by: kustomize
+      app.kubernetes.io/part-of: canada-disability-benefit
       app.kubernetes.io/tier: nonprod
+  - includeSelectors: true
+    pairs:
+      # Must have at least one unique label per environment to ensure selectors are applied correctly
+      app.kubernetes.io/instance: dev
 resources:
   - ../../base/cdb-estimator-frontend/
   - ./external-secrets.yaml
@@ -20,7 +20,7 @@ resources:
 patches:
   - path: ./patches/deployments.yaml
 configMapGenerator:
-  - name: cdb-estimator-frontend
-    behavior: merge
+  - behavior: merge
     envs:
       - ./configs/cdb-estimator-frontend/config.conf
+    name: cdb-estimator-frontend

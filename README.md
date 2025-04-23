@@ -1,15 +1,15 @@
-# Canada Disability Benefit Estimator 
+# Canada Disability Benefit Estimator
 
 This repository houses the source code for the Canada Disability Benefit Estimator (CDBE) project.
 
 **Projects:**
 
 * **[Frontend](frontend):**
-    * Contains the frontend application for the CDBE, built with [React Router](https://reactrouter.com/).
+  * Contains the frontend application for the CDBE, built with [React Router](https://reactrouter.com/).
 * **[GitOps](gitops):**
-    * Implements GitOps principles for deploying and managing the CDBE infrastructure and applications.
+  * Implements GitOps principles for deploying and managing the CDBE infrastructure and applications.
 * **[Infrastructure](infrastructure):**
-    * Defines the infrastructure for the CDBE.
+  * Defines the infrastructure for the CDBE.
 
 **Contributing:**
 
