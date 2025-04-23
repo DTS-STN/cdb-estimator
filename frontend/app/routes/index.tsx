@@ -119,8 +119,6 @@ export default function Home({ loaderData }: Route.ComponentProps) {
           <h2 className="font-lato text-lg font-bold">{t('estimator:index.content.results.header')}</h2>
           <p>
             {t('estimator:index.content.results.description', {
-              // paymentPeriodStart: ESTIMATOR_CDB_BENEFIT_PAYMENT_PERIOD_START,
-              // paymentPeriodEnd: ESTIMATOR_CDB_BENEFIT_PAYMENT_PERIOD_END,
               paymentPeriodStart: formatBenefitPaymentsPeriodDate(
                 new Date(ESTIMATOR_CDB_BENEFIT_PAYMENT_PERIOD_START),
                 i18n.language,
