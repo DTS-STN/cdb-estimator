@@ -115,7 +115,10 @@ function processIncome(formData: FormData, isMarried: boolean, lang: Language) {
     v.forward(
       v.partialCheck(
         [['workingIncome'], ['netIncome']],
-        (input) => input.workingIncome <= input.netIncome,
+        (input) =>
+          globalThis.__appEnvironment.ESTIMATOR_WORKING_INCOME_SPECIAL_VALIDATION_ENABLED
+            ? input.workingIncome <= input.netIncome
+            : true,
         'working-income.error.should-not-exceed-net-income',
       ),
       ['workingIncome'],
