@@ -245,31 +245,34 @@ function DataSummary(formattedResults: FormattedCDBEstimator) {
   return (
     <div className="my-8 rounded bg-stone-100 p-5 md:mt-0 md:max-w-[360px]">
       <h3 className="font-lato text-xl font-bold">{t('estimator:results.form-data-summary.title')}</h3>
-      <div>
+      <dl>
         <DataSummaryItem
-          className=""
+          classNameDt="pt-4"
+          classNameDd="pb-4"
           title={t('estimator:results.form-data-summary.field-labels.marital-status')}
           editAriaLabel={t('estimator:results.form-data-summary.edit-aria-labels.marital-status')}
           editRoute={'routes/estimator/step-marital-status.tsx'}
           value={formattedResults.maritalStatus}
-          showBorder={false}
+          showBorder={true}
           showEditButton={true}
           data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Edit marital status button')}
         />
         <DataSummaryItem
-          className="pb-2"
+          classNameDt="pt-4"
+          classNameDd={formattedResults.income.kind === 'married' ? 'pb-2' : 'pb-4'}
           title={t('estimator:results.form-data-summary.field-labels.total-income')}
           editAriaLabel={t('estimator:results.form-data-summary.edit-aria-labels.income')}
           editRoute={'routes/estimator/step-income.tsx'}
           value={formattedResults.income.individualIncome.totalIncome}
-          showBorder={true}
+          showBorder={false}
           showEditButton={formattedResults.income.kind !== 'married'}
           data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Edit income button')}
         />
 
         {formattedResults.income.kind === 'married' && (
           <DataSummaryItem
-            className="pt-0"
+            classNameDt={undefined}
+            classNameDd={undefined}
             title={t('estimator:results.form-data-summary.field-labels.partner-total-income')}
             editAriaLabel={t('estimator:results.form-data-summary.edit-aria-labels.income')}
             editRoute={'routes/estimator/step-income.tsx'}
@@ -279,7 +282,7 @@ function DataSummary(formattedResults: FormattedCDBEstimator) {
             data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Edit income button')}
           />
         )}
-      </div>
+      </dl>
     </div>
   );
 }
@@ -290,7 +293,8 @@ interface DataSummaryItemProps {
   value: string;
   showEditButton: boolean;
   showBorder: boolean;
-  className: string;
+  classNameDt: string | undefined;
+  classNameDd: string | undefined;
 }
 function DataSummaryItem({
   title,
@@ -299,27 +303,28 @@ function DataSummaryItem({
   value,
   showBorder,
   showEditButton,
-  className,
+  classNameDt,
+  classNameDd,
   ...rest
 }: DataSummaryItemProps) {
   const { t } = useTranslation(handle.i18nNamespace);
 
   return (
-    <div className={cn('py-4', className, showBorder ? 'border-t border-stone-600' : '')}>
-      <div>{title}</div>
-      <div className="grid grid-cols-3 gap-0">
-        <div className="col-span-2">
-          <strong>{value}</strong>
-        </div>
+    <>
+      <dt className={cn(classNameDt)}>{title}</dt>
+      <dd className={cn(classNameDd, showBorder ? 'border-b border-stone-600' : '')}>
+        <div className="flex justify-end">
+          <strong className="mr-auto">{value}</strong>
 
-        {showEditButton && (
-          <div className="self-end justify-self-end">
-            <InlineLink {...rest} file={editRoute} aria-label={editAriaLabel}>
-              {t('common:edit')}
-            </InlineLink>
-          </div>
-        )}
-      </div>
-    </div>
+          {showEditButton && (
+            <div className="mt-auto ml-auto">
+              <InlineLink {...rest} file={editRoute} aria-label={editAriaLabel}>
+                {t('common:edit')}
+              </InlineLink>
+            </div>
+          )}
+        </div>
+      </dd>
+    </>
   );
 }
