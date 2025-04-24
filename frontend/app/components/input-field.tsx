@@ -9,12 +9,12 @@ import { cn } from '~/utils/tailwind-utils';
 export interface InputFieldProps extends ComponentProps<'input'> {
   beforeInput?: React.ReactNode;
   afterInput?: React.ReactNode;
-  errorMessage?: string;
+  errorMessage?: string | React.ReactNode;
   helpMessagePrimary?: React.ReactNode;
   helpMessagePrimaryClassName?: string;
   helpMessageSecondary?: React.ReactNode;
   helpMessageSecondaryClassName?: string;
-  label: string;
+  label: string | React.ReactNode;
   name: string;
   type?: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url';
 }

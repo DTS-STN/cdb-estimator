@@ -45,63 +45,81 @@
                   class="mt-2 border-l-[6px] border-gray-400 px-6 py-4"
                 >
                   <div class="space-y-4">
-                    <p>
-                      <strong>Single:</strong> you are single and another status
-                      does not apply
-                    </p>
-                    <p>
-                      <strong>Divorced:</strong> you were married and are now
-                      legally divorced
-                    </p>
-                    <p>
-                      <strong>Separated:</strong> you have been living apart
-                      from your spouse or common-law partner because of a
-                      breakdown in the relationship for a period of at least 90
-                      days and you have not reconciled.
-                    </p>
-                    <p>
-                      Once you have been separated for 90 days, the effective
-                      day of your separation is the date you started living
-                      apart. You would still be considered to have a spouse or
-                      common-law partner if there is no breakdown in the
-                      relationship and you were living apart for reasons such as
-                      work, studies, or health problems.
-                    </p>
-                    <p>
-                      Note: Generally, you are not considered separated if your
-                      spouse or common-law partner is incarcerated or does not
-                      live in Canada, as long as there is no breakdown in your
-                      relationship
-                    </p>
-                    <p>
-                      <strong>Widowed:</strong> your spouse or common-law
-                      partner is deceased.
-                    </p>
-                    <p>
-                      <strong>Married:</strong> you are legally married to
-                      someone.
-                    </p>
-                    <p>
-                      <strong>Common-law:</strong> you are living in a conjugal
-                      relationship with someone to whom you are not married and
-                      to whom at least one of the following situations applies.
-                      They:
-                    </p>
-                    <ul class="list-disc space-y-2 pl-5">
-                      <li>
-                        have been living with you for at least 12 continuous
-                        months. This includes any period you were separated for
-                        less than 90 days because of a breakdown in your
-                        relationship
-                      </li>
-                      <li>are the parent of your child by birth or adoption</li>
-                      <li>
-                        have custody and control of your child (or had custody
-                        and control immediately before the child turned 19 years
-                        of age) and your child is wholly dependent on that
-                        person for support
-                      </li>
-                    </ul>
+                    <dl class="mt-2 space-y-2">
+                      <div>
+                        <dt class="inline font-bold">Single:</dt>
+                        <dd class="ml-2 inline">
+                          you are single and another status does not apply
+                        </dd>
+                      </div>
+                      <div>
+                        <dt class="inline font-bold">Divorced:</dt>
+                        <dd class="ml-2 inline">
+                          you were married and are now legally divorced
+                        </dd>
+                      </div>
+                      <div>
+                        <dt class="inline font-bold">Separated:</dt>
+                        <dd class="ml-2 inline [&amp;>p]:mt-2">
+                          you have been living apart from your spouse or
+                          common-law partner because of a breakdown in the
+                          relationship for a period of at least 90 days and you
+                          have not reconciled.
+                          <p>
+                            Once you have been separated for 90 days, the
+                            effective day of your separation is the date you
+                            started living apart. You would still be considered
+                            to have a spouse or common-law partner if there is
+                            no breakdown in the relationship and you were living
+                            apart for reasons such as work, studies, or health
+                            problems.
+                          </p>
+                          <p>
+                            Note: Generally, you are not considered separated if
+                            your spouse or common-law partner is incarcerated or
+                            does not live in Canada, as long as there is no
+                            breakdown in your relationship
+                          </p>
+                        </dd>
+                      </div>
+                      <div>
+                        <dt class="inline font-bold">Widowed:</dt>
+                        <dd class="ml-2 inline">
+                          your spouse or common-law partner is deceased.
+                        </dd>
+                      </div>
+                      <div>
+                        <dt class="inline font-bold">Married:</dt>
+                        <dd class="ml-2 inline">
+                          you are legally married to someone.
+                        </dd>
+                      </div>
+                      <div>
+                        <dt class="inline font-bold">Common-law:</dt>
+                        <dd class="ml-2 inline">
+                          you are living in a conjugal relationship with someone
+                          to whom you are not married and to whom at least one
+                          of the following situations applies. They:<!-- -->
+                          <ul class="mt-2 list-disc space-y-2 pl-5">
+                            <li>
+                              have been living with you for at least 12
+                              continuous months. This includes any period you
+                              were separated for less than 90 days because of a
+                              breakdown in your relationship
+                            </li>
+                            <li>
+                              are the parent of your child by birth or adoption
+                            </li>
+                            <li>
+                              have custody and control of your child (or had
+                              custody and control immediately before the child
+                              turned 19 years of age) and your child is wholly
+                              dependent on that person for support
+                            </li>
+                          </ul>
+                        </dd>
+                      </div>
+                    </dl>
                   </div>
                 </div>
               </details>
