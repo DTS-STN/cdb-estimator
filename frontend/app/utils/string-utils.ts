@@ -1,20 +1,24 @@
 /**
  * Strips formatting from a string representing a formatted decimal
  * @param input string represenation of a formatted decimal (examples: en:"1,234.56", fr:"1 234,56")
- * @param lang Format language (en or fr)
  * @returns string representation of the decimal without formatting (examples: "1234.56")
  */
-export function removeNumericFormatting(input: string, lang: Language): string {
-  switch (lang) {
-    case 'en': {
-      const output = input.replaceAll(',', '');
-      return output;
-    }
-    case 'fr': {
-      const output = input.replaceAll(' ', '').replaceAll(',', '.');
-      return output;
-    }
+export function removeNumericFormatting(input: string | undefined): string {
+  if (input === undefined) return '';
+
+  const isFrench = input.includes(' ') || input.lastIndexOf(',') >= input.length - 3;
+  const isEnglish = input.indexOf(',') < input.length - 2 || input.lastIndexOf('.') >= input.length - 3;
+
+  if (isFrench) {
+    const output = input.replaceAll(' ', '').replaceAll(',', '.');
+    return output;
   }
+  if (isEnglish) {
+    const output = input.replaceAll(',', '');
+    return output;
+  }
+
+  return input;
 }
 
 /**
