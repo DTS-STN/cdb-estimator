@@ -5,17 +5,17 @@
     "fields": {
       "claimed-income": {
         "error": {
-          "invalid": "Your UCCB and RDSP income is invalid"
+          "invalid": "Your <abbr>UCCB</abbr> and <abbr>RDSP</abbr> income is invalid"
         },
         "info-label": "Information",
-        "label": "Your UCCB and RDSP income"
+        "label": "Your <abbrUCCB>UCCB</abbrUCCB> and <abbrRDSP>RDSP</abbrRDSP> income"
       },
       "claimed-repayment": {
         "error": {
-          "invalid": "Your UCCB and RDSP repayment is invalid"
+          "invalid": "Your <abbr>UCCB</abbr> and <abbr>RDSP</abbr> repayment is invalid"
         },
         "info-label": "Information",
-        "label": "Your UCCB and RDSP repayment"
+        "label": "Your <abbrUCCB>UCCB</abbrUCCB> and <abbrRDSP>RDSP</abbrRDSP> repayment"
       },
       "net-income": {
         "error": {
@@ -28,17 +28,17 @@
       "partner": {
         "claimed-income": {
           "error": {
-            "invalid": "Your partner's UCCB and RDSP income is invalid"
+            "invalid": "Your partner's <abbr>UCCB</abbr> and <abbr>RDSP</abbr> income is invalid"
           },
           "info-label": "Information",
-          "label": "Your partner's UCCB and RDSP income"
+          "label": "Your partner's <abbrUCCB>UCCB</abbrUCCB> and <abbrRDSP>RDSP</abbrRDSP> income"
         },
         "claimed-repayment": {
           "error": {
-            "invalid": "Your partner's UCCB and RDSP repayment is invalid"
+            "invalid": "Your partner's <abbr>UCCB</abbr> and <abbr>RDSP</abbr> repayment is invalid"
           },
           "info-label": "Information",
-          "label": "Your partner's UCCB and RDSP repayment"
+          "label": "Your partner's <abbrUCCB>UCCB</abbrUCCB> and <abbrRDSP>RDSP</abbrRDSP> repayment"
         },
         "net-income": {
           "error": {
@@ -70,16 +70,17 @@
       "married": "To estimate your benefits, we will need the following information from your {{year}} tax return and your partner's {{year}} tax return.",
       "single": "To estimate your benefits, we will need the following information from your {{year}} tax return:"
     },
+
     "info": {
-      "CDB": "<dt>CDB:</dt><dd>Canada Disability Benefit</dd>",
+      "CDB": { "term": "CDB", "text": "Canada Disability Benefit" },
       "claimed-income": "Income claimed by you (line 11700 and line 12500 of your tax return). If field is left blank, we will assume it is zero.",
       "claimed-repayment": "Repayment claimed by you (line 21300 and line 23200 of your tax return). If field is left blank, we will assume it is zero.",
       "net-income": "Line 23600 on your tax return. If your net income is negative, enter '0'",
       "partner-claimed-income": "Income claimed by your spouse/partner (line 11700 and line 12500 of their tax return). If field is left blank, we will assume it is zero.",
       "partner-claimed-repayment": "Repayment claimed by your spouse/partner (line 21300 and line 23200 of their tax return). If field is left blank, we will assume it is zero.",
       "partner-net-income": "Line 23600 on your spouse/partners tax return. If your the net income is negative, enter '0'",
-      "RDSP": "<dt>RDSP:</dt><dd>Registered Disability Savings Plan</dd>",
-      "UCCB": "<dt>UCCB:</dt><dd>Universal Child Care Benefit</dd>",
+      "RDSP": { "term": "RDSP", "text": "Registered Disability Savings Plan" },
+      "UCCB": { "term": "UCCB", "text": "Universal Child Care Benefit" },
       "working-income": {
         "items": [
           "Employment income (line 10100)",
@@ -98,7 +99,6 @@
     "page-title": "Step 2 of 2: Income"
   },
   "index": {
-    "about": "The CDB Estimator is a tool to help users estimate their potential Canada Disability Benefit amount",
     "breadcrumb": "Estimator",
     "content": {
       "completion-time": "It will take about 5 to 10 minutes to complete.",
@@ -126,20 +126,22 @@
   "marital-status": {
     "additional-info": {
       "common-law": {
+        "text": "you are living in a conjugal relationship with someone to whom you are not married and to whom at least one of the following situations applies. They:",
         "item1": "have been living with you for at least 12 continuous months. This includes any period you were separated for less than 90 days because of a breakdown in your relationship",
         "item2": "are the parent of your child by birth or adoption",
         "item3": "have custody and control of your child (or had custody and control immediately before the child turned 19 years of age) and your child is wholly dependent on that person for support",
-        "text": "<strong>Common-law:</strong> you are living in a conjugal relationship with someone to whom you are not married and to whom at least one of the following situations applies. They:"
+        "term": "Common-law:"
       },
-      "divorced": "<strong>Divorced:</strong> you were married and are now legally divorced",
-      "married": "<strong>Married:</strong> you are legally married to someone.",
+      "divorced": { "term": "Divorced:", "text": "you were married and are now legally divorced" },
+      "married": { "term": "Married:", "text": "you are legally married to someone." },
       "separated": {
-        "p1": "<strong>Separated:</strong> you have been living apart from your spouse or common-law partner because of a breakdown in the relationship for a period of at least 90 days and you have not reconciled.",
-        "p2": "Once you have been separated for 90 days, the effective day of your separation is the date you started living apart. You would still be considered to have a spouse or common-law partner if there is no breakdown in the relationship and you were living apart for reasons such as work, studies, or health problems.",
-        "p3": "Note: Generally, you are not considered separated if your spouse or common-law partner is incarcerated or does not live in Canada, as long as there is no breakdown in your relationship"
+        "term": "Separated:",
+        "text": "you have been living apart from your spouse or common-law partner because of a breakdown in the relationship for a period of at least 90 days and you have not reconciled.",
+        "p1": "Once you have been separated for 90 days, the effective day of your separation is the date you started living apart. You would still be considered to have a spouse or common-law partner if there is no breakdown in the relationship and you were living apart for reasons such as work, studies, or health problems.",
+        "p2": "Note: Generally, you are not considered separated if your spouse or common-law partner is incarcerated or does not live in Canada, as long as there is no breakdown in your relationship"
       },
-      "single": "<strong>Single:</strong> you are single and another status does not apply",
-      "widowed": "<strong>Widowed:</strong> your spouse or common-law partner is deceased."
+      "single": { "term": "Single:", "text": "you are single and another status does not apply" },
+      "widowed": { "term": "Widowed:", "text": "your spouse or common-law partner is deceased." }
     },
     "breadcrumb": "Marital Status",
     "fields": {

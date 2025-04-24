@@ -104,41 +104,43 @@ export default function StepMaritalStatus({ actionData, loaderData, matches, par
                 <div className="my-4 space-y-4">
                   <Collapsible summary={<>{t('common:additional-information-label')}</>}>
                     <div className="space-y-4">
-                      <p>
-                        <Trans i18nKey={'estimator:marital-status.additional-info.single'} />
-                      </p>
-                      <p>
-                        <Trans i18nKey={'estimator:marital-status.additional-info.divorced'} />
-                      </p>
-                      <p>
-                        <Trans i18nKey={'estimator:marital-status.additional-info.separated.p1'} />
-                      </p>
-                      <p>
-                        <Trans i18nKey={'estimator:marital-status.additional-info.separated.p2'} />
-                      </p>
-                      <p>
-                        <Trans i18nKey={'estimator:marital-status.additional-info.separated.p3'} />
-                      </p>
-                      <p>
-                        <Trans i18nKey={'estimator:marital-status.additional-info.widowed'} />
-                      </p>
-                      <p>
-                        <Trans i18nKey={'estimator:marital-status.additional-info.married'} />
-                      </p>
-                      <p>
-                        <Trans i18nKey={'estimator:marital-status.additional-info.common-law.text'} />
-                      </p>
-                      <ul className="list-disc space-y-2 pl-5">
-                        <li>
-                          <Trans i18nKey={'estimator:marital-status.additional-info.common-law.item1'} />
-                        </li>
-                        <li>
-                          <Trans i18nKey={'estimator:marital-status.additional-info.common-law.item2'} />
-                        </li>
-                        <li>
-                          <Trans i18nKey={'estimator:marital-status.additional-info.common-law.item3'} />
-                        </li>
-                      </ul>
+                      <dl className="mt-2 space-y-2">
+                        <div>
+                          <dt className="inline font-bold">{t('estimator:marital-status.additional-info.single.term')}</dt>
+                          <dd className="ml-2 inline">{t('estimator:marital-status.additional-info.single.text')}</dd>
+                        </div>
+                        <div>
+                          <dt className="inline font-bold">{t('estimator:marital-status.additional-info.divorced.term')}</dt>
+                          <dd className="ml-2 inline">{t('estimator:marital-status.additional-info.divorced.text')}</dd>
+                        </div>
+                        <div>
+                          <dt className="inline font-bold">{t('estimator:marital-status.additional-info.separated.term')}</dt>
+                          <dd className="ml-2 inline [&>p]:mt-2">
+                            {t('estimator:marital-status.additional-info.separated.text')}
+                            <p>{t('estimator:marital-status.additional-info.separated.p1')}</p>
+                            <p>{t('estimator:marital-status.additional-info.separated.p2')}</p>
+                          </dd>
+                        </div>
+                        <div>
+                          <dt className="inline font-bold">{t('estimator:marital-status.additional-info.widowed.term')}</dt>
+                          <dd className="ml-2 inline">{t('estimator:marital-status.additional-info.widowed.text')}</dd>
+                        </div>
+                        <div>
+                          <dt className="inline font-bold">{t('estimator:marital-status.additional-info.married.term')}</dt>
+                          <dd className="ml-2 inline">{t('estimator:marital-status.additional-info.married.text')}</dd>
+                        </div>
+                        <div>
+                          <dt className="inline font-bold">{t('estimator:marital-status.additional-info.common-law.term')}</dt>
+                          <dd className="ml-2 inline">
+                            {t('estimator:marital-status.additional-info.common-law.text')}{' '}
+                            <ul className="mt-2 list-disc space-y-2 pl-5">
+                              <li>{t('estimator:marital-status.additional-info.common-law.item1')}</li>
+                              <li>{t('estimator:marital-status.additional-info.common-law.item2')}</li>
+                              <li>{t('estimator:marital-status.additional-info.common-law.item3')}</li>
+                            </ul>
+                          </dd>
+                        </div>
+                      </dl>
                     </div>
                   </Collapsible>
                 </div>

@@ -200,7 +200,11 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               defaultValue={
                 loaderData.formValues?.individualIncome.netIncome ?? previousFormValues.get('income:individual-net-income')
               }
-              errorMessage={errT(errors?.nested?.['individualIncome.netIncome']?.at(0))}
+              errorMessage={
+                errors?.nested?.['individualIncome.netIncome']?.at(0) ? (
+                  <Trans>{errT(errors.nested['individualIncome.netIncome'].at(0))}</Trans>
+                ) : undefined
+              }
               autoComplete="off"
             />
             {isMarried && (
@@ -224,7 +228,11 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   (loaderData.formValues?.kind === 'married' ? loaderData.formValues.partnerIncome.netIncome : undefined) ??
                   previousFormValues.get('income:partner-net-income')
                 }
-                errorMessage={errT(`partner.${errors?.nested?.['partnerIncome.netIncome']?.at(0)}`)}
+                errorMessage={
+                  errors?.nested?.['partnerIncome.netIncome']?.at(0) ? (
+                    <Trans>{errT(`partner.${errors.nested['partnerIncome.netIncome'].at(0)}`)}</Trans>
+                  ) : undefined
+                }
                 autoComplete="off"
               />
             )}
@@ -258,7 +266,11 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                 loaderData.formValues?.individualIncome.workingIncome ??
                 previousFormValues.get('income:individual-working-income')
               }
-              errorMessage={errT(errors?.nested?.['individualIncome.workingIncome']?.at(0))}
+              errorMessage={
+                errors?.nested?.['individualIncome.workingIncome']?.at(0) ? (
+                  <Trans>{errT(errors.nested['individualIncome.workingIncome'].at(0))}</Trans>
+                ) : undefined
+              }
               autoComplete="off"
             />
             {isMarried && (
@@ -293,13 +305,25 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   (loaderData.formValues?.kind === 'married' ? loaderData.formValues.partnerIncome.workingIncome : undefined) ??
                   previousFormValues.get('income:partner-working-income')
                 }
-                errorMessage={errT(`partner.${errors?.nested?.['partnerIncome.workingIncome']?.at(0)}`)}
+                errorMessage={
+                  errors?.nested?.['partnerIncome.workingIncome']?.at(0) ? (
+                    <Trans>{errT(`partner.${errors.nested['partnerIncome.workingIncome'].at(0)}`)}</Trans>
+                  ) : undefined
+                }
                 autoComplete="off"
               />
             )}
             <CurrencyField
               name="individual-claimed-income"
-              label={t('estimator:income.fields.claimed-income.label')}
+              label={
+                <Trans
+                  i18nKey={'estimator:income.fields.claimed-income.label'}
+                  components={{
+                    abbrUCCB: <abbr title={t('estimator:income.info.UCCB.text')} />,
+                    abbrRDSP: <abbr title={t('estimator:income.info.RDSP.text')} />,
+                  }}
+                />
+              }
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
                 <div className="my-4 space-y-4">
@@ -318,12 +342,24 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                 loaderData.formValues?.individualIncome.claimedIncome ??
                 previousFormValues.get('income:individual-claimed-income')
               }
-              errorMessage={errT(errors?.nested?.['individualIncome.claimedIncome']?.at(0))}
+              errorMessage={
+                errors?.nested?.['individualIncome.claimedIncome']?.at(0) ? (
+                  <Trans>{errT(errors.nested['individualIncome.claimedIncome'].at(0))}</Trans>
+                ) : undefined
+              }
               autoComplete="off"
             />
             <CurrencyField
               name="individual-claimed-repayment"
-              label={t('estimator:income.fields.claimed-repayment.label')}
+              label={
+                <Trans
+                  i18nKey={'estimator:income.fields.claimed-repayment.label'}
+                  components={{
+                    abbrUCCB: <abbr title={t('estimator:income.info.UCCB.text')} />,
+                    abbrRDSP: <abbr title={t('estimator:income.info.RDSP.text')} />,
+                  }}
+                />
+              }
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
                 <div className="my-4 space-y-4">
@@ -341,13 +377,25 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                 loaderData.formValues?.individualIncome.claimedRepayment ??
                 previousFormValues.get('income:individual-claimed-repayment')
               }
-              errorMessage={errT(errors?.nested?.['individualIncome.claimedRepayment']?.at(0))}
+              errorMessage={
+                errors?.nested?.['individualIncome.claimedRepayment']?.at(0) ? (
+                  <Trans>{errT(errors.nested['individualIncome.claimedRepayment'].at(0))}</Trans>
+                ) : undefined
+              }
               autoComplete="off"
             />
             {isMarried && (
               <CurrencyField
                 name="partner-claimed-income"
-                label={t('estimator:income.fields.partner.claimed-income.label')}
+                label={
+                  <Trans
+                    i18nKey={'estimator:income.fields.partner.claimed-income.label'}
+                    components={{
+                      abbrUCCB: <abbr title={t('estimator:income.info.UCCB.text')} />,
+                      abbrRDSP: <abbr title={t('estimator:income.info.RDSP.text')} />,
+                    }}
+                  />
+                }
                 helpMessagePrimaryClassName="-max-w-prose text-black"
                 helpMessagePrimary={
                   <div className="my-4 space-y-4">
@@ -365,14 +413,26 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   (loaderData.formValues?.kind === 'married' ? loaderData.formValues.partnerIncome.claimedIncome : undefined) ??
                   previousFormValues.get('income:partner-claimed-income')
                 }
-                errorMessage={errT(`partner.${errors?.nested?.['partnerIncome.claimedIncome']?.at(0)}`)}
+                errorMessage={
+                  errors?.nested?.['partnerIncome.claimedIncome']?.at(0) ? (
+                    <Trans>{errT(`partner.${errors.nested['partnerIncome.claimedIncome'].at(0)}`)}</Trans>
+                  ) : undefined
+                }
                 autoComplete="off"
               />
             )}
             {isMarried && (
               <CurrencyField
                 name="partner-claimed-repayment"
-                label={t('estimator:income.fields.partner.claimed-repayment.label')}
+                label={
+                  <Trans
+                    i18nKey={'estimator:income.fields.partner.claimed-repayment.label'}
+                    components={{
+                      abbrUCCB: <abbr title={t('estimator:income.info.UCCB.text')} />,
+                      abbrRDSP: <abbr title={t('estimator:income.info.RDSP.text')} />,
+                    }}
+                  />
+                }
                 helpMessagePrimaryClassName="-max-w-prose text-black"
                 helpMessagePrimary={
                   <div className="my-4 space-y-4">
@@ -391,7 +451,11 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                     ? loaderData.formValues.partnerIncome.claimedRepayment
                     : undefined) ?? previousFormValues.get('income:partner-claimed-repayment')
                 }
-                errorMessage={errT(`partner.${errors?.nested?.['partnerIncome.claimedRepayment']?.at(0)}`)}
+                errorMessage={
+                  errors?.nested?.['partnerIncome.claimedRepayment']?.at(0) ? (
+                    <Trans>{errT(`partner.${errors.nested['partnerIncome.claimedRepayment'].at(0)}`)}</Trans>
+                  ) : undefined
+                }
                 autoComplete="off"
               />
             )}
@@ -426,13 +490,25 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
     return (
       <dl className="mt-2 space-y-2 [&>div>dd]:ml-2 [&>div>dd]:inline [&>div>dt]:inline [&>div>dt]:font-bold">
         <div>
-          <Trans i18nKey={'estimator:income.info.UCCB'} />
+          <dt>
+            <abbr>{t('estimator:income.info.UCCB.term')}</abbr>
+            {t('common:colon')}
+          </dt>
+          <dd>{t('estimator:income.info.UCCB.text')}</dd>
         </div>
         <div>
-          <Trans i18nKey={'estimator:income.info.RDSP'} />
+          <dt>
+            <abbr>{t('estimator:income.info.RDSP.term')}</abbr>
+            {t('common:colon')}
+          </dt>
+          <dd>{t('estimator:income.info.RDSP.text')}</dd>
         </div>
         <div>
-          <Trans i18nKey={'estimator:income.info.CDB'} />
+          <dt>
+            <abbr>{t('estimator:income.info.CDB.term')}</abbr>
+            {t('common:colon')}
+          </dt>
+          <dd>{t('estimator:income.info.CDB.text')}</dd>
         </div>
       </dl>
     );

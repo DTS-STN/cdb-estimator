@@ -5,17 +5,17 @@
     "fields": {
       "claimed-income": {
         "error": {
-          "invalid": "Votre revenu de PUGE et REEI est invalide"
+          "invalid": "Votre revenu de <abbr>PUGE</abbr> et <abbr>REEI</abbr> est invalide"
         },
         "info-label": "Information",
-        "label": "Votre revenu de PUGE et REEI"
+        "label": "Votre revenu de <abbrUCCB>PUGE</abbrUCCB> et <abbrRDSP>REEI</abbrRDSP>"
       },
       "claimed-repayment": {
         "error": {
-          "invalid": "Votre remboursement de PUGE et REEI est invalide"
+          "invalid": "Votre remboursement de <abbr>PUGE</abbr> et <abbr>REEI</abbr> est invalide"
         },
         "info-label": "Information",
-        "label": "Votre remboursement de PUGE et REEI"
+        "label": "Votre remboursement de <abbrUCCB>PUGE</abbrUCCB> et <abbrRDSP>REEI</abbrRDSP>"
       },
       "net-income": {
         "error": {
@@ -28,17 +28,17 @@
       "partner": {
         "claimed-income": {
           "error": {
-            "invalid": "Le revenu de PUGE et REEI de votre partenaire est invalide"
+            "invalid": "Le revenu de <abbr>PUGE</abbr> et <abbr>REEI</abbr> de votre partenaire est invalide"
           },
           "info-label": "Information",
-          "label": "Le revenu de PUGE et REEI de votre partenaire"
+          "label": "Le revenu de <abbrUCCB>PUGE</abbrUCCB> et <abbrRDSP>REEI</abbrRDSP> de votre partenaire"
         },
         "claimed-repayment": {
           "error": {
-            "invalid": "Le remboursement de PUGE et REEI de votre partenaire est invalid"
+            "invalid": "Le remboursement de <abbr>PUGE</abbr> et <abbr>REEI</abbr> de votre partenaire est invalid"
           },
           "info-label": "Information",
-          "label": "Le remboursement de PUGE et REEI de votre partenaire"
+          "label": "Le remboursement de <abbrUCCB>PUGE</abbrUCCB> et <abbrRDSP>REEI</abbrRDSP> de votre partenaire"
         },
         "net-income": {
           "error": {
@@ -70,16 +70,17 @@
       "married": "Pour estimer vos prestations, nous aurons besoin des renseignements suivants de votre déclaration de revenus de {{year}} et de la déclaration de revenus de {{year}} de votre partenaire.",
       "single": "Pour estimer vos prestations, nous aurons besoin des renseignements suivants de votre déclaration de revenus de {{year}}. "
     },
+
     "info": {
-      "CDB": "<dt>PCPH\u00A0:</dt><dd>Prestation canadienne des personnes handicapées</dd>",
+      "CDB": { "term": "PCPH", "text": "Prestation canadienne des personnes handicapées" },
       "claimed-income": "Revenu que vous avez demandé (ligne 11700 et ligne 12500 de votre déclaration de revenus). Si le champ est laisse vide, nous supposerons qu'il est égal à zéro.",
       "claimed-repayment": "Remboursement que vous avez demandé (ligne 21300 et ligne 23200 de votre déclaration de revenus). Si le champ est laisse vide, nous supposerons qu'il est égal à zéro.",
       "net-income": "Ligne 23600 de votre déclaration. Si votre revenu net est négatif, entrez '0'",
       "partner-claimed-income": "Revenu que votre conjoint a demandé (ligne 11700 et ligne 12500 de leur déclaration de revenus). Si le champ est laisse vide, nous supposerons qu'il est égal à zéro.",
       "partner-claimed-repayment": "Remboursement que votre conjoint a demandé (ligne 21300 et ligne 23200 de leur déclaration de revenus). Si le champ est laisse vide, nous supposerons qu'il est égal à zéro.",
       "partner-net-income": "Ligne 23600 de la déclaration de votre conjoint.",
-      "RDSP": "<dt>REEI\u00A0:</dt><dd>Revenus d'un régime enregistré d'épargne-invalidité</dd>",
-      "UCCB": "<dt>PUGE\u00A0:</dt><dd>Prestation universelle pour la garde d'enfants</dd>",
+      "RDSP": { "term": "REEI", "text": "Revenus d'un régime enregistré d'épargne-invalidité" },
+      "UCCB": { "term": "PUGE", "text": "Prestation universelle pour la garde d'enfants" },
       "working-income": {
         "items": [
           "Revenus d'emploi (linge 10100)",
@@ -98,7 +99,6 @@
     "page-title": "Étape 2 de 2\u00A0: Revenu"
   },
   "index": {
-    "about": "L'estimateur de la PCPH est un outil pour aider les utilisateurs à estimer le montant potentiel de leur Prestation canadienne pour les personnes handicapées",
     "breadcrumb": "Estimateur",
     "content": {
       "completion-time": "Il vous faudra environ 5 à 10 minutes pour obtenir une estimation.",
@@ -126,20 +126,25 @@
   "marital-status": {
     "additional-info": {
       "common-law": {
+        "term": "Conjoint de fait\u00a0:",
         "item1": "elle vit avec vous depuis au moins 12 mois sans interruption. Cela comprend les périodes de moins de 90 jours où vous avez vécu séparément en raison de la rupture de votre union;",
         "item2": "elle est le parent de votre enfant, par la naissance ou l'adoption;",
         "item3": "elle a la garde, la surveillance et la charge entière de votre enfant (ou elle en avait la garde et la surveillance juste avant que l'enfant atteigne l'âge de 19 ans).",
-        "text": "<strong>Conjoint de fait\u00a0:</strong> vous vivez en relation conjugale avec une personne avec qui vous n'êtes pas marié et à qui au moins l'une des situations suivantes s'applique\u00a0:"
+        "text": "vous vivez en relation conjugale avec une personne avec qui vous n'êtes pas marié et à qui au moins l'une des situations suivantes s'applique\u00a0:"
       },
-      "divorced": "<strong>Divorcé\u00a0:</strong> vous étiez marié et êtes maintenant divorcé légalement",
-      "married": "<strong>Marié\u00a0:</strong> vous êtes légalement marié à quelqu'un.",
+      "divorced": { "term": "Divorcé\u00a0:", "text": "vous étiez marié et êtes maintenant divorcé légalement" },
+      "married": { "term": "Marié\u00a0:", "text": "vous êtes légalement marié à quelqu'un." },
       "separated": {
-        "p1": "<strong>Séparé\u00a0:</strong> vous vivez séparément de votre époux ou conjoint de fait depuis 90 jours ou plus en raison de la rupture de votre union, et il n'y a pas de réconciliation.",
-        "p2": "Lorsque vous êtes séparé depuis 90 jours, la date d'entrée en vigueur de votre séparation est le jour où vous et votre époux ou conjoint de fait avez commencé à vivre séparément. Vous êtes toujours considéré comme ayant un époux ou un conjoint de fait s'il n'y a pas de rupture de votre union et que vous vivez séparément pour des raisons telles que le travail, les études ou des problèmes de santé.",
-        "p3": "Remarque\u00a0: Généralement, vous n'êtes pas considéré séparé si votre époux ou conjoint de fait est détenu dans une prison ou ne vit pas au Canada, tant qu'il n'y a pas de rupture de votre union."
+        "term": "Séparé\u00a0:",
+        "text": "vous vivez séparément de votre époux ou conjoint de fait depuis 90 jours ou plus en raison de la rupture de votre union, et il n'y a pas de réconciliation.",
+        "p1": "Lorsque vous êtes séparé depuis 90 jours, la date d'entrée en vigueur de votre séparation est le jour où vous et votre époux ou conjoint de fait avez commencé à vivre séparément. Vous êtes toujours considéré comme ayant un époux ou un conjoint de fait s'il n'y a pas de rupture de votre union et que vous vivez séparément pour des raisons telles que le travail, les études ou des problèmes de santé.",
+        "p2": "Remarque\u00a0: Généralement, vous n'êtes pas considéré séparé si votre époux ou conjoint de fait est détenu dans une prison ou ne vit pas au Canada, tant qu'il n'y a pas de rupture de votre union."
       },
-      "single": "<strong>Célibataire\u00a0:</strong> vous êtes célibataire et aucune des situations ci-dessus ne s'applique à vous",
-      "widowed": "<strong>Veuf\u00a0:</strong> votre époux ou conjoint de fait est décédé."
+      "single": {
+        "term": "Célibataire\u00a0:",
+        "text": "vous êtes célibataire et aucune des situations ci-dessus ne s'applique à vous"
+      },
+      "widowed": { "term": "Veuf\u00a0:", "text": "votre époux ou conjoint de fait est décédé." }
     },
     "breadcrumb": "État matrimonial",
     "fields": {
