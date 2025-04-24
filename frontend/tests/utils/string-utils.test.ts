@@ -17,18 +17,33 @@ describe('string-utils', () => {
     });
 
     it.each([
-      { input: '.00', output: '.00', lang: 'en' },
-      { input: '0.00', output: '0.00', lang: 'en' },
-      { input: '1,234.56', output: '1234.56', lang: 'en' },
-      { input: '123.56', output: '123.56', lang: 'en' },
-      { input: ',00', output: '.00', lang: 'fr' },
-      { input: '0,00', output: '0.00', lang: 'fr' },
-      { input: '1 234,56', output: '1234.56', lang: 'fr' },
-      { input: '123,56', output: '123.56', lang: 'fr' },
+      { input: '.00', output: '.00' },
+      { input: '0.00', output: '0.00' },
+      { input: '1,234.56', output: '1234.56' },
+      { input: '123.56', output: '123.56' },
+      { input: ',00', output: '.00' },
+      { input: '0,00', output: '0.00' },
+      { input: '1 234,56', output: '1234.56' },
+      { input: '123,56', output: '123.56' },
+      { input: '1 234', output: '1234' },
+      { input: '1,234', output: '1234' },
+      { input: '1,234,567', output: '1234567' },
+      { input: '1 234 567', output: '1234567' },
+      { input: '1', output: '1' },
+      { input: '12', output: '12' },
+      { input: '123', output: '123' },
+      { input: '1.1', output: '1.1' },
+      { input: '1,1', output: '1.1' },
+      { input: '1,12', output: '1.12' },
+      { input: '1.12', output: '1.12' },
+      { input: '123.12', output: '123.12' },
+      { input: '123,12', output: '123.12' },
+      { input: '1,234.12', output: '1234.12' },
+      { input: '1 234,12', output: '1234.12' },
     ])(
-      'removeNumericFormatting should remove formatting from a formatted decimal string representation',
-      ({ input, lang, output }) => {
-        const str = removeNumericFormatting(input, lang as Language);
+      'removeNumericFormatting should remove formatting from a formatted decimal string representation ($input)',
+      ({ input, output }) => {
+        const str = removeNumericFormatting(input);
         expect(str).toBe(output);
       },
     );

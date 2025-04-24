@@ -49,7 +49,6 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
 }
 
 export async function action({ context, request }: Route.ActionArgs) {
-  const { lang } = await getTranslation(request, handle.i18nNamespace);
   const formData = await request.formData();
   const action = formData.get('action');
   const isMarried = context.session.estimator?.maritalStatus === 'married-or-common-law';
@@ -59,7 +58,7 @@ export async function action({ context, request }: Route.ActionArgs) {
       throw i18nRedirect('routes/estimator/step-marital-status.tsx', request);
     }
     case 'next': {
-      const result = processIncome(formData, isMarried, lang);
+      const result = processIncome(formData, isMarried);
 
       if (result.errors) {
         return data({ errors: result.errors }, { status: 400 });
@@ -72,7 +71,7 @@ export async function action({ context, request }: Route.ActionArgs) {
   }
 }
 
-function processIncome(formData: FormData, isMarried: boolean, lang: Language) {
+function processIncome(formData: FormData, isMarried: boolean) {
   const positiveDecimal = new RegExp(/^\d*(\.\d\d?)?$/);
 
   const personIncomeSchema = v.pipe(
@@ -80,7 +79,7 @@ function processIncome(formData: FormData, isMarried: boolean, lang: Language) {
       netIncome: v.pipe(
         v.string('net-income.error.required'),
         v.nonEmpty('net-income.error.required'),
-        v.transform((input) => removeNumericFormatting(input, lang)),
+        v.transform((input) => removeNumericFormatting(input)),
         v.regex(positiveDecimal, 'net-income.error.invalid'),
         v.transform(Number),
         v.number('net-income.error.invalid'),
@@ -89,7 +88,7 @@ function processIncome(formData: FormData, isMarried: boolean, lang: Language) {
       workingIncome: v.pipe(
         v.string('working-income.error.required'),
         v.nonEmpty('working-income.error.required'),
-        v.transform((input) => removeNumericFormatting(input, lang)),
+        v.transform((input) => removeNumericFormatting(input)),
         v.regex(positiveDecimal, 'working-income.error.invalid'),
         v.transform(Number),
         v.number('working-income.error.invalid'),
@@ -97,7 +96,7 @@ function processIncome(formData: FormData, isMarried: boolean, lang: Language) {
       ),
       claimedIncome: v.pipe(
         v.optional(v.string(), '0'),
-        v.transform((input) => removeNumericFormatting(input, lang)),
+        v.transform((input) => removeNumericFormatting(input)),
         v.regex(positiveDecimal, 'claimed-income.error.invalid'),
         v.transform(Number),
         v.number('claimed-income.error.invalid'),
@@ -105,7 +104,7 @@ function processIncome(formData: FormData, isMarried: boolean, lang: Language) {
       ),
       claimedRepayment: v.pipe(
         v.optional(v.string(), '0'),
-        v.transform((input) => removeNumericFormatting(input, lang)),
+        v.transform((input) => removeNumericFormatting(input)),
         v.regex(positiveDecimal, 'claimed-repayment.error.invalid'),
         v.transform(Number),
         v.number('claimed-repayment.error.invalid'),
@@ -198,7 +197,8 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                 </div>
               }
               defaultValue={
-                loaderData.formValues?.individualIncome.netIncome ?? previousFormValues.get('income:individual-net-income')
+                loaderData.formValues?.individualIncome.netIncome ??
+                removeNumericFormatting(previousFormValues.get('income:individual-net-income'))
               }
               errorMessage={
                 errors?.nested?.['individualIncome.netIncome']?.at(0) ? (
@@ -226,7 +226,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                 }
                 defaultValue={
                   (loaderData.formValues?.kind === 'married' ? loaderData.formValues.partnerIncome.netIncome : undefined) ??
-                  previousFormValues.get('income:partner-net-income')
+                  removeNumericFormatting(previousFormValues.get('income:partner-net-income'))
                 }
                 errorMessage={
                   errors?.nested?.['partnerIncome.netIncome']?.at(0) ? (
@@ -264,7 +264,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               }
               defaultValue={
                 loaderData.formValues?.individualIncome.workingIncome ??
-                previousFormValues.get('income:individual-working-income')
+                removeNumericFormatting(previousFormValues.get('income:individual-working-income'))
               }
               errorMessage={
                 errors?.nested?.['individualIncome.workingIncome']?.at(0) ? (
@@ -303,7 +303,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                 }
                 defaultValue={
                   (loaderData.formValues?.kind === 'married' ? loaderData.formValues.partnerIncome.workingIncome : undefined) ??
-                  previousFormValues.get('income:partner-working-income')
+                  removeNumericFormatting(previousFormValues.get('income:partner-working-income'))
                 }
                 errorMessage={
                   errors?.nested?.['partnerIncome.workingIncome']?.at(0) ? (
@@ -340,7 +340,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               }
               defaultValue={
                 loaderData.formValues?.individualIncome.claimedIncome ??
-                previousFormValues.get('income:individual-claimed-income')
+                removeNumericFormatting(previousFormValues.get('income:individual-claimed-income'))
               }
               errorMessage={
                 errors?.nested?.['individualIncome.claimedIncome']?.at(0) ? (
@@ -375,7 +375,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               }
               defaultValue={
                 loaderData.formValues?.individualIncome.claimedRepayment ??
-                previousFormValues.get('income:individual-claimed-repayment')
+                removeNumericFormatting(previousFormValues.get('income:individual-claimed-repayment'))
               }
               errorMessage={
                 errors?.nested?.['individualIncome.claimedRepayment']?.at(0) ? (
@@ -411,7 +411,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                 }
                 defaultValue={
                   (loaderData.formValues?.kind === 'married' ? loaderData.formValues.partnerIncome.claimedIncome : undefined) ??
-                  previousFormValues.get('income:partner-claimed-income')
+                  removeNumericFormatting(previousFormValues.get('income:partner-claimed-income'))
                 }
                 errorMessage={
                   errors?.nested?.['partnerIncome.claimedIncome']?.at(0) ? (
@@ -449,7 +449,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                 defaultValue={
                   (loaderData.formValues?.kind === 'married'
                     ? loaderData.formValues.partnerIncome.claimedRepayment
-                    : undefined) ?? previousFormValues.get('income:partner-claimed-repayment')
+                    : undefined) ?? removeNumericFormatting(previousFormValues.get('income:partner-claimed-repayment'))
                 }
                 errorMessage={
                   errors?.nested?.['partnerIncome.claimedRepayment']?.at(0) ? (
