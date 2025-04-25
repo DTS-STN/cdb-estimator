@@ -131,8 +131,6 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
     loaderData.formattedResults.results.kind === 'married' &&
     loaderData.formattedResults.results.estimationSplitBenefit === loaderData.formattedResults.results.estimation;
 
-  console.log(estimationEqualsSplitBenefits);
-
   const cdbContactLink = (
     <InlineLink
       to={i18n.language === 'fr' ? (ESTIMATOR_CDB_CONTACT_URL_FR ?? '') : (ESTIMATOR_CDB_CONTACT_URL_EN ?? '')}
