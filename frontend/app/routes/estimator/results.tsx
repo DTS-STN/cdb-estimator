@@ -17,6 +17,7 @@ import type {
 } from './@types';
 import { validMaritalStatuses } from './types';
 
+import { createCounter } from '~/.server/utils/telemetry-utils';
 import { ButtonLink } from '~/components/button-link';
 import { ContextualAlert } from '~/components/contextual-alert';
 import { InlineLink } from '~/components/links';
@@ -104,6 +105,8 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
   }
 
   const meta = { title: t('common:meta.title.template', { title: t('estimator:results.page-title') }) };
+
+  createCounter('estimator.success.total').add(1);
 
   return {
     meta,
