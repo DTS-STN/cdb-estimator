@@ -13,7 +13,7 @@
       Use this estimator to find out how much money you could get from the
       Canada Disability Benefit. This is not an application for benefits.
     </p>
-    <h2 class="font-lato mb-4 text-lg font-bold">Before you begin</h2>
+    <h2 class="font-lato mb-4 text-2xl font-bold">Before you begin</h2>
     <p>
       To receive the Canada Disability Benefit, you must meet specific
       eligibility criteria.
@@ -53,7 +53,7 @@
     </div>
   </section>
   <section class="space-y-4">
-    <h2 class="font-lato text-lg font-bold">About the results</h2>
+    <h2 class="font-lato text-2xl font-bold">About the results</h2>
     <p>
       This estimator provides estimated benefit amounts for payments made
       between July 2025 and June 2026. Future benefit amounts may be higher. The
