@@ -180,6 +180,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                 ? t('estimator:income.form-instructions.married', { year: previousIncomeTaxReturnYear })
                 : t('estimator:income.form-instructions.single', { year: previousIncomeTaxReturnYear })}
             </h2>
+            <h3 className="font-lato mb-4 text-2xl font-bold">{t('estimator:income.heading.your-info')}</h3>
             <CurrencyField
               name="individual-net-income"
               label={t('estimator:income.fields.net-income.label')}
@@ -207,35 +208,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               }
               autoComplete="off"
             />
-            {isMarried && (
-              <CurrencyField
-                name="partner-net-income"
-                label={t('estimator:income.fields.partner.net-income.label')}
-                required
-                helpMessagePrimaryClassName="-max-w-prose text-black"
-                helpMessagePrimary={
-                  <div className="my-4 space-y-4">
-                    <Collapsible summary={<>{t('estimator:income.fields.partner.net-income.info-label')}</>}>
-                      <div className="space-y-4">
-                        <p>
-                          <Trans i18nKey={'estimator:income.info.partner-net-income'} />
-                        </p>
-                      </div>
-                    </Collapsible>
-                  </div>
-                }
-                defaultValue={
-                  (loaderData.formValues?.kind === 'married' ? loaderData.formValues.partnerIncome.netIncome : undefined) ??
-                  removeNumericFormatting(previousFormValues.get('income:partner-net-income'))
-                }
-                errorMessage={
-                  errors?.nested?.['partnerIncome.netIncome']?.at(0) ? (
-                    <Trans>{errT(`partner.${errors.nested['partnerIncome.netIncome'].at(0)}`)}</Trans>
-                  ) : undefined
-                }
-                autoComplete="off"
-              />
-            )}
+
             <CurrencyField
               name="individual-working-income"
               label={t('estimator:income.fields.working-income.label')}
@@ -273,46 +246,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               }
               autoComplete="off"
             />
-            {isMarried && (
-              <CurrencyField
-                name="partner-working-income"
-                label={t('estimator:income.fields.partner.working-income.label')}
-                required
-                helpMessagePrimaryClassName="-max-w-prose text-black"
-                helpMessagePrimary={
-                  <div className="my-4 space-y-4">
-                    <Collapsible summary={<>{t('estimator:income.fields.partner.working-income.info-label')}</>}>
-                      <div className="space-y-4">
-                        <p>
-                          <Trans i18nKey={'estimator:income.info.working-income.text1'} />
-                        </p>
-                        <ul className="list-disc space-y-2 pl-5">
-                          {(t('estimator:income.info.working-income.items', { returnObjects: true }) as string[]).map(
-                            (item, index) => (
-                              <li key={index}>{item}</li>
-                            ),
-                          )}
-                        </ul>
 
-                        <p>
-                          <Trans i18nKey={'estimator:income.info.working-income.text2'} />
-                        </p>
-                      </div>
-                    </Collapsible>
-                  </div>
-                }
-                defaultValue={
-                  (loaderData.formValues?.kind === 'married' ? loaderData.formValues.partnerIncome.workingIncome : undefined) ??
-                  removeNumericFormatting(previousFormValues.get('income:partner-working-income'))
-                }
-                errorMessage={
-                  errors?.nested?.['partnerIncome.workingIncome']?.at(0) ? (
-                    <Trans>{errT(`partner.${errors.nested['partnerIncome.workingIncome'].at(0)}`)}</Trans>
-                  ) : undefined
-                }
-                autoComplete="off"
-              />
-            )}
             <CurrencyField
               name="individual-claimed-income"
               label={
@@ -384,80 +318,152 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               }
               autoComplete="off"
             />
+
             {isMarried && (
-              <CurrencyField
-                name="partner-claimed-income"
-                label={
-                  <Trans
-                    i18nKey={'estimator:income.fields.partner.claimed-income.label'}
-                    components={{
-                      abbrUCCB: <abbr title={t('estimator:income.info.UCCB.text')} />,
-                      abbrRDSP: <abbr title={t('estimator:income.info.RDSP.text')} />,
-                    }}
-                  />
-                }
-                helpMessagePrimaryClassName="-max-w-prose text-black"
-                helpMessagePrimary={
-                  <div className="my-4 space-y-4">
-                    <Collapsible summary={<>{t('estimator:income.fields.partner.claimed-income.info-label')}</>}>
-                      <div className="space-y-4">
-                        <DefinitionList />
-                        <p>
-                          <Trans i18nKey={'estimator:income.info.partner-claimed-income'} />
-                        </p>
-                      </div>
-                    </Collapsible>
-                  </div>
-                }
-                defaultValue={
-                  (loaderData.formValues?.kind === 'married' ? loaderData.formValues.partnerIncome.claimedIncome : undefined) ??
-                  removeNumericFormatting(previousFormValues.get('income:partner-claimed-income'))
-                }
-                errorMessage={
-                  errors?.nested?.['partnerIncome.claimedIncome']?.at(0) ? (
-                    <Trans>{errT(`partner.${errors.nested['partnerIncome.claimedIncome'].at(0)}`)}</Trans>
-                  ) : undefined
-                }
-                autoComplete="off"
-              />
-            )}
-            {isMarried && (
-              <CurrencyField
-                name="partner-claimed-repayment"
-                label={
-                  <Trans
-                    i18nKey={'estimator:income.fields.partner.claimed-repayment.label'}
-                    components={{
-                      abbrUCCB: <abbr title={t('estimator:income.info.UCCB.text')} />,
-                      abbrRDSP: <abbr title={t('estimator:income.info.RDSP.text')} />,
-                    }}
-                  />
-                }
-                helpMessagePrimaryClassName="-max-w-prose text-black"
-                helpMessagePrimary={
-                  <div className="my-4 space-y-4">
-                    <Collapsible summary={<>{t('estimator:income.fields.partner.claimed-repayment.info-label')}</>}>
-                      <div className="space-y-4">
-                        <DefinitionList />
-                        <p>
-                          <Trans i18nKey={'estimator:income.info.partner-claimed-repayment'} />
-                        </p>
-                      </div>
-                    </Collapsible>
-                  </div>
-                }
-                defaultValue={
-                  (loaderData.formValues?.kind === 'married'
-                    ? loaderData.formValues.partnerIncome.claimedRepayment
-                    : undefined) ?? removeNumericFormatting(previousFormValues.get('income:partner-claimed-repayment'))
-                }
-                errorMessage={
-                  errors?.nested?.['partnerIncome.claimedRepayment']?.at(0) ? (
-                    <Trans>{errT(`partner.${errors.nested['partnerIncome.claimedRepayment'].at(0)}`)}</Trans>
-                  ) : undefined
-                }
-                autoComplete="off"
-              />
+              <>
+                <h3 className="font-lato mb-4 text-2xl font-bold">{t('estimator:income.heading.partner-info')}</h3>
+                <CurrencyField
+                  name="partner-net-income"
+                  label={t('estimator:income.fields.partner.net-income.label')}
+                  required
+                  helpMessagePrimaryClassName="-max-w-prose text-black"
+                  helpMessagePrimary={
+                    <div className="my-4 space-y-4">
+                      <Collapsible summary={<>{t('estimator:income.fields.partner.net-income.info-label')}</>}>
+                        <div className="space-y-4">
+                          <p>
+                            <Trans i18nKey={'estimator:income.info.partner-net-income'} />
+                          </p>
+                        </div>
+                      </Collapsible>
+                    </div>
+                  }
+                  defaultValue={
+                    (loaderData.formValues?.kind === 'married' ? loaderData.formValues.partnerIncome.netIncome : undefined) ??
+                    removeNumericFormatting(previousFormValues.get('income:partner-net-income'))
+                  }
+                  errorMessage={
+                    errors?.nested?.['partnerIncome.netIncome']?.at(0) ? (
+                      <Trans>{errT(`partner.${errors.nested['partnerIncome.netIncome'].at(0)}`)}</Trans>
+                    ) : undefined
+                  }
+                  autoComplete="off"
+                />
+
+                <CurrencyField
+                  name="partner-working-income"
+                  label={t('estimator:income.fields.partner.working-income.label')}
+                  required
+                  helpMessagePrimaryClassName="-max-w-prose text-black"
+                  helpMessagePrimary={
+                    <div className="my-4 space-y-4">
+                      <Collapsible summary={<>{t('estimator:income.fields.partner.working-income.info-label')}</>}>
+                        <div className="space-y-4">
+                          <p>
+                            <Trans i18nKey={'estimator:income.info.working-income.text1'} />
+                          </p>
+                          <ul className="list-disc space-y-2 pl-5">
+                            {(t('estimator:income.info.working-income.items', { returnObjects: true }) as string[]).map(
+                              (item, index) => (
+                                <li key={index}>{item}</li>
+                              ),
+                            )}
+                          </ul>
+
+                          <p>
+                            <Trans i18nKey={'estimator:income.info.working-income.text2'} />
+                          </p>
+                        </div>
+                      </Collapsible>
+                    </div>
+                  }
+                  defaultValue={
+                    (loaderData.formValues?.kind === 'married'
+                      ? loaderData.formValues.partnerIncome.workingIncome
+                      : undefined) ?? removeNumericFormatting(previousFormValues.get('income:partner-working-income'))
+                  }
+                  errorMessage={
+                    errors?.nested?.['partnerIncome.workingIncome']?.at(0) ? (
+                      <Trans>{errT(`partner.${errors.nested['partnerIncome.workingIncome'].at(0)}`)}</Trans>
+                    ) : undefined
+                  }
+                  autoComplete="off"
+                />
+
+                <CurrencyField
+                  name="partner-claimed-income"
+                  label={
+                    <Trans
+                      i18nKey={'estimator:income.fields.partner.claimed-income.label'}
+                      components={{
+                        abbrUCCB: <abbr title={t('estimator:income.info.UCCB.text')} />,
+                        abbrRDSP: <abbr title={t('estimator:income.info.RDSP.text')} />,
+                      }}
+                    />
+                  }
+                  helpMessagePrimaryClassName="-max-w-prose text-black"
+                  helpMessagePrimary={
+                    <div className="my-4 space-y-4">
+                      <Collapsible summary={<>{t('estimator:income.fields.partner.claimed-income.info-label')}</>}>
+                        <div className="space-y-4">
+                          <DefinitionList />
+                          <p>
+                            <Trans i18nKey={'estimator:income.info.partner-claimed-income'} />
+                          </p>
+                        </div>
+                      </Collapsible>
+                    </div>
+                  }
+                  defaultValue={
+                    (loaderData.formValues?.kind === 'married'
+                      ? loaderData.formValues.partnerIncome.claimedIncome
+                      : undefined) ?? removeNumericFormatting(previousFormValues.get('income:partner-claimed-income'))
+                  }
+                  errorMessage={
+                    errors?.nested?.['partnerIncome.claimedIncome']?.at(0) ? (
+                      <Trans>{errT(`partner.${errors.nested['partnerIncome.claimedIncome'].at(0)}`)}</Trans>
+                    ) : undefined
+                  }
+                  autoComplete="off"
+                />
+
+                <CurrencyField
+                  name="partner-claimed-repayment"
+                  label={
+                    <Trans
+                      i18nKey={'estimator:income.fields.partner.claimed-repayment.label'}
+                      components={{
+                        abbrUCCB: <abbr title={t('estimator:income.info.UCCB.text')} />,
+                        abbrRDSP: <abbr title={t('estimator:income.info.RDSP.text')} />,
+                      }}
+                    />
+                  }
+                  helpMessagePrimaryClassName="-max-w-prose text-black"
+                  helpMessagePrimary={
+                    <div className="my-4 space-y-4">
+                      <Collapsible summary={<>{t('estimator:income.fields.partner.claimed-repayment.info-label')}</>}>
+                        <div className="space-y-4">
+                          <DefinitionList />
+                          <p>
+                            <Trans i18nKey={'estimator:income.info.partner-claimed-repayment'} />
+                          </p>
+                        </div>
+                      </Collapsible>
+                    </div>
+                  }
+                  defaultValue={
+                    (loaderData.formValues?.kind === 'married'
+                      ? loaderData.formValues.partnerIncome.claimedRepayment
+                      : undefined) ?? removeNumericFormatting(previousFormValues.get('income:partner-claimed-repayment'))
+                  }
+                  errorMessage={
+                    errors?.nested?.['partnerIncome.claimedRepayment']?.at(0) ? (
+                      <Trans>{errT(`partner.${errors.nested['partnerIncome.claimedRepayment'].at(0)}`)}</Trans>
+                    ) : undefined
+                  }
+                  autoComplete="off"
+                />
+              </>
             )}
           </div>
           <div className="mt-8 flex flex-row-reverse flex-wrap items-center justify-end gap-3">
