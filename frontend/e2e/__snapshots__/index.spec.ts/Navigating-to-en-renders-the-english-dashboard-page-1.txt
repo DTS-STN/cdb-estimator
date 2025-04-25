@@ -11,7 +11,7 @@
   <section class="space-y-6">
     <p>
       Use this estimator to find out how much money you could get from the
-      Canada Disability Benefit. This is not an application for benefits.
+      Canada Disability Benefit. This is not the application for the benefit.
     </p>
     <h2 class="font-lato mb-4 text-2xl font-bold">Before you begin</h2>
     <p>
@@ -56,8 +56,7 @@
     <h2 class="font-lato text-2xl font-bold">About the results</h2>
     <p>
       This estimator provides estimated benefit amounts for payments made
-      between July 2025 and June 2026. Future benefit amounts may be higher. The
-      results are not financial advice and are subject to change.
+      between July 2025 and June 2026. Future benefit amounts may change.
     </p>
   </section>
 </div>
