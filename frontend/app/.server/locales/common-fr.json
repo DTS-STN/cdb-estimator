@@ -143,7 +143,8 @@
     "language-selection": "Sélection de la langue"
   },
   "input-label": {
-    "required": "obligatoire"
+    "required": "obligatoire",
+    "optional": "facultatif"
   },
   "input-legend": {
     "required": "obligatoire"

@@ -19,13 +19,16 @@
       method="post"
     >
       <div class="space-y-6">
+        <p>
+          Tous les champs sont obligatoires, sauf s'ils sont indiqués comme
+          facultatifs.
+        </p>
         <fieldset
           id="input-radios-marital-status"
           data-testid="input-radios-marital-status"
         >
           <legend class="block mb-2" id="input-radios-marital-status-legend">
             <span class="font-semibold">Quel est votre état matrimonial?</span>
-            <span aria-hidden="true">(<!-- -->obligatoire<!-- -->)</span>
           </legend>
           <div
             class="mb-2 -max-w-prose text-black"
@@ -33,17 +36,17 @@
             id="input-radios-marital-status-help-primary"
           >
             <div class="my-4 space-y-4">
-              <details id="«Rdmlj5»">
+              <details id="«R1pmlj5»">
                 <summary
                   class="cursor-pointer marker:text-blue-900"
-                  id="«Rdmlj5»-summary"
+                  id="«R1pmlj5»-summary"
                 >
                   <span class="ml-4 inline-block text-blue-900 hover:underline"
-                    >Informations additionnelles</span
+                    >Définitions des états matrimoniaux</span
                   >
                 </summary>
                 <div
-                  id="«Rdmlj5»-content"
+                  id="«R1pmlj5»-content"
                   class="mt-2 border-l-[6px] border-gray-400 px-6 py-4"
                 >
                   <div class="space-y-4">
@@ -52,13 +55,14 @@
                         <dt class="inline font-bold">Célibataire&nbsp;:</dt>
                         <dd class="ml-2 inline">
                           vous êtes célibataire et aucune des situations
-                          ci-dessus ne s'applique à vous
+                          ci-dessus ne s'applique à vous.
                         </dd>
                       </div>
                       <div>
                         <dt class="inline font-bold">Divorcé&nbsp;:</dt>
                         <dd class="ml-2 inline">
-                          vous étiez marié et êtes maintenant divorcé légalement
+                          vous étiez marié et êtes maintenant divorcé
+                          légalement.
                         </dd>
                       </div>
                       <div>
