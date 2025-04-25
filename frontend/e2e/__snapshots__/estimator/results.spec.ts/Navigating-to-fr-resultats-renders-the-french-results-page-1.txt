@@ -8,203 +8,148 @@
       tabindex="-1"
       class="font-lato text-3xl font-bold focus-visible:ring-3 after:mt-2 after:block after:h-1.5 after:w-18 after:bg-red-700"
     >
-      Étape 1 de 2&nbsp;: État matrimonial
+      Résultats
     </h1>
   </div>
-  <div>
-    <form
-      novalidate=""
-      data-discover="true"
-      action="/fr/etat-civil"
-      method="post"
-    >
-      <div class="space-y-6">
-        <fieldset
-          id="input-radios-marital-status"
-          data-testid="input-radios-marital-status"
-        >
-          <legend class="block mb-2" id="input-radios-marital-status-legend">
-            <span class="font-semibold">Quel est votre état matrimonial?</span>
-            <span aria-hidden="true">(<!-- -->obligatoire<!-- -->)</span>
-          </legend>
-          <div
-            class="mb-2 -max-w-prose text-black"
-            data-testid="input-field-help-primary-marital-status"
-            id="input-radios-marital-status-help-primary"
-          >
-            <div class="my-4 space-y-4">
-              <details id="«Rdmlj5»">
-                <summary
-                  class="cursor-pointer marker:text-blue-900"
-                  id="«Rdmlj5»-summary"
-                >
-                  <span class="ml-4 inline-block text-blue-900 hover:underline"
-                    >Informations additionnelles</span
-                  >
-                </summary>
-                <div
-                  id="«Rdmlj5»-content"
-                  class="mt-2 border-l-[6px] border-gray-400 px-6 py-4"
-                >
-                  <div class="space-y-4">
-                    <dl class="mt-2 space-y-2">
-                      <div>
-                        <dt class="inline font-bold">Célibataire&nbsp;:</dt>
-                        <dd class="ml-2 inline">
-                          vous êtes célibataire et aucune des situations
-                          ci-dessus ne s'applique à vous
-                        </dd>
-                      </div>
-                      <div>
-                        <dt class="inline font-bold">Divorcé&nbsp;:</dt>
-                        <dd class="ml-2 inline">
-                          vous étiez marié et êtes maintenant divorcé légalement
-                        </dd>
-                      </div>
-                      <div>
-                        <dt class="inline font-bold">Séparé&nbsp;:</dt>
-                        <dd class="ml-2 inline [&amp;>p]:mt-2">
-                          vous vivez séparément de votre époux ou conjoint de
-                          fait depuis 90 jours ou plus en raison de la rupture
-                          de votre union, et il n'y a pas de réconciliation.
-                          <p>
-                            Lorsque vous êtes séparé depuis 90 jours, la date
-                            d'entrée en vigueur de votre séparation est le jour
-                            où vous et votre époux ou conjoint de fait avez
-                            commencé à vivre séparément. Vous êtes toujours
-                            considéré comme ayant un époux ou un conjoint de
-                            fait s'il n'y a pas de rupture de votre union et que
-                            vous vivez séparément pour des raisons telles que le
-                            travail, les études ou des problèmes de santé.
-                          </p>
-                          <p>
-                            Remarque&nbsp;: Généralement, vous n'êtes pas
-                            considéré séparé si votre époux ou conjoint de fait
-                            est détenu dans une prison ou ne vit pas au Canada,
-                            tant qu'il n'y a pas de rupture de votre union.
-                          </p>
-                        </dd>
-                      </div>
-                      <div>
-                        <dt class="inline font-bold">Veuf&nbsp;:</dt>
-                        <dd class="ml-2 inline">
-                          votre époux ou conjoint de fait est décédé.
-                        </dd>
-                      </div>
-                      <div>
-                        <dt class="inline font-bold">Marié&nbsp;:</dt>
-                        <dd class="ml-2 inline">
-                          vous êtes légalement marié à quelqu'un.
-                        </dd>
-                      </div>
-                      <div>
-                        <dt class="inline font-bold">
-                          Conjoint de fait&nbsp;:
-                        </dt>
-                        <dd class="ml-2 inline">
-                          vous vivez en relation conjugale avec une personne
-                          avec qui vous n'êtes pas marié et à qui au moins l'une
-                          des situations suivantes s'applique&nbsp;:<!-- -->
-                          <ul class="mt-2 list-disc space-y-2 pl-5">
-                            <li>
-                              elle vit avec vous depuis au moins 12 mois sans
-                              interruption. Cela comprend les périodes de moins
-                              de 90 jours où vous avez vécu séparément en raison
-                              de la rupture de votre union;
-                            </li>
-                            <li>
-                              elle est le parent de votre enfant, par la
-                              naissance ou l'adoption;
-                            </li>
-                            <li>
-                              elle a la garde, la surveillance et la charge
-                              entière de votre enfant (ou elle en avait la garde
-                              et la surveillance juste avant que l'enfant
-                              atteigne l'âge de 19 ans).
-                            </li>
-                          </ul>
-                        </dd>
-                      </div>
-                    </dl>
-                  </div>
-                </div>
-              </details>
-            </div>
-          </div>
-          <ul class="space-y-2">
-            <li>
-              <div>
-                <div class="flex items-center">
-                  <input
-                    type="radio"
-                    id="input-radio-marital-status-option-0"
-                    aria-labelledby="input-radio-marital-status-option-0-label"
-                    class="size-5 border-gray-500 bg-gray-50 text-blue-600 focus:ring-2 focus:ring-blue-500 focus:outline-hidden"
-                    data-testid="input-radio"
-                    aria-describedby="input-radios-marital-status-help-primary"
-                    aria-invalid="false"
-                    aria-required="true"
-                    required=""
-                    name="maritalStatus"
-                    value="single-divorced-separated-or-widowed"
-                  /><label
-                    id="input-radio-marital-status-option-0-label"
-                    for="input-radio-marital-status-option-0"
-                    class="block pl-3 leading-6"
-                    >Célibataire, divorcé, séparé ou veuf</label
-                  >
-                </div>
-              </div>
-            </li>
-            <li>
-              <div>
-                <div class="flex items-center">
-                  <input
-                    type="radio"
-                    id="input-radio-marital-status-option-1"
-                    aria-labelledby="input-radio-marital-status-option-1-label"
-                    class="size-5 border-gray-500 bg-gray-50 text-blue-600 focus:ring-2 focus:ring-blue-500 focus:outline-hidden"
-                    data-testid="input-radio"
-                    aria-describedby="input-radios-marital-status-help-primary"
-                    aria-invalid="false"
-                    aria-required="true"
-                    required=""
-                    name="maritalStatus"
-                    value="married-or-common-law"
-                  /><label
-                    id="input-radio-marital-status-option-1-label"
-                    for="input-radio-marital-status-option-1"
-                    class="block pl-3 leading-6"
-                    >Marié ou conjoint de fait</label
-                  >
-                </div>
-              </div>
-            </li>
-          </ul>
-        </fieldset>
-      </div>
-      <div
-        class="mt-8 flex flex-row-reverse flex-wrap items-center justify-end gap-3"
+  <div class="relative pl-4 sm:pl-6 bg-white my-6">
+    <div class="absolute top-3 left-1.5 pt-1 sm:left-3.5 bg-white">
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        data-prefix="fas"
+        data-icon="circle-info"
+        class="svg-inline--fa fa-circle-info h-6 w-6 text-cyan-700"
+        role="img"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512"
+        data-testid="info"
       >
-        <button
-          class="font-lato inline-flex items-center justify-center rounded border align-middle outline-offset-4 px-5 py-3 text-base border-slate-700 bg-slate-700 text-white hover:bg-sky-800 focus:bg-sky-800 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-70"
-          data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:StepMaritalStatus:Next button"
-          value="next"
-          id="continue-button"
-          name="action"
-        >
-          Continuer</button
-        ><button
-          class="font-lato inline-flex items-center justify-center rounded border align-middle outline-offset-4 px-5 py-3 text-base border-gray-300 bg-gray-200 text-slate-700 hover:bg-neutral-300 focus:bg-neutral-300 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-70"
-          data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:StepMaritalStatus:Previous button"
-          value="back"
-          id="back-button"
-          name="action"
-        >
-          Retour
-        </button>
-      </div>
-    </form>
+        <path
+          fill="currentColor"
+          d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"
+        ></path>
+      </svg>
+    </div>
+    <div class="overflow-auto border-l-4 pt-4 pb-2.5 pl-6 border-l-cyan-700">
+      <p>
+        Cette estimation est basée sur l'information que vous avez fournie et
+        suppose que vous répondez aux critères d'admissibilité à la Prestation
+        canadienne pour les personnes handicapées.
+      </p>
+    </div>
+  </div>
+  <div class="flex flex-col space-y-12">
+    <div class="md:grid md:grid-cols-3 md:gap-12">
+      <section class="col-span-2 row-span-1 space-y-6">
+        <h2 class="font-lato mb-4 text-lg font-bold">Votre estimation</h2>
+        <p class="mb-4">Vous pourriez être admissible à recevoir&nbsp;:</p>
+        <ul class="list-disc space-y-1 pl-7">
+          <li>
+            Un montant mensuel de <strong>200,00&nbsp;$</strong> provenant de la
+            Prestation canadienne pour les personnes handicapées.
+          </li>
+        </ul>
+        <p>
+          <strong
+            >Veuillez noter que vous pourriez recevoir des paiements rétroactifs
+            pour les mois précédents auxquels vous étiez admissible, mais pas
+            pour les mois antérieurs à juin 2025.</strong
+          >
+        </p>
+        <h2 class="font-lato mb-4 text-lg font-bold">Étapes suivantes</h2>
+        <div class="my-6 space-y-6 rounded border border-[#6F6F6F] px-8 py-6">
+          <div>
+            <a
+              class="font-lato inline-flex items-center justify-center rounded-sm border align-middle no-underline outline-offset-4 px-6 py-3.5 text-base border-slate-700 bg-slate-700 text-white hover:bg-sky-800 focus:bg-sky-800"
+              data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:Results:Apply button"
+              href="https://www.canada.ca/fr/services/prestations/handicap/prestation-canadienne-personnes-situation-handicap.html"
+              target="_blank"
+              ><svg
+                aria-hidden="true"
+                focusable="false"
+                data-prefix="fas"
+                data-icon="arrow-up-right-from-square"
+                class="svg-inline--fa fa-arrow-up-right-from-square fa-fw me-1"
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+              >
+                <path
+                  fill="currentColor"
+                  d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"
+                ></path></svg
+              >Faire une demande des Prestations canadienne pour les personnes
+              handicapées</a
+            >
+          </div>
+          <div>
+            <a
+              class="font-lato inline-flex items-center justify-center rounded-sm border align-middle no-underline outline-offset-4 px-6 py-3.5 text-base border-gray-200 bg-white text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:bg-gray-100 focus:text-blue-700"
+              data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:Results:Learn more button"
+              href="https://www.canada.ca/fr/services/prestations/handicap/prestation-canadienne-personnes-situation-handicap.html"
+              target="_blank"
+              ><svg
+                aria-hidden="true"
+                focusable="false"
+                data-prefix="fas"
+                data-icon="arrow-up-right-from-square"
+                class="svg-inline--fa fa-arrow-up-right-from-square fa-fw me-1"
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+              >
+                <path
+                  fill="currentColor"
+                  d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"
+                ></path></svg
+              >Pour apprendre plus de la Prestation canadienne pour les
+              personnes handicapées</a
+            >
+          </div>
+        </div>
+      </section>
+      <section class="col-span-1 row-span-2 space-y-4">
+        <div class="my-8 rounded bg-stone-100 p-5 md:mt-0 md:max-w-[360px]">
+          <h3 class="font-lato text-xl font-bold">Vos renseignements</h3>
+          <dl>
+            <dt class="pt-4">État matrimonial</dt>
+            <dd class="pb-4 border-b border-stone-600">
+              <div class="flex justify-end">
+                <strong class="mr-auto"
+                  >Célibataire, divorcé, séparé ou veuf</strong
+                >
+                <div class="mt-auto ml-auto">
+                  <a
+                    class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+                    data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:Results:Edit marital status button"
+                    aria-label="Modifier votre état matrimonial"
+                    href="/fr/etat-civil"
+                    data-discover="true"
+                    >Modifier</a
+                  >
+                </div>
+              </div>
+            </dd>
+            <dt class="pt-4">Vos revenus totaux</dt>
+            <dd class="pb-4">
+              <div class="flex justify-end">
+                <strong class="mr-auto">124,00&nbsp;$</strong>
+                <div class="mt-auto ml-auto">
+                  <a
+                    class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+                    data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:Results:Edit income button"
+                    aria-label="Modifier les informations de revenu"
+                    href="/fr/revenus"
+                    data-discover="true"
+                    >Modifier</a
+                  >
+                </div>
+              </div>
+            </dd>
+          </dl>
+        </div>
+      </section>
+    </div>
   </div>
 </div>
 <section class="mt-16 mb-8">
@@ -212,7 +157,7 @@
   <dl id="wb-dtmd" class="space-y-1">
     <div class="flex gap-2">
       <dt>Identificateur d'écran&nbsp;:</dt>
-      <dd>EST-0001</dd>
+      <dd>EST-0003</dd>
     </div>
     <div class="flex gap-2">
       <dt>Date de modification&nbsp;:</dt>

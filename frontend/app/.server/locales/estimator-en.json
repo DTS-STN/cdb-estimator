@@ -70,7 +70,10 @@
       "married": "To estimate your benefits, we will need the following information from your {{year}} tax return and your partner's {{year}} tax return.",
       "single": "To estimate your benefits, we will need the following information from your {{year}} tax return:"
     },
-
+    "heading": {
+      "your-info": "Your information",
+      "partner-info": "Your partner's information"
+    },
     "info": {
       "CDB": { "term": "CDB", "text": "Canada Disability Benefit" },
       "claimed-income": "Income claimed by you (line 11700 and line 12500 of your tax return). If field is left blank, we will assume it is zero.",

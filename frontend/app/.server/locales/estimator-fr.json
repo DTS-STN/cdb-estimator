@@ -70,7 +70,10 @@
       "married": "Pour estimer vos prestations, nous aurons besoin des renseignements suivants de votre déclaration de revenus de {{year}} et de la déclaration de revenus de {{year}} de votre partenaire.",
       "single": "Pour estimer vos prestations, nous aurons besoin des renseignements suivants de votre déclaration de revenus de {{year}}. "
     },
-
+    "heading": {
+      "your-info": "Votre information",
+      "partner-info": "L'information de votre partenaire"
+    },
     "info": {
       "CDB": { "term": "PCPH", "text": "Prestation canadienne des personnes handicapées" },
       "claimed-income": "Revenu que vous avez demandé (ligne 11700 et ligne 12500 de votre déclaration de revenus). Si le champ est laisse vide, nous supposerons qu'il est égal à zéro.",

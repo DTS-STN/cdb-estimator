@@ -8,195 +8,308 @@
       tabindex="-1"
       class="font-lato text-3xl font-bold focus-visible:ring-3 after:mt-2 after:block after:h-1.5 after:w-18 after:bg-red-700"
     >
-      Étape 1 de 2&nbsp;: État matrimonial
+      Étape 2 de 2&nbsp;: Revenu
     </h1>
   </div>
   <div>
-    <form
-      novalidate=""
-      data-discover="true"
-      action="/fr/etat-civil"
-      method="post"
-    >
+    <form novalidate="" data-discover="true" action="/fr/revenus" method="post">
       <div class="space-y-6">
-        <fieldset
-          id="input-radios-marital-status"
-          data-testid="input-radios-marital-status"
-        >
-          <legend class="block mb-2" id="input-radios-marital-status-legend">
-            <span class="font-semibold">Quel est votre état matrimonial?</span>
-            <span aria-hidden="true">(<!-- -->obligatoire<!-- -->)</span>
-          </legend>
+        <h2>
+          Pour estimer vos prestations, nous aurons besoin des renseignements
+          suivants de votre déclaration de revenus de 2024.
+        </h2>
+        <h3 class="font-lato mb-4 text-2xl font-bold">Votre information</h3>
+        <div id="input-text-field-«Rdmlj5»" class="space-y-2">
+          <label class="block" id="input-text-field-«Rdmlj5»-label"
+            ><span class="font-semibold">Votre revenu net</span>
+            <span aria-hidden="true">(<!-- -->obligatoire<!-- -->)</span></label
+          >
           <div
-            class="mb-2 -max-w-prose text-black"
-            data-testid="input-field-help-primary-marital-status"
-            id="input-radios-marital-status-help-primary"
+            class="-max-w-prose text-black"
+            data-testid="input-help"
+            id="input-text-field-«Rdmlj5»-help-primary"
           >
             <div class="my-4 space-y-4">
-              <details id="«Rdmlj5»">
+              <details id="«R7dmlj5»">
                 <summary
                   class="cursor-pointer marker:text-blue-900"
-                  id="«Rdmlj5»-summary"
+                  id="«R7dmlj5»-summary"
                 >
                   <span class="ml-4 inline-block text-blue-900 hover:underline"
-                    >Informations additionnelles</span
+                    >Comment calculer votre revenu net ?</span
                   >
                 </summary>
                 <div
-                  id="«Rdmlj5»-content"
+                  id="«R7dmlj5»-content"
                   class="mt-2 border-l-[6px] border-gray-400 px-6 py-4"
                 >
                   <div class="space-y-4">
-                    <dl class="mt-2 space-y-2">
-                      <div>
-                        <dt class="inline font-bold">Célibataire&nbsp;:</dt>
-                        <dd class="ml-2 inline">
-                          vous êtes célibataire et aucune des situations
-                          ci-dessus ne s'applique à vous
-                        </dd>
-                      </div>
-                      <div>
-                        <dt class="inline font-bold">Divorcé&nbsp;:</dt>
-                        <dd class="ml-2 inline">
-                          vous étiez marié et êtes maintenant divorcé légalement
-                        </dd>
-                      </div>
-                      <div>
-                        <dt class="inline font-bold">Séparé&nbsp;:</dt>
-                        <dd class="ml-2 inline [&amp;>p]:mt-2">
-                          vous vivez séparément de votre époux ou conjoint de
-                          fait depuis 90 jours ou plus en raison de la rupture
-                          de votre union, et il n'y a pas de réconciliation.
-                          <p>
-                            Lorsque vous êtes séparé depuis 90 jours, la date
-                            d'entrée en vigueur de votre séparation est le jour
-                            où vous et votre époux ou conjoint de fait avez
-                            commencé à vivre séparément. Vous êtes toujours
-                            considéré comme ayant un époux ou un conjoint de
-                            fait s'il n'y a pas de rupture de votre union et que
-                            vous vivez séparément pour des raisons telles que le
-                            travail, les études ou des problèmes de santé.
-                          </p>
-                          <p>
-                            Remarque&nbsp;: Généralement, vous n'êtes pas
-                            considéré séparé si votre époux ou conjoint de fait
-                            est détenu dans une prison ou ne vit pas au Canada,
-                            tant qu'il n'y a pas de rupture de votre union.
-                          </p>
-                        </dd>
-                      </div>
-                      <div>
-                        <dt class="inline font-bold">Veuf&nbsp;:</dt>
-                        <dd class="ml-2 inline">
-                          votre époux ou conjoint de fait est décédé.
-                        </dd>
-                      </div>
-                      <div>
-                        <dt class="inline font-bold">Marié&nbsp;:</dt>
-                        <dd class="ml-2 inline">
-                          vous êtes légalement marié à quelqu'un.
-                        </dd>
-                      </div>
-                      <div>
-                        <dt class="inline font-bold">
-                          Conjoint de fait&nbsp;:
-                        </dt>
-                        <dd class="ml-2 inline">
-                          vous vivez en relation conjugale avec une personne
-                          avec qui vous n'êtes pas marié et à qui au moins l'une
-                          des situations suivantes s'applique&nbsp;:<!-- -->
-                          <ul class="mt-2 list-disc space-y-2 pl-5">
-                            <li>
-                              elle vit avec vous depuis au moins 12 mois sans
-                              interruption. Cela comprend les périodes de moins
-                              de 90 jours où vous avez vécu séparément en raison
-                              de la rupture de votre union;
-                            </li>
-                            <li>
-                              elle est le parent de votre enfant, par la
-                              naissance ou l'adoption;
-                            </li>
-                            <li>
-                              elle a la garde, la surveillance et la charge
-                              entière de votre enfant (ou elle en avait la garde
-                              et la surveillance juste avant que l'enfant
-                              atteigne l'âge de 19 ans).
-                            </li>
-                          </ul>
-                        </dd>
-                      </div>
-                    </dl>
+                    <p>
+                      Ligne 23600 de votre déclaration. Si votre revenu net est
+                      négatif, entrez '0'
+                    </p>
                   </div>
                 </div>
               </details>
             </div>
           </div>
-          <ul class="space-y-2">
-            <li>
-              <div>
-                <div class="flex items-center">
-                  <input
-                    type="radio"
-                    id="input-radio-marital-status-option-0"
-                    aria-labelledby="input-radio-marital-status-option-0-label"
-                    class="size-5 border-gray-500 bg-gray-50 text-blue-600 focus:ring-2 focus:ring-blue-500 focus:outline-hidden"
-                    data-testid="input-radio"
-                    aria-describedby="input-radios-marital-status-help-primary"
-                    aria-invalid="false"
-                    aria-required="true"
-                    required=""
-                    name="maritalStatus"
-                    value="single-divorced-separated-or-widowed"
-                  /><label
-                    id="input-radio-marital-status-option-0-label"
-                    for="input-radio-marital-status-option-0"
-                    class="block pl-3 leading-6"
-                    >Célibataire, divorcé, séparé ou veuf</label
+          <input
+            aria-describedby="input-text-field-«Rdmlj5»-help-primary"
+            aria-labelledby="input-text-field-«Rdmlj5»-label"
+            aria-required="true"
+            class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
+            id="input-text-field-«Rdmlj5»-input"
+            required=""
+            type="text"
+            maxlength="16"
+            autocomplete="off"
+            name="individual-net-income"
+            value=""
+            inputmode="numeric"
+          /><span class="ml-1">$</span>
+        </div>
+        <div id="input-text-field-«Rhmlj5»" class="space-y-2">
+          <label class="block" id="input-text-field-«Rhmlj5»-label"
+            ><span class="font-semibold">Votre revenu d'emploi</span>
+            <span aria-hidden="true">(<!-- -->obligatoire<!-- -->)</span></label
+          >
+          <div
+            class="-max-w-prose text-black"
+            data-testid="input-help"
+            id="input-text-field-«Rhmlj5»-help-primary"
+          >
+            <div class="my-4 space-y-4">
+              <details id="«R7hmlj5»">
+                <summary
+                  class="cursor-pointer marker:text-blue-900"
+                  id="«R7hmlj5»-summary"
+                >
+                  <span class="ml-4 inline-block text-blue-900 hover:underline"
+                    >Comment calculer votre revenu d'emploi ?</span
                   >
+                </summary>
+                <div
+                  id="«R7hmlj5»-content"
+                  class="mt-2 border-l-[6px] border-gray-400 px-6 py-4"
+                >
+                  <div class="space-y-4">
+                    <p>
+                      Pour déterminer votre revenu de travail, additionnez tous
+                      les types de revenus suivants&nbsp;:
+                    </p>
+                    <ul class="list-disc space-y-2 pl-5">
+                      <li>Revenus d'emploi (linge 10100)</li>
+                      <li>Autres revenus d'emploi (ligne 10400)</li>
+                      <li>
+                        Montant imposable des bourses d'études, de
+                        perfectionnement et d'entretien, et des subventions
+                        reçues par des artistes pour un projet (ligne 13010)
+                      </li>
+                      <li>
+                        Revenus d'entreprise (entrez 0 si le montant et négatif)
+                        (ligne 13500)
+                      </li>
+                      <li>
+                        Revenus de profession libérale (entrez 0 si le montant
+                        et négatif) (ligne 13700)
+                      </li>
+                      <li>
+                        Revenus de commissions (entrez 0 si le montant et
+                        négatif) (ligne 13900)
+                      </li>
+                      <li>
+                        Revenus d'agriculture (entrez 0 si le montant et
+                        négatif) (ligne 14100)
+                      </li>
+                      <li>
+                        Revenus de pêche (entrez 0 si le montant et négatif)
+                        (ligne 14300)
+                      </li>
+                    </ul>
+                    <p>Si votre revenu de travail est négatif, entrez '0'.</p>
+                  </div>
                 </div>
-              </div>
-            </li>
-            <li>
-              <div>
-                <div class="flex items-center">
-                  <input
-                    type="radio"
-                    id="input-radio-marital-status-option-1"
-                    aria-labelledby="input-radio-marital-status-option-1-label"
-                    class="size-5 border-gray-500 bg-gray-50 text-blue-600 focus:ring-2 focus:ring-blue-500 focus:outline-hidden"
-                    data-testid="input-radio"
-                    aria-describedby="input-radios-marital-status-help-primary"
-                    aria-invalid="false"
-                    aria-required="true"
-                    required=""
-                    name="maritalStatus"
-                    value="married-or-common-law"
-                  /><label
-                    id="input-radio-marital-status-option-1-label"
-                    for="input-radio-marital-status-option-1"
-                    class="block pl-3 leading-6"
-                    >Marié ou conjoint de fait</label
+              </details>
+            </div>
+          </div>
+          <input
+            aria-describedby="input-text-field-«Rhmlj5»-help-primary"
+            aria-labelledby="input-text-field-«Rhmlj5»-label"
+            aria-required="true"
+            class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
+            id="input-text-field-«Rhmlj5»-input"
+            required=""
+            type="text"
+            maxlength="16"
+            autocomplete="off"
+            name="individual-working-income"
+            value=""
+            inputmode="numeric"
+          /><span class="ml-1">$</span>
+        </div>
+        <div id="input-text-field-«Rlmlj5»" class="space-y-2">
+          <label class="block" id="input-text-field-«Rlmlj5»-label"
+            ><span class="font-semibold"
+              >Votre revenu de
+              <abbr title="Prestation universelle pour la garde d'enfants"
+                >PUGE</abbr
+              >
+              et
+              <abbr title="Revenus d'un régime enregistré d'épargne-invalidité"
+                >REEI</abbr
+              ></span
+            ></label
+          >
+          <div
+            class="-max-w-prose text-black"
+            data-testid="input-help"
+            id="input-text-field-«Rlmlj5»-help-primary"
+          >
+            <div class="my-4 space-y-4">
+              <details id="«R7lmlj5»">
+                <summary
+                  class="cursor-pointer marker:text-blue-900"
+                  id="«R7lmlj5»-summary"
+                >
+                  <span class="ml-4 inline-block text-blue-900 hover:underline"
+                    >Information</span
                   >
+                </summary>
+                <div
+                  id="«R7lmlj5»-content"
+                  class="mt-2 border-l-[6px] border-gray-400 px-6 py-4"
+                >
+                  <div class="space-y-4">
+                    <dl
+                      class="mt-2 space-y-2 [&amp;>div>dd]:ml-2 [&amp;>div>dd]:inline [&amp;>div>dt]:inline [&amp;>div>dt]:font-bold"
+                    >
+                      <div>
+                        <dt><abbr>PUGE</abbr>&nbsp;:</dt>
+                        <dd>Prestation universelle pour la garde d'enfants</dd>
+                      </div>
+                      <div>
+                        <dt><abbr>REEI</abbr>&nbsp;:</dt>
+                        <dd>
+                          Revenus d'un régime enregistré d'épargne-invalidité
+                        </dd>
+                      </div>
+                      <div>
+                        <dt><abbr>PCPH</abbr>&nbsp;:</dt>
+                        <dd>Prestation canadienne des personnes handicapées</dd>
+                      </div>
+                    </dl>
+                    <p>
+                      Revenu que vous avez demandé (ligne 11700 et ligne 12500
+                      de votre déclaration de revenus). Si le champ est laisse
+                      vide, nous supposerons qu'il est égal à zéro.
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </li>
-          </ul>
-        </fieldset>
+              </details>
+            </div>
+          </div>
+          <input
+            aria-describedby="input-text-field-«Rlmlj5»-help-primary"
+            aria-labelledby="input-text-field-«Rlmlj5»-label"
+            class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
+            id="input-text-field-«Rlmlj5»-input"
+            type="text"
+            maxlength="16"
+            autocomplete="off"
+            name="individual-claimed-income"
+            value=""
+            inputmode="numeric"
+          /><span class="ml-1">$</span>
+        </div>
+        <div id="input-text-field-«Rpmlj5»" class="space-y-2">
+          <label class="block" id="input-text-field-«Rpmlj5»-label"
+            ><span class="font-semibold"
+              >Votre remboursement de
+              <abbr title="Prestation universelle pour la garde d'enfants"
+                >PUGE</abbr
+              >
+              et
+              <abbr title="Revenus d'un régime enregistré d'épargne-invalidité"
+                >REEI</abbr
+              ></span
+            ></label
+          >
+          <div
+            class="-max-w-prose text-black"
+            data-testid="input-help"
+            id="input-text-field-«Rpmlj5»-help-primary"
+          >
+            <div class="my-4 space-y-4">
+              <details id="«R7pmlj5»">
+                <summary
+                  class="cursor-pointer marker:text-blue-900"
+                  id="«R7pmlj5»-summary"
+                >
+                  <span class="ml-4 inline-block text-blue-900 hover:underline"
+                    >Information</span
+                  >
+                </summary>
+                <div
+                  id="«R7pmlj5»-content"
+                  class="mt-2 border-l-[6px] border-gray-400 px-6 py-4"
+                >
+                  <div class="space-y-4">
+                    <dl
+                      class="mt-2 space-y-2 [&amp;>div>dd]:ml-2 [&amp;>div>dd]:inline [&amp;>div>dt]:inline [&amp;>div>dt]:font-bold"
+                    >
+                      <div>
+                        <dt><abbr>PUGE</abbr>&nbsp;:</dt>
+                        <dd>Prestation universelle pour la garde d'enfants</dd>
+                      </div>
+                      <div>
+                        <dt><abbr>REEI</abbr>&nbsp;:</dt>
+                        <dd>
+                          Revenus d'un régime enregistré d'épargne-invalidité
+                        </dd>
+                      </div>
+                      <div>
+                        <dt><abbr>PCPH</abbr>&nbsp;:</dt>
+                        <dd>Prestation canadienne des personnes handicapées</dd>
+                      </div>
+                    </dl>
+                    <p>
+                      Remboursement que vous avez demandé (ligne 21300 et ligne
+                      23200 de votre déclaration de revenus). Si le champ est
+                      laisse vide, nous supposerons qu'il est égal à zéro.
+                    </p>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </div>
+          <input
+            aria-describedby="input-text-field-«Rpmlj5»-help-primary"
+            aria-labelledby="input-text-field-«Rpmlj5»-label"
+            class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
+            id="input-text-field-«Rpmlj5»-input"
+            type="text"
+            maxlength="16"
+            autocomplete="off"
+            name="individual-claimed-repayment"
+            value=""
+            inputmode="numeric"
+          /><span class="ml-1">$</span>
+        </div>
       </div>
       <div
         class="mt-8 flex flex-row-reverse flex-wrap items-center justify-end gap-3"
       >
         <button
           class="font-lato inline-flex items-center justify-center rounded border align-middle outline-offset-4 px-5 py-3 text-base border-slate-700 bg-slate-700 text-white hover:bg-sky-800 focus:bg-sky-800 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-70"
-          data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:StepMaritalStatus:Next button"
+          data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:StepIncome:Next button"
           value="next"
           id="continue-button"
           name="action"
         >
-          Continuer</button
+          Estimer mes prestations</button
         ><button
           class="font-lato inline-flex items-center justify-center rounded border align-middle outline-offset-4 px-5 py-3 text-base border-gray-300 bg-gray-200 text-slate-700 hover:bg-neutral-300 focus:bg-neutral-300 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-70"
-          data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:StepMaritalStatus:Previous button"
+          data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:StepIncome:Previous button"
           value="back"
           id="back-button"
           name="action"
@@ -212,7 +325,7 @@
   <dl id="wb-dtmd" class="space-y-1">
     <div class="flex gap-2">
       <dt>Identificateur d'écran&nbsp;:</dt>
-      <dd>EST-0001</dd>
+      <dd>EST-0002</dd>
     </div>
     <div class="flex gap-2">
       <dt>Date de modification&nbsp;:</dt>
