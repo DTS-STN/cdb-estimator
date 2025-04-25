@@ -30,6 +30,7 @@ export function CurrencyField({ allowNegative = false, maxLength, ...rest }: Cur
       beforeInput={i18n.language === 'en' ? <span className="mr-1">$</span> : undefined}
       afterInput={i18n.language === 'fr' ? <span className="ml-1">$</span> : undefined}
       className={cn('inline', rest.className)}
+      inputMode="numeric"
       {...rest}
     />
   );

@@ -8,14 +8,14 @@
           "invalid": "Your <abbr>UCCB</abbr> and <abbr>RDSP</abbr> income is invalid"
         },
         "info-label": "Information",
-        "label": "Your <abbrUCCB>UCCB</abbrUCCB> and <abbrRDSP>RDSP</abbrRDSP> income"
+        "label": "Your Universal Child Care Benefit (<abbr>UCCB</abbr>) and Registered Disability Savings Plan (<abbr>RDSP</abbr>) income"
       },
       "claimed-repayment": {
         "error": {
           "invalid": "Your <abbr>UCCB</abbr> and <abbr>RDSP</abbr> repayment is invalid"
         },
         "info-label": "Information",
-        "label": "Your <abbrUCCB>UCCB</abbrUCCB> and <abbrRDSP>RDSP</abbrRDSP> repayment"
+        "label": "Your Universal Child Care Benefit (<abbr>UCCB</abbr>) and Registered Disability Savings Plan (<abbr>RDSP</abbr>) repayment"
       },
       "net-income": {
         "error": {
@@ -31,14 +31,14 @@
             "invalid": "Your partner's <abbr>UCCB</abbr> and <abbr>RDSP</abbr> income is invalid"
           },
           "info-label": "Information",
-          "label": "Your partner's <abbrUCCB>UCCB</abbrUCCB> and <abbrRDSP>RDSP</abbrRDSP> income"
+          "label": "Your partner's Universal Child Care Benefit (<abbr>UCCB</abbr>) and Registered Disability Savings Plan (<abbr>RDSP</abbr>) income"
         },
         "claimed-repayment": {
           "error": {
             "invalid": "Your partner's <abbr>UCCB</abbr> and <abbr>RDSP</abbr> repayment is invalid"
           },
           "info-label": "Information",
-          "label": "Your partner's <abbrUCCB>UCCB</abbrUCCB> and <abbrRDSP>RDSP</abbrRDSP> repayment"
+          "label": "Your partner's Universal Child Care Benefit (<abbr>UCCB</abbr>) and Registered Disability Savings Plan (<abbr>RDSP</abbr>) repayment"
         },
         "net-income": {
           "error": {
@@ -67,23 +67,21 @@
       }
     },
     "form-instructions": {
-      "married": "To estimate your benefits, we will need the following information from your {{year}} tax return and your partner's {{year}} tax return.",
-      "single": "To estimate your benefits, we will need the following information from your {{year}} tax return:"
+      "married": "To estimate your benefits, we will need the following information from your and your partner's <strong>{{year}} tax returns</strong>.",
+      "single": "To estimate your benefits, we will need the following information from your <strong>{{year}} tax return</strong>",
+      "note": "If any total amounts are negative or zero, enter '0'."
     },
     "heading": {
       "your-info": "Your information",
       "partner-info": "Your partner's information"
     },
     "info": {
-      "CDB": { "term": "CDB", "text": "Canada Disability Benefit" },
-      "claimed-income": "Income claimed by you (line 11700 and line 12500 of your tax return). If field is left blank, we will assume it is zero.",
-      "claimed-repayment": "Repayment claimed by you (line 21300 and line 23200 of your tax return). If field is left blank, we will assume it is zero.",
-      "net-income": "Line 23600 on your tax return. If your net income is negative, enter '0'",
-      "partner-claimed-income": "Income claimed by your spouse/partner (line 11700 and line 12500 of their tax return). If field is left blank, we will assume it is zero.",
-      "partner-claimed-repayment": "Repayment claimed by your spouse/partner (line 21300 and line 23200 of their tax return). If field is left blank, we will assume it is zero.",
-      "partner-net-income": "Line 23600 on your spouse/partners tax return. If your the net income is negative, enter '0'",
-      "RDSP": { "term": "RDSP", "text": "Registered Disability Savings Plan" },
-      "UCCB": { "term": "UCCB", "text": "Universal Child Care Benefit" },
+      "claimed-income": "Income claimed by you (line 11700 and line 12500 of your tax return).",
+      "claimed-repayment": "Repayment claimed by you (line 21300 and line 23200 of your tax return).",
+      "net-income": "Line 23600 on your tax return.",
+      "partner-claimed-income": "Income claimed by your partner (line 11700 and line 12500 of their tax return).",
+      "partner-claimed-repayment": "Repayment claimed by your partner (line 21300 and line 23200 of their tax return).",
+      "partner-net-income": "Line 23600 on your partner's tax return.",
       "working-income": {
         "items": [
           "Employment income (line 10100)",
@@ -95,8 +93,12 @@
           "Farming income (use 0 if the amount is negative) (line 14100)",
           "Fishing income (use 0 if the amount is negative) (line 14300)"
         ],
-        "text1": "To determine your working income, add up all the following types of income:",
-        "text2": "If your working income is negative, enter '0'."
+        "text1": "To calculate your working income, add up all the following lines from your {{year}} tax return:",
+        "description": "This is income you made from your employment or self-employment."
+      },
+      "partner-working-income": {
+        "text1": "To calculate your partner's working income, add up all the following lines from their {{year}} tax return:",
+        "description": "This is income your partner made from their employment or self-employment."
       }
     },
     "page-title": "Step 2 of 2: Income"

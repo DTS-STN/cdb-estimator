@@ -14,86 +14,69 @@
   <div>
     <form novalidate="" data-discover="true" action="/fr/revenus" method="post">
       <div class="space-y-6">
-        <h2>
+        <p>
           Pour estimer vos prestations, nous aurons besoin des renseignements
-          suivants de votre déclaration de revenus de 2024.
-        </h2>
-        <h3 class="font-lato mb-4 text-2xl font-bold">Votre information</h3>
-        <div id="input-text-field-«Rdmlj5»" class="space-y-2">
-          <label class="block" id="input-text-field-«Rdmlj5»-label"
-            ><span class="font-semibold">Votre revenu net</span></label
-          >
-          <div
-            class="-max-w-prose text-black"
-            data-testid="input-help"
-            id="input-text-field-«Rdmlj5»-help-primary"
-          >
-            <div class="my-4 space-y-4">
-              <details id="«R7dmlj5»">
-                <summary
-                  class="cursor-pointer marker:text-blue-900"
-                  id="«R7dmlj5»-summary"
-                >
-                  <span class="ml-4 inline-block text-blue-900 hover:underline"
-                    >Comment calculer votre revenu net ?</span
-                  >
-                </summary>
-                <div
-                  id="«R7dmlj5»-content"
-                  class="mt-2 border-l-[6px] border-gray-400 px-6 py-4"
-                >
-                  <div class="space-y-4">
-                    <p>
-                      Ligne 23600 de votre déclaration. Si votre revenu net est
-                      négatif, entrez '0'
-                    </p>
-                  </div>
-                </div>
-              </details>
-            </div>
-          </div>
-          <input
-            aria-describedby="input-text-field-«Rdmlj5»-help-primary"
-            aria-labelledby="input-text-field-«Rdmlj5»-label"
-            aria-required="true"
-            class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
-            id="input-text-field-«Rdmlj5»-input"
-            required=""
-            type="text"
-            maxlength="16"
-            autocomplete="off"
-            name="individual-net-income"
-            value=""
-            inputmode="numeric"
-          /><span class="ml-1">$</span>
-        </div>
+          figurant sur votre <strong>déclaration de revenus de 2024</strong>.
+        </p>
+        <p>Si un montant total est négatif ou égal à zéro, inscrivez '0'.</p>
+        <h2 class="font-lato mb-4 text-2xl font-bold">Votre information</h2>
         <div id="input-text-field-«Rhmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rhmlj5»-label"
-            ><span class="font-semibold">Votre revenu d'emploi</span></label
+            ><span class="font-semibold">Votre revenu net</span></label
           >
           <div
             class="-max-w-prose text-black"
             data-testid="input-help"
             id="input-text-field-«Rhmlj5»-help-primary"
           >
+            <p>Ligne 23600 de votre déclaration.</p>
+          </div>
+          <input
+            aria-describedby="input-text-field-«Rhmlj5»-help-primary"
+            aria-labelledby="input-text-field-«Rhmlj5»-label"
+            aria-required="true"
+            class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
+            id="input-text-field-«Rhmlj5»-input"
+            required=""
+            type="text"
+            inputmode="numeric"
+            maxlength="16"
+            autocomplete="off"
+            name="individual-net-income"
+            value=""
+          /><span class="ml-1">$</span>
+        </div>
+        <div id="input-text-field-«Rlmlj5»" class="space-y-2">
+          <label class="block" id="input-text-field-«Rlmlj5»-label"
+            ><span class="font-semibold">Votre revenu d'emploi</span></label
+          >
+          <div
+            class="-max-w-prose text-black"
+            data-testid="input-help"
+            id="input-text-field-«Rlmlj5»-help-primary"
+          >
+            <p>
+              Votre revenu provenant d'un emploi ou d'un travail indépendant
+            </p>
             <div class="my-4 space-y-4">
-              <details id="«R7hmlj5»">
+              <details id="«R2elmlj5»">
                 <summary
                   class="cursor-pointer marker:text-blue-900"
-                  id="«R7hmlj5»-summary"
+                  id="«R2elmlj5»-summary"
                 >
                   <span class="ml-4 inline-block text-blue-900 hover:underline"
                     >Comment calculer votre revenu d'emploi ?</span
                   >
                 </summary>
                 <div
-                  id="«R7hmlj5»-content"
+                  id="«R2elmlj5»-content"
                   class="mt-2 border-l-[6px] border-gray-400 px-6 py-4"
                 >
                   <div class="space-y-4">
                     <p>
-                      Pour déterminer votre revenu de travail, additionnez tous
-                      les types de revenus suivants&nbsp;:
+                      Pour calculer votre revenu de travail, additionnez toutes
+                      les lignes suivantes de votre déclaration de revenus de
+                      2024&nbsp;:
                     </p>
                     <ul class="list-disc space-y-2 pl-5">
                       <li>Revenus d'emploi (linge 10100)</li>
@@ -124,84 +107,6 @@
                         (ligne 14300)
                       </li>
                     </ul>
-                    <p>Si votre revenu de travail est négatif, entrez '0'.</p>
-                  </div>
-                </div>
-              </details>
-            </div>
-          </div>
-          <input
-            aria-describedby="input-text-field-«Rhmlj5»-help-primary"
-            aria-labelledby="input-text-field-«Rhmlj5»-label"
-            aria-required="true"
-            class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
-            id="input-text-field-«Rhmlj5»-input"
-            required=""
-            type="text"
-            maxlength="16"
-            autocomplete="off"
-            name="individual-working-income"
-            value=""
-            inputmode="numeric"
-          /><span class="ml-1">$</span>
-        </div>
-        <div id="input-text-field-«Rlmlj5»" class="space-y-2">
-          <label class="block" id="input-text-field-«Rlmlj5»-label"
-            ><span class="font-semibold"
-              >Votre revenu de
-              <abbr title="Prestation universelle pour la garde d'enfants"
-                >PUGE</abbr
-              >
-              et
-              <abbr title="Revenus d'un régime enregistré d'épargne-invalidité"
-                >REEI</abbr
-              ></span
-            >
-            <span aria-hidden="true">(<!-- -->facultatif<!-- -->)</span></label
-          >
-          <div
-            class="-max-w-prose text-black"
-            data-testid="input-help"
-            id="input-text-field-«Rlmlj5»-help-primary"
-          >
-            <div class="my-4 space-y-4">
-              <details id="«R7lmlj5»">
-                <summary
-                  class="cursor-pointer marker:text-blue-900"
-                  id="«R7lmlj5»-summary"
-                >
-                  <span class="ml-4 inline-block text-blue-900 hover:underline"
-                    >Information</span
-                  >
-                </summary>
-                <div
-                  id="«R7lmlj5»-content"
-                  class="mt-2 border-l-[6px] border-gray-400 px-6 py-4"
-                >
-                  <div class="space-y-4">
-                    <dl
-                      class="mt-2 space-y-2 [&amp;>div>dd]:ml-2 [&amp;>div>dd]:inline [&amp;>div>dt]:inline [&amp;>div>dt]:font-bold"
-                    >
-                      <div>
-                        <dt><abbr>PUGE</abbr>&nbsp;:</dt>
-                        <dd>Prestation universelle pour la garde d'enfants</dd>
-                      </div>
-                      <div>
-                        <dt><abbr>REEI</abbr>&nbsp;:</dt>
-                        <dd>
-                          Revenus d'un régime enregistré d'épargne-invalidité
-                        </dd>
-                      </div>
-                      <div>
-                        <dt><abbr>PCPH</abbr>&nbsp;:</dt>
-                        <dd>Prestation canadienne des personnes handicapées</dd>
-                      </div>
-                    </dl>
-                    <p>
-                      Revenu que vous avez demandé (ligne 11700 et ligne 12500
-                      de votre déclaration de revenus). Si le champ est laisse
-                      vide, nous supposerons qu'il est égal à zéro.
-                    </p>
                   </div>
                 </div>
               </details>
@@ -210,27 +115,24 @@
           <input
             aria-describedby="input-text-field-«Rlmlj5»-help-primary"
             aria-labelledby="input-text-field-«Rlmlj5»-label"
+            aria-required="true"
             class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
             id="input-text-field-«Rlmlj5»-input"
+            required=""
             type="text"
+            inputmode="numeric"
             maxlength="16"
             autocomplete="off"
-            name="individual-claimed-income"
+            name="individual-working-income"
             value=""
-            inputmode="numeric"
           /><span class="ml-1">$</span>
         </div>
         <div id="input-text-field-«Rpmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rpmlj5»-label"
             ><span class="font-semibold"
-              >Votre remboursement de
-              <abbr title="Prestation universelle pour la garde d'enfants"
-                >PUGE</abbr
-              >
-              et
-              <abbr title="Revenus d'un régime enregistré d'épargne-invalidité"
-                >REEI</abbr
-              ></span
+              >Votre revenu de la Prestation universelle pour la garde d'enfants
+              (<abbr>PUGE</abbr>) et du Régime enregistré d'épargne-invalidité
+              (<abbr>REEI</abbr>)</span
             >
             <span aria-hidden="true">(<!-- -->facultatif<!-- -->)</span></label
           >
@@ -239,48 +141,10 @@
             data-testid="input-help"
             id="input-text-field-«Rpmlj5»-help-primary"
           >
-            <div class="my-4 space-y-4">
-              <details id="«R7pmlj5»">
-                <summary
-                  class="cursor-pointer marker:text-blue-900"
-                  id="«R7pmlj5»-summary"
-                >
-                  <span class="ml-4 inline-block text-blue-900 hover:underline"
-                    >Information</span
-                  >
-                </summary>
-                <div
-                  id="«R7pmlj5»-content"
-                  class="mt-2 border-l-[6px] border-gray-400 px-6 py-4"
-                >
-                  <div class="space-y-4">
-                    <dl
-                      class="mt-2 space-y-2 [&amp;>div>dd]:ml-2 [&amp;>div>dd]:inline [&amp;>div>dt]:inline [&amp;>div>dt]:font-bold"
-                    >
-                      <div>
-                        <dt><abbr>PUGE</abbr>&nbsp;:</dt>
-                        <dd>Prestation universelle pour la garde d'enfants</dd>
-                      </div>
-                      <div>
-                        <dt><abbr>REEI</abbr>&nbsp;:</dt>
-                        <dd>
-                          Revenus d'un régime enregistré d'épargne-invalidité
-                        </dd>
-                      </div>
-                      <div>
-                        <dt><abbr>PCPH</abbr>&nbsp;:</dt>
-                        <dd>Prestation canadienne des personnes handicapées</dd>
-                      </div>
-                    </dl>
-                    <p>
-                      Remboursement que vous avez demandé (ligne 21300 et ligne
-                      23200 de votre déclaration de revenus). Si le champ est
-                      laisse vide, nous supposerons qu'il est égal à zéro.
-                    </p>
-                  </div>
-                </div>
-              </details>
-            </div>
+            <p>
+              Revenu déclaré par vous (lignes 11700 et 12500 de votre
+              déclaration de revenus).
+            </p>
           </div>
           <input
             aria-describedby="input-text-field-«Rpmlj5»-help-primary"
@@ -288,11 +152,43 @@
             class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
             id="input-text-field-«Rpmlj5»-input"
             type="text"
+            inputmode="numeric"
+            maxlength="16"
+            autocomplete="off"
+            name="individual-claimed-income"
+            value=""
+          /><span class="ml-1">$</span>
+        </div>
+        <div id="input-text-field-«Rtmlj5»" class="space-y-2">
+          <label class="block" id="input-text-field-«Rtmlj5»-label"
+            ><span class="font-semibold"
+              >Votre remboursement de la Prestation universelle pour la garde
+              d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré
+              d'épargne-invalidité (<abbr>REEI</abbr>)</span
+            >
+            <span aria-hidden="true">(<!-- -->facultatif<!-- -->)</span></label
+          >
+          <div
+            class="-max-w-prose text-black"
+            data-testid="input-help"
+            id="input-text-field-«Rtmlj5»-help-primary"
+          >
+            <p>
+              Remboursement déclaré par vous (lignes 21300 et 23200 de votre
+              déclaration de revenus).
+            </p>
+          </div>
+          <input
+            aria-describedby="input-text-field-«Rtmlj5»-help-primary"
+            aria-labelledby="input-text-field-«Rtmlj5»-label"
+            class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
+            id="input-text-field-«Rtmlj5»-input"
+            type="text"
+            inputmode="numeric"
             maxlength="16"
             autocomplete="off"
             name="individual-claimed-repayment"
             value=""
-            inputmode="numeric"
           /><span class="ml-1">$</span>
         </div>
       </div>

@@ -175,27 +175,24 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
       <FetcherErrorSummary fetcherKey={fetcherKey}>
         <fetcher.Form method="post" noValidate>
           <div className="space-y-6">
-            <h2>
-              {isMarried
-                ? t('estimator:income.form-instructions.married', { year: previousIncomeTaxReturnYear })
-                : t('estimator:income.form-instructions.single', { year: previousIncomeTaxReturnYear })}
-            </h2>
-            <h3 className="font-lato mb-4 text-2xl font-bold">{t('estimator:income.heading.your-info')}</h3>
+            <p>
+              {isMarried ? (
+                <Trans i18nKey={'estimator:income.form-instructions.married'} values={{ year: previousIncomeTaxReturnYear }} />
+              ) : (
+                <Trans i18nKey={'estimator:income.form-instructions.single'} values={{ year: previousIncomeTaxReturnYear }} />
+              )}
+            </p>
+            <p>{t('estimator:income.form-instructions.note')}</p>
+            <h2 className="font-lato mb-4 text-2xl font-bold">{t('estimator:income.heading.your-info')}</h2>
             <CurrencyField
               name="individual-net-income"
               label={t('estimator:income.fields.net-income.label')}
               required
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
-                <div className="my-4 space-y-4">
-                  <Collapsible summary={<>{t('estimator:income.fields.net-income.info-label')}</>}>
-                    <div className="space-y-4">
-                      <p>
-                        <Trans i18nKey={'estimator:income.info.net-income'} />
-                      </p>
-                    </div>
-                  </Collapsible>
-                </div>
+                <p>
+                  <Trans i18nKey={'estimator:income.info.net-income'} />
+                </p>
               }
               defaultValue={
                 loaderData.formValues?.individualIncome.netIncome ??
@@ -215,25 +212,30 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               required
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
-                <div className="my-4 space-y-4">
-                  <Collapsible summary={<>{t('estimator:income.fields.working-income.info-label')}</>}>
-                    <div className="space-y-4">
-                      <p>
-                        <Trans i18nKey={'estimator:income.info.working-income.text1'} />
-                      </p>
-                      <ul className="list-disc space-y-2 pl-5">
-                        {(t('estimator:income.info.working-income.items', { returnObjects: true }) as string[]).map(
-                          (item, index) => (
-                            <li key={index}>{item}</li>
-                          ),
-                        )}
-                      </ul>
-                      <p>
-                        <Trans i18nKey={'estimator:income.info.working-income.text2'} />
-                      </p>
-                    </div>
-                  </Collapsible>
-                </div>
+                <>
+                  <p>
+                    <Trans i18nKey={'estimator:income.info.working-income.description'} />
+                  </p>
+                  <div className="my-4 space-y-4">
+                    <Collapsible summary={<>{t('estimator:income.fields.working-income.info-label')}</>}>
+                      <div className="space-y-4">
+                        <p>
+                          <Trans
+                            i18nKey={'estimator:income.info.working-income.text1'}
+                            values={{ year: previousIncomeTaxReturnYear }}
+                          />
+                        </p>
+                        <ul className="list-disc space-y-2 pl-5">
+                          {(t('estimator:income.info.working-income.items', { returnObjects: true }) as string[]).map(
+                            (item, index) => (
+                              <li key={index}>{item}</li>
+                            ),
+                          )}
+                        </ul>
+                      </div>
+                    </Collapsible>
+                  </div>
+                </>
               }
               defaultValue={
                 loaderData.formValues?.individualIncome.workingIncome ??
@@ -249,28 +251,12 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
 
             <CurrencyField
               name="individual-claimed-income"
-              label={
-                <Trans
-                  i18nKey={'estimator:income.fields.claimed-income.label'}
-                  components={{
-                    abbrUCCB: <abbr title={t('estimator:income.info.UCCB.text')} />,
-                    abbrRDSP: <abbr title={t('estimator:income.info.RDSP.text')} />,
-                  }}
-                />
-              }
+              label={<Trans i18nKey={'estimator:income.fields.claimed-income.label'} />}
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
-                <div className="my-4 space-y-4">
-                  <Collapsible summary={<>{t('estimator:income.fields.claimed-income.info-label')}</>}>
-                    <div className="space-y-4">
-                      <DefinitionList />
-
-                      <p>
-                        <Trans i18nKey={'estimator:income.info.claimed-income'} />
-                      </p>
-                    </div>
-                  </Collapsible>
-                </div>
+                <p>
+                  <Trans i18nKey={'estimator:income.info.claimed-income'} />
+                </p>
               }
               defaultValue={
                 loaderData.formValues?.individualIncome.claimedIncome ??
@@ -285,27 +271,12 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
             />
             <CurrencyField
               name="individual-claimed-repayment"
-              label={
-                <Trans
-                  i18nKey={'estimator:income.fields.claimed-repayment.label'}
-                  components={{
-                    abbrUCCB: <abbr title={t('estimator:income.info.UCCB.text')} />,
-                    abbrRDSP: <abbr title={t('estimator:income.info.RDSP.text')} />,
-                  }}
-                />
-              }
+              label={<Trans i18nKey={'estimator:income.fields.claimed-repayment.label'} />}
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
-                <div className="my-4 space-y-4">
-                  <Collapsible summary={<>{t('estimator:income.fields.claimed-repayment.info-label')}</>}>
-                    <div className="space-y-4">
-                      <DefinitionList />
-                      <p>
-                        <Trans i18nKey={'estimator:income.info.claimed-repayment'} />
-                      </p>
-                    </div>
-                  </Collapsible>
-                </div>
+                <p>
+                  <Trans i18nKey={'estimator:income.info.claimed-repayment'} />
+                </p>
               }
               defaultValue={
                 loaderData.formValues?.individualIncome.claimedRepayment ??
@@ -321,22 +292,16 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
 
             {isMarried && (
               <>
-                <h3 className="font-lato mb-4 text-2xl font-bold">{t('estimator:income.heading.partner-info')}</h3>
+                <h2 className="font-lato mb-4 text-2xl font-bold">{t('estimator:income.heading.partner-info')}</h2>
                 <CurrencyField
                   name="partner-net-income"
                   label={t('estimator:income.fields.partner.net-income.label')}
                   required
                   helpMessagePrimaryClassName="-max-w-prose text-black"
                   helpMessagePrimary={
-                    <div className="my-4 space-y-4">
-                      <Collapsible summary={<>{t('estimator:income.fields.partner.net-income.info-label')}</>}>
-                        <div className="space-y-4">
-                          <p>
-                            <Trans i18nKey={'estimator:income.info.partner-net-income'} />
-                          </p>
-                        </div>
-                      </Collapsible>
-                    </div>
+                    <p>
+                      <Trans i18nKey={'estimator:income.info.partner-net-income'} />
+                    </p>
                   }
                   defaultValue={
                     (loaderData.formValues?.kind === 'married' ? loaderData.formValues.partnerIncome.netIncome : undefined) ??
@@ -356,26 +321,30 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   required
                   helpMessagePrimaryClassName="-max-w-prose text-black"
                   helpMessagePrimary={
-                    <div className="my-4 space-y-4">
-                      <Collapsible summary={<>{t('estimator:income.fields.partner.working-income.info-label')}</>}>
-                        <div className="space-y-4">
-                          <p>
-                            <Trans i18nKey={'estimator:income.info.working-income.text1'} />
-                          </p>
-                          <ul className="list-disc space-y-2 pl-5">
-                            {(t('estimator:income.info.working-income.items', { returnObjects: true }) as string[]).map(
-                              (item, index) => (
-                                <li key={index}>{item}</li>
-                              ),
-                            )}
-                          </ul>
-
-                          <p>
-                            <Trans i18nKey={'estimator:income.info.working-income.text2'} />
-                          </p>
-                        </div>
-                      </Collapsible>
-                    </div>
+                    <>
+                      <p>
+                        <Trans i18nKey={'estimator:income.info.partner-working-income.description'} />
+                      </p>
+                      <div className="my-4 space-y-4">
+                        <Collapsible summary={<>{t('estimator:income.fields.partner.working-income.info-label')}</>}>
+                          <div className="space-y-4">
+                            <p>
+                              <Trans
+                                i18nKey={'estimator:income.info.partner-working-income.text1'}
+                                values={{ year: previousIncomeTaxReturnYear }}
+                              />
+                            </p>
+                            <ul className="list-disc space-y-2 pl-5">
+                              {(t('estimator:income.info.working-income.items', { returnObjects: true }) as string[]).map(
+                                (item, index) => (
+                                  <li key={index}>{item}</li>
+                                ),
+                              )}
+                            </ul>
+                          </div>
+                        </Collapsible>
+                      </div>
+                    </>
                   }
                   defaultValue={
                     (loaderData.formValues?.kind === 'married'
@@ -392,27 +361,12 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
 
                 <CurrencyField
                   name="partner-claimed-income"
-                  label={
-                    <Trans
-                      i18nKey={'estimator:income.fields.partner.claimed-income.label'}
-                      components={{
-                        abbrUCCB: <abbr title={t('estimator:income.info.UCCB.text')} />,
-                        abbrRDSP: <abbr title={t('estimator:income.info.RDSP.text')} />,
-                      }}
-                    />
-                  }
+                  label={<Trans i18nKey={'estimator:income.fields.partner.claimed-income.label'} />}
                   helpMessagePrimaryClassName="-max-w-prose text-black"
                   helpMessagePrimary={
-                    <div className="my-4 space-y-4">
-                      <Collapsible summary={<>{t('estimator:income.fields.partner.claimed-income.info-label')}</>}>
-                        <div className="space-y-4">
-                          <DefinitionList />
-                          <p>
-                            <Trans i18nKey={'estimator:income.info.partner-claimed-income'} />
-                          </p>
-                        </div>
-                      </Collapsible>
-                    </div>
+                    <p>
+                      <Trans i18nKey={'estimator:income.info.partner-claimed-income'} />
+                    </p>
                   }
                   defaultValue={
                     (loaderData.formValues?.kind === 'married'
@@ -429,27 +383,12 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
 
                 <CurrencyField
                   name="partner-claimed-repayment"
-                  label={
-                    <Trans
-                      i18nKey={'estimator:income.fields.partner.claimed-repayment.label'}
-                      components={{
-                        abbrUCCB: <abbr title={t('estimator:income.info.UCCB.text')} />,
-                        abbrRDSP: <abbr title={t('estimator:income.info.RDSP.text')} />,
-                      }}
-                    />
-                  }
+                  label={<Trans i18nKey={'estimator:income.fields.partner.claimed-repayment.label'} />}
                   helpMessagePrimaryClassName="-max-w-prose text-black"
                   helpMessagePrimary={
-                    <div className="my-4 space-y-4">
-                      <Collapsible summary={<>{t('estimator:income.fields.partner.claimed-repayment.info-label')}</>}>
-                        <div className="space-y-4">
-                          <DefinitionList />
-                          <p>
-                            <Trans i18nKey={'estimator:income.info.partner-claimed-repayment'} />
-                          </p>
-                        </div>
-                      </Collapsible>
-                    </div>
+                    <p>
+                      <Trans i18nKey={'estimator:income.info.partner-claimed-repayment'} />
+                    </p>
                   }
                   defaultValue={
                     (loaderData.formValues?.kind === 'married'
@@ -491,32 +430,4 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
       </FetcherErrorSummary>
     </div>
   );
-
-  function DefinitionList() {
-    return (
-      <dl className="mt-2 space-y-2 [&>div>dd]:ml-2 [&>div>dd]:inline [&>div>dt]:inline [&>div>dt]:font-bold">
-        <div>
-          <dt>
-            <abbr>{t('estimator:income.info.UCCB.term')}</abbr>
-            {t('common:colon')}
-          </dt>
-          <dd>{t('estimator:income.info.UCCB.text')}</dd>
-        </div>
-        <div>
-          <dt>
-            <abbr>{t('estimator:income.info.RDSP.term')}</abbr>
-            {t('common:colon')}
-          </dt>
-          <dd>{t('estimator:income.info.RDSP.text')}</dd>
-        </div>
-        <div>
-          <dt>
-            <abbr>{t('estimator:income.info.CDB.term')}</abbr>
-            {t('common:colon')}
-          </dt>
-          <dd>{t('estimator:income.info.CDB.text')}</dd>
-        </div>
-      </dl>
-    );
-  }
 }

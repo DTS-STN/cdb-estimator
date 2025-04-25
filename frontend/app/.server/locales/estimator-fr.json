@@ -8,14 +8,14 @@
           "invalid": "Votre revenu de <abbr>PUGE</abbr> et <abbr>REEI</abbr> est invalide"
         },
         "info-label": "Information",
-        "label": "Votre revenu de <abbrUCCB>PUGE</abbrUCCB> et <abbrRDSP>REEI</abbrRDSP>"
+        "label": "Votre revenu de la Prestation universelle pour la garde d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré d'épargne-invalidité (<abbr>REEI</abbr>)"
       },
       "claimed-repayment": {
         "error": {
           "invalid": "Votre remboursement de <abbr>PUGE</abbr> et <abbr>REEI</abbr> est invalide"
         },
         "info-label": "Information",
-        "label": "Votre remboursement de <abbrUCCB>PUGE</abbrUCCB> et <abbrRDSP>REEI</abbrRDSP>"
+        "label": "Votre remboursement de la Prestation universelle pour la garde d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré d'épargne-invalidité (<abbr>REEI</abbr>)"
       },
       "net-income": {
         "error": {
@@ -31,14 +31,14 @@
             "invalid": "Le revenu de <abbr>PUGE</abbr> et <abbr>REEI</abbr> de votre partenaire est invalide"
           },
           "info-label": "Information",
-          "label": "Le revenu de <abbrUCCB>PUGE</abbrUCCB> et <abbrRDSP>REEI</abbrRDSP> de votre partenaire"
+          "label": "Le revenu de votre partenaire provenant de la Prestation universelle pour la garde d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré d'épargne-invalidité (<abbr>REEI</abbr>)"
         },
         "claimed-repayment": {
           "error": {
             "invalid": "Le remboursement de <abbr>PUGE</abbr> et <abbr>REEI</abbr> de votre partenaire est invalid"
           },
           "info-label": "Information",
-          "label": "Le remboursement de <abbrUCCB>PUGE</abbrUCCB> et <abbrRDSP>REEI</abbrRDSP> de votre partenaire"
+          "label": "Le remboursement par votre partenaire de la Prestation universelle pour la garde d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré d'épargne-invalidité (<abbr>REEI</abbr>)"
         },
         "net-income": {
           "error": {
@@ -67,23 +67,21 @@
       }
     },
     "form-instructions": {
-      "married": "Pour estimer vos prestations, nous aurons besoin des renseignements suivants de votre déclaration de revenus de {{year}} et de la déclaration de revenus de {{year}} de votre partenaire.",
-      "single": "Pour estimer vos prestations, nous aurons besoin des renseignements suivants de votre déclaration de revenus de {{year}}. "
+      "married": "Pour estimer vos prestations, nous aurons besoin des renseignements figurant sur votre <strong>déclaration de revenus de {{year}}</strong> ainsi que sur celle de votre partenaire.",
+      "single": "Pour estimer vos prestations, nous aurons besoin des renseignements figurant sur votre <strong>déclaration de revenus de {{year}}</strong>.",
+      "note": "Si un montant total est négatif ou égal à zéro, inscrivez '0'."
     },
     "heading": {
       "your-info": "Votre information",
       "partner-info": "L'information de votre partenaire"
     },
     "info": {
-      "CDB": { "term": "PCPH", "text": "Prestation canadienne des personnes handicapées" },
-      "claimed-income": "Revenu que vous avez demandé (ligne 11700 et ligne 12500 de votre déclaration de revenus). Si le champ est laisse vide, nous supposerons qu'il est égal à zéro.",
-      "claimed-repayment": "Remboursement que vous avez demandé (ligne 21300 et ligne 23200 de votre déclaration de revenus). Si le champ est laisse vide, nous supposerons qu'il est égal à zéro.",
-      "net-income": "Ligne 23600 de votre déclaration. Si votre revenu net est négatif, entrez '0'",
-      "partner-claimed-income": "Revenu que votre conjoint a demandé (ligne 11700 et ligne 12500 de leur déclaration de revenus). Si le champ est laisse vide, nous supposerons qu'il est égal à zéro.",
-      "partner-claimed-repayment": "Remboursement que votre conjoint a demandé (ligne 21300 et ligne 23200 de leur déclaration de revenus). Si le champ est laisse vide, nous supposerons qu'il est égal à zéro.",
-      "partner-net-income": "Ligne 23600 de la déclaration de votre conjoint.",
-      "RDSP": { "term": "REEI", "text": "Revenus d'un régime enregistré d'épargne-invalidité" },
-      "UCCB": { "term": "PUGE", "text": "Prestation universelle pour la garde d'enfants" },
+      "claimed-income": "Revenu déclaré par vous (lignes 11700 et 12500 de votre déclaration de revenus).",
+      "claimed-repayment": "Remboursement déclaré par vous (lignes 21300 et 23200 de votre déclaration de revenus).",
+      "net-income": "Ligne 23600 de votre déclaration.",
+      "partner-claimed-income": "Revenu déclaré par votre conjoint (ligne 11700 et ligne 12500 de leur déclaration de revenus).",
+      "partner-claimed-repayment": "Remboursement déclaré par votre conjoint (ligne 21300 et ligne 23200 de leur déclaration de revenus).",
+      "partner-net-income": "Ligne 23600 de la déclaration de revenus de votre conjoint.",
       "working-income": {
         "items": [
           "Revenus d'emploi (linge 10100)",
@@ -95,8 +93,12 @@
           "Revenus d'agriculture (entrez 0 si le montant et négatif) (ligne 14100)",
           "Revenus de pêche (entrez 0 si le montant et négatif) (ligne 14300)"
         ],
-        "text1": "Pour déterminer votre revenu de travail, additionnez tous les types de revenus suivants\u00A0:",
-        "text2": "Si votre revenu de travail est négatif, entrez '0'."
+        "text1": "Pour calculer votre revenu de travail, additionnez toutes les lignes suivantes de votre déclaration de revenus de {{year}}\u00A0:",
+        "description": "Votre revenu provenant d'un emploi ou d'un travail indépendant"
+      },
+      "partner-working-income": {
+        "text1": "Pour calculer le revenu de travail de votre partenaire, additionnez toutes les lignes suivantes de la déclaration de revenus de cette personne pour l’année {{year}} :",
+        "description": "Le revenu de votre partenaire provenant d'un emploi ou d'un travail indépendant."
       }
     },
     "page-title": "Étape 2 de 2\u00A0: Revenu"
