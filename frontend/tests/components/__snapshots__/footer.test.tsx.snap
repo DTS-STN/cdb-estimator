@@ -3,7 +3,7 @@
 exports[`Footer > should render footer > expected html 1`] = `
 <div>
   <footer
-    class="bg-[#26374A]"
+    class="bg-slate-700"
     id="wb-info"
     tabindex="-1"
   >
