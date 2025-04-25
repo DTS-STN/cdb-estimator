@@ -14,11 +14,11 @@
   <div>
     <form novalidate="" data-discover="true" action="/fr/revenus" method="post">
       <div class="space-y-6">
-        <h2>
+        <p>
           Pour estimer vos prestations, nous aurons besoin des renseignements
           suivants de votre déclaration de revenus de 2024.
-        </h2>
-        <h3 class="font-lato mb-4 text-2xl font-bold">Votre information</h3>
+        </p>
+        <h2 class="font-lato mb-4 text-2xl font-bold">Votre information</h2>
         <div id="input-text-field-«Rdmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rdmlj5»-label"
             ><span class="font-semibold">Votre revenu net</span></label
@@ -64,7 +64,6 @@
             autocomplete="off"
             name="individual-net-income"
             value=""
-            inputmode="numeric"
           /><span class="ml-1">$</span>
         </div>
         <div id="input-text-field-«Rhmlj5»" class="space-y-2">
@@ -142,7 +141,6 @@
             autocomplete="off"
             name="individual-working-income"
             value=""
-            inputmode="numeric"
           /><span class="ml-1">$</span>
         </div>
         <div id="input-text-field-«Rlmlj5»" class="space-y-2">
@@ -217,7 +215,6 @@
             autocomplete="off"
             name="individual-claimed-income"
             value=""
-            inputmode="numeric"
           /><span class="ml-1">$</span>
         </div>
         <div id="input-text-field-«Rpmlj5»" class="space-y-2">
@@ -292,7 +289,6 @@
             autocomplete="off"
             name="individual-claimed-repayment"
             value=""
-            inputmode="numeric"
           /><span class="ml-1">$</span>
         </div>
       </div>

@@ -12,11 +12,11 @@
   <div>
     <form novalidate="" data-discover="true" action="/en/income" method="post">
       <div class="space-y-6">
-        <h2>
+        <p>
           To estimate your benefits, we will need the following information from
           your 2024 tax return:
-        </h2>
-        <h3 class="font-lato mb-4 text-2xl font-bold">Your information</h3>
+        </p>
+        <h2 class="font-lato mb-4 text-2xl font-bold">Your information</h2>
         <div id="input-text-field-«Rdmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rdmlj5»-label"
             ><span class="font-semibold">Your net income</span></label
@@ -63,7 +63,6 @@
             autocomplete="off"
             name="individual-net-income"
             value=""
-            inputmode="numeric"
           />
         </div>
         <div id="input-text-field-«Rhmlj5»" class="space-y-2">
@@ -141,7 +140,6 @@
             autocomplete="off"
             name="individual-working-income"
             value=""
-            inputmode="numeric"
           />
         </div>
         <div id="input-text-field-«Rlmlj5»" class="space-y-2">
@@ -210,7 +208,6 @@
             autocomplete="off"
             name="individual-claimed-income"
             value=""
-            inputmode="numeric"
           />
         </div>
         <div id="input-text-field-«Rpmlj5»" class="space-y-2">
@@ -279,7 +276,6 @@
             autocomplete="off"
             name="individual-claimed-repayment"
             value=""
-            inputmode="numeric"
           />
         </div>
       </div>
