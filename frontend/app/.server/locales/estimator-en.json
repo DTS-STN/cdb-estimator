@@ -181,14 +181,14 @@
           "intro": "The monthly benefit amount you could receive depends on whether your partner is receiving the Canada Disability Benefit.",
           "non-cdb-partner-result": "If your partner is not receiving the Canada Disability Benefit, you could receive a monthly amount of <strong>{{result}}</strong>."
         },
-        "note": "<strong>Please note that you may be able to receive retroactive payments for past months that you were elligible, but not for months before June 2025.</strong>",
+        "note": "<strong>Please note that you may be able to receive back payments for past months that you were eligible, but not for any time before the launch of the benefit ({{paymentPeriodStart}}).</strong>",
         "single": {
           "intro": "You could be eligible to receive:",
           "result": "A monthly amount of <strong>{{result}}</strong> from the Canada Disability Benefit."
         }
       }
     },
-    "disclaimer-alert": "This estimate is based on the information you provided and assumes that you meet the eligibility criteria for the Canada Disability Benefit.",
+    "disclaimer-alert": "This is only an estimate based on the information you provided.",
     "form-data-summary": {
       "edit-aria-labels": {
         "marital-status": "Edit your marital status",

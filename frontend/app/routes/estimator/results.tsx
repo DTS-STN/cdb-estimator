@@ -117,9 +117,20 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
 
 export async function action({ context, request }: Route.ActionArgs) {}
 
+function formatBenefitPaymentsPeriodDate(date: Date, lang: 'fr' | 'en' | undefined) {
+  const options: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: 'long',
+    timeZone: 'UTC',
+  };
+
+  return date.toLocaleDateString(lang === 'fr' ? 'fr-CA' : 'en-CA', options);
+}
+
 export default function Results({ actionData, loaderData, matches, params }: Route.ComponentProps) {
   const { t, i18n } = useTranslation(handle.i18nNamespace);
   const {
+    ESTIMATOR_CDB_BENEFIT_PAYMENT_PERIOD_START,
     ESTIMATOR_CDB_CONTACT_URL_EN,
     ESTIMATOR_CDB_CONTACT_URL_FR,
     ESTIMATOR_CDB_APPLY_URL_EN,
@@ -150,7 +161,7 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
       <div className="flex flex-col space-y-12">
         <div className="md:grid md:grid-cols-3 md:gap-12">
           <section className="col-span-2 row-span-1 space-y-6">
-            <h2 className="font-lato mb-4 text-lg font-bold">{t('estimator:results.content.your-estimate.header')}</h2>
+            <h2 className="font-lato mb-4 text-2xl font-bold">{t('estimator:results.content.your-estimate.header')}</h2>
 
             {(loaderData.results.maritalStatus === 'single-divorced-separated-or-widowed' || estimationEqualsSplitBenefits) && (
               <>
@@ -191,7 +202,16 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
             )}
 
             <p>
-              <Trans ns={handle.i18nNamespace} i18nKey="estimator:results.content.your-estimate.note" />
+              <Trans
+                ns={handle.i18nNamespace}
+                i18nKey="estimator:results.content.your-estimate.note"
+                values={{
+                  paymentPeriodStart: formatBenefitPaymentsPeriodDate(
+                    new Date(ESTIMATOR_CDB_BENEFIT_PAYMENT_PERIOD_START),
+                    i18n.language,
+                  ),
+                }}
+              />
 
               {i18n.language === 'fr' && ESTIMATOR_CDB_CONTACT_URL_FR && (
                 <Trans
@@ -210,34 +230,32 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
               )}
             </p>
 
-            <h2 className="font-lato mb-4 text-lg font-bold">{t('estimator:results.content.next-steps.header')}</h2>
+            <h2 className="font-lato mt-15 mb-5 text-2xl font-bold">{t('estimator:results.content.next-steps.header')}</h2>
 
-            <div className="my-6 space-y-6 rounded border border-[#6F6F6F] px-8 py-6">
-              <div>
-                <ButtonLink
-                  target="_blank"
-                  data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Apply button')}
-                  to={i18n.language === 'fr' ? ESTIMATOR_CDB_APPLY_URL_FR : ESTIMATOR_CDB_APPLY_URL_EN}
-                  variant="primary"
-                  startIcon={faExternalLink}
-                  size="xl"
-                >
-                  {t('estimator:results.content.next-steps.apply-cdb')}
-                </ButtonLink>
-              </div>
+            <div>
+              <ButtonLink
+                target="_blank"
+                data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Apply button')}
+                to={i18n.language === 'fr' ? ESTIMATOR_CDB_APPLY_URL_FR : ESTIMATOR_CDB_APPLY_URL_EN}
+                variant="primary"
+                startIcon={faExternalLink}
+                size="xl"
+              >
+                {t('estimator:results.content.next-steps.apply-cdb')}
+              </ButtonLink>
+            </div>
 
-              <div>
-                <ButtonLink
-                  target="_blank"
-                  data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Learn more button')}
-                  to={i18n.language === 'fr' ? ESTIMATOR_CDB_URL_FR : ESTIMATOR_CDB_URL_EN}
-                  variant="alternative"
-                  startIcon={faExternalLink}
-                  size="xl"
-                >
-                  {t('estimator:results.content.next-steps.learn-more')}
-                </ButtonLink>
-              </div>
+            <div>
+              <ButtonLink
+                target="_blank"
+                data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Learn more button')}
+                to={i18n.language === 'fr' ? ESTIMATOR_CDB_URL_FR : ESTIMATOR_CDB_URL_EN}
+                variant="alternative"
+                startIcon={faExternalLink}
+                size="xl"
+              >
+                {t('estimator:results.content.next-steps.learn-more')}
+              </ButtonLink>
             </div>
           </section>
           <section className="col-span-1 row-span-2 space-y-4">{DataSummary(loaderData.formattedResults)}</section>
