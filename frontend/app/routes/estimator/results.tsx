@@ -127,6 +127,9 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
     ESTIMATOR_CDB_URL_EN,
     ESTIMATOR_CDB_URL_FR,
   } = globalThis.__appEnvironment;
+  const estimationEqualsSplitBenefits =
+    loaderData.formattedResults.results.kind === 'married' &&
+    loaderData.formattedResults.results.estimationSplitBenefit === loaderData.formattedResults.results.estimation;
 
   const cdbContactLink = (
     <InlineLink
@@ -149,7 +152,7 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
           <section className="col-span-2 row-span-1 space-y-6">
             <h2 className="font-lato mb-4 text-lg font-bold">{t('estimator:results.content.your-estimate.header')}</h2>
 
-            {loaderData.results.maritalStatus === 'single-divorced-separated-or-widowed' && (
+            {(loaderData.results.maritalStatus === 'single-divorced-separated-or-widowed' || estimationEqualsSplitBenefits) && (
               <>
                 <p className="mb-4">{t('estimator:results.content.your-estimate.single.intro')}</p>
                 <ul className="list-disc space-y-1 pl-7">
@@ -164,7 +167,7 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
               </>
             )}
 
-            {loaderData.formattedResults.results.kind === 'married' && (
+            {loaderData.formattedResults.results.kind === 'married' && !estimationEqualsSplitBenefits && (
               <>
                 <p className="mb-4">{t('estimator:results.content.your-estimate.married-common-law.intro')}</p>
                 <ul className="list-disc space-y-1 pl-7">
@@ -175,6 +178,7 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
                       values={{ result: loaderData.formattedResults.results.estimation }}
                     />
                   </li>
+
                   <li>
                     <Trans
                       ns={handle.i18nNamespace}
