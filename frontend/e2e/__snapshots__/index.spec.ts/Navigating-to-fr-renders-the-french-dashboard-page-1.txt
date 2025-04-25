@@ -14,7 +14,7 @@
       de la Prestations canadiennes des personnes handicapées. Il ne s'agit pas
       d'une demande de prestations.
     </p>
-    <h2 class="font-lato mb-4 text-lg font-bold">Avant de commencer</h2>
+    <h2 class="font-lato mb-4 text-2xl font-bold">Avant de commencer</h2>
     <p>
       Pour recevoir la Prestation canadienne pour les personnes handicapées,
       vous devez répondre aux critères spécifiques d'admissibilité. Pour en
@@ -56,7 +56,7 @@
     </div>
   </section>
   <section class="space-y-4">
-    <h2 class="font-lato text-lg font-bold">À propos des résultats</h2>
+    <h2 class="font-lato text-2xl font-bold">À propos des résultats</h2>
     <p>
       Cet estimateur fournit des montants estimés de prestation pour les
       paiements effectués entre juillet 2025 et juin 2026. Les montants des

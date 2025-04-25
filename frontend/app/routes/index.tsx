@@ -78,7 +78,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
           <p>
             <Trans ns={handle.i18nNamespace} i18nKey="estimator:index.content.description" />
           </p>
-          <h2 className="font-lato mb-4 text-lg font-bold">{t('estimator:index.content.eligibility.header')}</h2>
+          <h2 className="font-lato mb-4 text-2xl font-bold">{t('estimator:index.content.eligibility.header')}</h2>
           <p>
             <Trans
               ns={handle.i18nNamespace}
@@ -116,7 +116,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
         </section>
 
         <section className="space-y-4">
-          <h2 className="font-lato text-lg font-bold">{t('estimator:index.content.results.header')}</h2>
+          <h2 className="font-lato text-2xl font-bold">{t('estimator:index.content.results.header')}</h2>
           <p>
             {t('estimator:index.content.results.description', {
               paymentPeriodStart: formatBenefitPaymentsPeriodDate(
