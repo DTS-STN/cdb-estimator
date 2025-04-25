@@ -6,7 +6,7 @@ export function Footer() {
   const { t } = useTranslation(['common']);
 
   return (
-    <footer id="footer" className="bg-[#26374A]">
+    <footer id="wb-info" tabIndex={-1} className="bg-slate-700">
       <section>
         <h2 className="sr-only" id="accessibleSectionHeader1">
           {t('common:footer.header-accessible')}
