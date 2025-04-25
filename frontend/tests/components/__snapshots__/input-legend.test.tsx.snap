@@ -12,6 +12,14 @@ exports[`InputLegend > should render input legend component > expected html 1`] 
     >
       input legend
     </span>
+     
+    <span
+      aria-hidden="true"
+    >
+      (
+      input-label.optional
+      )
+    </span>
   </legend>
 </div>
 `;
@@ -27,14 +35,6 @@ exports[`InputLegend > should render input legend component with required > expe
       class="font-semibold"
     >
       input legend
-    </span>
-     
-    <span
-      aria-hidden="true"
-    >
-      (
-      input-legend.required
-      )
     </span>
   </legend>
 </div>

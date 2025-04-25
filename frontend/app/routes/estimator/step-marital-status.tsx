@@ -98,11 +98,12 @@ export default function StepMaritalStatus({ actionData, loaderData, matches, par
       <FetcherErrorSummary fetcherKey={fetcherKey}>
         <fetcher.Form method="post" noValidate>
           <div className="space-y-6">
+            <p>{t('estimator:marital-status.form-instructions')}</p>
             <InputRadios
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
                 <div className="my-4 space-y-4">
-                  <Collapsible summary={<>{t('common:additional-information-label')}</>}>
+                  <Collapsible summary={<>{t('estimator:marital-status.additional-info.label')}</>}>
                     <div className="space-y-4">
                       <dl className="mt-2 space-y-2">
                         <div>

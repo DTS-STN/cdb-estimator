@@ -12,11 +12,35 @@ exports[`InputLabel > should render input label component > expected html 1`] = 
     >
       input test
     </span>
+     
+    <span
+      aria-hidden="true"
+    >
+      (
+      input-label.optional
+      )
+    </span>
   </label>
 </div>
 `;
 
 exports[`InputLabel > should render input label component with required > expected html 1`] = `
+<div>
+  <label
+    class="block"
+    data-testid="input-label"
+    id="id"
+  >
+    <span
+      class="font-semibold"
+    >
+      input test
+    </span>
+  </label>
+</div>
+`;
+
+exports[`InputLabel > should render input label component with required showOptional showRequired > expected html 1`] = `
 <div>
   <label
     class="block"
@@ -34,6 +58,78 @@ exports[`InputLabel > should render input label component with required > expect
     >
       (
       input-label.required
+      )
+    </span>
+  </label>
+</div>
+`;
+
+exports[`InputLabel > should render input label component with required showRequired > expected html 1`] = `
+<div>
+  <label
+    class="block"
+    data-testid="input-label"
+    id="id"
+  >
+    <span
+      class="font-semibold"
+    >
+      input test
+    </span>
+     
+    <span
+      aria-hidden="true"
+    >
+      (
+      input-label.required
+      )
+    </span>
+  </label>
+</div>
+`;
+
+exports[`InputLabel > should render input label component with showOptional > expected html 1`] = `
+<div>
+  <label
+    class="block"
+    data-testid="input-label"
+    id="id"
+  >
+    <span
+      class="font-semibold"
+    >
+      input test
+    </span>
+     
+    <span
+      aria-hidden="true"
+    >
+      (
+      input-label.optional
+      )
+    </span>
+  </label>
+</div>
+`;
+
+exports[`InputLabel > should render input label component with showOptional showRequired > expected html 1`] = `
+<div>
+  <label
+    class="block"
+    data-testid="input-label"
+    id="id"
+  >
+    <span
+      class="font-semibold"
+    >
+      input test
+    </span>
+     
+    <span
+      aria-hidden="true"
+    >
+      (
+      input-label.optional
       )
     </span>
   </label>
