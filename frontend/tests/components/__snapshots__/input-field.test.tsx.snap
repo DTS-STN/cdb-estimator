@@ -16,6 +16,14 @@ exports[`InputField > should render input field component > expected html 1`] = 
       >
         label test
       </span>
+       
+      <span
+        aria-hidden="true"
+      >
+        (
+        input-label.optional
+        )
+      </span>
     </label>
     <input
       aria-labelledby="input-text-field-test-id-label"
@@ -44,6 +52,14 @@ exports[`InputField > should render input field with error message > expected ht
         class="font-semibold"
       >
         label test
+      </span>
+       
+      <span
+        aria-hidden="true"
+      >
+        (
+        input-label.optional
+        )
       </span>
     </label>
     <p>
@@ -86,6 +102,14 @@ exports[`InputField > should render input field with help message > expected htm
       >
         label test
       </span>
+       
+      <span
+        aria-hidden="true"
+      >
+        (
+        input-label.optional
+        )
+      </span>
     </label>
     <input
       aria-describedby="input-text-field-test-id-help-secondary"
@@ -122,14 +146,6 @@ exports[`InputField > should render input field with required > expected html 1`
         class="font-semibold"
       >
         label test
-      </span>
-       
-      <span
-        aria-hidden="true"
-      >
-        (
-        input-label.required
-        )
       </span>
     </label>
     <input

@@ -19,8 +19,7 @@
         <h3 class="font-lato mb-4 text-2xl font-bold">Your information</h3>
         <div id="input-text-field-«Rdmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rdmlj5»-label"
-            ><span class="font-semibold">Your net income</span>
-            <span aria-hidden="true">(<!-- -->required<!-- -->)</span></label
+            ><span class="font-semibold">Your net income</span></label
           >
           <div
             class="-max-w-prose text-black"
@@ -69,8 +68,7 @@
         </div>
         <div id="input-text-field-«Rhmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rhmlj5»-label"
-            ><span class="font-semibold">Your working income</span>
-            <span aria-hidden="true">(<!-- -->required<!-- -->)</span></label
+            ><span class="font-semibold">Your working income</span></label
           >
           <div
             class="-max-w-prose text-black"
@@ -152,7 +150,8 @@
               >Your <abbr title="Universal Child Care Benefit">UCCB</abbr> and
               <abbr title="Registered Disability Savings Plan">RDSP</abbr>
               income</span
-            ></label
+            >
+            <span aria-hidden="true">(<!-- -->optional<!-- -->)</span></label
           >
           <div
             class="-max-w-prose text-black"
@@ -220,7 +219,8 @@
               >Your <abbr title="Universal Child Care Benefit">UCCB</abbr> and
               <abbr title="Registered Disability Savings Plan">RDSP</abbr>
               repayment</span
-            ></label
+            >
+            <span aria-hidden="true">(<!-- -->optional<!-- -->)</span></label
           >
           <div
             class="-max-w-prose text-black"

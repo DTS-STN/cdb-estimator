@@ -127,7 +127,9 @@
     "start": "Démarrer l'estimateur de prestations"
   },
   "marital-status": {
+    "form-instructions": "Tous les champs sont obligatoires, sauf s'ils sont indiqués comme facultatifs.",
     "additional-info": {
+      "label": "Définitions des états matrimoniaux",
       "common-law": {
         "term": "Conjoint de fait\u00a0:",
         "item1": "elle vit avec vous depuis au moins 12 mois sans interruption. Cela comprend les périodes de moins de 90 jours où vous avez vécu séparément en raison de la rupture de votre union;",
@@ -135,7 +137,7 @@
         "item3": "elle a la garde, la surveillance et la charge entière de votre enfant (ou elle en avait la garde et la surveillance juste avant que l'enfant atteigne l'âge de 19 ans).",
         "text": "vous vivez en relation conjugale avec une personne avec qui vous n'êtes pas marié et à qui au moins l'une des situations suivantes s'applique\u00a0:"
       },
-      "divorced": { "term": "Divorcé\u00a0:", "text": "vous étiez marié et êtes maintenant divorcé légalement" },
+      "divorced": { "term": "Divorcé\u00a0:", "text": "vous étiez marié et êtes maintenant divorcé légalement." },
       "married": { "term": "Marié\u00a0:", "text": "vous êtes légalement marié à quelqu'un." },
       "separated": {
         "term": "Séparé\u00a0:",
@@ -145,7 +147,7 @@
       },
       "single": {
         "term": "Célibataire\u00a0:",
-        "text": "vous êtes célibataire et aucune des situations ci-dessus ne s'applique à vous"
+        "text": "vous êtes célibataire et aucune des situations ci-dessus ne s'applique à vous."
       },
       "widowed": { "term": "Veuf\u00a0:", "text": "votre époux ou conjoint de fait est décédé." }
     },

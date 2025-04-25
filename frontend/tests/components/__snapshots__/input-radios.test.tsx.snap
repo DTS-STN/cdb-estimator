@@ -15,6 +15,14 @@ exports[`InputRadios > displays error message > expected html 1`] = `
       >
         Test Legend
       </span>
+       
+      <span
+        aria-hidden="true"
+      >
+        (
+        input-label.optional
+        )
+      </span>
     </legend>
     <p
       class="mb-2"
@@ -103,6 +111,14 @@ exports[`InputRadios > displays helpMessagePrimary > expected html 1`] = `
       >
         Test Legend
       </span>
+       
+      <span
+        aria-hidden="true"
+      >
+        (
+        input-label.optional
+        )
+      </span>
     </legend>
     <div
       class="max-w-prose text-gray-500 mb-2"
@@ -186,6 +202,14 @@ exports[`InputRadios > displays helpMessageSecondary > expected html 1`] = `
       >
         Test Legend
       </span>
+       
+      <span
+        aria-hidden="true"
+      >
+        (
+        input-label.optional
+        )
+      </span>
     </legend>
     <ul
       class="space-y-2"
@@ -268,6 +292,14 @@ exports[`InputRadios > renders component with legend and options > expected html
         class="font-semibold"
       >
         Test Legend
+      </span>
+       
+      <span
+        aria-hidden="true"
+      >
+        (
+        input-label.optional
+        )
       </span>
     </legend>
     <ul
