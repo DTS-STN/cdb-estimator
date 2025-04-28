@@ -109,15 +109,14 @@
       "completion-time": "Il vous faudra environ 5 à 10 minutes pour obtenir une estimation.",
       "description": "Utilisez cet outil pour déterminer le montant que vous pourriez recevoir de la Prestations canadiennes des personnes handicapées. Il ne s'agit pas d'une demande de prestations.",
       "eligibility": {
-        "header": "Avant de commencer",
-        "intro": "Pour recevoir la Prestation canadienne pour les personnes handicapées, vous devez répondre aux critères spécifiques d'admissibilité. Pour en savoir plus sur la Prestation canadienne des personnes handicapées et les critères d'admissibilité, veuillez consulter <cdbRequirementsLink>canada.ca/prestation-handicap</cdbRequirementsLink>."
+        "header": "Avant de commencer"
       },
       "estimator-steps": {
-        "intro": "Si vous répondez aux critères d'admissibilité, utilisez l'estimateur de prestations pour savoir combien vous pourriez recevoir. L'estimateur vous posera des questions au sujet de votre\u00A0:",
+        "intro": "L'estimateur vous posera des questions au sujet de votre\u00A0:",
         "step-1": "état matrimonial",
         "step-2": "revenu"
       },
-      "result-disclaimer": "<strong>Cet outil fournit une estimation seulement. Il ne garantit pas que vous serez admissible ou que vous recevrez le montant estimé.</strong>",
+      "result-disclaimer": "<strong>Cet outil n'évalue pas votre admissibilité à la prestation. Il fournit uniquement une estimation du montant que vous pourriez recevoir si vous êtes admissible. Vous pouvez consulter les critères d'admissibilité à la prestation sur <cdbRequirementsLink>Canada.ca/prestation-handicap</cdbRequirementsLink>.</strong>",
       "results": {
         "contact": " Pour une évaluation plus précise de votre montant de prestations estimé, veuillez <cdbContactLink>communiquer avec nous</cdbContactLink>.",
         "description": "Cet estimateur fournit des montants estimés de prestation pour les paiements effectués entre {{paymentPeriodStart}} et {{paymentPeriodEnd}}. Les montants des prestations futures pourraient être plus élevés en raison de l'inflation. Les résultats ne sont pas des conseils financiers et peuvent changer.",
