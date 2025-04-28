@@ -31,17 +31,13 @@
       </svg>
     </div>
     <div class="overflow-auto border-l-4 pt-4 pb-2.5 pl-6 border-l-cyan-700">
-      <p>
-        Cette estimation est basée sur l'information que vous avez fournie et
-        suppose que vous répondez aux critères d'admissibilité à la Prestation
-        canadienne pour les personnes handicapées.
-      </p>
+      <p>Cette estimation est basée sur l'information que vous avez fournie.</p>
     </div>
   </div>
   <div class="flex flex-col space-y-12">
     <div class="md:grid md:grid-cols-3 md:gap-12">
       <section class="col-span-2 row-span-1 space-y-6">
-        <h2 class="font-lato mb-4 text-lg font-bold">Votre estimation</h2>
+        <h2 class="font-lato mb-4 text-2xl font-bold">Votre estimation</h2>
         <p class="mb-4">Vous pourriez être admissible à recevoir&nbsp;:</p>
         <ul class="list-disc space-y-1 pl-7">
           <li>
@@ -52,60 +48,61 @@
         <p>
           <strong
             >Veuillez noter que vous pourriez recevoir des paiements rétroactifs
-            pour les mois précédents auxquels vous étiez admissible, mais pas
-            pour les mois antérieurs à juin 2025.</strong
+            pour les mois passés durant lesquels vous étiez admissible, mais pas
+            pour la période antérieure au lancement de la prestation (juillet
+            2025).</strong
           >
         </p>
-        <h2 class="font-lato mb-4 text-lg font-bold">Étapes suivantes</h2>
-        <div class="my-6 space-y-6 rounded border border-[#6F6F6F] px-8 py-6">
-          <div>
-            <a
-              class="font-lato inline-flex items-center justify-center rounded-sm border align-middle no-underline outline-offset-4 px-6 py-3.5 text-base border-slate-700 bg-slate-700 text-white hover:bg-sky-800 focus:bg-sky-800"
-              data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:Results:Apply button"
-              href="https://www.canada.ca/fr/services/prestations/handicap/prestation-canadienne-personnes-situation-handicap.html"
-              target="_blank"
-              ><svg
-                aria-hidden="true"
-                focusable="false"
-                data-prefix="fas"
-                data-icon="arrow-up-right-from-square"
-                class="svg-inline--fa fa-arrow-up-right-from-square fa-fw me-1"
-                role="img"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
-              >
-                <path
-                  fill="currentColor"
-                  d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"
-                ></path></svg
-              >Faire une demande des Prestations canadienne pour les personnes
-              handicapées</a
+        <h2 class="font-lato mt-15 mb-5 text-2xl font-bold">
+          Étapes suivantes
+        </h2>
+        <div>
+          <a
+            class="font-lato inline-flex items-center justify-center rounded-sm border align-middle no-underline outline-offset-4 px-6 py-3.5 text-base border-slate-700 bg-slate-700 text-white hover:bg-sky-800 focus:bg-sky-800"
+            data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:Results:Apply button"
+            href="https://www.canada.ca/fr/services/prestations/handicap/prestation-canadienne-personnes-situation-handicap.html"
+            target="_blank"
+            ><svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fas"
+              data-icon="arrow-up-right-from-square"
+              class="svg-inline--fa fa-arrow-up-right-from-square fa-fw me-1"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
             >
-          </div>
-          <div>
-            <a
-              class="font-lato inline-flex items-center justify-center rounded-sm border align-middle no-underline outline-offset-4 px-6 py-3.5 text-base border-gray-200 bg-white text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:bg-gray-100 focus:text-blue-700"
-              data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:Results:Learn more button"
-              href="https://www.canada.ca/fr/services/prestations/handicap/prestation-canadienne-personnes-situation-handicap.html"
-              target="_blank"
-              ><svg
-                aria-hidden="true"
-                focusable="false"
-                data-prefix="fas"
-                data-icon="arrow-up-right-from-square"
-                class="svg-inline--fa fa-arrow-up-right-from-square fa-fw me-1"
-                role="img"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
-              >
-                <path
-                  fill="currentColor"
-                  d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"
-                ></path></svg
-              >Pour apprendre plus de la Prestation canadienne pour les
-              personnes handicapées</a
+              <path
+                fill="currentColor"
+                d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"
+              ></path></svg
+            >Faire une demande des Prestations canadienne pour les personnes
+            handicapées</a
+          >
+        </div>
+        <div>
+          <a
+            class="font-lato inline-flex items-center justify-center rounded-sm border align-middle no-underline outline-offset-4 px-6 py-3.5 text-base border-gray-200 bg-white text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:bg-gray-100 focus:text-blue-700"
+            data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:Results:Learn more button"
+            href="https://www.canada.ca/fr/services/prestations/handicap/prestation-canadienne-personnes-situation-handicap.html"
+            target="_blank"
+            ><svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fas"
+              data-icon="arrow-up-right-from-square"
+              class="svg-inline--fa fa-arrow-up-right-from-square fa-fw me-1"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
             >
-          </div>
+              <path
+                fill="currentColor"
+                d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"
+              ></path></svg
+            >Pour apprendre plus de la Prestation canadienne pour les personnes
+            handicapées</a
+          >
         </div>
       </section>
       <section class="col-span-1 row-span-2 space-y-4">

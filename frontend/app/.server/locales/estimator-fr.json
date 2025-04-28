@@ -184,7 +184,7 @@
           "intro": "Le montant de la prestation mensuelle que vous pourriez recevoir dépend du fait que votre partenaire reçoive ou non la Prestation canadienne pour les personnes handicapées.",
           "non-cdb-partner-result": "Si votre partenaire ne reçoit pas la Prestation canadienne pour les personnes handicapées, vous pourriez recevoir un montant mensuel de <strong>{{result}}</strong>."
         },
-        "note": "<strong>Veuillez noter que vous pourriez recevoir des paiements rétroactifs pour les mois précédents auxquels vous étiez admissible, mais pas pour les mois antérieurs à {{paymentPeriodStart}}.</strong>",
+        "note": "<strong>Veuillez noter que vous pourriez recevoir des paiements rétroactifs pour les mois passés durant lesquels vous étiez admissible, mais pas pour la période antérieure au lancement de la prestation (juillet 2025).</strong>",
         "single": {
           "intro": "Vous pourriez être admissible à recevoir\u00a0:",
           "result": "Un montant mensuel de <strong>{{result}}</strong> provenant de la Prestation canadienne pour les personnes handicapées."

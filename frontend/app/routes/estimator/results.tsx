@@ -117,16 +117,6 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
 
 export async function action({ context, request }: Route.ActionArgs) {}
 
-function formatBenefitPaymentsPeriodDate(date: Date, lang: 'fr' | 'en' | undefined) {
-  const options: Intl.DateTimeFormatOptions = {
-    year: 'numeric',
-    month: 'long',
-    timeZone: 'UTC',
-  };
-
-  return date.toLocaleDateString(lang === 'fr' ? 'fr-CA' : 'en-CA', options);
-}
-
 export default function Results({ actionData, loaderData, matches, params }: Route.ComponentProps) {
   const { t, i18n } = useTranslation(handle.i18nNamespace);
   const {
@@ -202,16 +192,7 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
             )}
 
             <p>
-              <Trans
-                ns={handle.i18nNamespace}
-                i18nKey="estimator:results.content.your-estimate.note"
-                values={{
-                  paymentPeriodStart: formatBenefitPaymentsPeriodDate(
-                    new Date(ESTIMATOR_CDB_BENEFIT_PAYMENT_PERIOD_START),
-                    i18n.language,
-                  ),
-                }}
-              />
+              <Trans ns={handle.i18nNamespace} i18nKey="estimator:results.content.your-estimate.note" />
 
               {i18n.language === 'fr' && ESTIMATOR_CDB_CONTACT_URL_FR && (
                 <Trans
