@@ -120,7 +120,6 @@ export async function action({ context, request }: Route.ActionArgs) {}
 export default function Results({ actionData, loaderData, matches, params }: Route.ComponentProps) {
   const { t, i18n } = useTranslation(handle.i18nNamespace);
   const {
-    ESTIMATOR_CDB_BENEFIT_PAYMENT_PERIOD_START,
     ESTIMATOR_CDB_CONTACT_URL_EN,
     ESTIMATOR_CDB_CONTACT_URL_FR,
     ESTIMATOR_CDB_APPLY_URL_EN,
