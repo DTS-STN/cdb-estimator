@@ -107,7 +107,7 @@
     "breadcrumb": "Estimateur",
     "content": {
       "completion-time": "Il vous faudra environ 5 à 10 minutes pour obtenir une estimation.",
-      "description": "Utilisez cet outil pour déterminer le montant que vous pourriez recevoir de la Prestations canadiennes des personnes handicapées. Il ne s'agit pas d'une demande de prestations.",
+      "description": "Utilisez cet outil pour déterminer le montant que vous pourriez recevoir de la Prestations canadiennes des personnes handicapées. Il ne s'agit pas de la demande de prestations.",
       "eligibility": {
         "header": "Avant de commencer"
       },
@@ -116,10 +116,10 @@
         "step-1": "état matrimonial",
         "step-2": "revenu"
       },
-      "result-disclaimer": "<strong>Cet outil n'évalue pas votre admissibilité à la prestation. Il fournit uniquement une estimation du montant que vous pourriez recevoir si vous êtes admissible. Vous pouvez consulter les critères d'admissibilité à la prestation sur <cdbRequirementsLink>Canada.ca/prestation-handicap</cdbRequirementsLink>.</strong>",
+      "result-disclaimer": "<strong>Cet outil ne détermine pas votre admissibilité à la prestation. Il fournit seulement une estimation du montant que vous pourriez recevoir. Vous pouvez consulter les critères les critères d'admissiblité pour la prestation au <cdbRequirementsLink>canada.ca/prestation-handicap</cdbRequirementsLink>.</strong>",
       "results": {
         "contact": " Pour une évaluation plus précise de votre montant de prestations estimé, veuillez <cdbContactLink>communiquer avec nous</cdbContactLink>.",
-        "description": "Cet estimateur fournit des montants estimés de prestation pour les paiements effectués entre {{paymentPeriodStart}} et {{paymentPeriodEnd}}. Les montants des prestations futures pourraient être plus élevés en raison de l'inflation. Les résultats ne sont pas des conseils financiers et peuvent changer.",
+        "description": "Cet estimateur fournit des montants estimés de prestation pour les paiements effectués entre {{paymentPeriodStart}} et {{paymentPeriodEnd}}. Les montants futurs des prestations pourraient changer.",
         "header": "À propos des résultats"
       }
     },
@@ -128,7 +128,7 @@
     "start": "Démarrer l'estimateur de prestations"
   },
   "marital-status": {
-    "form-instructions": "Tous les champs sont obligatoires, sauf s'ils sont indiqués comme facultatifs.",
+    "form-instructions": "Tous les champs sont obligatoires, sauf indication contraire.",
     "additional-info": {
       "label": "Définitions des états matrimoniaux",
       "common-law": {
@@ -136,19 +136,19 @@
         "item1": "elle vit avec vous depuis au moins 12 mois sans interruption. Cela comprend les périodes de moins de 90 jours où vous avez vécu séparément en raison de la rupture de votre union;",
         "item2": "elle est le parent de votre enfant, par la naissance ou l'adoption;",
         "item3": "elle a la garde, la surveillance et la charge entière de votre enfant (ou elle en avait la garde et la surveillance juste avant que l'enfant atteigne l'âge de 19 ans).",
-        "text": "vous vivez en relation conjugale avec une personne avec qui vous n'êtes pas marié et à qui au moins l'une des situations suivantes s'applique\u00a0:"
+        "text": "vous vivez en relation conjugale avec une personne avec qui vous n'êtes pas marié. Au moins une des situations suivantes doit s'appliquer à cette personne\u00a0:"
       },
       "divorced": { "term": "Divorcé\u00a0:", "text": "vous étiez marié et êtes maintenant divorcé légalement." },
       "married": { "term": "Marié\u00a0:", "text": "vous êtes légalement marié à quelqu'un." },
       "separated": {
         "term": "Séparé\u00a0:",
-        "text": "vous vivez séparément de votre époux ou conjoint de fait depuis 90 jours ou plus en raison de la rupture de votre union, et il n'y a pas de réconciliation.",
-        "p1": "Lorsque vous êtes séparé depuis 90 jours, la date d'entrée en vigueur de votre séparation est le jour où vous et votre époux ou conjoint de fait avez commencé à vivre séparément. Vous êtes toujours considéré comme ayant un époux ou un conjoint de fait s'il n'y a pas de rupture de votre union et que vous vivez séparément pour des raisons telles que le travail, les études ou des problèmes de santé.",
-        "p2": "Remarque\u00a0: Généralement, vous n'êtes pas considéré séparé si votre époux ou conjoint de fait est détenu dans une prison ou ne vit pas au Canada, tant qu'il n'y a pas de rupture de votre union."
+        "text": "vous vivez séparément de votre époux ou conjoint de fait depuis 90 jours ou plus en raison de la rupture de votre union, et il n'y a pas de réconciliation. Lorsque vous êtes séparé depuis 90 jours, la date d'entrée en vigueur de votre séparation est le jour où vous et votre époux ou conjoint de fait avez commencé à vivre séparément.",
+        "p1": "S'il n'y a pas de rupture de votre union, mais que vous vivez séparément pour des raisons telles que le travail, les études ou des problèmes de santé, vous serez considéré comme ayant un époux ou un conjoint de fait.",
+        "p2": "Vous n'êtes généralement pas considéré séparé si votre époux ou conjoint est détenu dans une prison ou ne vit pas au Canada, tant qu'il n'y a pas de rupture de votre union."
       },
       "single": {
         "term": "Célibataire\u00a0:",
-        "text": "vous êtes célibataire et aucune des situations ci-dessus ne s'applique à vous."
+        "text": "vous êtes célibataire et aucune des situations ci-dessous ne s'applique à vous."
       },
       "widowed": { "term": "Veuf\u00a0:", "text": "votre époux ou conjoint de fait est décédé." }
     },
