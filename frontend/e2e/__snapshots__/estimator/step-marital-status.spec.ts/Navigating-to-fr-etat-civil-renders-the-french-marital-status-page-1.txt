@@ -19,10 +19,7 @@
       method="post"
     >
       <div class="space-y-6">
-        <p>
-          Tous les champs sont obligatoires, sauf s'ils sont indiqués comme
-          facultatifs.
-        </p>
+        <p>Tous les champs sont obligatoires, sauf indication contraire.</p>
         <fieldset
           id="input-radios-marital-status"
           data-testid="input-radios-marital-status"
@@ -55,7 +52,7 @@
                         <dt class="inline font-bold">Célibataire&nbsp;:</dt>
                         <dd class="ml-2 inline">
                           vous êtes célibataire et aucune des situations
-                          ci-dessus ne s'applique à vous.
+                          ci-dessous ne s'applique à vous.
                         </dd>
                       </div>
                       <div>
@@ -71,21 +68,22 @@
                           vous vivez séparément de votre époux ou conjoint de
                           fait depuis 90 jours ou plus en raison de la rupture
                           de votre union, et il n'y a pas de réconciliation.
+                          Lorsque vous êtes séparé depuis 90 jours, la date
+                          d'entrée en vigueur de votre séparation est le jour où
+                          vous et votre époux ou conjoint de fait avez commencé
+                          à vivre séparément.
                           <p>
-                            Lorsque vous êtes séparé depuis 90 jours, la date
-                            d'entrée en vigueur de votre séparation est le jour
-                            où vous et votre époux ou conjoint de fait avez
-                            commencé à vivre séparément. Vous êtes toujours
-                            considéré comme ayant un époux ou un conjoint de
-                            fait s'il n'y a pas de rupture de votre union et que
+                            S'il n'y a pas de rupture de votre union, mais que
                             vous vivez séparément pour des raisons telles que le
-                            travail, les études ou des problèmes de santé.
+                            travail, les études ou des problèmes de santé, vous
+                            serez considéré comme ayant un époux ou un conjoint
+                            de fait.
                           </p>
                           <p>
-                            Remarque&nbsp;: Généralement, vous n'êtes pas
-                            considéré séparé si votre époux ou conjoint de fait
-                            est détenu dans une prison ou ne vit pas au Canada,
-                            tant qu'il n'y a pas de rupture de votre union.
+                            Vous n'êtes généralement pas considéré séparé si
+                            votre époux ou conjoint est détenu dans une prison
+                            ou ne vit pas au Canada, tant qu'il n'y a pas de
+                            rupture de votre union.
                           </p>
                         </dd>
                       </div>
@@ -107,8 +105,9 @@
                         </dt>
                         <dd class="ml-2 inline">
                           vous vivez en relation conjugale avec une personne
-                          avec qui vous n'êtes pas marié et à qui au moins l'une
-                          des situations suivantes s'applique&nbsp;:<!-- -->
+                          avec qui vous n'êtes pas marié. Au moins une des
+                          situations suivantes doit s'appliquer à cette
+                          personne&nbsp;:<!-- -->
                           <ul class="mt-2 list-disc space-y-2 pl-5">
                             <li>
                               elle vit avec vous depuis au moins 12 mois sans
