@@ -15,22 +15,8 @@
       d'une demande de prestations.
     </p>
     <h2 class="font-lato mb-4 text-2xl font-bold">Avant de commencer</h2>
-    <p>
-      Pour recevoir la Prestation canadienne pour les personnes handicapées,
-      vous devez répondre aux critères spécifiques d'admissibilité. Pour en
-      savoir plus sur la Prestation canadienne des personnes handicapées et les
-      critères d'admissibilité, veuillez consulter
-      <a
-        class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700 external-link"
-        href="https://www.canada.ca/fr/services/prestations/handicap/prestation-canadienne-personnes-situation-handicap.html"
-        target="_blank"
-        >canada.ca/prestation-handicap</a
-      >.
-    </p>
     <p class="mb-4">
-      Si vous répondez aux critères d'admissibilité, utilisez l'estimateur de
-      prestations pour savoir combien vous pourriez recevoir. L'estimateur vous
-      posera des questions au sujet de votre&nbsp;:
+      L'estimateur vous posera des questions au sujet de votre&nbsp;:
     </p>
     <ol class="list-decimal space-y-1 pl-7">
       <li>état matrimonial</li>
@@ -39,8 +25,16 @@
     <p>Il vous faudra environ 5 à 10 minutes pour obtenir une estimation.</p>
     <p>
       <strong
-        >Cet outil fournit une estimation seulement. Il ne garantit pas que vous
-        serez admissible ou que vous recevrez le montant estimé.</strong
+        >Cet outil n'évalue pas votre admissibilité à la prestation. Il fournit
+        uniquement une estimation du montant que vous pourriez recevoir si vous
+        êtes admissible. Vous pouvez consulter les critères d'admissibilité à la
+        prestation sur
+        <a
+          class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700 external-link"
+          href="https://www.canada.ca/fr/services/prestations/handicap/prestation-canadienne-personnes-situation-handicap.html"
+          target="_blank"
+          >Canada.ca/prestation-handicap</a
+        >.</strong
       >
     </p>
   </section>

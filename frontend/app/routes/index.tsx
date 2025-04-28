@@ -79,13 +79,6 @@ export default function Home({ loaderData }: Route.ComponentProps) {
             <Trans ns={handle.i18nNamespace} i18nKey="estimator:index.content.description" />
           </p>
           <h2 className="font-lato mb-4 text-2xl font-bold">{t('estimator:index.content.eligibility.header')}</h2>
-          <p>
-            <Trans
-              ns={handle.i18nNamespace}
-              i18nKey="estimator:index.content.eligibility.intro"
-              components={{ cdbRequirementsLink }}
-            />
-          </p>
 
           <p className="mb-4">{t('estimator:index.content.estimator-steps.intro')}</p>
           <ol className="list-decimal space-y-1 pl-7">
@@ -98,7 +91,11 @@ export default function Home({ loaderData }: Route.ComponentProps) {
           </ol>
           <p>{t('estimator:index.content.completion-time')}</p>
           <p>
-            <Trans ns={handle.i18nNamespace} i18nKey="estimator:index.content.result-disclaimer" />
+            <Trans
+              ns={handle.i18nNamespace}
+              i18nKey="estimator:index.content.result-disclaimer"
+              components={{ cdbRequirementsLink }}
+            />
           </p>
         </section>
 
