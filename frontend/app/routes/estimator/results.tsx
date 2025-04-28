@@ -150,7 +150,7 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
       <div className="flex flex-col space-y-12">
         <div className="md:grid md:grid-cols-3 md:gap-12">
           <section className="col-span-2 row-span-1 space-y-6">
-            <h2 className="font-lato mb-4 text-lg font-bold">{t('estimator:results.content.your-estimate.header')}</h2>
+            <h2 className="font-lato mb-4 text-2xl font-bold">{t('estimator:results.content.your-estimate.header')}</h2>
 
             {(loaderData.results.maritalStatus === 'single-divorced-separated-or-widowed' || estimationEqualsSplitBenefits) && (
               <>
@@ -210,34 +210,32 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
               )}
             </p>
 
-            <h2 className="font-lato mb-4 text-lg font-bold">{t('estimator:results.content.next-steps.header')}</h2>
+            <h2 className="font-lato mt-15 mb-5 text-2xl font-bold">{t('estimator:results.content.next-steps.header')}</h2>
 
-            <div className="my-6 space-y-6 rounded border border-[#6F6F6F] px-8 py-6">
-              <div>
-                <ButtonLink
-                  target="_blank"
-                  data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Apply button')}
-                  to={i18n.language === 'fr' ? ESTIMATOR_CDB_APPLY_URL_FR : ESTIMATOR_CDB_APPLY_URL_EN}
-                  variant="primary"
-                  startIcon={faExternalLink}
-                  size="xl"
-                >
-                  {t('estimator:results.content.next-steps.apply-cdb')}
-                </ButtonLink>
-              </div>
+            <div>
+              <ButtonLink
+                target="_blank"
+                data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Apply button')}
+                to={i18n.language === 'fr' ? ESTIMATOR_CDB_APPLY_URL_FR : ESTIMATOR_CDB_APPLY_URL_EN}
+                variant="primary"
+                startIcon={faExternalLink}
+                size="xl"
+              >
+                {t('estimator:results.content.next-steps.apply-cdb')}
+              </ButtonLink>
+            </div>
 
-              <div>
-                <ButtonLink
-                  target="_blank"
-                  data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Learn more button')}
-                  to={i18n.language === 'fr' ? ESTIMATOR_CDB_URL_FR : ESTIMATOR_CDB_URL_EN}
-                  variant="alternative"
-                  startIcon={faExternalLink}
-                  size="xl"
-                >
-                  {t('estimator:results.content.next-steps.learn-more')}
-                </ButtonLink>
-              </div>
+            <div>
+              <ButtonLink
+                target="_blank"
+                data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Learn more button')}
+                to={i18n.language === 'fr' ? ESTIMATOR_CDB_URL_FR : ESTIMATOR_CDB_URL_EN}
+                variant="alternative"
+                startIcon={faExternalLink}
+                size="xl"
+              >
+                {t('estimator:results.content.next-steps.learn-more')}
+              </ButtonLink>
             </div>
           </section>
           <section className="col-span-1 row-span-2 space-y-4">{DataSummary(loaderData.formattedResults)}</section>
