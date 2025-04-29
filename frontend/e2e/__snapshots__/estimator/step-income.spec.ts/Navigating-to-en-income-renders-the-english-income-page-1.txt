@@ -17,17 +17,16 @@
           your <strong>2024 tax return</strong>
         </p>
         <p>If any total amounts are negative or zero, enter '0'.</p>
-        <h2 class="font-lato mb-4 text-2xl font-bold">Your information</h2>
         <div id="input-text-field-«Rhmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rhmlj5»-label"
-            ><span class="font-semibold">Your net income</span></label
+            ><span class="font-semibold">Enter your net income</span></label
           >
           <div
             class="-max-w-prose text-black"
             data-testid="input-help"
             id="input-text-field-«Rhmlj5»-help-primary"
           >
-            <p>Line 23600 on your tax return.</p>
+            <p>This is found on line 23600 of your 2024 tax return.</p>
           </div>
           <span class="mr-1">$</span
           ><input
@@ -47,7 +46,7 @@
         </div>
         <div id="input-text-field-«Rlmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rlmlj5»-label"
-            ><span class="font-semibold">Your working income</span></label
+            ><span class="font-semibold">Enter your working income</span></label
           >
           <div
             class="-max-w-prose text-black"
@@ -128,9 +127,9 @@
         <div id="input-text-field-«Rpmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rpmlj5»-label"
             ><span class="font-semibold"
-              >Your Universal Child Care Benefit (<abbr>UCCB</abbr>) and
+              >Enter your Universal Child Care Benefit (<abbr>UCCB</abbr>) and
               Registered Disability Savings Plan (<abbr>RDSP</abbr>)
-              income</span
+              income.</span
             >
             <span aria-hidden="true">(<!-- -->optional<!-- -->)</span></label
           >
@@ -140,8 +139,8 @@
             id="input-text-field-«Rpmlj5»-help-primary"
           >
             <p>
-              Income claimed by you (line 11700 and line 12500 of your tax
-              return).
+              To calculate this amount, add line 11700 and line 12500 of your
+              2024 tax return.
             </p>
           </div>
           <span class="mr-1">$</span
@@ -161,9 +160,9 @@
         <div id="input-text-field-«Rtmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rtmlj5»-label"
             ><span class="font-semibold"
-              >Your Universal Child Care Benefit (<abbr>UCCB</abbr>) and
+              >Enter your Universal Child Care Benefit (<abbr>UCCB</abbr>) and
               Registered Disability Savings Plan (<abbr>RDSP</abbr>)
-              repayment</span
+              repayment.</span
             >
             <span aria-hidden="true">(<!-- -->optional<!-- -->)</span></label
           >
@@ -173,8 +172,8 @@
             id="input-text-field-«Rtmlj5»-help-primary"
           >
             <p>
-              Repayment claimed by you (line 21300 and line 23200 of your tax
-              return).
+              To calculate this amount, add line 21300 and line 23200 of your
+              2024 tax return.
             </p>
           </div>
           <span class="mr-1">$</span

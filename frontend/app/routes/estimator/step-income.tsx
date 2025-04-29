@@ -183,7 +183,9 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               )}
             </p>
             <p>{t('estimator:income.form-instructions.note')}</p>
-            <h2 className="font-lato mb-4 text-2xl font-bold">{t('estimator:income.heading.your-info')}</h2>
+            {loaderData.isMarried && (
+              <h2 className="font-lato mb-4 text-2xl font-bold">{t('estimator:income.heading.your-info')}</h2>
+            )}
             <CurrencyField
               name="individual-net-income"
               label={t('estimator:income.fields.net-income.label')}
@@ -191,7 +193,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
                 <p>
-                  <Trans i18nKey={'estimator:income.info.net-income'} />
+                  <Trans i18nKey={'estimator:income.info.net-income'} values={{ year: previousIncomeTaxReturnYear }} />
                 </p>
               }
               defaultValue={
@@ -255,7 +257,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
                 <p>
-                  <Trans i18nKey={'estimator:income.info.claimed-income'} />
+                  <Trans i18nKey={'estimator:income.info.claimed-income'} values={{ year: previousIncomeTaxReturnYear }} />
                 </p>
               }
               defaultValue={
@@ -275,7 +277,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
                 <p>
-                  <Trans i18nKey={'estimator:income.info.claimed-repayment'} />
+                  <Trans i18nKey={'estimator:income.info.claimed-repayment'} values={{ year: previousIncomeTaxReturnYear }} />
                 </p>
               }
               defaultValue={
@@ -300,7 +302,10 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   helpMessagePrimaryClassName="-max-w-prose text-black"
                   helpMessagePrimary={
                     <p>
-                      <Trans i18nKey={'estimator:income.info.partner-net-income'} />
+                      <Trans
+                        i18nKey={'estimator:income.info.partner-net-income'}
+                        values={{ year: previousIncomeTaxReturnYear }}
+                      />
                     </p>
                   }
                   defaultValue={
@@ -365,7 +370,10 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   helpMessagePrimaryClassName="-max-w-prose text-black"
                   helpMessagePrimary={
                     <p>
-                      <Trans i18nKey={'estimator:income.info.partner-claimed-income'} />
+                      <Trans
+                        i18nKey={'estimator:income.info.partner-claimed-income'}
+                        values={{ year: previousIncomeTaxReturnYear }}
+                      />
                     </p>
                   }
                   defaultValue={
@@ -387,7 +395,10 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   helpMessagePrimaryClassName="-max-w-prose text-black"
                   helpMessagePrimary={
                     <p>
-                      <Trans i18nKey={'estimator:income.info.partner-claimed-repayment'} />
+                      <Trans
+                        i18nKey={'estimator:income.info.partner-claimed-repayment'}
+                        values={{ year: previousIncomeTaxReturnYear }}
+                      />
                     </p>
                   }
                   defaultValue={
