@@ -3,8 +3,8 @@
  * @param input string represenation of a formatted decimal (examples: en:"1,234.56", fr:"1 234,56")
  * @returns string representation of the decimal without formatting (examples: "1234.56")
  */
-export function removeNumericFormatting(input: string | undefined): string {
-  if (input === undefined) return '';
+export function removeNumericFormatting(input: string | undefined): string | undefined {
+  if (input === undefined) return undefined;
 
   const isFrench = input.includes(' ') || input.lastIndexOf(',') >= input.length - 3;
   const isEnglish = input.indexOf(',') < input.length - 2 || input.lastIndexOf('.') >= input.length - 3;

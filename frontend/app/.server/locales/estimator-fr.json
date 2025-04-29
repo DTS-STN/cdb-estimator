@@ -5,14 +5,16 @@
     "fields": {
       "claimed-income": {
         "error": {
-          "invalid": "Votre revenu de <abbr>PUGE</abbr> et <abbr>REEI</abbr> est invalide"
+          "invalid": "Votre revenu de <abbr>PUGE</abbr> et <abbr>REEI</abbr> est invalide",
+          "required": "Votre revenu de <abbr>PUGE</abbr> et <abbr>REEI</abbr> est requis"
         },
         "info-label": "Information",
         "label": "Entrez votre revenu de la Prestation universelle pour la garde d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré d'épargne-invalidité (<abbr>REEI</abbr>)."
       },
       "claimed-repayment": {
         "error": {
-          "invalid": "Votre remboursement de <abbr>PUGE</abbr> et <abbr>REEI</abbr> est invalide"
+          "invalid": "Votre remboursement de <abbr>PUGE</abbr> et <abbr>REEI</abbr> est invalide",
+          "required": "Votre remboursement de <abbr>PUGE</abbr> et <abbr>REEI</abbr> est requis"
         },
         "info-label": "Information",
         "label": "Entrez votre remboursement de la Prestation universelle pour la garde d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré d'épargne-invalidité (<abbr>REEI</abbr>)."
@@ -28,14 +30,16 @@
       "partner": {
         "claimed-income": {
           "error": {
-            "invalid": "Le revenu de <abbr>PUGE</abbr> et <abbr>REEI</abbr> de votre partenaire est invalide"
+            "invalid": "Le revenu de <abbr>PUGE</abbr> et <abbr>REEI</abbr> de votre partenaire est invalide",
+            "required": "Le revenu de <abbr>PUGE</abbr> et <abbr>REEI</abbr> de votre partenaire est requis"
           },
           "info-label": "Information",
           "label": "Entrez le revenu de votre partenaire provenant de la Prestation universelle pour la garde d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré d'épargne-invalidité (<abbr>REEI</abbr>)."
         },
         "claimed-repayment": {
           "error": {
-            "invalid": "Le remboursement de <abbr>PUGE</abbr> et <abbr>REEI</abbr> de votre partenaire est invalid"
+            "invalid": "Le remboursement de <abbr>PUGE</abbr> et <abbr>REEI</abbr> de votre partenaire est invalid",
+            "required": "Le remboursement de <abbr>PUGE</abbr> et <abbr>REEI</abbr> de votre partenaire est requis"
           },
           "info-label": "Information",
           "label": "Entrez le remboursement par votre partenaire de la Prestation universelle pour la garde d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré d'épargne-invalidité (<abbr>REEI</abbr>)."
