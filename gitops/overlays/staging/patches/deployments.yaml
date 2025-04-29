@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: cdb-estimator-frontend
   annotations:
-    secret.reloader.stakater.com/auto: 'true'
+    secret.reloader.stakater.com/auto: "true"
 spec:
   revisionHistoryLimit: 0
   selector:
@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: cdb-estimator-frontend
-          image: dtsrhpdevscedacr.azurecr.io/canada-disability-benefit/cdb-estimator-frontend:latest
+          image: dtsrhpdevscedacr.azurecr.io/canada-disability-benefit/cdb-estimator-frontend:SNAPSHOT-00135-843c123b
           # since we are using external secrets operator
           # we must manually attach the generated secret
           envFrom:
