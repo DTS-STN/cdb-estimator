@@ -8,14 +8,14 @@
           "invalid": "Your <abbr>UCCB</abbr> and <abbr>RDSP</abbr> income is invalid"
         },
         "info-label": "Information",
-        "label": "Your Universal Child Care Benefit (<abbr>UCCB</abbr>) and Registered Disability Savings Plan (<abbr>RDSP</abbr>) income"
+        "label": "Enter your Universal Child Care Benefit (<abbr>UCCB</abbr>) and Registered Disability Savings Plan (<abbr>RDSP</abbr>) income."
       },
       "claimed-repayment": {
         "error": {
           "invalid": "Your <abbr>UCCB</abbr> and <abbr>RDSP</abbr> repayment is invalid"
         },
         "info-label": "Information",
-        "label": "Your Universal Child Care Benefit (<abbr>UCCB</abbr>) and Registered Disability Savings Plan (<abbr>RDSP</abbr>) repayment"
+        "label": "Enter your Universal Child Care Benefit (<abbr>UCCB</abbr>) and Registered Disability Savings Plan (<abbr>RDSP</abbr>) repayment."
       },
       "net-income": {
         "error": {
@@ -23,7 +23,7 @@
           "required": "Your net income is required"
         },
         "info-label": "How to calculate your net income",
-        "label": "Your net income"
+        "label": "Enter your net income"
       },
       "partner": {
         "claimed-income": {
@@ -31,7 +31,7 @@
             "invalid": "Your partner's <abbr>UCCB</abbr> and <abbr>RDSP</abbr> income is invalid"
           },
           "info-label": "Information",
-          "label": "Your partner's Universal Child Care Benefit (<abbr>UCCB</abbr>) and Registered Disability Savings Plan (<abbr>RDSP</abbr>) income"
+          "label": "Enter your partner's Universal Child Care Benefit (<abbr>UCCB</abbr>) and Registered Disability Savings Plan (<abbr>RDSP</abbr>) income."
         },
         "claimed-repayment": {
           "error": {
@@ -46,7 +46,7 @@
             "required": "Your partner's net income is required"
           },
           "info-label": "How to calculate your partner's net income",
-          "label": "Your partner's net income"
+          "label": "Enter your partner's net income."
         },
         "working-income": {
           "error": {
@@ -54,7 +54,7 @@
             "required": "Your partner's working income is required"
           },
           "info-label": "How to calculate your partner's working income",
-          "label": "Your partner's working income"
+          "label": "Enter your partner's working income"
         }
       },
       "working-income": {
@@ -63,7 +63,7 @@
           "required": "Your working income is required"
         },
         "info-label": "How to calculate your working income",
-        "label": "Your working income"
+        "label": "Enter your working income"
       }
     },
     "form-instructions": {
@@ -76,12 +76,12 @@
       "partner-info": "Your partner's information"
     },
     "info": {
-      "claimed-income": "Income claimed by you (line 11700 and line 12500 of your tax return).",
-      "claimed-repayment": "Repayment claimed by you (line 21300 and line 23200 of your tax return).",
-      "net-income": "Line 23600 on your tax return.",
-      "partner-claimed-income": "Income claimed by your partner (line 11700 and line 12500 of their tax return).",
-      "partner-claimed-repayment": "Repayment claimed by your partner (line 21300 and line 23200 of their tax return).",
-      "partner-net-income": "Line 23600 on your partner's tax return.",
+      "claimed-income": "To calculate this amount, add line 11700 and line 12500 of your {{year}} tax return.",
+      "claimed-repayment": "To calculate this amount, add line 21300 and line 23200 of your {{year}} tax return.",
+      "net-income": "This is found on line 23600 of your {{year}} tax return.",
+      "partner-claimed-income": "To calculate this amount, add line 11700 and line 12500 of your partner's {{year}} tax return.",
+      "partner-claimed-repayment": "To calculate this amount, add line 21300 and line 23200 of your partner's {{year}} tax return.",
+      "partner-net-income": "This is found on line 23600 of your partner's {{year}} tax return.",
       "working-income": {
         "items": [
           "Employment income (line 10100)",
