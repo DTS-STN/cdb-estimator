@@ -1,10 +1,11 @@
 import type { Route } from './+types/stage-session';
 
+import { serverEnvironment } from '~/.server/environment';
+
 export async function action({ context, request }: Route.ActionArgs) {
-  /*console.log(process.env.NODE_ENV);
-  if (process.env.NODE_ENV !== 'test' && process.env.NODE_ENV !== 'dev') {
+  if (!serverEnvironment.DEV_ENDPOINTS_ENABLED) {
     throw new Response('Forbidden', { status: 403 });
-  }*/
+  }
 
   const json = await request.json();
 
