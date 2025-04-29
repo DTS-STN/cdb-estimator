@@ -79,8 +79,8 @@
       "claimed-income": "To calculate this amount, add line 11700 and line 12500 of your {{year}} tax return.",
       "claimed-repayment": "To calculate this amount, add line 21300 and line 23200 of your {{year}} tax return.",
       "net-income": "This is found on line 23600 of your {{year}} tax return.",
-      "partner-claimed-income": "To calculate this amount, add line 11700  and line 12500 of your partner's {{year}} tax return.",
-      "partner-claimed-repayment": "To calculate this amount, add line 21300 and line 23200 of your partner's {{year}} tax rteturn.",
+      "partner-claimed-income": "To calculate this amount, add line 11700 and line 12500 of your partner's {{year}} tax return.",
+      "partner-claimed-repayment": "To calculate this amount, add line 21300 and line 23200 of your partner's {{year}} tax return.",
       "partner-net-income": "This is found on line 23600 of your partner's {{year}} tax return.",
       "working-income": {
         "items": [

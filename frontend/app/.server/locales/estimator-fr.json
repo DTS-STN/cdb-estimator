@@ -67,7 +67,7 @@
       }
     },
     "form-instructions": {
-      "married": "Pour estimer vos prestations, nous aurons besoin des renseignements figurant sur votre déclaration de revenus de {{year}}</strong> ainsi que sur celle de votre partenaire.",
+      "married": "Pour estimer vos prestations, nous aurons besoin des renseignements figurant sur votre <strong>déclaration de revenus de {{year}}</strong> ainsi que sur celle de votre partenaire.",
       "single": "Pour estimer vos prestations, nous aurons besoin des renseignements suivants de votre <strong>déclaration de revenus de {{year}}</strong>.",
       "note": "Si un des montants est négatif ou nul, entrez '0'."
     },
