@@ -8,14 +8,14 @@
           "invalid": "Votre revenu de <abbr>PUGE</abbr> et <abbr>REEI</abbr> est invalide"
         },
         "info-label": "Information",
-        "label": "Votre revenu de la Prestation universelle pour la garde d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré d'épargne-invalidité (<abbr>REEI</abbr>)"
+        "label": "Entrez votre revenu de la Prestation universelle pour la garde d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré d'épargne-invalidité (<abbr>REEI</abbr>)."
       },
       "claimed-repayment": {
         "error": {
           "invalid": "Votre remboursement de <abbr>PUGE</abbr> et <abbr>REEI</abbr> est invalide"
         },
         "info-label": "Information",
-        "label": "Votre remboursement de la Prestation universelle pour la garde d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré d'épargne-invalidité (<abbr>REEI</abbr>)"
+        "label": "Entrez votre remboursement de la Prestation universelle pour la garde d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré d'épargne-invalidité (<abbr>REEI</abbr>)."
       },
       "net-income": {
         "error": {
@@ -31,14 +31,14 @@
             "invalid": "Le revenu de <abbr>PUGE</abbr> et <abbr>REEI</abbr> de votre partenaire est invalide"
           },
           "info-label": "Information",
-          "label": "Le revenu de votre partenaire provenant de la Prestation universelle pour la garde d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré d'épargne-invalidité (<abbr>REEI</abbr>)"
+          "label": "Entrez le revenu de votre partenaire provenant de la Prestation universelle pour la garde d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré d'épargne-invalidité (<abbr>REEI</abbr>)."
         },
         "claimed-repayment": {
           "error": {
             "invalid": "Le remboursement de <abbr>PUGE</abbr> et <abbr>REEI</abbr> de votre partenaire est invalid"
           },
           "info-label": "Information",
-          "label": "Le remboursement par votre partenaire de la Prestation universelle pour la garde d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré d'épargne-invalidité (<abbr>REEI</abbr>)"
+          "label": "Entrez le remboursement par votre partenaire de la Prestation universelle pour la garde d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré d'épargne-invalidité (<abbr>REEI</abbr>)."
         },
         "net-income": {
           "error": {
@@ -46,7 +46,7 @@
             "required": "Le revenu net de votre partenaire est requis"
           },
           "info-label": "Comment calculer le revenu net de votre cojoint ?",
-          "label": "Le revenu net de votre partenaire"
+          "label": "Entrez le revenu net de votre partenaire."
         },
         "working-income": {
           "error": {
@@ -54,7 +54,7 @@
             "required": "Le revenu d'emploi de votre partenaire est requis"
           },
           "info-label": "Comment calculer le revenu d'emploi de votre partenaire ?",
-          "label": "Le revenu d'emploi de votre partenaire"
+          "label": "Entrez le revenu d'emploi de votre partenaire."
         }
       },
       "working-income": {
@@ -76,15 +76,15 @@
       "partner-info": "L'information de votre partenaire\u00A0:"
     },
     "info": {
-      "claimed-income": "Revenu déclaré par vous (lignes 11700 et 12500 de votre déclaration de revenus).",
-      "claimed-repayment": "Remboursement déclaré par vous (lignes 21300 et 23200 de votre déclaration de revenus).",
+      "claimed-income": "Pour calculer ce montant, additionner les revenus que vous avez déclarés aux lignes 11700 et 12500 de votre déclaration de revenus {{year}}.",
+      "claimed-repayment": "Pour calculer ce montant, additionner les remboursements que vous avez déclaré aux lignes 21300 et 23200 de votre déclaration de revenus {{year}}.",
       "net-income": "Il se trouve à la ligne 23600 de votre déclaration de revenus {{year}}.",
-      "partner-claimed-income": "Revenu déclaré par votre conjoint (ligne 11700 et ligne 12500 de leur déclaration de revenus).",
-      "partner-claimed-repayment": "Remboursement déclaré par votre conjoint (ligne 21300 et ligne 23200 de leur déclaration de revenus).",
-      "partner-net-income": "Ligne 23600 de la déclaration de revenus de votre conjoint.",
+      "partner-claimed-income": "Pour calculer ce montant, additionner les lignes 11700 et ligne 12500 de la déclaration de revenus {{year}} de votre conjoint.",
+      "partner-claimed-repayment": "Pour calculer ce montant, additionner les lignes 21300 et 23200 de la déclaration de revenus {{year}} de votre partenaire.",
+      "partner-net-income": "Il se trouve à la ligne 23600 de la déclaration de revenus {{year}} de votre partenaire.",
       "working-income": {
         "items": [
-          "Revenus d'emploi (linge 10100)",
+          "Revenus d'emploi (ligne 10100)",
           "Autres revenus d'emploi (ligne 10400)",
           "Montant imposable des bourses d'études, de perfectionnement et d'entretien, et des subventions reçues par des artistes pour un projet (ligne 13010)",
           "Revenus d'entreprise (entrez 0 si le montant et négatif) (ligne 13500)",
@@ -94,11 +94,11 @@
           "Revenus de pêche (entrez 0 si le montant et négatif) (ligne 14300)"
         ],
         "text1": "Pour calculer votre revenu de travail, additionnez toutes les lignes suivantes de votre déclaration de revenus de {{year}}\u00A0:",
-        "description": "Votre revenu provenant d'un emploi ou d'un travail indépendant"
+        "description": "Il s'agit des revenus que vous avez générés par votre emploi ou votre travail indépendant."
       },
       "partner-working-income": {
         "text1": "Pour calculer le revenu de travail de votre partenaire, additionnez toutes les lignes suivantes de la déclaration de revenus de cette personne pour l’année {{year}} :",
-        "description": "Le revenu de votre partenaire provenant d'un emploi ou d'un travail indépendant."
+        "description": "Il s'agit des revenus de votre partenaire provenant d'un emploi ou d'un travail indépendant."
       }
     },
     "page-title": "Étape 2 de 2\u00A0: Revenu"
@@ -107,7 +107,7 @@
     "breadcrumb": "Estimateur",
     "content": {
       "completion-time": "Il vous faudra environ 5 à 10 minutes pour obtenir une estimation.",
-      "description": "Utilisez cet outil pour déterminer le montant que vous pourriez recevoir de la Prestations canadiennes des personnes handicapées. Il ne s'agit pas de la demande de prestations.",
+      "description": "Utilisez cet outil pour déterminer le montant que vous pourriez recevoir de la Prestation canadienne pour les personnes handicapées. Il ne s'agit pas d'une demande de prestations.",
       "eligibility": {
         "header": "Avant de commencer"
       },
@@ -116,15 +116,15 @@
         "step-1": "état matrimonial",
         "step-2": "revenu"
       },
-      "result-disclaimer": "<strong>Cet outil ne détermine pas votre admissibilité à la prestation. Il fournit seulement une estimation du montant que vous pourriez recevoir. Vous pouvez consulter les critères les critères d'admissiblité pour la prestation au <cdbRequirementsLink>canada.ca/prestation-handicap</cdbRequirementsLink>.</strong>",
+      "result-disclaimer": "<strong>Cet outil ne détermine pas votre admissibilité à la prestation. Il fournit seulement une estimation du montant que vous pourriez recevoir. Vous pouvez consulter les critères d'admissiblité à la prestation sur <cdbRequirementsLink>Canada.ca/prestation-handicap</cdbRequirementsLink>.</strong>",
       "results": {
         "contact": " Pour une évaluation plus précise de votre montant de prestations estimé, veuillez <cdbContactLink>communiquer avec nous</cdbContactLink>.",
-        "description": "Cet estimateur fournit des montants estimés de prestation pour les paiements effectués entre {{paymentPeriodStart}} et {{paymentPeriodEnd}}. Les montants futurs des prestations pourraient changer.",
+        "description": "Cet estimateur fournit des montants estimés de prestation pour les paiements effectués entre {{paymentPeriodStart}} et {{paymentPeriodEnd}}. Les montants futurs des prestations pourraient être plus élevés en raison de l'inflation. Les résultats ne sont pas des conseils financiers et peuvent changer.",
         "header": "À propos des résultats"
       }
     },
     "navigate": "Accédez au tableau de bord",
-    "page-title": "Estimateur des prestations canadiennes pour les personnes handicapées",
+    "page-title": "Estimateur de la Prestation canadienne pour les personnes handicapées",
     "start": "Démarrer l'estimateur de prestations"
   },
   "marital-status": {

@@ -60,7 +60,8 @@
             id="input-text-field-«Rlmlj5»-help-primary"
           >
             <p>
-              Votre revenu provenant d'un emploi ou d'un travail indépendant
+              Il s'agit des revenus que vous avez générés par votre emploi ou
+              votre travail indépendant.
             </p>
             <div class="my-4 space-y-4">
               <details id="«R2elmlj5»">
@@ -83,7 +84,7 @@
                       2024&nbsp;:
                     </p>
                     <ul class="list-disc space-y-2 pl-5">
-                      <li>Revenus d'emploi (linge 10100)</li>
+                      <li>Revenus d'emploi (ligne 10100)</li>
                       <li>Autres revenus d'emploi (ligne 10400)</li>
                       <li>
                         Montant imposable des bourses d'études, de
@@ -134,9 +135,9 @@
         <div id="input-text-field-«Rpmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rpmlj5»-label"
             ><span class="font-semibold"
-              >Votre revenu de la Prestation universelle pour la garde d'enfants
-              (<abbr>PUGE</abbr>) et du Régime enregistré d'épargne-invalidité
-              (<abbr>REEI</abbr>)</span
+              >Entrez votre revenu de la Prestation universelle pour la garde
+              d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré
+              d'épargne-invalidité (<abbr>REEI</abbr>).</span
             >
             <span aria-hidden="true">(<!-- -->facultatif<!-- -->)</span></label
           >
@@ -146,8 +147,9 @@
             id="input-text-field-«Rpmlj5»-help-primary"
           >
             <p>
-              Revenu déclaré par vous (lignes 11700 et 12500 de votre
-              déclaration de revenus).
+              Pour calculer ce montant, additionner les revenus que vous avez
+              déclarés aux lignes 11700 et 12500 de votre déclaration de revenus
+              2024.
             </p>
           </div>
           <input
@@ -166,9 +168,9 @@
         <div id="input-text-field-«Rtmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rtmlj5»-label"
             ><span class="font-semibold"
-              >Votre remboursement de la Prestation universelle pour la garde
-              d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré
-              d'épargne-invalidité (<abbr>REEI</abbr>)</span
+              >Entrez votre remboursement de la Prestation universelle pour la
+              garde d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré
+              d'épargne-invalidité (<abbr>REEI</abbr>).</span
             >
             <span aria-hidden="true">(<!-- -->facultatif<!-- -->)</span></label
           >
@@ -178,8 +180,9 @@
             id="input-text-field-«Rtmlj5»-help-primary"
           >
             <p>
-              Remboursement déclaré par vous (lignes 21300 et 23200 de votre
-              déclaration de revenus).
+              Pour calculer ce montant, additionner les remboursements que vous
+              avez déclaré aux lignes 21300 et 23200 de votre déclaration de
+              revenus 2024.
             </p>
           </div>
           <input
