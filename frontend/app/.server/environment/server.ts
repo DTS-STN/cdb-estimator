@@ -1,6 +1,7 @@
 import * as v from 'valibot';
 
 import { client, defaults as clientDefaults } from '~/.server/environment/client';
+import { devEndpoints, defaults as devEndpointsDefaults } from '~/.server/environment/dev-endpoints';
 import { logging, defaults as loggingDefaults } from '~/.server/environment/logging';
 import { redis, defaults as redisDefaults } from '~/.server/environment/redis';
 import { session, defaults as sessionDefaults } from '~/.server/environment/session';
@@ -15,6 +16,7 @@ export const defaults = {
   NODE_ENV: 'development',
   PORT: '3000',
   ...clientDefaults,
+  ...devEndpointsDefaults,
   ...loggingDefaults,
   ...redisDefaults,
   ...sessionDefaults,
@@ -28,6 +30,7 @@ export const defaults = {
 export const server = v.pipe(
   v.object({
     ...client.entries,
+    ...devEndpoints.entries,
     ...logging.entries,
     ...redis.entries,
     ...session.entries,

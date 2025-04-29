@@ -11,7 +11,8 @@ const stagedSession = {
 };
 
 test('Navigating to /en/income renders the english income page', async ({ page }) => {
-  await seedSessionData(page, stagedSession);
+  const resp = await seedSessionData(page, stagedSession);
+  expect(resp.status()).toBe(200);
 
   await page.goto('/en/income');
   expect(page.url()).toContain('/en/income');
@@ -20,14 +21,18 @@ test('Navigating to /en/income renders the english income page', async ({ page }
 });
 
 test('Navigating to /fr/revenus renders the french income page', async ({ page }) => {
-  await seedSessionData(page, stagedSession);
+  const resp = await seedSessionData(page, stagedSession);
+  expect(resp.status()).toBe(200);
+
   await page.goto('/fr/revenus');
   expect(page.url()).toContain('/fr/revenus');
   expect(await formatHtml(await page.locator('main').innerHTML())).toMatchSnapshot();
 });
 
 test('/en/income passes a11y checks', async ({ page }) => {
-  await seedSessionData(page, stagedSession);
+  const resp = await seedSessionData(page, stagedSession);
+  expect(resp.status()).toBe(200);
+
   await page.goto('/en/income');
   expect(page.url()).toContain('/en/income');
   await page.locator('main').waitFor();
@@ -38,7 +43,9 @@ test('/en/income passes a11y checks', async ({ page }) => {
 });
 
 test('/fr/revenus passes a11y checks', async ({ page }) => {
-  await seedSessionData(page, stagedSession);
+  const resp = await seedSessionData(page, stagedSession);
+  expect(resp.status()).toBe(200);
+
   await page.goto('/fr/revenus');
   expect(page.url()).toContain('/fr/revenus');
   await page.locator('main').waitFor();

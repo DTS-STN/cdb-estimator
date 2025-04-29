@@ -26,7 +26,8 @@ const stagedSession = {
 };
 
 test('Navigating to /en/results renders the english results page', async ({ page }) => {
-  await seedSessionData(page, stagedSession);
+  const resp = await seedSessionData(page, stagedSession);
+  expect(resp.status()).toBe(200);
 
   await page.goto('/en/results');
 
@@ -34,14 +35,18 @@ test('Navigating to /en/results renders the english results page', async ({ page
 });
 
 test('Navigating to /fr/resultats renders the french results page', async ({ page }) => {
-  await seedSessionData(page, stagedSession);
+  const resp = await seedSessionData(page, stagedSession);
+  expect(resp.status()).toBe(200);
+
   await page.goto('/fr/resultats');
 
   expect(await formatHtml(await page.locator('main').innerHTML())).toMatchSnapshot();
 });
 
 test('/en/results passes a11y checks', async ({ page }) => {
-  await seedSessionData(page, stagedSession);
+  const resp = await seedSessionData(page, stagedSession);
+  expect(resp.status()).toBe(200);
+
   await page.goto('/en/results');
   await page.locator('main').waitFor();
 
@@ -51,7 +56,9 @@ test('/en/results passes a11y checks', async ({ page }) => {
 });
 
 test('/fr/resultats passes a11y checks', async ({ page }) => {
-  await seedSessionData(page, stagedSession);
+  const resp = await seedSessionData(page, stagedSession);
+  expect(resp.status()).toBe(200);
+
   await page.goto('/fr/resultats');
   await page.locator('main').waitFor();
 
