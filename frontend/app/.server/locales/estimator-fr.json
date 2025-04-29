@@ -79,7 +79,7 @@
       "claimed-income": "Pour calculer ce montant, additionner les revenus que vous avez déclarés aux lignes 11700 et 12500 de votre déclaration de revenus {{year}}.",
       "claimed-repayment": "Pour calculer ce montant, additionner les remboursements que vous avez déclaré aux lignes 21300 et 23200 de votre déclaration de revenus {{year}}.",
       "net-income": "Il se trouve à la ligne 23600 de votre déclaration de revenus {{year}}.",
-      "partner-claimed-income": "Pour calculer ce montant, additionner les lignes 11700 et ligne 12500 de la déclaration de revenus {{year}} de votre conjoint.",
+      "partner-claimed-income": "Pour calculer ce montant, additionner les lignes 11700 et ligne 12500 de la déclaration de revenus {{year}} de votre partenaire.",
       "partner-claimed-repayment": "Pour calculer ce montant, additionner les lignes 21300 et 23200 de la déclaration de revenus {{year}} de votre partenaire.",
       "partner-net-income": "Il se trouve à la ligne 23600 de la déclaration de revenus {{year}} de votre partenaire.",
       "working-income": {
@@ -97,7 +97,7 @@
         "description": "Il s'agit des revenus que vous avez générés par votre emploi ou votre travail indépendant."
       },
       "partner-working-income": {
-        "text1": "Pour calculer le revenu de travail de votre partenaire, additionnez toutes les lignes suivantes de la déclaration de revenus de cette personne pour l’année {{year}} :",
+        "text1": "Pour calculer le revenu de travail de votre partenaire, additionnez toutes les lignes suivantes de la déclaration de revenus de cette personne pour l'année {{year}} :",
         "description": "Il s'agit des revenus de votre partenaire provenant d'un emploi ou d'un travail indépendant."
       }
     },
