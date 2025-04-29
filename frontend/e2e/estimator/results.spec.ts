@@ -2,6 +2,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 import { seedSessionData } from 'e2e/__supports/session-supports';
 import { formatHtml } from 'e2e/__supports/string-utils';
+import { PlaywrightEstimatorPage } from 'e2e/models/PlaywrightEstimatorPage';
 
 const stagedSession = {
   estimator: {
@@ -26,43 +27,49 @@ const stagedSession = {
 };
 
 test('Navigating to /en/results renders the english results page', async ({ page }) => {
+  const estimator = new PlaywrightEstimatorPage(page);
   const resp = await seedSessionData(page, stagedSession);
   expect(resp.status()).toBe(200);
 
   await page.goto('/en/results');
+  await estimator.isLoaded('results');
 
   expect(await formatHtml(await page.locator('main').innerHTML())).toMatchSnapshot();
 });
 
 test('Navigating to /fr/resultats renders the french results page', async ({ page }) => {
+  const estimator = new PlaywrightEstimatorPage(page);
   const resp = await seedSessionData(page, stagedSession);
   expect(resp.status()).toBe(200);
 
   await page.goto('/fr/resultats');
+  await estimator.isLoaded('results', 'fr');
 
   expect(await formatHtml(await page.locator('main').innerHTML())).toMatchSnapshot();
 });
 
 test('/en/results passes a11y checks', async ({ page }) => {
+  const estimator = new PlaywrightEstimatorPage(page);
   const resp = await seedSessionData(page, stagedSession);
   expect(resp.status()).toBe(200);
 
   await page.goto('/en/results');
-  await page.locator('main').waitFor();
+  await estimator.isLoaded('results');
 
-  const accessibilityScanResults = await new AxeBuilder({ page }).include('main').analyze();
+  const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
 
   expect(accessibilityScanResults.violations).toEqual([]);
 });
 
 test('/fr/resultats passes a11y checks', async ({ page }) => {
+  const estimator = new PlaywrightEstimatorPage(page);
   const resp = await seedSessionData(page, stagedSession);
   expect(resp.status()).toBe(200);
 
   await page.goto('/fr/resultats');
-  await page.locator('main').waitFor();
+  await estimator.isLoaded('results', 'fr');
 
-  const accessibilityScanResults = await new AxeBuilder({ page }).include('main').analyze();
+  const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
 
   expect(accessibilityScanResults.violations).toEqual([]);
 });

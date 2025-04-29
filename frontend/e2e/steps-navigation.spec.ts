@@ -1,44 +1,70 @@
 import { expect, test } from '@playwright/test';
 
-test('Navigating marital-status -> income routes to marital-status', async ({ page }) => {
-  const maritalStatusResponse = await page.goto('/en/marital-status');
-  await page.goto('/en/income');
+import { PlaywrightEstimatorPage } from './models/PlaywrightEstimatorPage';
 
-  expect(maritalStatusResponse?.status()).toBe(200);
-  await expect(page).toHaveURL(/marital-status/);
-});
+test.describe('Skipping Step Navigation', () => {
+  test('Navigating marital-status -> income routes to marital-status', async ({ page }) => {
+    const estimator = new PlaywrightEstimatorPage(page);
+    await page.goto('/en/marital-status');
+    await estimator.isLoaded('marital-status');
 
-test('Navigating marital-status -> results routes to marital-status', async ({ page }) => {
-  const maritalStatusResponse = await page.goto('/en/marital-status');
-  await page.goto('/en/results');
+    const incomeResponse = await page.goto('/en/income');
+    const redirectedResponse = await incomeResponse?.request().redirectedFrom()?.response();
 
-  expect(maritalStatusResponse?.status()).toBe(200);
-  await expect(page).toHaveURL(/marital-status/);
-});
+    expect(redirectedResponse?.status()).toBe(302);
+    await estimator.isLoaded('marital-status');
+  });
 
-test('Navigating income -> results routes to income', async ({ page }) => {
-  await page.goto('/en/marital-status');
-  await page.getByRole('radio', { name: /single/i }).check();
-  await page.getByRole('button', { name: /continue/i }).click();
+  test('Navigating marital-status -> results routes to marital-status', async ({ page }) => {
+    const estimator = new PlaywrightEstimatorPage(page);
+    await page.goto('/en/marital-status');
+    await estimator.isLoaded('marital-status');
 
-  await expect(page).toHaveURL(/income/);
-  await page.goto('/en/results');
+    const resultsResponse = await page.goto('/en/results');
+    const redirectedResponse = await resultsResponse?.request().redirectedFrom()?.response();
 
-  await expect(page).toHaveURL(/income/);
-});
+    expect(redirectedResponse?.status()).toBe(302);
+    await estimator.isLoaded('marital-status');
+  });
 
-test('Navigating dashboard -> income routes to marital-status', async ({ page }) => {
-  const dashboardResponse = await page.goto('/en');
-  await page.goto('/en/income');
+  test('Navigating income -> results routes to income', async ({ page }) => {
+    const estimator = new PlaywrightEstimatorPage(page);
+    await page.goto('/en/marital-status');
+    await estimator.isLoaded('marital-status');
 
-  expect(dashboardResponse?.status()).toBe(200);
-  await expect(page).toHaveURL(/marital-status/);
-});
+    await page.getByRole('radio', { name: /single/i }).check();
+    await page.getByRole('button', { name: /continue/i }).click();
 
-test('Navigating dashboard -> results routes to marital-status', async ({ page }) => {
-  const dashboardResponse = await page.goto('/en');
-  await page.goto('/en/results');
+    await estimator.isLoaded('income');
 
-  expect(dashboardResponse?.status()).toBe(200);
-  await expect(page).toHaveURL(/marital-status/);
+    const resultsResponse = await page.goto('/en/results');
+    const redirectedResponse = await resultsResponse?.request().redirectedFrom()?.response();
+
+    expect(redirectedResponse?.status()).toBe(302);
+    await estimator.isLoaded('income');
+  });
+
+  test('Navigating dashboard -> income routes to marital-status', async ({ page }) => {
+    const estimator = new PlaywrightEstimatorPage(page);
+    await page.goto('/en');
+    await estimator.isLoaded('index');
+
+    const incomeResponse = await page.goto('/en/income');
+    const redirectedResponse = await incomeResponse?.request().redirectedFrom()?.response();
+
+    expect(redirectedResponse?.status()).toBe(302);
+    await estimator.isLoaded('marital-status');
+  });
+
+  test('Navigating dashboard -> results routes to marital-status', async ({ page }) => {
+    const estimator = new PlaywrightEstimatorPage(page);
+    await page.goto('/en');
+    await estimator.isLoaded('index');
+
+    const resultsResponse = await page.goto('/en/results');
+    const redirectedResponse = await resultsResponse?.request().redirectedFrom()?.response();
+
+    expect(redirectedResponse?.status()).toBe(302);
+    await estimator.isLoaded('marital-status');
+  });
 });
