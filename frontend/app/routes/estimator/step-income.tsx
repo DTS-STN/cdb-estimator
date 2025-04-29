@@ -79,7 +79,7 @@ function processIncome(formData: FormData, isMarried: boolean) {
       netIncome: v.pipe(
         v.string('net-income.error.required'),
         v.nonEmpty('net-income.error.required'),
-        v.transform((input) => removeNumericFormatting(input)),
+        v.transform((input) => removeNumericFormatting(input) ?? ''),
         v.regex(positiveDecimal, 'net-income.error.invalid'),
         v.transform(Number),
         v.number('net-income.error.invalid'),
@@ -88,23 +88,25 @@ function processIncome(formData: FormData, isMarried: boolean) {
       workingIncome: v.pipe(
         v.string('working-income.error.required'),
         v.nonEmpty('working-income.error.required'),
-        v.transform((input) => removeNumericFormatting(input)),
+        v.transform((input) => removeNumericFormatting(input) ?? ''),
         v.regex(positiveDecimal, 'working-income.error.invalid'),
         v.transform(Number),
         v.number('working-income.error.invalid'),
         v.minValue(0, 'working-income.error.invalid'),
       ),
       claimedIncome: v.pipe(
-        v.optional(v.string(), '0'),
-        v.transform((input) => removeNumericFormatting(input)),
+        v.string('claimed-income.error.required'),
+        v.nonEmpty('claimed-income.error.required'),
+        v.transform((input) => removeNumericFormatting(input) ?? ''),
         v.regex(positiveDecimal, 'claimed-income.error.invalid'),
         v.transform(Number),
         v.number('claimed-income.error.invalid'),
         v.minValue(0, 'claimed-income.error.invalid'),
       ),
       claimedRepayment: v.pipe(
-        v.optional(v.string(), '0'),
-        v.transform((input) => removeNumericFormatting(input)),
+        v.string('claimed-repayment.error.required'),
+        v.nonEmpty('claimed-repayment.error.required'),
+        v.transform((input) => removeNumericFormatting(input) ?? ''),
         v.regex(positiveDecimal, 'claimed-repayment.error.invalid'),
         v.transform(Number),
         v.number('claimed-repayment.error.invalid'),
@@ -254,6 +256,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
             <CurrencyField
               name="individual-claimed-income"
               label={<Trans i18nKey={'estimator:income.fields.claimed-income.label'} />}
+              required
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
                 <p>
@@ -262,7 +265,8 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               }
               defaultValue={
                 loaderData.formValues?.individualIncome.claimedIncome ??
-                removeNumericFormatting(previousFormValues.get('income:individual-claimed-income'))
+                removeNumericFormatting(previousFormValues.get('income:individual-claimed-income')) ??
+                '0'
               }
               errorMessage={
                 errors?.nested?.['individualIncome.claimedIncome']?.at(0) ? (
@@ -274,6 +278,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
             <CurrencyField
               name="individual-claimed-repayment"
               label={<Trans i18nKey={'estimator:income.fields.claimed-repayment.label'} />}
+              required
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
                 <p>
@@ -282,7 +287,8 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               }
               defaultValue={
                 loaderData.formValues?.individualIncome.claimedRepayment ??
-                removeNumericFormatting(previousFormValues.get('income:individual-claimed-repayment'))
+                removeNumericFormatting(previousFormValues.get('income:individual-claimed-repayment')) ??
+                '0'
               }
               errorMessage={
                 errors?.nested?.['individualIncome.claimedRepayment']?.at(0) ? (
@@ -367,6 +373,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                 <CurrencyField
                   name="partner-claimed-income"
                   label={<Trans i18nKey={'estimator:income.fields.partner.claimed-income.label'} />}
+                  required
                   helpMessagePrimaryClassName="-max-w-prose text-black"
                   helpMessagePrimary={
                     <p>
@@ -379,7 +386,9 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   defaultValue={
                     (loaderData.formValues?.kind === 'married'
                       ? loaderData.formValues.partnerIncome.claimedIncome
-                      : undefined) ?? removeNumericFormatting(previousFormValues.get('income:partner-claimed-income'))
+                      : undefined) ??
+                    removeNumericFormatting(previousFormValues.get('income:partner-claimed-income')) ??
+                    '0'
                   }
                   errorMessage={
                     errors?.nested?.['partnerIncome.claimedIncome']?.at(0) ? (
@@ -392,6 +401,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                 <CurrencyField
                   name="partner-claimed-repayment"
                   label={<Trans i18nKey={'estimator:income.fields.partner.claimed-repayment.label'} />}
+                  required
                   helpMessagePrimaryClassName="-max-w-prose text-black"
                   helpMessagePrimary={
                     <p>
@@ -404,7 +414,9 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                   defaultValue={
                     (loaderData.formValues?.kind === 'married'
                       ? loaderData.formValues.partnerIncome.claimedRepayment
-                      : undefined) ?? removeNumericFormatting(previousFormValues.get('income:partner-claimed-repayment'))
+                      : undefined) ??
+                    removeNumericFormatting(previousFormValues.get('income:partner-claimed-repayment')) ??
+                    '0'
                   }
                   errorMessage={
                     errors?.nested?.['partnerIncome.claimedRepayment']?.at(0) ? (

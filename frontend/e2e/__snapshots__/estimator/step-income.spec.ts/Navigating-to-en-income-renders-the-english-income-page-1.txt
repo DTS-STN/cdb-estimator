@@ -130,8 +130,7 @@
               >Enter your Universal Child Care Benefit (<abbr>UCCB</abbr>) and
               Registered Disability Savings Plan (<abbr>RDSP</abbr>)
               income.</span
-            >
-            <span aria-hidden="true">(<!-- -->optional<!-- -->)</span></label
+            ></label
           >
           <div
             class="-max-w-prose text-black"
@@ -147,14 +146,16 @@
           ><input
             aria-describedby="input-text-field-«Rpmlj5»-help-primary"
             aria-labelledby="input-text-field-«Rpmlj5»-label"
+            aria-required="true"
             class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
             id="input-text-field-«Rpmlj5»-input"
+            required=""
             type="text"
             inputmode="numeric"
             maxlength="15"
             autocomplete="off"
             name="individual-claimed-income"
-            value=""
+            value="0"
           />
         </div>
         <div id="input-text-field-«Rtmlj5»" class="space-y-2">
@@ -163,8 +164,7 @@
               >Enter your Universal Child Care Benefit (<abbr>UCCB</abbr>) and
               Registered Disability Savings Plan (<abbr>RDSP</abbr>)
               repayment.</span
-            >
-            <span aria-hidden="true">(<!-- -->optional<!-- -->)</span></label
+            ></label
           >
           <div
             class="-max-w-prose text-black"
@@ -180,14 +180,16 @@
           ><input
             aria-describedby="input-text-field-«Rtmlj5»-help-primary"
             aria-labelledby="input-text-field-«Rtmlj5»-label"
+            aria-required="true"
             class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
             id="input-text-field-«Rtmlj5»-input"
+            required=""
             type="text"
             inputmode="numeric"
             maxlength="15"
             autocomplete="off"
             name="individual-claimed-repayment"
-            value=""
+            value="0"
           />
         </div>
       </div>

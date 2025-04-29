@@ -5,14 +5,16 @@
     "fields": {
       "claimed-income": {
         "error": {
-          "invalid": "Your <abbr>UCCB</abbr> and <abbr>RDSP</abbr> income is invalid"
+          "invalid": "Your <abbr>UCCB</abbr> and <abbr>RDSP</abbr> income is invalid",
+          "required": "Your <abbr>UCCB</abbr> and <abbr>RDSP</abbr> income is required"
         },
         "info-label": "Information",
         "label": "Enter your Universal Child Care Benefit (<abbr>UCCB</abbr>) and Registered Disability Savings Plan (<abbr>RDSP</abbr>) income."
       },
       "claimed-repayment": {
         "error": {
-          "invalid": "Your <abbr>UCCB</abbr> and <abbr>RDSP</abbr> repayment is invalid"
+          "invalid": "Your <abbr>UCCB</abbr> and <abbr>RDSP</abbr> repayment is invalid",
+          "required": "Your <abbr>UCCB</abbr> and <abbr>RDSP</abbr> repayment is required"
         },
         "info-label": "Information",
         "label": "Enter your Universal Child Care Benefit (<abbr>UCCB</abbr>) and Registered Disability Savings Plan (<abbr>RDSP</abbr>) repayment."
@@ -28,14 +30,16 @@
       "partner": {
         "claimed-income": {
           "error": {
-            "invalid": "Your partner's <abbr>UCCB</abbr> and <abbr>RDSP</abbr> income is invalid"
+            "invalid": "Your partner's <abbr>UCCB</abbr> and <abbr>RDSP</abbr> income is invalid",
+            "required": "Your partner's <abbr>UCCB</abbr> and <abbr>RDSP</abbr> income is required"
           },
           "info-label": "Information",
           "label": "Enter your partner's Universal Child Care Benefit (<abbr>UCCB</abbr>) and Registered Disability Savings Plan (<abbr>RDSP</abbr>) income."
         },
         "claimed-repayment": {
           "error": {
-            "invalid": "Your partner's <abbr>UCCB</abbr> and <abbr>RDSP</abbr> repayment is invalid"
+            "invalid": "Your partner's <abbr>UCCB</abbr> and <abbr>RDSP</abbr> repayment is invalid",
+            "required": "Your partner's <abbr>UCCB</abbr> and <abbr>RDSP</abbr> repayment is required"
           },
           "info-label": "Information",
           "label": "Your partner's Universal Child Care Benefit (<abbr>UCCB</abbr>) and Registered Disability Savings Plan (<abbr>RDSP</abbr>) repayment"
