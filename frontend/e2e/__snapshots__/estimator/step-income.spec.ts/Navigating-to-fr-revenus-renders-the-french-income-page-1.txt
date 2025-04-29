@@ -16,20 +16,22 @@
       <div class="space-y-6">
         <p>
           Pour estimer vos prestations, nous aurons besoin des renseignements
-          figurant sur votre <strong>déclaration de revenus de 2024</strong>.
+          suivants de votre <strong>déclaration de revenus de 2024</strong>.
         </p>
-        <p>Si un montant total est négatif ou égal à zéro, inscrivez '0'.</p>
-        <h2 class="font-lato mb-4 text-2xl font-bold">Votre information</h2>
+        <p>Si un des montants est négatif ou nul, entrez '0'.</p>
         <div id="input-text-field-«Rhmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rhmlj5»-label"
-            ><span class="font-semibold">Votre revenu net</span></label
+            ><span class="font-semibold">Entrez votre revenu net</span></label
           >
           <div
             class="-max-w-prose text-black"
             data-testid="input-help"
             id="input-text-field-«Rhmlj5»-help-primary"
           >
-            <p>Ligne 23600 de votre déclaration.</p>
+            <p>
+              Il se trouve à la ligne 23600 de votre déclaration de revenus
+              2024.
+            </p>
           </div>
           <input
             aria-describedby="input-text-field-«Rhmlj5»-help-primary"
@@ -48,7 +50,9 @@
         </div>
         <div id="input-text-field-«Rlmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rlmlj5»-label"
-            ><span class="font-semibold">Votre revenu d'emploi</span></label
+            ><span class="font-semibold"
+              >Entrez votre revenu d'emploi</span
+            ></label
           >
           <div
             class="-max-w-prose text-black"

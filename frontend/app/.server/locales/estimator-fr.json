@@ -23,7 +23,7 @@
           "required": "Votre revenu net est requis"
         },
         "info-label": "Comment calculer votre revenu net ?",
-        "label": "Votre revenu net"
+        "label": "Entrez votre revenu net"
       },
       "partner": {
         "claimed-income": {
@@ -63,22 +63,22 @@
           "required": "Votre revenu d'emploi est requis"
         },
         "info-label": "Comment calculer votre revenu d'emploi ?",
-        "label": "Votre revenu d'emploi"
+        "label": "Entrez votre revenu d'emploi"
       }
     },
     "form-instructions": {
-      "married": "Pour estimer vos prestations, nous aurons besoin des renseignements figurant sur votre <strong>déclaration de revenus de {{year}}</strong> ainsi que sur celle de votre partenaire.",
-      "single": "Pour estimer vos prestations, nous aurons besoin des renseignements figurant sur votre <strong>déclaration de revenus de {{year}}</strong>.",
-      "note": "Si un montant total est négatif ou égal à zéro, inscrivez '0'."
+      "married": "Pour estimer vos prestations, nous aurons besoin des renseignements figurant sur votre déclaration de revenus de {{year}}</strong> ainsi que sur celle de votre partenaire.",
+      "single": "Pour estimer vos prestations, nous aurons besoin des renseignements suivants de votre <strong>déclaration de revenus de {{year}}</strong>.",
+      "note": "Si un des montants est négatif ou nul, entrez '0'."
     },
     "heading": {
-      "your-info": "Votre information",
-      "partner-info": "L'information de votre partenaire"
+      "your-info": "Votre information\u00A0:",
+      "partner-info": "L'information de votre partenaire\u00A0:"
     },
     "info": {
       "claimed-income": "Revenu déclaré par vous (lignes 11700 et 12500 de votre déclaration de revenus).",
       "claimed-repayment": "Remboursement déclaré par vous (lignes 21300 et 23200 de votre déclaration de revenus).",
-      "net-income": "Ligne 23600 de votre déclaration.",
+      "net-income": "Il se trouve à la ligne 23600 de votre déclaration de revenus {{year}}.",
       "partner-claimed-income": "Revenu déclaré par votre conjoint (ligne 11700 et ligne 12500 de leur déclaration de revenus).",
       "partner-claimed-repayment": "Remboursement déclaré par votre conjoint (ligne 21300 et ligne 23200 de leur déclaration de revenus).",
       "partner-net-income": "Ligne 23600 de la déclaration de revenus de votre conjoint.",
