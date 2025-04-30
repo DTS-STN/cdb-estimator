@@ -17,7 +17,7 @@
           your <strong>2024 tax return</strong>.
         </p>
         <p>If any total amounts are negative or zero, enter '0'.</p>
-        <p>All fields are required unless marked as optional.</p>
+        <p>All fields are required.</p>
         <div id="input-text-field-«Rlmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rlmlj5»-label"
             ><span class="font-semibold">Enter your net income</span></label

@@ -19,7 +19,7 @@
           suivants de votre <strong>déclaration de revenus de 2024</strong>.
         </p>
         <p>Si un des montants est négatif ou nul, entrez '0'.</p>
-        <p>Tous les champs sont obligatoires, sauf indication contraire.</p>
+        <p>Tous les champs sont obligatoires.</p>
         <div id="input-text-field-«Rlmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rlmlj5»-label"
             ><span class="font-semibold">Entrez votre revenu net</span></label

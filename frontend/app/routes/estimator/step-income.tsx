@@ -185,7 +185,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               )}
             </p>
             <p>{t('estimator:income.form-instructions.note')}</p>
-            <p>{t('common:form-instructions')}</p>
+            <p>{t('common:form-instructions.all-required')}</p>
             {loaderData.isMarried && (
               <h2 className="font-lato mb-4 text-2xl font-bold">{t('estimator:income.heading.your-info')}</h2>
             )}

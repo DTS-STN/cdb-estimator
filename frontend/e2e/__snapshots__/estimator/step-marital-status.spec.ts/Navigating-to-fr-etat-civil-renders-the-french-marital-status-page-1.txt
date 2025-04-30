@@ -19,7 +19,7 @@
       method="post"
     >
       <div class="space-y-6">
-        <p>Tous les champs sont obligatoires, sauf indication contraire.</p>
+        <p>Tous les champs sont obligatoires.</p>
         <fieldset
           id="input-radios-marital-status"
           data-testid="input-radios-marital-status"

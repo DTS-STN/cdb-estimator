@@ -137,7 +137,10 @@
       "text": "Youth"
     }
   },
-  "form-instructions": "All fields are required unless marked as optional.",
+  "form-instructions": {
+    "all-required": "All fields are required.",
+    "required-or-optional": "All fields are required unless marked as optional."
+  },
   "header": {
     "govt-of-canada.href": "https://www.canada.ca/en.html",
     "govt-of-canada.text": "Government of Canada",
