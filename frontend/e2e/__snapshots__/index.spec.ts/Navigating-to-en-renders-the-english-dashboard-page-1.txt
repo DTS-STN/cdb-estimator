@@ -24,7 +24,7 @@
       <strong
         >This tool does not assess your eligibility for the benefit. It only
         provides an estimate of the amount you may receive if you're eligible.
-        You can consult the benefit eligiblity requirements at
+        You can consult the benefit eligibility requirements at
         <a
           class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700 external-link"
           href="https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html"

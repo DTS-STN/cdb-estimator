@@ -17,7 +17,7 @@
       method="post"
     >
       <div class="space-y-6">
-        <p>All fields are required unless marked as optional.</p>
+        <p>All fields are required.</p>
         <fieldset
           id="input-radios-marital-status"
           data-testid="input-radios-marital-status"

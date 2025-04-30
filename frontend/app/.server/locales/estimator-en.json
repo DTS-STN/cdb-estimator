@@ -120,7 +120,7 @@
         "step-1": "marital status",
         "step-2": "income"
       },
-      "result-disclaimer": "<strong>This tool does not assess your eligibility for the benefit. It only provides an estimate of the amount you may receive if you're eligible. You can consult the benefit eligiblity requirements at <cdbRequirementsLink>Canada.ca/disability-benefit</cdbRequirementsLink>.</strong>",
+      "result-disclaimer": "<strong>This tool does not assess your eligibility for the benefit. It only provides an estimate of the amount you may receive if you're eligible. You can consult the benefit eligibility requirements at <cdbRequirementsLink>Canada.ca/disability-benefit</cdbRequirementsLink>.</strong>",
       "results": {
         "contact": " For a more accurate assessment of your estimated benefits amount, please <cdbContactLink>contact us</cdbContactLink>.",
         "description": "This estimator provides estimated benefit amounts for payments made between {{paymentPeriodStart}} and {{paymentPeriodEnd}}. Future benefit amounts may change.",
