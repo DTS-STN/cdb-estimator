@@ -45,9 +45,9 @@
         </ul>
         <p>
           <strong
-            >Please note that you may be able to receive back payments for past
-            months that you were eligible, but not for any time before the
-            launch of the benefit (July 2025).</strong
+            >Please note that you may be eligible to get back payments for up to
+            24 months from the date we receive your application. There will be
+            no back payments prior to July 2025.</strong
           >
         </p>
         <h2 class="font-lato mt-15 mb-5 text-2xl font-bold">Next steps</h2>
