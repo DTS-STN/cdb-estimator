@@ -14,27 +14,28 @@
       <div class="space-y-6">
         <p>
           To estimate your benefits, we will need the following information from
-          your <strong>2024 tax return</strong>
+          your <strong>2024 tax return</strong>.
         </p>
         <p>If any total amounts are negative or zero, enter '0'.</p>
-        <div id="input-text-field-«Rhmlj5»" class="space-y-2">
-          <label class="block" id="input-text-field-«Rhmlj5»-label"
+        <p>All fields are required unless marked as optional.</p>
+        <div id="input-text-field-«Rlmlj5»" class="space-y-2">
+          <label class="block" id="input-text-field-«Rlmlj5»-label"
             ><span class="font-semibold">Enter your net income</span></label
           >
           <div
             class="-max-w-prose text-black"
             data-testid="input-help"
-            id="input-text-field-«Rhmlj5»-help-primary"
+            id="input-text-field-«Rlmlj5»-help-primary"
           >
             <p>This is found on line 23600 of your 2024 tax return.</p>
           </div>
           <span class="mr-1">$</span
           ><input
-            aria-describedby="input-text-field-«Rhmlj5»-help-primary"
-            aria-labelledby="input-text-field-«Rhmlj5»-label"
+            aria-describedby="input-text-field-«Rlmlj5»-help-primary"
+            aria-labelledby="input-text-field-«Rlmlj5»-label"
             aria-required="true"
             class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
-            id="input-text-field-«Rhmlj5»-input"
+            id="input-text-field-«Rlmlj5»-input"
             required=""
             type="text"
             inputmode="numeric"
@@ -44,30 +45,30 @@
             value=""
           />
         </div>
-        <div id="input-text-field-«Rlmlj5»" class="space-y-2">
-          <label class="block" id="input-text-field-«Rlmlj5»-label"
+        <div id="input-text-field-«Rpmlj5»" class="space-y-2">
+          <label class="block" id="input-text-field-«Rpmlj5»-label"
             ><span class="font-semibold">Enter your working income</span></label
           >
           <div
             class="-max-w-prose text-black"
             data-testid="input-help"
-            id="input-text-field-«Rlmlj5»-help-primary"
+            id="input-text-field-«Rpmlj5»-help-primary"
           >
             <p>
               This is income you made from your employment or self-employment.
             </p>
             <div class="my-4 space-y-4">
-              <details id="«R2elmlj5»">
+              <details id="«R2epmlj5»">
                 <summary
                   class="cursor-pointer marker:text-blue-900"
-                  id="«R2elmlj5»-summary"
+                  id="«R2epmlj5»-summary"
                 >
                   <span class="ml-4 inline-block text-blue-900 hover:underline"
                     >How to calculate your working income</span
                   >
                 </summary>
                 <div
-                  id="«R2elmlj5»-content"
+                  id="«R2epmlj5»-content"
                   class="mt-2 border-l-[6px] border-gray-400 px-6 py-4"
                 >
                   <div class="space-y-4">
@@ -110,40 +111,6 @@
           </div>
           <span class="mr-1">$</span
           ><input
-            aria-describedby="input-text-field-«Rlmlj5»-help-primary"
-            aria-labelledby="input-text-field-«Rlmlj5»-label"
-            aria-required="true"
-            class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
-            id="input-text-field-«Rlmlj5»-input"
-            required=""
-            type="text"
-            inputmode="numeric"
-            maxlength="15"
-            autocomplete="off"
-            name="individual-working-income"
-            value=""
-          />
-        </div>
-        <div id="input-text-field-«Rpmlj5»" class="space-y-2">
-          <label class="block" id="input-text-field-«Rpmlj5»-label"
-            ><span class="font-semibold"
-              >Enter your Universal Child Care Benefit (<abbr>UCCB</abbr>) and
-              Registered Disability Savings Plan (<abbr>RDSP</abbr>)
-              income.</span
-            ></label
-          >
-          <div
-            class="-max-w-prose text-black"
-            data-testid="input-help"
-            id="input-text-field-«Rpmlj5»-help-primary"
-          >
-            <p>
-              To calculate this amount, add line 11700 and line 12500 of your
-              2024 tax return.
-            </p>
-          </div>
-          <span class="mr-1">$</span
-          ><input
             aria-describedby="input-text-field-«Rpmlj5»-help-primary"
             aria-labelledby="input-text-field-«Rpmlj5»-label"
             aria-required="true"
@@ -154,8 +121,8 @@
             inputmode="numeric"
             maxlength="15"
             autocomplete="off"
-            name="individual-claimed-income"
-            value="0"
+            name="individual-working-income"
+            value=""
           />
         </div>
         <div id="input-text-field-«Rtmlj5»" class="space-y-2">
@@ -163,7 +130,7 @@
             ><span class="font-semibold"
               >Enter your Universal Child Care Benefit (<abbr>UCCB</abbr>) and
               Registered Disability Savings Plan (<abbr>RDSP</abbr>)
-              repayment.</span
+              income.</span
             ></label
           >
           <div
@@ -172,7 +139,7 @@
             id="input-text-field-«Rtmlj5»-help-primary"
           >
             <p>
-              To calculate this amount, add line 21300 and line 23200 of your
+              To calculate this amount, add line 11700 and line 12500 of your
               2024 tax return.
             </p>
           </div>
@@ -183,6 +150,40 @@
             aria-required="true"
             class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
             id="input-text-field-«Rtmlj5»-input"
+            required=""
+            type="text"
+            inputmode="numeric"
+            maxlength="15"
+            autocomplete="off"
+            name="individual-claimed-income"
+            value="0"
+          />
+        </div>
+        <div id="input-text-field-«R11mlj5»" class="space-y-2">
+          <label class="block" id="input-text-field-«R11mlj5»-label"
+            ><span class="font-semibold"
+              >Enter your Universal Child Care Benefit (<abbr>UCCB</abbr>) and
+              Registered Disability Savings Plan (<abbr>RDSP</abbr>)
+              repayment.</span
+            ></label
+          >
+          <div
+            class="-max-w-prose text-black"
+            data-testid="input-help"
+            id="input-text-field-«R11mlj5»-help-primary"
+          >
+            <p>
+              To calculate this amount, add line 21300 and line 23200 of your
+              2024 tax return.
+            </p>
+          </div>
+          <span class="mr-1">$</span
+          ><input
+            aria-describedby="input-text-field-«R11mlj5»-help-primary"
+            aria-labelledby="input-text-field-«R11mlj5»-label"
+            aria-required="true"
+            class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
+            id="input-text-field-«R11mlj5»-input"
             required=""
             type="text"
             inputmode="numeric"

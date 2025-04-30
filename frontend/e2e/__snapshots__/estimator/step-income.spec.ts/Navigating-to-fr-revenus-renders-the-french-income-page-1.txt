@@ -19,14 +19,15 @@
           suivants de votre <strong>déclaration de revenus de 2024</strong>.
         </p>
         <p>Si un des montants est négatif ou nul, entrez '0'.</p>
-        <div id="input-text-field-«Rhmlj5»" class="space-y-2">
-          <label class="block" id="input-text-field-«Rhmlj5»-label"
+        <p>Tous les champs sont obligatoires, sauf indication contraire.</p>
+        <div id="input-text-field-«Rlmlj5»" class="space-y-2">
+          <label class="block" id="input-text-field-«Rlmlj5»-label"
             ><span class="font-semibold">Entrez votre revenu net</span></label
           >
           <div
             class="-max-w-prose text-black"
             data-testid="input-help"
-            id="input-text-field-«Rhmlj5»-help-primary"
+            id="input-text-field-«Rlmlj5»-help-primary"
           >
             <p>
               Il se trouve à la ligne 23600 de votre déclaration de revenus
@@ -34,11 +35,11 @@
             </p>
           </div>
           <input
-            aria-describedby="input-text-field-«Rhmlj5»-help-primary"
-            aria-labelledby="input-text-field-«Rhmlj5»-label"
+            aria-describedby="input-text-field-«Rlmlj5»-help-primary"
+            aria-labelledby="input-text-field-«Rlmlj5»-label"
             aria-required="true"
             class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
-            id="input-text-field-«Rhmlj5»-input"
+            id="input-text-field-«Rlmlj5»-input"
             required=""
             type="text"
             inputmode="numeric"
@@ -48,8 +49,8 @@
             value=""
           /><span class="ml-1">$</span>
         </div>
-        <div id="input-text-field-«Rlmlj5»" class="space-y-2">
-          <label class="block" id="input-text-field-«Rlmlj5»-label"
+        <div id="input-text-field-«Rpmlj5»" class="space-y-2">
+          <label class="block" id="input-text-field-«Rpmlj5»-label"
             ><span class="font-semibold"
               >Entrez votre revenu d'emploi</span
             ></label
@@ -57,24 +58,24 @@
           <div
             class="-max-w-prose text-black"
             data-testid="input-help"
-            id="input-text-field-«Rlmlj5»-help-primary"
+            id="input-text-field-«Rpmlj5»-help-primary"
           >
             <p>
               Il s'agit des revenus que vous avez générés par votre emploi ou
               votre travail indépendant.
             </p>
             <div class="my-4 space-y-4">
-              <details id="«R2elmlj5»">
+              <details id="«R2epmlj5»">
                 <summary
                   class="cursor-pointer marker:text-blue-900"
-                  id="«R2elmlj5»-summary"
+                  id="«R2epmlj5»-summary"
                 >
                   <span class="ml-4 inline-block text-blue-900 hover:underline"
                     >Comment calculer votre revenu d'emploi ?</span
                   >
                 </summary>
                 <div
-                  id="«R2elmlj5»-content"
+                  id="«R2epmlj5»-content"
                   class="mt-2 border-l-[6px] border-gray-400 px-6 py-4"
                 >
                   <div class="space-y-4">
@@ -118,40 +119,6 @@
             </div>
           </div>
           <input
-            aria-describedby="input-text-field-«Rlmlj5»-help-primary"
-            aria-labelledby="input-text-field-«Rlmlj5»-label"
-            aria-required="true"
-            class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
-            id="input-text-field-«Rlmlj5»-input"
-            required=""
-            type="text"
-            inputmode="numeric"
-            maxlength="16"
-            autocomplete="off"
-            name="individual-working-income"
-            value=""
-          /><span class="ml-1">$</span>
-        </div>
-        <div id="input-text-field-«Rpmlj5»" class="space-y-2">
-          <label class="block" id="input-text-field-«Rpmlj5»-label"
-            ><span class="font-semibold"
-              >Entrez votre revenu de la Prestation universelle pour la garde
-              d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré
-              d'épargne-invalidité (<abbr>REEI</abbr>).</span
-            ></label
-          >
-          <div
-            class="-max-w-prose text-black"
-            data-testid="input-help"
-            id="input-text-field-«Rpmlj5»-help-primary"
-          >
-            <p>
-              Pour calculer ce montant, additionner les revenus que vous avez
-              déclarés aux lignes 11700 et 12500 de votre déclaration de revenus
-              2024.
-            </p>
-          </div>
-          <input
             aria-describedby="input-text-field-«Rpmlj5»-help-primary"
             aria-labelledby="input-text-field-«Rpmlj5»-label"
             aria-required="true"
@@ -162,15 +129,15 @@
             inputmode="numeric"
             maxlength="16"
             autocomplete="off"
-            name="individual-claimed-income"
-            value="0"
+            name="individual-working-income"
+            value=""
           /><span class="ml-1">$</span>
         </div>
         <div id="input-text-field-«Rtmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rtmlj5»-label"
             ><span class="font-semibold"
-              >Entrez votre remboursement de la Prestation universelle pour la
-              garde d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré
+              >Entrez votre revenu de la Prestation universelle pour la garde
+              d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré
               d'épargne-invalidité (<abbr>REEI</abbr>).</span
             ></label
           >
@@ -180,9 +147,9 @@
             id="input-text-field-«Rtmlj5»-help-primary"
           >
             <p>
-              Pour calculer ce montant, additionner les remboursements que vous
-              avez déclaré aux lignes 21300 et 23200 de votre déclaration de
-              revenus 2024.
+              Pour calculer ce montant, additionner les revenus que vous avez
+              déclarés aux lignes 11700 et 12500 de votre déclaration de revenus
+              2024.
             </p>
           </div>
           <input
@@ -191,6 +158,40 @@
             aria-required="true"
             class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
             id="input-text-field-«Rtmlj5»-input"
+            required=""
+            type="text"
+            inputmode="numeric"
+            maxlength="16"
+            autocomplete="off"
+            name="individual-claimed-income"
+            value="0"
+          /><span class="ml-1">$</span>
+        </div>
+        <div id="input-text-field-«R11mlj5»" class="space-y-2">
+          <label class="block" id="input-text-field-«R11mlj5»-label"
+            ><span class="font-semibold"
+              >Entrez votre remboursement de la Prestation universelle pour la
+              garde d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré
+              d'épargne-invalidité (<abbr>REEI</abbr>).</span
+            ></label
+          >
+          <div
+            class="-max-w-prose text-black"
+            data-testid="input-help"
+            id="input-text-field-«R11mlj5»-help-primary"
+          >
+            <p>
+              Pour calculer ce montant, additionner les remboursements que vous
+              avez déclaré aux lignes 21300 et 23200 de votre déclaration de
+              revenus 2024.
+            </p>
+          </div>
+          <input
+            aria-describedby="input-text-field-«R11mlj5»-help-primary"
+            aria-labelledby="input-text-field-«R11mlj5»-label"
+            aria-required="true"
+            class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
+            id="input-text-field-«R11mlj5»-input"
             required=""
             type="text"
             inputmode="numeric"

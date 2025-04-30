@@ -72,7 +72,7 @@
     },
     "form-instructions": {
       "married": "To estimate your benefits, we will need the following information from your and your partner's <strong>{{year}} tax returns</strong>.",
-      "single": "To estimate your benefits, we will need the following information from your <strong>{{year}} tax return</strong>",
+      "single": "To estimate your benefits, we will need the following information from your <strong>{{year}} tax return</strong>.",
       "note": "If any total amounts are negative or zero, enter '0'."
     },
     "heading": {
@@ -132,7 +132,6 @@
     "start": "Start benefits estimator"
   },
   "marital-status": {
-    "form-instructions": "All fields are required unless marked as optional",
     "additional-info": {
       "label": "Definitions of marital statuses",
       "common-law": {

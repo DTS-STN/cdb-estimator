@@ -132,7 +132,6 @@
     "start": "Démarrer l'estimateur de prestations"
   },
   "marital-status": {
-    "form-instructions": "Tous les champs sont obligatoires, sauf indication contraire.",
     "additional-info": {
       "label": "Définitions des états matrimoniaux",
       "common-law": {
