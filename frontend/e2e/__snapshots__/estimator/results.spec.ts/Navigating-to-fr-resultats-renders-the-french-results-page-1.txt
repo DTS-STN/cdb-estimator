@@ -48,9 +48,9 @@
         <p>
           <strong
             >Veuillez noter que vous pourriez recevoir des paiements rétroactifs
-            pour les mois passés durant lesquels vous étiez admissible, mais pas
-            pour la période antérieure au lancement de la prestation (juillet
-            2025).</strong
+            pour une période allant jusqu'à 24 mois à partir de la date à
+            laquelle nous recevons votre demande. Aucun paiement rétroactif ne
+            sera effectué pour la période antérieure à juillet 2025.</strong
           >
         </p>
         <h2 class="font-lato mt-15 mb-5 text-2xl font-bold">

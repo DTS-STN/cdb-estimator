@@ -183,7 +183,7 @@
           "intro": "The monthly benefit amount you could receive depends on whether your partner is receiving the Canada Disability Benefit.",
           "non-cdb-partner-result": "If your partner is not receiving the Canada Disability Benefit, you could receive a monthly amount of <strong>{{result}}</strong>."
         },
-        "note": "<strong>Please note that you may be able to receive back payments for past months that you were eligible, but not for any time before the launch of the benefit (July 2025).</strong>",
+        "note": "<strong>Please note that you may be eligible to get back payments for up to 24 months from the date we receive your application. There will be no back payments prior to July 2025.</strong>",
         "single": {
           "intro": "You could be eligible to receive:",
           "result": "A monthly amount of <strong>{{result}}</strong> from the Canada Disability Benefit."
