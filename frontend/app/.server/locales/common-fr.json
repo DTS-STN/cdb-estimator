@@ -137,6 +137,7 @@
       "text": "Jeunesse"
     }
   },
+  "form-instructions": "Tous les champs sont obligatoires, sauf indication contraire.",
   "header": {
     "govt-of-canada.href": "https://www.canada.ca/fr.html",
     "govt-of-canada.text": "Gouvernement du Canada",
