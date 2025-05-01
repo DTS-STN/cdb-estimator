@@ -53,9 +53,50 @@
             sera effectué pour la période antérieure à juillet 2025.</strong
           >
         </p>
-        <h2 class="font-lato mt-15 mb-5 text-2xl font-bold">
-          Étapes suivantes
-        </h2>
+      </section>
+      <section class="col-span-1 row-span-2 space-y-4">
+        <div class="my-8 rounded bg-stone-100 p-5 md:mt-0 md:max-w-[360px]">
+          <h3 class="font-lato text-xl font-bold">Vos renseignements</h3>
+          <dl>
+            <dt class="pt-4">État matrimonial</dt>
+            <dd class="pb-4 border-b border-stone-600">
+              <div class="flex justify-end">
+                <strong class="mr-auto"
+                  >Célibataire, divorcé, séparé ou veuf</strong
+                >
+                <div class="mt-auto ml-auto">
+                  <a
+                    class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+                    data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:Results:Edit marital status button"
+                    aria-label="Modifier votre état matrimonial"
+                    href="/fr/etat-civil"
+                    data-discover="true"
+                    >Modifier</a
+                  >
+                </div>
+              </div>
+            </dd>
+            <dt class="pt-4">Vos revenus totaux</dt>
+            <dd class="pb-4">
+              <div class="flex justify-end">
+                <strong class="mr-auto">124,00&nbsp;$</strong>
+                <div class="mt-auto ml-auto">
+                  <a
+                    class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+                    data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:Results:Edit income button"
+                    aria-label="Modifier les informations de revenu"
+                    href="/fr/revenus"
+                    data-discover="true"
+                    >Modifier</a
+                  >
+                </div>
+              </div>
+            </dd>
+          </dl>
+        </div>
+      </section>
+      <section class="col-span-2 row-span-1 space-y-6">
+        <h2 class="font-lato mt-3 mb-5 text-2xl font-bold">Étapes suivantes</h2>
         <div>
           <a
             class="font-lato inline-flex items-center justify-center rounded-sm border align-middle no-underline outline-offset-4 px-6 py-3.5 text-base border-slate-700 bg-slate-700 text-white hover:bg-sky-800 focus:bg-sky-800"
@@ -103,47 +144,6 @@
             >Pour apprendre plus de la Prestation canadienne pour les personnes
             handicapées</a
           >
-        </div>
-      </section>
-      <section class="col-span-1 row-span-2 space-y-4">
-        <div class="my-8 rounded bg-stone-100 p-5 md:mt-0 md:max-w-[360px]">
-          <h3 class="font-lato text-xl font-bold">Vos renseignements</h3>
-          <dl>
-            <dt class="pt-4">État matrimonial</dt>
-            <dd class="pb-4 border-b border-stone-600">
-              <div class="flex justify-end">
-                <strong class="mr-auto"
-                  >Célibataire, divorcé, séparé ou veuf</strong
-                >
-                <div class="mt-auto ml-auto">
-                  <a
-                    class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
-                    data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:Results:Edit marital status button"
-                    aria-label="Modifier votre état matrimonial"
-                    href="/fr/etat-civil"
-                    data-discover="true"
-                    >Modifier</a
-                  >
-                </div>
-              </div>
-            </dd>
-            <dt class="pt-4">Vos revenus totaux</dt>
-            <dd class="pb-4">
-              <div class="flex justify-end">
-                <strong class="mr-auto">124,00&nbsp;$</strong>
-                <div class="mt-auto ml-auto">
-                  <a
-                    class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
-                    data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:Results:Edit income button"
-                    aria-label="Modifier les informations de revenu"
-                    href="/fr/revenus"
-                    data-discover="true"
-                    >Modifier</a
-                  >
-                </div>
-              </div>
-            </dd>
-          </dl>
         </div>
       </section>
     </div>
