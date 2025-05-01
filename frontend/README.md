@@ -30,6 +30,30 @@ npm run dev
 
 Your application will be available at `http://localhost:3000/`.
 
+run checks with:
+
+```bash
+npm run checks
+```
+
+run tests with:
+
+```bash
+npm run test
+```
+
+run end to end (e2e) tests with:
+
+```bash
+npm run test:e2e
+```
+
+update test snapshots with:
+
+```bash
+npm run test:e2e -- -u
+```
+
 ## Building for Production
 
 Create a production build:
