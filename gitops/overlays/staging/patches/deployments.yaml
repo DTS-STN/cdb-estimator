@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: cdb-estimator-frontend
-          image: dtsrhpdevscedacr.azurecr.io/canada-disability-benefit/cdb-estimator-frontend:SNAPSHOT-00154-93b58d69
+          image: dtsrhpdevscedacr.azurecr.io/canada-disability-benefit/cdb-estimator-frontend:SNAPSHOT-00155-7d26d9c3
           # since we are using external secrets operator
           # we must manually attach the generated secret
           envFrom:
