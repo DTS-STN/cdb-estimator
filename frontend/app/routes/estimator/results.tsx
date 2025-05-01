@@ -209,8 +209,12 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
                 />
               )}
             </p>
+          </section>
 
-            <h2 className="font-lato mt-15 mb-5 text-2xl font-bold">{t('estimator:results.content.next-steps.header')}</h2>
+          <section className="col-span-1 row-span-2 space-y-4">{DataSummary(loaderData.formattedResults)}</section>
+
+          <section className="col-span-2 row-span-1 space-y-6">
+            <h2 className="font-lato mt-3 mb-5 text-2xl font-bold">{t('estimator:results.content.next-steps.header')}</h2>
 
             <div>
               <ButtonLink
@@ -238,7 +242,6 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
               </ButtonLink>
             </div>
           </section>
-          <section className="col-span-1 row-span-2 space-y-4">{DataSummary(loaderData.formattedResults)}</section>
         </div>
       </div>
     </div>
