@@ -38,11 +38,11 @@
             id="input-text-field-«Rlmlj5»-input"
             required=""
             type="text"
-            inputmode="numeric"
             maxlength="15"
             autocomplete="off"
             name="individual-net-income"
             value=""
+            inputmode="numeric"
           />
         </div>
         <div id="input-text-field-«Rpmlj5»" class="space-y-2">
@@ -118,11 +118,11 @@
             id="input-text-field-«Rpmlj5»-input"
             required=""
             type="text"
-            inputmode="numeric"
             maxlength="15"
             autocomplete="off"
             name="individual-working-income"
             value=""
+            inputmode="numeric"
           />
         </div>
         <div id="input-text-field-«Rtmlj5»" class="space-y-2">
@@ -152,11 +152,11 @@
             id="input-text-field-«Rtmlj5»-input"
             required=""
             type="text"
-            inputmode="numeric"
             maxlength="15"
             autocomplete="off"
             name="individual-claimed-income"
             value=""
+            inputmode="numeric"
           />
         </div>
         <div id="input-text-field-«R11mlj5»" class="space-y-2">
@@ -186,11 +186,11 @@
             id="input-text-field-«R11mlj5»-input"
             required=""
             type="text"
-            inputmode="numeric"
             maxlength="15"
             autocomplete="off"
             name="individual-claimed-repayment"
             value=""
+            inputmode="numeric"
           />
         </div>
       </div>
