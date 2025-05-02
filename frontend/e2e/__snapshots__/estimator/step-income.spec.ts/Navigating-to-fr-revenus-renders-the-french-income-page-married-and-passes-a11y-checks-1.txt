@@ -16,10 +16,15 @@
       <div class="space-y-6">
         <p>
           Pour estimer vos prestations, nous aurons besoin des renseignements
-          suivants de votre <strong>déclaration de revenus de 2024</strong>.
+          figurant sur votre
+          <strong>déclaration de revenus de 2024</strong> ainsi que sur celle de
+          votre partenaire.
         </p>
         <p>Si un des montants est négatif ou nul, entrez '0'.</p>
         <p>Tous les champs sont obligatoires.</p>
+        <h2 class="font-lato mb-4 text-2xl font-bold">
+          Votre information&nbsp;:
+        </h2>
         <div id="input-text-field-«Rlmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rlmlj5»-label"
             ><span class="font-semibold">Entrez votre revenu net</span></label
@@ -42,11 +47,11 @@
             id="input-text-field-«Rlmlj5»-input"
             required=""
             type="text"
-            inputmode="numeric"
             maxlength="16"
             autocomplete="off"
             name="individual-net-income"
             value=""
+            inputmode="numeric"
           /><span class="ml-1">$</span>
         </div>
         <div id="input-text-field-«Rpmlj5»" class="space-y-2">
@@ -126,11 +131,11 @@
             id="input-text-field-«Rpmlj5»-input"
             required=""
             type="text"
-            inputmode="numeric"
             maxlength="16"
             autocomplete="off"
             name="individual-working-income"
             value=""
+            inputmode="numeric"
           /><span class="ml-1">$</span>
         </div>
         <div id="input-text-field-«Rtmlj5»" class="space-y-2">
@@ -160,11 +165,11 @@
             id="input-text-field-«Rtmlj5»-input"
             required=""
             type="text"
-            inputmode="numeric"
             maxlength="16"
             autocomplete="off"
             name="individual-claimed-income"
             value=""
+            inputmode="numeric"
           /><span class="ml-1">$</span>
         </div>
         <div id="input-text-field-«R11mlj5»" class="space-y-2">
@@ -194,11 +199,196 @@
             id="input-text-field-«R11mlj5»-input"
             required=""
             type="text"
-            inputmode="numeric"
             maxlength="16"
             autocomplete="off"
             name="individual-claimed-repayment"
             value=""
+            inputmode="numeric"
+          /><span class="ml-1">$</span>
+        </div>
+        <h2 class="font-lato mb-4 text-2xl font-bold">
+          L'information de votre partenaire&nbsp;:
+        </h2>
+        <div id="input-text-field-«R55mlj5»" class="space-y-2">
+          <label class="block" id="input-text-field-«R55mlj5»-label"
+            ><span class="font-semibold"
+              >Entrez le revenu net de votre partenaire.</span
+            ></label
+          >
+          <div
+            class="-max-w-prose text-black"
+            data-testid="input-help"
+            id="input-text-field-«R55mlj5»-help-primary"
+          >
+            <p>
+              Il se trouve à la ligne 23600 de la déclaration de revenus 2024 de
+              votre partenaire.
+            </p>
+          </div>
+          <input
+            aria-describedby="input-text-field-«R55mlj5»-help-primary"
+            aria-labelledby="input-text-field-«R55mlj5»-label"
+            aria-required="true"
+            class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
+            id="input-text-field-«R55mlj5»-input"
+            required=""
+            type="text"
+            maxlength="16"
+            autocomplete="off"
+            name="partner-net-income"
+            value=""
+            inputmode="numeric"
+          /><span class="ml-1">$</span>
+        </div>
+        <div id="input-text-field-«R75mlj5»" class="space-y-2">
+          <label class="block" id="input-text-field-«R75mlj5»-label"
+            ><span class="font-semibold"
+              >Entrez le revenu d'emploi de votre partenaire.</span
+            ></label
+          >
+          <div
+            class="-max-w-prose text-black"
+            data-testid="input-help"
+            id="input-text-field-«R75mlj5»-help-primary"
+          >
+            <p>
+              Il s'agit des revenus de votre partenaire provenant d'un emploi ou
+              d'un travail indépendant.
+            </p>
+            <div class="my-4 space-y-4">
+              <details id="«Rjn5mlj5»">
+                <summary
+                  class="cursor-pointer marker:text-blue-900"
+                  id="«Rjn5mlj5»-summary"
+                >
+                  <span class="ml-4 inline-block text-blue-900 hover:underline"
+                    >Comment calculer le revenu d'emploi de votre partenaire
+                    ?</span
+                  >
+                </summary>
+                <div
+                  id="«Rjn5mlj5»-content"
+                  class="mt-2 border-l-[6px] border-gray-400 px-6 py-4"
+                >
+                  <div class="space-y-4">
+                    <p>
+                      Pour calculer le revenu de travail de votre partenaire,
+                      additionnez toutes les lignes suivantes de la déclaration
+                      de revenus de cette personne pour l'année 2024 :
+                    </p>
+                    <ul class="list-disc space-y-2 pl-5">
+                      <li>Revenus d'emploi (ligne 10100)</li>
+                      <li>Autres revenus d'emploi (ligne 10400)</li>
+                      <li>
+                        Montant imposable des bourses d'études, de
+                        perfectionnement et d'entretien, et des subventions
+                        reçues par des artistes pour un projet (ligne 13010)
+                      </li>
+                      <li>
+                        Revenus d'entreprise (entrez 0 si le montant et négatif)
+                        (ligne 13500)
+                      </li>
+                      <li>
+                        Revenus de profession libérale (entrez 0 si le montant
+                        et négatif) (ligne 13700)
+                      </li>
+                      <li>
+                        Revenus de commissions (entrez 0 si le montant et
+                        négatif) (ligne 13900)
+                      </li>
+                      <li>
+                        Revenus d'agriculture (entrez 0 si le montant et
+                        négatif) (ligne 14100)
+                      </li>
+                      <li>
+                        Revenus de pêche (entrez 0 si le montant et négatif)
+                        (ligne 14300)
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </div>
+          <input
+            aria-describedby="input-text-field-«R75mlj5»-help-primary"
+            aria-labelledby="input-text-field-«R75mlj5»-label"
+            aria-required="true"
+            class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
+            id="input-text-field-«R75mlj5»-input"
+            required=""
+            type="text"
+            maxlength="16"
+            autocomplete="off"
+            name="partner-working-income"
+            value=""
+            inputmode="numeric"
+          /><span class="ml-1">$</span>
+        </div>
+        <div id="input-text-field-«R95mlj5»" class="space-y-2">
+          <label class="block" id="input-text-field-«R95mlj5»-label"
+            ><span class="font-semibold"
+              >Entrez le revenu de votre partenaire provenant de la Prestation
+              universelle pour la garde d'enfants (<abbr>PUGE</abbr>) et du
+              Régime enregistré d'épargne-invalidité (<abbr>REEI</abbr>).</span
+            ></label
+          >
+          <div
+            class="-max-w-prose text-black"
+            data-testid="input-help"
+            id="input-text-field-«R95mlj5»-help-primary"
+          >
+            <p>
+              Pour calculer ce montant, additionner les lignes 11700 et ligne
+              12500 de la déclaration de revenus 2024 de votre partenaire.
+            </p>
+          </div>
+          <input
+            aria-describedby="input-text-field-«R95mlj5»-help-primary"
+            aria-labelledby="input-text-field-«R95mlj5»-label"
+            aria-required="true"
+            class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
+            id="input-text-field-«R95mlj5»-input"
+            required=""
+            type="text"
+            maxlength="16"
+            autocomplete="off"
+            name="partner-claimed-income"
+            value=""
+            inputmode="numeric"
+          /><span class="ml-1">$</span>
+        </div>
+        <div id="input-text-field-«Rb5mlj5»" class="space-y-2">
+          <label class="block" id="input-text-field-«Rb5mlj5»-label"
+            ><span class="font-semibold"
+              >Entrez le remboursement par votre partenaire de la Prestation
+              universelle pour la garde d'enfants (<abbr>PUGE</abbr>) et du
+              Régime enregistré d'épargne-invalidité (<abbr>REEI</abbr>).</span
+            ></label
+          >
+          <div
+            class="-max-w-prose text-black"
+            data-testid="input-help"
+            id="input-text-field-«Rb5mlj5»-help-primary"
+          >
+            <p>
+              Pour calculer ce montant, additionner les lignes 21300 et 23200 de
+              la déclaration de revenus 2024 de votre partenaire.
+            </p>
+          </div>
+          <input
+            aria-describedby="input-text-field-«Rb5mlj5»-help-primary"
+            aria-labelledby="input-text-field-«Rb5mlj5»-label"
+            aria-required="true"
+            class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
+            id="input-text-field-«Rb5mlj5»-input"
+            required=""
+            type="text"
+            maxlength="16"
+            autocomplete="off"
+            name="partner-claimed-repayment"
+            value=""
+            inputmode="numeric"
           /><span class="ml-1">$</span>
         </div>
       </div>

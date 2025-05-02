@@ -1,0 +1,423 @@
+<div class="space-y-3">
+  <div class="mt-10 mb-8">
+    <h2>Canada Disability Benefit Estimator</h2>
+    <h1
+      id="wb-cont"
+      tabindex="-1"
+      class="font-lato text-3xl font-bold focus-visible:ring-3 after:mt-2 after:block after:h-1.5 after:w-18 after:bg-red-700"
+    >
+      Step 2 of 2: Income
+    </h1>
+  </div>
+  <div>
+    <form novalidate="" data-discover="true" action="/en/income" method="post">
+      <div class="space-y-6">
+        <p>
+          To estimate your benefits, we will need the following information from
+          your and your partner's <strong>2024 tax returns</strong>.
+        </p>
+        <p>If any total amounts are negative or zero, enter '0'.</p>
+        <p>All fields are required.</p>
+        <h2 class="font-lato mb-4 text-2xl font-bold">Your information</h2>
+        <div id="input-text-field-«Rlmlj5»" class="space-y-2">
+          <label class="block" id="input-text-field-«Rlmlj5»-label"
+            ><span class="font-semibold">Enter your net income</span></label
+          >
+          <div
+            class="-max-w-prose text-black"
+            data-testid="input-help"
+            id="input-text-field-«Rlmlj5»-help-primary"
+          >
+            <p>This is found on line 23600 of your 2024 tax return.</p>
+          </div>
+          <span class="mr-1">$</span
+          ><input
+            aria-describedby="input-text-field-«Rlmlj5»-help-primary"
+            aria-labelledby="input-text-field-«Rlmlj5»-label"
+            aria-required="true"
+            class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
+            id="input-text-field-«Rlmlj5»-input"
+            required=""
+            type="text"
+            maxlength="15"
+            autocomplete="off"
+            name="individual-net-income"
+            value=""
+            inputmode="numeric"
+          />
+        </div>
+        <div id="input-text-field-«Rpmlj5»" class="space-y-2">
+          <label class="block" id="input-text-field-«Rpmlj5»-label"
+            ><span class="font-semibold">Enter your working income</span></label
+          >
+          <div
+            class="-max-w-prose text-black"
+            data-testid="input-help"
+            id="input-text-field-«Rpmlj5»-help-primary"
+          >
+            <p>
+              This is income you made from your employment or self-employment.
+            </p>
+            <div class="my-4 space-y-4">
+              <details id="«R2epmlj5»">
+                <summary
+                  class="cursor-pointer marker:text-blue-900"
+                  id="«R2epmlj5»-summary"
+                >
+                  <span class="ml-4 inline-block text-blue-900 hover:underline"
+                    >How to calculate your working income</span
+                  >
+                </summary>
+                <div
+                  id="«R2epmlj5»-content"
+                  class="mt-2 border-l-[6px] border-gray-400 px-6 py-4"
+                >
+                  <div class="space-y-4">
+                    <p>
+                      To calculate your working income, add up all the following
+                      lines from your 2024 tax return:
+                    </p>
+                    <ul class="list-disc space-y-2 pl-5">
+                      <li>Employment income (line 10100)</li>
+                      <li>Other employment income (line 10400)</li>
+                      <li>
+                        Taxable scholarships, fellowships, bursaries and
+                        artists' project grants (line 13010)
+                      </li>
+                      <li>
+                        Business income (use 0 if the amount is negative) (line
+                        13500)
+                      </li>
+                      <li>
+                        Professional income (use 0 if the amount is negative)
+                        (line 13700)
+                      </li>
+                      <li>
+                        Commission income (use 0 if the amount is negative)
+                        (line 13900)
+                      </li>
+                      <li>
+                        Farming income (use 0 if the amount is negative) (line
+                        14100)
+                      </li>
+                      <li>
+                        Fishing income (use 0 if the amount is negative) (line
+                        14300)
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </div>
+          <span class="mr-1">$</span
+          ><input
+            aria-describedby="input-text-field-«Rpmlj5»-help-primary"
+            aria-labelledby="input-text-field-«Rpmlj5»-label"
+            aria-required="true"
+            class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
+            id="input-text-field-«Rpmlj5»-input"
+            required=""
+            type="text"
+            maxlength="15"
+            autocomplete="off"
+            name="individual-working-income"
+            value=""
+            inputmode="numeric"
+          />
+        </div>
+        <div id="input-text-field-«Rtmlj5»" class="space-y-2">
+          <label class="block" id="input-text-field-«Rtmlj5»-label"
+            ><span class="font-semibold"
+              >Enter your Universal Child Care Benefit (<abbr>UCCB</abbr>) and
+              Registered Disability Savings Plan (<abbr>RDSP</abbr>)
+              income.</span
+            ></label
+          >
+          <div
+            class="-max-w-prose text-black"
+            data-testid="input-help"
+            id="input-text-field-«Rtmlj5»-help-primary"
+          >
+            <p>
+              To calculate this amount, add line 11700 and line 12500 of your
+              2024 tax return.
+            </p>
+          </div>
+          <span class="mr-1">$</span
+          ><input
+            aria-describedby="input-text-field-«Rtmlj5»-help-primary"
+            aria-labelledby="input-text-field-«Rtmlj5»-label"
+            aria-required="true"
+            class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
+            id="input-text-field-«Rtmlj5»-input"
+            required=""
+            type="text"
+            maxlength="15"
+            autocomplete="off"
+            name="individual-claimed-income"
+            value=""
+            inputmode="numeric"
+          />
+        </div>
+        <div id="input-text-field-«R11mlj5»" class="space-y-2">
+          <label class="block" id="input-text-field-«R11mlj5»-label"
+            ><span class="font-semibold"
+              >Enter your Universal Child Care Benefit (<abbr>UCCB</abbr>) and
+              Registered Disability Savings Plan (<abbr>RDSP</abbr>)
+              repayment.</span
+            ></label
+          >
+          <div
+            class="-max-w-prose text-black"
+            data-testid="input-help"
+            id="input-text-field-«R11mlj5»-help-primary"
+          >
+            <p>
+              To calculate this amount, add line 21300 and line 23200 of your
+              2024 tax return.
+            </p>
+          </div>
+          <span class="mr-1">$</span
+          ><input
+            aria-describedby="input-text-field-«R11mlj5»-help-primary"
+            aria-labelledby="input-text-field-«R11mlj5»-label"
+            aria-required="true"
+            class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
+            id="input-text-field-«R11mlj5»-input"
+            required=""
+            type="text"
+            maxlength="15"
+            autocomplete="off"
+            name="individual-claimed-repayment"
+            value=""
+            inputmode="numeric"
+          />
+        </div>
+        <h2 class="font-lato mb-4 text-2xl font-bold">
+          Your partner's information
+        </h2>
+        <div id="input-text-field-«R55mlj5»" class="space-y-2">
+          <label class="block" id="input-text-field-«R55mlj5»-label"
+            ><span class="font-semibold"
+              >Enter your partner's net income.</span
+            ></label
+          >
+          <div
+            class="-max-w-prose text-black"
+            data-testid="input-help"
+            id="input-text-field-«R55mlj5»-help-primary"
+          >
+            <p>
+              This is found on line 23600 of your partner's 2024 tax return.
+            </p>
+          </div>
+          <span class="mr-1">$</span
+          ><input
+            aria-describedby="input-text-field-«R55mlj5»-help-primary"
+            aria-labelledby="input-text-field-«R55mlj5»-label"
+            aria-required="true"
+            class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
+            id="input-text-field-«R55mlj5»-input"
+            required=""
+            type="text"
+            maxlength="15"
+            autocomplete="off"
+            name="partner-net-income"
+            value=""
+            inputmode="numeric"
+          />
+        </div>
+        <div id="input-text-field-«R75mlj5»" class="space-y-2">
+          <label class="block" id="input-text-field-«R75mlj5»-label"
+            ><span class="font-semibold"
+              >Enter your partner's working income</span
+            ></label
+          >
+          <div
+            class="-max-w-prose text-black"
+            data-testid="input-help"
+            id="input-text-field-«R75mlj5»-help-primary"
+          >
+            <p>
+              This is income your partner made from their employment or
+              self-employment.
+            </p>
+            <div class="my-4 space-y-4">
+              <details id="«Rjn5mlj5»">
+                <summary
+                  class="cursor-pointer marker:text-blue-900"
+                  id="«Rjn5mlj5»-summary"
+                >
+                  <span class="ml-4 inline-block text-blue-900 hover:underline"
+                    >How to calculate your partner's working income</span
+                  >
+                </summary>
+                <div
+                  id="«Rjn5mlj5»-content"
+                  class="mt-2 border-l-[6px] border-gray-400 px-6 py-4"
+                >
+                  <div class="space-y-4">
+                    <p>
+                      To calculate your partner's working income, add up all the
+                      following lines from their 2024 tax return:
+                    </p>
+                    <ul class="list-disc space-y-2 pl-5">
+                      <li>Employment income (line 10100)</li>
+                      <li>Other employment income (line 10400)</li>
+                      <li>
+                        Taxable scholarships, fellowships, bursaries and
+                        artists' project grants (line 13010)
+                      </li>
+                      <li>
+                        Business income (use 0 if the amount is negative) (line
+                        13500)
+                      </li>
+                      <li>
+                        Professional income (use 0 if the amount is negative)
+                        (line 13700)
+                      </li>
+                      <li>
+                        Commission income (use 0 if the amount is negative)
+                        (line 13900)
+                      </li>
+                      <li>
+                        Farming income (use 0 if the amount is negative) (line
+                        14100)
+                      </li>
+                      <li>
+                        Fishing income (use 0 if the amount is negative) (line
+                        14300)
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </div>
+          <span class="mr-1">$</span
+          ><input
+            aria-describedby="input-text-field-«R75mlj5»-help-primary"
+            aria-labelledby="input-text-field-«R75mlj5»-label"
+            aria-required="true"
+            class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
+            id="input-text-field-«R75mlj5»-input"
+            required=""
+            type="text"
+            maxlength="15"
+            autocomplete="off"
+            name="partner-working-income"
+            value=""
+            inputmode="numeric"
+          />
+        </div>
+        <div id="input-text-field-«R95mlj5»" class="space-y-2">
+          <label class="block" id="input-text-field-«R95mlj5»-label"
+            ><span class="font-semibold"
+              >Enter your partner's Universal Child Care Benefit
+              (<abbr>UCCB</abbr>) and Registered Disability Savings Plan
+              (<abbr>RDSP</abbr>) income.</span
+            ></label
+          >
+          <div
+            class="-max-w-prose text-black"
+            data-testid="input-help"
+            id="input-text-field-«R95mlj5»-help-primary"
+          >
+            <p>
+              To calculate this amount, add line 11700 and line 12500 of your
+              partner's 2024 tax return.
+            </p>
+          </div>
+          <span class="mr-1">$</span
+          ><input
+            aria-describedby="input-text-field-«R95mlj5»-help-primary"
+            aria-labelledby="input-text-field-«R95mlj5»-label"
+            aria-required="true"
+            class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
+            id="input-text-field-«R95mlj5»-input"
+            required=""
+            type="text"
+            maxlength="15"
+            autocomplete="off"
+            name="partner-claimed-income"
+            value=""
+            inputmode="numeric"
+          />
+        </div>
+        <div id="input-text-field-«Rb5mlj5»" class="space-y-2">
+          <label class="block" id="input-text-field-«Rb5mlj5»-label"
+            ><span class="font-semibold"
+              >Your partner's Universal Child Care Benefit (<abbr>UCCB</abbr>)
+              and Registered Disability Savings Plan (<abbr>RDSP</abbr>)
+              repayment</span
+            ></label
+          >
+          <div
+            class="-max-w-prose text-black"
+            data-testid="input-help"
+            id="input-text-field-«Rb5mlj5»-help-primary"
+          >
+            <p>
+              To calculate this amount, add line 21300 and line 23200 of your
+              partner's 2024 tax return.
+            </p>
+          </div>
+          <span class="mr-1">$</span
+          ><input
+            aria-describedby="input-text-field-«Rb5mlj5»-help-primary"
+            aria-labelledby="input-text-field-«Rb5mlj5»-label"
+            aria-required="true"
+            class="rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70 disabled:pointer-events-none disabled:bg-gray-100 disabled:opacity-70 aria-invalid:border-red-500 aria-invalid:focus:border-red-500 aria-invalid:focus:ring-red-500 inline"
+            id="input-text-field-«Rb5mlj5»-input"
+            required=""
+            type="text"
+            maxlength="15"
+            autocomplete="off"
+            name="partner-claimed-repayment"
+            value=""
+            inputmode="numeric"
+          />
+        </div>
+      </div>
+      <div
+        class="mt-8 flex flex-row-reverse flex-wrap items-center justify-end gap-3"
+      >
+        <button
+          class="font-lato inline-flex items-center justify-center rounded border align-middle outline-offset-4 px-5 py-3 text-base border-slate-700 bg-slate-700 text-white hover:bg-sky-800 focus:bg-sky-800 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-70"
+          data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:StepIncome:Next button"
+          value="next"
+          id="continue-button"
+          name="action"
+        >
+          Estimate my benefit</button
+        ><button
+          class="font-lato inline-flex items-center justify-center rounded border align-middle outline-offset-4 px-5 py-3 text-base border-gray-300 bg-gray-200 text-slate-700 hover:bg-neutral-300 focus:bg-neutral-300 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-70"
+          data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:StepIncome:Previous button"
+          value="back"
+          id="back-button"
+          name="action"
+        >
+          Back
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<section class="mt-16 mb-8">
+  <h2 class="sr-only">Page details</h2>
+  <dl id="wb-dtmd" class="space-y-1">
+    <div class="flex gap-2">
+      <dt>Screen identifier:</dt>
+      <dd>EST-0002</dd>
+    </div>
+    <div class="flex gap-2">
+      <dt>Date modified:</dt>
+      <dd><time>1970-01-01</time></dd>
+    </div>
+    <div class="flex gap-2">
+      <dt>Version:</dt>
+      <dd>0.0.0-000000-00000000</dd>
+    </div>
+  </dl>
+</section>
