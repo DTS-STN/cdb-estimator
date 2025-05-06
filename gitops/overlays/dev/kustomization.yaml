@@ -17,6 +17,7 @@ resources:
   - ../../base/cdb-estimator-frontend/
   - ./external-secrets.yaml
   - ./ingresses.yaml
+  - ./hpas.yaml
 patches:
   - path: ./patches/deployments.yaml
 configMapGenerator:
