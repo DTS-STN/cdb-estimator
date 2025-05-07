@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "perf:ramp": "dotenv -e .env -- k6 run ./scripts/ramp.ts",
+    "perf:browser": "dotenv -e .env -- k6 run ./scripts/browser-flow.ts"
+  },
+  "dependencies": {
+    "@types/k6": "^1.0.2",
+    "dotenv-cli": "^8.0.0",
+    "typescript": "^5.8.3"
+  }
+}
