@@ -14,3 +14,9 @@
   We're sorry you ended up here. Sometimes a page gets moved or deleted, but
   hopefully we can help you find what you're looking for.
 </p>
+<a
+  class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+  href="/en"
+  data-discover="true"
+  >Return to the estimator</a
+>
