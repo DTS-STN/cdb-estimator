@@ -48,7 +48,7 @@ export function BilingualErrorBoundary({ actionData, error, loaderData, params }
           </div>
         </header>
         <main className="container">
-          <div className="grid grid-cols-1 gap-6 py-2.5 sm:grid-cols-2 sm:py-3.5">
+          <div className="mb-4 grid grid-cols-1 gap-6 py-2.5 sm:grid-cols-2 sm:py-3.5">
             <div id="english" lang="en">
               <PageTitle className="my-8">
                 <span>{en('common:server-error.page-title')}</span>
@@ -60,7 +60,7 @@ export function BilingualErrorBoundary({ actionData, error, loaderData, params }
               </PageTitle>
               <p className="mb-8 text-lg text-gray-500">{en('common:server-error.page-message')}</p>
               {isAppError(error) && (
-                <ul className="list-disc pl-10 text-gray-800">
+                <ul className="mb-4 list-disc pl-10 text-gray-800">
                   <li>
                     <Trans
                       t={en}
@@ -79,6 +79,13 @@ export function BilingualErrorBoundary({ actionData, error, loaderData, params }
                   </li>
                 </ul>
               )}
+              <AppLink
+                className="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+                file="routes/index.tsx"
+                lang="en"
+              >
+                {en('common:return-to-dashboard')}
+              </AppLink>
             </div>
             <div id="french" lang="fr">
               <PageTitle className="my-8">
@@ -91,7 +98,7 @@ export function BilingualErrorBoundary({ actionData, error, loaderData, params }
               </PageTitle>
               <p className="mb-8 text-lg text-gray-500">{fr('common:server-error.page-message')}</p>
               {isAppError(error) && (
-                <ul className="list-disc pl-10 text-gray-800">
+                <ul className="mb-4 list-disc pl-10 text-gray-800">
                   <li>
                     <Trans
                       t={fr}
@@ -110,6 +117,13 @@ export function BilingualErrorBoundary({ actionData, error, loaderData, params }
                   </li>
                 </ul>
               )}
+              <AppLink
+                className="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+                file="routes/index.tsx"
+                lang="fr"
+              >
+                {fr('common:return-to-dashboard')}
+              </AppLink>
             </div>
           </div>
         </main>
@@ -181,13 +195,20 @@ export function BilingualNotFound({ actionData, error, loaderData, params }: Rou
           </div>
         </header>
         <main className="container">
-          <div className="grid grid-cols-1 gap-6 py-2.5 sm:grid-cols-2 sm:py-3.5">
+          <div className="mb-4 grid grid-cols-1 gap-6 py-2.5 sm:grid-cols-2 sm:py-3.5">
             <div id="english" lang="en">
               <PageTitle className="my-8">
                 <span>{en('common:not-found.page-title')}</span>
                 <small className="block text-2xl font-normal text-neutral-500">{en('common:not-found.page-subtitle')}</small>
               </PageTitle>
               <p className="mb-8 text-lg text-gray-500">{en('common:not-found.page-message')}</p>
+              <AppLink
+                className="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+                file="routes/index.tsx"
+                lang="en"
+              >
+                {en('common:return-to-dashboard')}
+              </AppLink>
             </div>
             <div id="french" lang="fr">
               <PageTitle className="my-8">
@@ -195,6 +216,13 @@ export function BilingualNotFound({ actionData, error, loaderData, params }: Rou
                 <small className="block text-2xl font-normal text-neutral-500">{fr('common:not-found.page-subtitle')}</small>
               </PageTitle>
               <p className="mb-8 text-lg text-gray-500">{fr('common:not-found.page-message')}</p>
+              <AppLink
+                className="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+                file="routes/index.tsx"
+                lang="fr"
+              >
+                {fr('common:return-to-dashboard')}
+              </AppLink>
             </div>
           </div>
         </main>
@@ -253,7 +281,7 @@ export function UnilingualErrorBoundary({ actionData, error, loaderData, params 
       <body>
         <header className="border-b-[3px] border-slate-700 print:hidden">
           <div id="wb-bnr">
-            <div className="container flex items-center justify-between gap-6 py-2.5 sm:py-3.5">
+            <div className="container mb-4 flex items-center justify-between gap-6 py-2.5 sm:py-3.5">
               <AppLink to="https://canada.ca/">
                 <img
                   className="h-8 w-auto"
@@ -276,7 +304,7 @@ export function UnilingualErrorBoundary({ actionData, error, loaderData, params 
           </PageTitle>
           <p className="mb-8 text-lg text-gray-500">{t('common:server-error.page-message')}</p>
           {isAppError(error) && (
-            <ul className="list-disc pl-10 text-gray-800">
+            <ul className="mb-4 list-disc pl-10 text-gray-800">
               <li>
                 <Trans
                   i18nKey="common:server-error.error-code"
@@ -293,6 +321,9 @@ export function UnilingualErrorBoundary({ actionData, error, loaderData, params 
               </li>
             </ul>
           )}
+          <AppLink className="text-slate-700 underline hover:text-blue-700 focus:text-blue-700" file="routes/index.tsx">
+            {t('common:return-to-dashboard')}
+          </AppLink>
         </main>
         <footer id="wb-info" tabIndex={-1} className="mt-8 bg-stone-50 print:hidden">
           <div className="container flex items-center justify-end gap-6 py-2.5 sm:py-3.5">
@@ -353,12 +384,15 @@ export function UnilingualNotFound({ actionData, error, loaderData, params }: Ro
             </div>
           </div>
         </header>
-        <main className="container">
+        <main className="container mb-4">
           <PageTitle className="my-8">
             <span>{t('common:not-found.page-title')}</span>
             <small className="block text-2xl font-normal text-neutral-500">{t('common:not-found.page-subtitle')}</small>
           </PageTitle>
           <p className="mb-8 text-lg text-gray-500">{t('common:not-found.page-message')}</p>
+          <AppLink className="text-slate-700 underline hover:text-blue-700 focus:text-blue-700" file="routes/index.tsx">
+            {t('common:return-to-dashboard')}
+          </AppLink>
         </main>
         <footer id="wb-info" tabIndex={-1} className="bg-stone-50 print:hidden">
           <div className="container flex items-center justify-end gap-6 py-2.5 sm:py-3.5">

@@ -47,7 +47,7 @@ exports[`error-boundaries > BilingualErrorBoundary > should correctly render the
         class="container"
       >
         <div
-          class="grid grid-cols-1 gap-6 py-2.5 sm:grid-cols-2 sm:py-3.5"
+          class="mb-4 grid grid-cols-1 gap-6 py-2.5 sm:grid-cols-2 sm:py-3.5"
         >
           <div
             id="english"
@@ -76,6 +76,14 @@ exports[`error-boundaries > BilingualErrorBoundary > should correctly render the
             >
               common:server-error.page-message
             </p>
+            <a
+              class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+              data-discover="true"
+              href="/en"
+              lang="en"
+            >
+              common:return-to-dashboard
+            </a>
           </div>
           <div
             id="french"
@@ -104,6 +112,14 @@ exports[`error-boundaries > BilingualErrorBoundary > should correctly render the
             >
               common:server-error.page-message
             </p>
+            <a
+              class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+              data-discover="true"
+              href="/fr"
+              lang="fr"
+            >
+              common:return-to-dashboard
+            </a>
           </div>
         </div>
       </main>
@@ -209,7 +225,7 @@ exports[`error-boundaries > BilingualErrorBoundary > should correctly render the
         class="container"
       >
         <div
-          class="grid grid-cols-1 gap-6 py-2.5 sm:grid-cols-2 sm:py-3.5"
+          class="mb-4 grid grid-cols-1 gap-6 py-2.5 sm:grid-cols-2 sm:py-3.5"
         >
           <div
             id="english"
@@ -239,7 +255,7 @@ exports[`error-boundaries > BilingualErrorBoundary > should correctly render the
               common:server-error.page-message
             </p>
             <ul
-              class="list-disc pl-10 text-gray-800"
+              class="mb-4 list-disc pl-10 text-gray-800"
             >
               <li>
                 {"key":"common:server-error.error-code","options":{"values":{"errorCode":"UNC-0000"}}}
@@ -248,6 +264,14 @@ exports[`error-boundaries > BilingualErrorBoundary > should correctly render the
                 {"key":"common:server-error.correlation-id","options":{"values":{"correlationId":"XX-000000"}}}
               </li>
             </ul>
+            <a
+              class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+              data-discover="true"
+              href="/en"
+              lang="en"
+            >
+              common:return-to-dashboard
+            </a>
           </div>
           <div
             id="french"
@@ -277,7 +301,7 @@ exports[`error-boundaries > BilingualErrorBoundary > should correctly render the
               common:server-error.page-message
             </p>
             <ul
-              class="list-disc pl-10 text-gray-800"
+              class="mb-4 list-disc pl-10 text-gray-800"
             >
               <li>
                 {"key":"common:server-error.error-code","options":{"values":{"errorCode":"UNC-0000"}}}
@@ -286,6 +310,14 @@ exports[`error-boundaries > BilingualErrorBoundary > should correctly render the
                 {"key":"common:server-error.correlation-id","options":{"values":{"correlationId":"XX-000000"}}}
               </li>
             </ul>
+            <a
+              class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+              data-discover="true"
+              href="/fr"
+              lang="fr"
+            >
+              common:return-to-dashboard
+            </a>
           </div>
         </div>
       </main>
@@ -386,7 +418,7 @@ exports[`error-boundaries > BilingualNotFound > should correctly render the bili
         class="container"
       >
         <div
-          class="grid grid-cols-1 gap-6 py-2.5 sm:grid-cols-2 sm:py-3.5"
+          class="mb-4 grid grid-cols-1 gap-6 py-2.5 sm:grid-cols-2 sm:py-3.5"
         >
           <div
             id="english"
@@ -415,6 +447,14 @@ exports[`error-boundaries > BilingualNotFound > should correctly render the bili
             >
               common:not-found.page-message
             </p>
+            <a
+              class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+              data-discover="true"
+              href="/en"
+              lang="en"
+            >
+              common:return-to-dashboard
+            </a>
           </div>
           <div
             id="french"
@@ -443,6 +483,14 @@ exports[`error-boundaries > BilingualNotFound > should correctly render the bili
             >
               common:not-found.page-message
             </p>
+            <a
+              class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+              data-discover="true"
+              href="/fr"
+              lang="fr"
+            >
+              common:return-to-dashboard
+            </a>
           </div>
         </div>
       </main>
@@ -512,7 +560,7 @@ exports[`error-boundaries > UnilingualErrorBoundary > should correctly render th
           id="wb-bnr"
         >
           <div
-            class="container flex items-center justify-between gap-6 py-2.5 sm:py-3.5"
+            class="container mb-4 flex items-center justify-between gap-6 py-2.5 sm:py-3.5"
           >
             <a
               href="https://canada.ca/"
@@ -555,6 +603,13 @@ exports[`error-boundaries > UnilingualErrorBoundary > should correctly render th
         >
           common:server-error.page-message
         </p>
+        <a
+          class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+          data-discover="true"
+          href="/en"
+        >
+          common:return-to-dashboard
+        </a>
       </main>
       <footer
         class="mt-8 bg-stone-50 print:hidden"
@@ -612,7 +667,7 @@ exports[`error-boundaries > UnilingualErrorBoundary > should correctly render th
           id="wb-bnr"
         >
           <div
-            class="container flex items-center justify-between gap-6 py-2.5 sm:py-3.5"
+            class="container mb-4 flex items-center justify-between gap-6 py-2.5 sm:py-3.5"
           >
             <a
               href="https://canada.ca/"
@@ -656,7 +711,7 @@ exports[`error-boundaries > UnilingualErrorBoundary > should correctly render th
           common:server-error.page-message
         </p>
         <ul
-          class="list-disc pl-10 text-gray-800"
+          class="mb-4 list-disc pl-10 text-gray-800"
         >
           <li>
             {"key":"common:server-error.error-code","options":{"values":{"errorCode":"UNC-0000"}}}
@@ -665,6 +720,13 @@ exports[`error-boundaries > UnilingualErrorBoundary > should correctly render th
             {"key":"common:server-error.correlation-id","options":{"values":{"correlationId":"XX-000000"}}}
           </li>
         </ul>
+        <a
+          class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+          data-discover="true"
+          href="/en"
+        >
+          common:return-to-dashboard
+        </a>
       </main>
       <footer
         class="mt-8 bg-stone-50 print:hidden"
@@ -740,7 +802,7 @@ exports[`error-boundaries > UnilingualNotFound > should correctly render the uni
         </div>
       </header>
       <main
-        class="container"
+        class="container mb-4"
       >
         <div
           class="mt-10 mb-8"
@@ -765,6 +827,13 @@ exports[`error-boundaries > UnilingualNotFound > should correctly render the uni
         >
           common:not-found.page-message
         </p>
+        <a
+          class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
+          data-discover="true"
+          href="/en"
+        >
+          common:return-to-dashboard
+        </a>
       </main>
       <footer
         class="bg-stone-50 print:hidden"

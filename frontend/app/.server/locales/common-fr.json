@@ -180,6 +180,7 @@
     "version": "Version\u00a0:"
   },
   "resource": "public/locales/public-fr.json",
+  "return-to-dashboard": "Retourner à l'estimateur",
   "server-error": {
     "correlation-id": "<strong>ID de corrélation\u00a0:</strong> <span>{{correlationId}}</span>",
     "document-title": "Erreur interne du serveur",

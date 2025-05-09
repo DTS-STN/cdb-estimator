@@ -176,6 +176,7 @@
     "version": "Version:"
   },
   "resource": "public/locales/public-en.json",
+  "return-to-dashboard": "Return to the estimator",
   "server-error": {
     "correlation-id": "<strong>Correlation ID:</strong> <span>{{correlationId}}</span>",
     "document-title": "Internal server error",
