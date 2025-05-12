@@ -1,11 +1,6 @@
 import { TZDate } from '@date-fns/tz';
 import { formatISO, isBefore, isToday, isValid, parseISO, startOfDay } from 'date-fns';
 
-export function getPreviousTaxYear() {
-  const today = new Date();
-  return today.getFullYear() - 1;
-}
-
 /**
  * Parses a date string in the format "YYYY-MM-DD" and returns an object with the parsed components.
  * @param date The date string to parse.
