@@ -19,7 +19,6 @@ import { useErrorTranslation } from '~/hooks/use-error-translation';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/estimator/layout';
 import * as adobeAnalytics from '~/utils/adobe-analytics-utils';
-import { getPreviousTaxYear } from '~/utils/date-utils';
 import { mergeMeta } from '~/utils/meta-utils';
 import { getTitleMetaTags } from '~/utils/seo-utils';
 import { estimatorStepGate, storeFormFieldValues } from '~/utils/state-utils';
@@ -163,13 +162,14 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
   const fetcher = useFetcher<Info['actionData']>({ key: fetcherKey });
   const errors = fetcher.data?.errors;
   const isMarried = loaderData.isMarried;
-  const previousIncomeTaxReturnYear = getPreviousTaxYear().toString();
 
   //convert previous form values array to map
   const previousFormValues = useMemo(
     () => new Map<string, string | undefined>(loaderData.previousFormValues),
     [loaderData.previousFormValues],
   );
+
+  const { ESTIMATOR_INCOME_TAX_SLIP_YEAR } = globalThis.__appEnvironment;
 
   return (
     <div className="space-y-3">
@@ -179,9 +179,15 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
           <div className="space-y-6">
             <p>
               {isMarried ? (
-                <Trans i18nKey={'estimator:income.form-instructions.married'} values={{ year: previousIncomeTaxReturnYear }} />
+                <Trans
+                  i18nKey={'estimator:income.form-instructions.married'}
+                  values={{ year: ESTIMATOR_INCOME_TAX_SLIP_YEAR }}
+                />
               ) : (
-                <Trans i18nKey={'estimator:income.form-instructions.single'} values={{ year: previousIncomeTaxReturnYear }} />
+                <Trans
+                  i18nKey={'estimator:income.form-instructions.single'}
+                  values={{ year: ESTIMATOR_INCOME_TAX_SLIP_YEAR }}
+                />
               )}
             </p>
             <p>{t('estimator:income.form-instructions.note')}</p>
@@ -196,7 +202,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
                 <p>
-                  <Trans i18nKey={'estimator:income.info.net-income'} values={{ year: previousIncomeTaxReturnYear }} />
+                  <Trans i18nKey={'estimator:income.info.net-income'} values={{ year: ESTIMATOR_INCOME_TAX_SLIP_YEAR }} />
                 </p>
               }
               defaultValue={
@@ -226,7 +232,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                         <p>
                           <Trans
                             i18nKey={'estimator:income.info.working-income.text1'}
-                            values={{ year: previousIncomeTaxReturnYear }}
+                            values={{ year: ESTIMATOR_INCOME_TAX_SLIP_YEAR }}
                           />
                         </p>
                         <ul className="list-disc space-y-2 pl-5">
@@ -260,7 +266,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
                 <p>
-                  <Trans i18nKey={'estimator:income.info.claimed-income'} values={{ year: previousIncomeTaxReturnYear }} />
+                  <Trans i18nKey={'estimator:income.info.claimed-income'} values={{ year: ESTIMATOR_INCOME_TAX_SLIP_YEAR }} />
                 </p>
               }
               defaultValue={
@@ -281,7 +287,10 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
                 <p>
-                  <Trans i18nKey={'estimator:income.info.claimed-repayment'} values={{ year: previousIncomeTaxReturnYear }} />
+                  <Trans
+                    i18nKey={'estimator:income.info.claimed-repayment'}
+                    values={{ year: ESTIMATOR_INCOME_TAX_SLIP_YEAR }}
+                  />
                 </p>
               }
               defaultValue={
@@ -308,7 +317,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                     <p>
                       <Trans
                         i18nKey={'estimator:income.info.partner-net-income'}
-                        values={{ year: previousIncomeTaxReturnYear }}
+                        values={{ year: ESTIMATOR_INCOME_TAX_SLIP_YEAR }}
                       />
                     </p>
                   }
@@ -340,7 +349,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                             <p>
                               <Trans
                                 i18nKey={'estimator:income.info.partner-working-income.text1'}
-                                values={{ year: previousIncomeTaxReturnYear }}
+                                values={{ year: ESTIMATOR_INCOME_TAX_SLIP_YEAR }}
                               />
                             </p>
                             <ul className="list-disc space-y-2 pl-5">
@@ -377,7 +386,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                     <p>
                       <Trans
                         i18nKey={'estimator:income.info.partner-claimed-income'}
-                        values={{ year: previousIncomeTaxReturnYear }}
+                        values={{ year: ESTIMATOR_INCOME_TAX_SLIP_YEAR }}
                       />
                     </p>
                   }
@@ -403,7 +412,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                     <p>
                       <Trans
                         i18nKey={'estimator:income.info.partner-claimed-repayment'}
-                        values={{ year: previousIncomeTaxReturnYear }}
+                        values={{ year: ESTIMATOR_INCOME_TAX_SLIP_YEAR }}
                       />
                     </p>
                   }

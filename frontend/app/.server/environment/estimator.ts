@@ -27,6 +27,7 @@ export const defaults = {
   ESTIMATOR_YEARLY_MAX_BENEFITS: '2400',
   ESTIMATOR_BENEFIT_REDUCTION_RATE: '0.2',
   ESTIMATOR_SPLIT_BENEFIT_REDUCTION_RATE: '0.1',
+  ESTIMATOR_INCOME_TAX_SLIP_YEAR: '2024',
 } as const;
 
 // Define schema for the environment variable
@@ -117,6 +118,11 @@ export const estimator = v.object({
    * Benefit reduction rate (split)
    */
   ESTIMATOR_SPLIT_BENEFIT_REDUCTION_RATE: v.optional(stringToNumberSchema(), defaults.ESTIMATOR_SPLIT_BENEFIT_REDUCTION_RATE),
+
+  /**
+   * Tax slip year shown in the income step.
+   */
+  ESTIMATOR_INCOME_TAX_SLIP_YEAR: v.optional(stringToNumberSchema(), defaults.ESTIMATOR_INCOME_TAX_SLIP_YEAR),
 });
 
 export type Estimator = Readonly<v.InferOutput<typeof estimator>>;
