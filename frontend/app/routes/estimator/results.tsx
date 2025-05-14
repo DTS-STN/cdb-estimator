@@ -133,7 +133,7 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
 
   const cdbContactLink = (
     <InlineLink
-      to={i18n.language === 'fr' ? (ESTIMATOR_CDB_CONTACT_URL_FR ?? '') : (ESTIMATOR_CDB_CONTACT_URL_EN ?? '')}
+      to={i18n.language === 'fr' ? ESTIMATOR_CDB_CONTACT_URL_FR : ESTIMATOR_CDB_CONTACT_URL_EN}
       className="external-link"
       target="_blank"
     />

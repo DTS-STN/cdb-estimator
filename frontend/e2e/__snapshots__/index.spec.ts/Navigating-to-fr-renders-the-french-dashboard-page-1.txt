@@ -54,7 +54,15 @@
       Cet estimateur fournit des montants estimés de prestation pour les
       paiements effectués entre juillet 2025 et juin 2026. Les montants futurs
       des prestations pourraient être plus élevés en raison de l'inflation. Les
-      résultats ne sont pas des conseils financiers et peuvent changer.
+      résultats ne sont pas des conseils financiers et peuvent changer.<!-- -->
+      Pour une évaluation plus précise de votre montant de prestations estimé,
+      veuillez
+      <a
+        class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700 external-link"
+        href="https://www.canada.ca/fr/services/prestations/handicap/prestation-canadienne-personnes-situation-handicap/contact.html"
+        target="_blank"
+        >communiquer avec nous</a
+      >.
     </p>
   </section>
 </div>

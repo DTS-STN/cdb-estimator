@@ -49,6 +49,13 @@
             24 months from the date we receive your application. There will be
             no back payments prior to July 2025.</strong
           >
+          <a
+            class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700 external-link"
+            href="https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit/contact.html"
+            target="_blank"
+            >Contact us</a
+          >
+          to find out more.
         </p>
       </section>
       <section class="col-span-1 row-span-2 space-y-4">
