@@ -6,6 +6,10 @@
     {
       "path": "gitops"
     }
+    ,
+    {
+      "path": "performance-tests"
+    }
   ],
   "settings": {
     "tailwindCSS.experimental.configFile": "frontend/app/tailwind.css"
