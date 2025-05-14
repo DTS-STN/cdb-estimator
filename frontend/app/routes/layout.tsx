@@ -30,7 +30,7 @@ export default function Layout({ matches }: Route.ComponentProps) {
 
   const { BUILD_DATE, BUILD_VERSION } = globalThis.__appEnvironment;
 
-  const breadcrumbs = (matches[matches.length - 1]?.handle as RouteHandle).breadcrumbs;
+  const breadcrumbs = (matches.at(-1)?.handle as RouteHandle).breadcrumbs;
 
   return (
     <>

@@ -103,7 +103,7 @@ export async function loader({ context, request }: Route.LoaderArgs) {
 export default function App({ loaderData, matches, params }: Route.ComponentProps) {
   const { i18n } = useTranslation();
   const currentLanguage = i18n.language;
-  usePushPageviewEvent(matches[matches.length - 1]?.pathname ?? '/', params);
+  usePushPageviewEvent(matches.at(-1)?.pathname ?? '/', params);
 
   return (
     <html lang={currentLanguage}>

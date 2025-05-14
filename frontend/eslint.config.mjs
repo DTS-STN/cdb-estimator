@@ -147,7 +147,6 @@ export default tseslint.config(
       'unicorn/no-useless-spread': 'off',
       'unicorn/no-useless-undefined': 'off',
       'unicorn/numeric-separators-style': 'off',
-      'unicorn/prefer-at': 'off',
       'unicorn/prefer-global-this': 'off',
       'unicorn/prefer-node-protocol': 'off',
       'unicorn/prefer-number-properties': 'off',
