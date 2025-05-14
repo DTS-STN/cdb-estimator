@@ -8,8 +8,9 @@ import { stringToUrlSchema } from '../validation/string-to-url-schema';
 export const defaults = {
   ESTIMATOR_CDB_BENEFIT_PAYMENT_PERIOD_START: '2025-07-01',
   ESTIMATOR_CDB_BENEFIT_PAYMENT_PERIOD_END: '2026-06-01',
-  ESTIMATOR_CDB_CONTACT_URL_EN: undefined,
-  ESTIMATOR_CDB_CONTACT_URL_FR: undefined,
+  ESTIMATOR_CDB_CONTACT_URL_EN: 'https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit/contact.html',
+  ESTIMATOR_CDB_CONTACT_URL_FR:
+    'https://www.canada.ca/fr/services/prestations/handicap/prestation-canadienne-personnes-situation-handicap/contact.html',
   ESTIMATOR_CDB_URL_EN: 'https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html',
   ESTIMATOR_CDB_URL_FR:
     'https://www.canada.ca/fr/services/prestations/handicap/prestation-canadienne-personnes-situation-handicap.html',
