@@ -49,7 +49,14 @@
     <h2 class="font-lato text-2xl font-bold">About the results</h2>
     <p>
       This estimator provides estimated benefit amounts for payments made
-      between July 2025 and June 2026. Future benefit amounts may change.
+      between July 2025 and June 2026. Future benefit amounts may change.<!-- -->
+      For a more accurate assessment of your estimated benefits amount, please
+      <a
+        class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700 external-link"
+        href="https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit/contact.html"
+        target="_blank"
+        >contact us</a
+      >.
     </p>
   </section>
 </div>

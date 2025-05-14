@@ -52,6 +52,13 @@
             laquelle nous recevons votre demande. Aucun paiement rétroactif ne
             sera effectué pour la période antérieure à juillet 2025.</strong
           >
+          <a
+            class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700 external-link"
+            href="https://www.canada.ca/fr/services/prestations/handicap/prestation-canadienne-personnes-situation-handicap/contact.html"
+            target="_blank"
+            >Contactez-nous</a
+          >
+          pour en savoir plus.
         </p>
       </section>
       <section class="col-span-1 row-span-2 space-y-4">
