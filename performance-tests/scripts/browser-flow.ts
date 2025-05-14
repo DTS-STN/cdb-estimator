@@ -46,8 +46,9 @@ export default async function () {
 
     // Index Page
     await page.waitForSelector("//h1[text()='Canada Disability Benefit Estimator']");
-    await page.locator('a[href="/en/marital-status"]').click();
+
     screenshotsEnabled && (await page.screenshot({ path: `test-results/screenshots/${startTime}-${id}-step-0.png` }));
+    await page.locator('a[href="/en/marital-status"]').click();
 
     // Marital Status - Single
     await page.waitForSelector("//h1[text()='Step 1 of 2: Marital Status']");
