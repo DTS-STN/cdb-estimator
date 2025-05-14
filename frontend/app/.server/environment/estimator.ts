@@ -17,9 +17,9 @@ export const defaults = {
   ESTIMATOR_CDB_ELIGIBILITY_URL_EN: 'https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html', //TODO: this is a placeholder
   ESTIMATOR_CDB_ELIGIBILITY_URL_FR:
     'https://www.canada.ca/fr/services/prestations/handicap/prestation-canadienne-personnes-situation-handicap.html', //TODO: this is a placeholder
-  ESTIMATOR_CDB_APPLY_URL_EN: 'https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html', //TODO: this is a placeholder
+  ESTIMATOR_CDB_APPLY_URL_EN: 'https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit/apply.html',
   ESTIMATOR_CDB_APPLY_URL_FR:
-    'https://www.canada.ca/fr/services/prestations/handicap/prestation-canadienne-personnes-situation-handicap.html', //TODO: this is a placeholder
+    'https://www.canada.ca/fr/services/prestations/handicap/prestation-canadienne-personnes-situation-handicap/demande.html',
   ESTIMATOR_INFLATION_FACTOR: '1',
   ESTIMATOR_SINGLE_WORKING_INCOME_EXEMPTION: '10000',
   ESTIMATOR_COUPLE_WORKING_INCOME_EXCEPTION: '14000',

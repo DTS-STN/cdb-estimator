@@ -105,7 +105,7 @@
           <a
             class="font-lato inline-flex items-center justify-center rounded-sm border align-middle no-underline outline-offset-4 px-6 py-3.5 text-base border-slate-700 bg-slate-700 text-white hover:bg-sky-800 focus:bg-sky-800"
             data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:Results:Apply button"
-            href="https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html"
+            href="https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit/apply.html"
             target="_blank"
             ><svg
               aria-hidden="true"
