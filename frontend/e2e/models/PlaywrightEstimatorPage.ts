@@ -42,7 +42,7 @@ export class PlaywrightEstimatorPage extends PlaywrightBasePage {
         break;
     }
 
-    if (!pageInfo) throw Error(`estimatorPage '${estimatorPage}' not implemented.`);
+    if (!pageInfo) throw new Error(`estimatorPage '${estimatorPage}' not implemented.`);
     await super.isLoaded(pageInfo.url, language, heading ?? pageInfo.heading);
   }
 }
