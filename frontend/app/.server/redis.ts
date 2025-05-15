@@ -39,13 +39,6 @@ function getRedisConfig(): RedisOptions {
   const redisPassword = REDIS_PASSWORD?.value();
   const redisCommandTimeout = REDIS_COMMAND_TIMEOUT_SECONDS * 1000;
 
-  const retryStrategy = (times: number): number => {
-    // exponential backoff starting at 250ms to a maximum of 5s
-    const retryIn = Math.min(250 * Math.pow(2, times - 1), 5000);
-    log.error('Could not connect to Redis (attempt #%s); retry in %s ms', times, retryIn);
-    return retryIn;
-  };
-
   switch (serverEnvironment.REDIS_CONNECTION_TYPE) {
     case 'standalone': {
       log.debug('      configuring Redis client in standalone mode');
@@ -72,4 +65,11 @@ function getRedisConfig(): RedisOptions {
       };
     }
   }
+}
+
+function retryStrategy(times: number): number {
+  // exponential backoff starting at 250ms to a maximum of 5s
+  const retryIn = Math.min(250 * Math.pow(2, times - 1), 5000);
+  log.error('Could not connect to Redis (attempt #%s); retry in %s ms', times, retryIn);
+  return retryIn;
 }

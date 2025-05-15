@@ -132,12 +132,8 @@ export default tseslint.config(
   unicornPlugin.configs.recommended,
   {
     rules: {
-      'unicorn/consistent-function-scoping': 'off',
-      'unicorn/error-message': 'off',
-      'unicorn/escape-case': 'off',
       'unicorn/filename-case': 'off',
       'unicorn/import-style': 'off',
-      'unicorn/new-for-builtins': 'off',
       'unicorn/no-array-callback-reference': 'off',
       'unicorn/no-array-for-each': 'off',
       'unicorn/no-array-reduce': 'off',
