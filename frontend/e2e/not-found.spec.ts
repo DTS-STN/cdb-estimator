@@ -2,7 +2,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
 import { formatHtml } from './__supports/string-utils';
-import { PlaywrightBasePage } from './models/PlaywrightBasePage';
+import { PlaywrightBasePage } from './models/playwright-base-page';
 
 test('Navigating to /foo renders the bilingual 404 page', async ({ page }) => {
   const notFoundPage = new PlaywrightBasePage(page);
