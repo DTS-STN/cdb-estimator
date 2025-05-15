@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-import { PlaywrightEstimatorPage } from './models/PlaywrightEstimatorPage';
+import { PlaywrightEstimatorPage } from './models/playwright-estimator-page';
 
 test('Single person can obtain results', async ({ page }) => {
   const estimator = new PlaywrightEstimatorPage(page);

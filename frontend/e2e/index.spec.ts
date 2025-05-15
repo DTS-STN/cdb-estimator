@@ -2,7 +2,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
 import { formatHtml } from './__supports/string-utils';
-import { PlaywrightEstimatorPage } from './models/PlaywrightEstimatorPage';
+import { PlaywrightEstimatorPage } from './models/playwright-estimator-page';
 
 test('Navigating to /en renders the english dashboard page', async ({ page }) => {
   const estimator = new PlaywrightEstimatorPage(page);

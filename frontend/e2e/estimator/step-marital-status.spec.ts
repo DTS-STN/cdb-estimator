@@ -1,7 +1,7 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 import { formatHtml } from 'e2e/__supports/string-utils';
-import { PlaywrightEstimatorPage } from 'e2e/models/PlaywrightEstimatorPage';
+import { PlaywrightEstimatorPage } from 'e2e/models/playwright-estimator-page';
 
 test('Navigating to /en/marital-status renders the english marital-status page', async ({ page }) => {
   const estimator = new PlaywrightEstimatorPage(page);

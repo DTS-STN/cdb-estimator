@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-import { PlaywrightEstimatorPage } from './models/PlaywrightEstimatorPage';
+import { PlaywrightEstimatorPage } from './models/playwright-estimator-page';
 
 test.describe('Skipping Step Navigation', () => {
   test('Navigating marital-status -> income routes to marital-status', async ({ page }) => {

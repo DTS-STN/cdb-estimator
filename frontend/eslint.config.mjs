@@ -132,7 +132,6 @@ export default tseslint.config(
   unicornPlugin.configs.recommended,
   {
     rules: {
-      'unicorn/filename-case': 'off',
       'unicorn/import-style': 'off',
       'unicorn/no-array-callback-reference': 'off',
       'unicorn/no-array-for-each': 'off',
