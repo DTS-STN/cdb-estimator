@@ -7,6 +7,7 @@ import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
 import reactPlugin from 'eslint-plugin-react';
 // @ts-ignore types package doesn't exist for eslint-plugin-react-hooks
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
+import unicornPlugin from 'eslint-plugin-unicorn';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
@@ -122,6 +123,40 @@ export default tseslint.config(
       react: {
         version: 'detect',
       },
+    },
+  },
+  //
+  // unicorn plugin
+  // https://github.com/sindresorhus/eslint-plugin-unicorn
+  //
+  unicornPlugin.configs.recommended,
+  {
+    rules: {
+      'unicorn/consistent-function-scoping': 'off',
+      'unicorn/error-message': 'off',
+      'unicorn/escape-case': 'off',
+      'unicorn/filename-case': 'off',
+      'unicorn/import-style': 'off',
+      'unicorn/new-for-builtins': 'off',
+      'unicorn/no-array-callback-reference': 'off',
+      'unicorn/no-array-for-each': 'off',
+      'unicorn/no-array-reduce': 'off',
+      'unicorn/no-negated-condition': 'off',
+      'unicorn/no-null': 'off',
+      'unicorn/no-process-exit': 'off',
+      'unicorn/no-useless-spread': 'off',
+      'unicorn/no-useless-undefined': 'off',
+      'unicorn/numeric-separators-style': 'off',
+      'unicorn/prefer-global-this': 'off',
+      'unicorn/prefer-number-properties': 'off',
+      'unicorn/prefer-query-selector': 'off',
+      'unicorn/prefer-spread': 'off',
+      'unicorn/prefer-string-raw': 'off',
+      'unicorn/prefer-string-replace-all': 'off',
+      'unicorn/prefer-type-error': 'off',
+      'unicorn/prevent-abbreviations': 'off',
+      'unicorn/switch-case-braces': 'off',
+      'unicorn/throw-new-error': 'off',
     },
   },
 );
