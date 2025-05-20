@@ -15,11 +15,9 @@ import { useRoute } from '~/hooks/use-route';
 import * as adobeAnalytics from '~/utils/adobe-analytics-utils';
 
 export const handle = {
-  breadcrumbs: [
-    ...globalThis.__appEnvironment.BREADCRUMBS.map((item) => {
-      return { label: { en: item.label.en, fr: item.label.fr }, destination: { en: item.url.en, fr: item.url.fr } };
-    }),
-  ],
+  breadcrumbs: globalThis.__appEnvironment.BREADCRUMBS.map((item) => {
+    return { label: { en: item.label.en, fr: item.label.fr }, destination: { en: item.url.en, fr: item.url.fr } };
+  }),
   i18nNamespace: ['common'],
 } as const satisfies RouteHandle;
 

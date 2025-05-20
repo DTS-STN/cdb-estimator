@@ -56,7 +56,7 @@ describe('CurrencyField', () => {
 
     render(<RoutesStub initialEntries={[`/${lang}`]} />);
 
-    const inputElement = document.getElementById('input-text-field-test-id-input');
+    const inputElement = document.querySelector('#input-text-field-test-id-input');
     expect(inputElement).toBeDefined();
     expect(inputElement?.getAttribute('value')).toBe(output);
   });

@@ -173,7 +173,7 @@ export function InlineLink({ className, children, file, hash, params, search, to
  * @param id - The element ID to scroll to and focus on.
  */
 function scrollAndFocusToElement(id: string): void {
-  const targetElement = document.getElementById(id);
+  const targetElement = document.querySelector<HTMLElement>(`#${id}`);
 
   if (targetElement) {
     targetElement.scrollIntoView({ behavior: 'smooth' });
