@@ -132,16 +132,16 @@ export default defineConfig(
     rules: {
       'unicorn/import-style': 'off',
       'unicorn/no-array-callback-reference': 'off',
-      'unicorn/no-array-for-each': 'off',
+
       'unicorn/no-array-reduce': 'off',
       'unicorn/no-negated-condition': 'off',
       'unicorn/no-null': 'off',
       'unicorn/no-process-exit': 'off',
       'unicorn/no-useless-spread': 'off',
       'unicorn/no-useless-undefined': 'off',
-      'unicorn/numeric-separators-style': 'off',
+
       'unicorn/prefer-global-this': 'off',
-      'unicorn/prefer-number-properties': 'off',
+
       'unicorn/prefer-query-selector': 'off',
       'unicorn/prefer-spread': 'off',
       'unicorn/prefer-string-raw': 'off',

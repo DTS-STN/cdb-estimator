@@ -19,8 +19,8 @@ export default defineConfig({
   ],
   use: {
     baseURL: `http://localhost:3000/`,
-    actionTimeout: 10000, // Timeout for each action like click(), fill(), etc.
-    navigationTimeout: 15000, // Timeout for navigation-related waits (goto, waitForLoadState, etc.)
+    actionTimeout: 10_000, // Timeout for each action like click(), fill(), etc.
+    navigationTimeout: 15_000, // Timeout for navigation-related waits (goto, waitForLoadState, etc.)
   },
   webServer: {
     command: 'tsx --import ./app/.server/telemetry.ts ./app/.server/express/server.ts',
