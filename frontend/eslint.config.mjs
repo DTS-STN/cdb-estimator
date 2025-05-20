@@ -130,16 +130,13 @@ export default defineConfig(
   unicornPlugin.configs.recommended,
   {
     rules: {
-      'unicorn/no-useless-undefined': ['error', { checkArguments: false }],
+      'unicorn/consistent-function-scoping': ['error', { checkArrowFunctions: false }],
       'unicorn/no-array-callback-reference': 'off',
       'unicorn/no-array-reduce': 'off',
-
       'unicorn/no-null': 'off',
-      'unicorn/no-process-exit': 'off',
-      'unicorn/no-useless-spread': 'off',
+      'unicorn/no-useless-undefined': ['error', { checkArguments: false }],
       'unicorn/prefer-global-this': 'off',
-      'unicorn/prefer-query-selector': 'off',
-      'unicorn/prefer-string-raw': 'off',
+      'unicorn/prefer-structured-clone': 'off',
       'unicorn/prevent-abbreviations': 'off',
     },
   },

@@ -4,7 +4,7 @@
 
 export default {
   plugins: ['@trivago/prettier-plugin-sort-imports', 'prettier-plugin-tailwindcss'],
-  importOrder: ['^react(-dom/.*)?$', '^[@]?react-router(/.*)?', '<THIRD_PARTY_MODULES>', '^[\\.]', '^[~]'],
+  importOrder: ['^react(-dom/.*)?$', '^[@]?react-router(/.*)?', '<THIRD_PARTY_MODULES>', String.raw`^[\.]`, '^[~]'],
   importOrderSeparation: true,
   printWidth: 128,
   quoteProps: 'consistent',
