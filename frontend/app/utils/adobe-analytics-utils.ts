@@ -12,7 +12,7 @@ declare global {
  * @returns undefined if AA is not enabled. a string otherwise
  */
 export function getCustomClick(value: string) {
-  if (!isEnabled()) return undefined;
+  if (!isEnabled()) return;
 
   const { ADOBE_ANALYTICS_CUSTOM_CLICK_PREFIX } = globalThis.__appEnvironment;
   return `${ADOBE_ANALYTICS_CUSTOM_CLICK_PREFIX}:${value}`;
@@ -32,10 +32,10 @@ export const getRouteParamsString = (query: Record<string, string | string[] | u
   return Object.entries(query)
     .map(([key, value]) => {
       const sanitizedValue = Array.isArray(value)
-        ? value.map((v) => v.replaceAll(/-/g, '_').replaceAll(/\|/g, '_')).join(',') // Handle arrays
-        : value?.replaceAll(/-/g, '_').replaceAll(/\|/g, '_'); // Handle single values
+        ? value.map((v) => v.replaceAll('-', '_').replaceAll('|', '_')).join(',') // Handle arrays
+        : value?.replaceAll(/-/g, '_').replaceAll('|', '_'); // Handle single values
 
-      return `${key.replaceAll(/-/g, '_').replaceAll(/\|/g, '_')}-${sanitizedValue}`;
+      return `${key.replaceAll('-', '_').replaceAll('|', '_')}-${sanitizedValue}`;
     })
     .join('|');
 };

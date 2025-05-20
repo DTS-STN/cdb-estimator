@@ -69,5 +69,5 @@ export function trimToUndefined(str: string | undefined): string | undefined {
  * @returns The normalized string with all spaces replaced by regular spaces.
  */
 export function normalizeSpaces(str: string) {
-  return str.replace(/[\s\u00A0]/g, ' ');
+  return str.replaceAll(/[\s\u00A0]/g, ' ');
 }

@@ -92,7 +92,7 @@ export function Footer() {
   );
 }
 
-function FooterItem(text: string, href: string, className: string | undefined = undefined) {
+function FooterItem(text: string, href: string, className?: string | undefined) {
   return (
     <li className={cn('my-1 w-64 list-none sm:w-56 lg:w-80', className)}>
       <a className="text-[14px] leading-[19px] font-[400] !text-white" href={href}>
