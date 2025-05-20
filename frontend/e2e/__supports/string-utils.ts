@@ -12,6 +12,7 @@ export async function formatHtml(htmlString: string): Promise<string> {
     return formattedHtml;
   } catch (error) {
     if (error instanceof Error) {
+      // eslint-disable-next-line unicorn/prefer-type-error
       throw new Error(`❌ Failed to format HTML for snapshot: ${error.message}`, { cause: error });
     }
     throw error;
