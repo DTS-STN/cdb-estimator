@@ -130,26 +130,20 @@ export default defineConfig(
   unicornPlugin.configs.recommended,
   {
     rules: {
+      'unicorn/no-useless-undefined': ['error', { checkArguments: false }],
+
       'unicorn/import-style': 'off',
       'unicorn/no-array-callback-reference': 'off',
-
       'unicorn/no-array-reduce': 'off',
       'unicorn/no-negated-condition': 'off',
       'unicorn/no-null': 'off',
       'unicorn/no-process-exit': 'off',
       'unicorn/no-useless-spread': 'off',
-      'unicorn/no-useless-undefined': 'off',
-
       'unicorn/prefer-global-this': 'off',
-
       'unicorn/prefer-query-selector': 'off',
       'unicorn/prefer-spread': 'off',
       'unicorn/prefer-string-raw': 'off',
-      'unicorn/prefer-string-replace-all': 'off',
-      'unicorn/prefer-type-error': 'off',
       'unicorn/prevent-abbreviations': 'off',
-      'unicorn/switch-case-braces': 'off',
-      'unicorn/throw-new-error': 'off',
     },
   },
 );

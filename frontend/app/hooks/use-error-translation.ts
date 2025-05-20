@@ -8,11 +8,11 @@ export function useErrorTranslation<NS extends Namespace, TKPrefix extends KeyPr
   const { i18n } = useTranslation(ns);
 
   return (keySuffix?: string) => {
-    if (keySuffix === undefined) return undefined;
+    if (keySuffix === undefined) return;
 
     if (i18n.exists(`${ns}:${keyPrefix ? keyPrefix.toString() + '.' : ''}${keySuffix}`)) {
       return i18n.getResource(i18n.language, ns.toString(), `${keyPrefix ? keyPrefix.toString() + '.' : ''}${keySuffix}`);
     }
-    return undefined;
+    return;
   };
 }
