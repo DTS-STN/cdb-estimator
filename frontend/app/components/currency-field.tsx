@@ -16,7 +16,7 @@ export interface CurrencyFieldProps extends Omit<InputFieldProps, 'type' | 'valu
 export function CurrencyField({ allowNegative = false, maxLength, defaultValue, ...rest }: CurrencyFieldProps) {
   const { i18n } = useTranslation(['common']);
   const strippedDefaultValue = Number(removeNumericFormatting(defaultValue?.toString()));
-  const val = !Number.isInteger(strippedDefaultValue) ? strippedDefaultValue.toFixed(2) : strippedDefaultValue;
+  const val = Number.isInteger(strippedDefaultValue) ? strippedDefaultValue : strippedDefaultValue.toFixed(2);
 
   return (
     <NumericFormat

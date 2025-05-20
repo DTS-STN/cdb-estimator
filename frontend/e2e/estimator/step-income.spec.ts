@@ -43,7 +43,7 @@ async function waitForCurrencyFields(page: Page, fields: string[]) {
 
   await page.waitForFunction(
     ({ sel, expectedCount }) => {
-      const targetInputs = Array.from(document.querySelectorAll(sel));
+      const targetInputs = [...document.querySelectorAll(sel)];
       return targetInputs.length === expectedCount && targetInputs.every((el) => el.getAttribute('inputmode') === 'numeric');
     },
     {

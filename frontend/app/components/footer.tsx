@@ -104,7 +104,7 @@ function FooterItem(text: string, href: string, className?: string | undefined) 
 
 function SubFooterItem(text: string, href: string, type: 'first' | 'subsequent' = 'subsequent') {
   return (
-    <li className={cn('my-1 pr-4', type !== 'first' ? "md:before:mr-3 md:before:content-['•']" : undefined)}>
+    <li className={cn('my-1 pr-4', type === 'first' ? undefined : "md:before:mr-3 md:before:content-['•']")}>
       <a className="text-[14px] leading-[19px] font-[400] text-[#284162]" href={href}>
         {text}
       </a>

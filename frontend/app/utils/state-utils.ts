@@ -14,7 +14,7 @@ export function storeFormFieldValues(session: AppSession, namespace: string, for
   for (const [name, value] of formData.entries()) {
     map.set(`${namespace}:${name}`, value.toString());
   }
-  session.formFieldValues = Array.from(map.entries());
+  session.formFieldValues = [...map.entries()];
 }
 
 /**
