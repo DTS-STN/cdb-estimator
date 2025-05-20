@@ -173,7 +173,7 @@ function collectFormValidationErrors(container: HTMLElement): readonly ErrorSumm
  * Finds all input elements with aria-errormessage attributes in the container
  */
 function findInvalidInputs(container: HTMLElement): readonly Element[] {
-  return Array.from(container.querySelectorAll('[aria-errormessage]'));
+  return [...container.querySelectorAll('[aria-errormessage]')];
 }
 
 /**

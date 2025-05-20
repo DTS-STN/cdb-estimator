@@ -131,17 +131,14 @@ export default defineConfig(
   {
     rules: {
       'unicorn/no-useless-undefined': ['error', { checkArguments: false }],
-
-      'unicorn/import-style': 'off',
       'unicorn/no-array-callback-reference': 'off',
       'unicorn/no-array-reduce': 'off',
-      'unicorn/no-negated-condition': 'off',
+
       'unicorn/no-null': 'off',
       'unicorn/no-process-exit': 'off',
       'unicorn/no-useless-spread': 'off',
       'unicorn/prefer-global-this': 'off',
       'unicorn/prefer-query-selector': 'off',
-      'unicorn/prefer-spread': 'off',
       'unicorn/prefer-string-raw': 'off',
       'unicorn/prevent-abbreviations': 'off',
     },
