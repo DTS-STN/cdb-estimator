@@ -12,7 +12,7 @@ export async function formatHtml(htmlString: string): Promise<string> {
     return formattedHtml;
   } catch (error) {
     if (error instanceof Error) {
-      throw new TypeError(`❌ Failed to format HTML for snapshot: ${error.message}`, { cause: error });
+      throw new Error(`❌ Failed to format HTML for snapshot: ${error.message}`, { cause: error });
     }
     throw error;
   }

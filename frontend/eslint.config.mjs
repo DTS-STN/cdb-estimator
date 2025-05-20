@@ -131,6 +131,7 @@ export default defineConfig(
   {
     rules: {
       'unicorn/no-useless-undefined': ['error', { checkArguments: false }],
+      'unicorn/prefer-type-error': 'off',
 
       'unicorn/import-style': 'off',
       'unicorn/no-array-callback-reference': 'off',
