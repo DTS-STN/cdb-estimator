@@ -23,8 +23,7 @@
         <div id="input-text-field-«Rlmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rlmlj5»-label"
             ><span class="font-semibold"
-              >Entrez votre revenu net<!-- -->
-              <span class="sr-only">($)</span></span
+              >Entrez votre revenu net<span class="sr-only"> ($)</span></span
             ></label
           >
           <div
@@ -55,8 +54,9 @@
         <div id="input-text-field-«Rpmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rpmlj5»-label"
             ><span class="font-semibold"
-              >Entrez votre revenu d'emploi<!-- -->
-              <span class="sr-only">($)</span></span
+              >Entrez votre revenu d'emploi<span class="sr-only">
+                ($)</span
+              ></span
             ></label
           >
           <div
@@ -142,8 +142,9 @@
             ><span class="font-semibold"
               >Entrez votre revenu de la Prestation universelle pour la garde
               d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré
-              d'épargne-invalidité (<abbr>REEI</abbr>).<!-- -->
-              <span class="sr-only">($)</span></span
+              d'épargne-invalidité (<abbr>REEI</abbr>).<span class="sr-only">
+                ($)</span
+              ></span
             ></label
           >
           <div
@@ -177,8 +178,9 @@
             ><span class="font-semibold"
               >Entrez votre remboursement de la Prestation universelle pour la
               garde d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré
-              d'épargne-invalidité (<abbr>REEI</abbr>).<!-- -->
-              <span class="sr-only">($)</span></span
+              d'épargne-invalidité (<abbr>REEI</abbr>).<span class="sr-only">
+                ($)</span
+              ></span
             ></label
           >
           <div
