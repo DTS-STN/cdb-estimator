@@ -21,8 +21,7 @@
         <div id="input-text-field-«Rlmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rlmlj5»-label"
             ><span class="font-semibold"
-              >Enter your net income<!-- -->
-              <span class="sr-only">($)</span></span
+              >Enter your net income<span class="sr-only"> ($)</span></span
             ></label
           >
           <div
@@ -51,8 +50,7 @@
         <div id="input-text-field-«Rpmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rpmlj5»-label"
             ><span class="font-semibold"
-              >Enter your working income<!-- -->
-              <span class="sr-only">($)</span></span
+              >Enter your working income<span class="sr-only"> ($)</span></span
             ></label
           >
           <div
@@ -135,8 +133,8 @@
           <label class="block" id="input-text-field-«Rtmlj5»-label"
             ><span class="font-semibold"
               >Enter your Universal Child Care Benefit (<abbr>UCCB</abbr>) and
-              Registered Disability Savings Plan (<abbr>RDSP</abbr>) income.<!-- -->
-              <span class="sr-only">($)</span></span
+              Registered Disability Savings Plan (<abbr>RDSP</abbr>)
+              income.<span class="sr-only"> ($)</span></span
             ></label
           >
           <div
@@ -169,8 +167,8 @@
           <label class="block" id="input-text-field-«R11mlj5»-label"
             ><span class="font-semibold"
               >Enter your Universal Child Care Benefit (<abbr>UCCB</abbr>) and
-              Registered Disability Savings Plan (<abbr>RDSP</abbr>) repayment.<!-- -->
-              <span class="sr-only">($)</span></span
+              Registered Disability Savings Plan (<abbr>RDSP</abbr>)
+              repayment.<span class="sr-only"> ($)</span></span
             ></label
           >
           <div
