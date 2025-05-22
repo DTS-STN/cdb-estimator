@@ -27,7 +27,10 @@
         </h2>
         <div id="input-text-field-«Rlmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rlmlj5»-label"
-            ><span class="font-semibold">Entrez votre revenu net</span></label
+            ><span class="font-semibold"
+              >Entrez votre revenu net<!-- -->
+              <span class="sr-only">($)</span></span
+            ></label
           >
           <div
             class="-max-w-prose text-black"
@@ -52,12 +55,13 @@
             name="individual-net-income"
             value=""
             inputmode="numeric"
-          /><span class="ml-1">$</span>
+          /><span aria-hidden="true" class="ml-1">$</span>
         </div>
         <div id="input-text-field-«Rpmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rpmlj5»-label"
             ><span class="font-semibold"
-              >Entrez votre revenu d'emploi</span
+              >Entrez votre revenu d'emploi<!-- -->
+              <span class="sr-only">($)</span></span
             ></label
           >
           <div
@@ -136,14 +140,15 @@
             name="individual-working-income"
             value=""
             inputmode="numeric"
-          /><span class="ml-1">$</span>
+          /><span aria-hidden="true" class="ml-1">$</span>
         </div>
         <div id="input-text-field-«Rtmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rtmlj5»-label"
             ><span class="font-semibold"
               >Entrez votre revenu de la Prestation universelle pour la garde
               d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré
-              d'épargne-invalidité (<abbr>REEI</abbr>).</span
+              d'épargne-invalidité (<abbr>REEI</abbr>).<!-- -->
+              <span class="sr-only">($)</span></span
             ></label
           >
           <div
@@ -170,14 +175,15 @@
             name="individual-claimed-income"
             value=""
             inputmode="numeric"
-          /><span class="ml-1">$</span>
+          /><span aria-hidden="true" class="ml-1">$</span>
         </div>
         <div id="input-text-field-«R11mlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«R11mlj5»-label"
             ><span class="font-semibold"
               >Entrez votre remboursement de la Prestation universelle pour la
               garde d'enfants (<abbr>PUGE</abbr>) et du Régime enregistré
-              d'épargne-invalidité (<abbr>REEI</abbr>).</span
+              d'épargne-invalidité (<abbr>REEI</abbr>).<!-- -->
+              <span class="sr-only">($)</span></span
             ></label
           >
           <div
@@ -204,7 +210,7 @@
             name="individual-claimed-repayment"
             value=""
             inputmode="numeric"
-          /><span class="ml-1">$</span>
+          /><span aria-hidden="true" class="ml-1">$</span>
         </div>
         <h2 class="font-lato mb-4 text-2xl font-bold">
           L'information de votre partenaire&nbsp;:
@@ -212,7 +218,8 @@
         <div id="input-text-field-«R55mlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«R55mlj5»-label"
             ><span class="font-semibold"
-              >Entrez le revenu net de votre partenaire.</span
+              >Entrez le revenu net de votre partenaire.<!-- -->
+              <span class="sr-only">($)</span></span
             ></label
           >
           <div
@@ -238,12 +245,13 @@
             name="partner-net-income"
             value=""
             inputmode="numeric"
-          /><span class="ml-1">$</span>
+          /><span aria-hidden="true" class="ml-1">$</span>
         </div>
         <div id="input-text-field-«R75mlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«R75mlj5»-label"
             ><span class="font-semibold"
-              >Entrez le revenu d'emploi de votre partenaire.</span
+              >Entrez le revenu d'emploi de votre partenaire.<!-- -->
+              <span class="sr-only">($)</span></span
             ></label
           >
           <div
@@ -323,14 +331,15 @@
             name="partner-working-income"
             value=""
             inputmode="numeric"
-          /><span class="ml-1">$</span>
+          /><span aria-hidden="true" class="ml-1">$</span>
         </div>
         <div id="input-text-field-«R95mlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«R95mlj5»-label"
             ><span class="font-semibold"
               >Entrez le revenu de votre partenaire provenant de la Prestation
               universelle pour la garde d'enfants (<abbr>PUGE</abbr>) et du
-              Régime enregistré d'épargne-invalidité (<abbr>REEI</abbr>).</span
+              Régime enregistré d'épargne-invalidité (<abbr>REEI</abbr>).<!-- -->
+              <span class="sr-only">($)</span></span
             ></label
           >
           <div
@@ -356,14 +365,15 @@
             name="partner-claimed-income"
             value=""
             inputmode="numeric"
-          /><span class="ml-1">$</span>
+          /><span aria-hidden="true" class="ml-1">$</span>
         </div>
         <div id="input-text-field-«Rb5mlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rb5mlj5»-label"
             ><span class="font-semibold"
               >Entrez le remboursement par votre partenaire de la Prestation
               universelle pour la garde d'enfants (<abbr>PUGE</abbr>) et du
-              Régime enregistré d'épargne-invalidité (<abbr>REEI</abbr>).</span
+              Régime enregistré d'épargne-invalidité (<abbr>REEI</abbr>).<!-- -->
+              <span class="sr-only">($)</span></span
             ></label
           >
           <div
@@ -389,7 +399,7 @@
             name="partner-claimed-repayment"
             value=""
             inputmode="numeric"
-          /><span class="ml-1">$</span>
+          /><span aria-hidden="true" class="ml-1">$</span>
         </div>
       </div>
       <div

@@ -20,7 +20,10 @@
         <p>All fields are required.</p>
         <div id="input-text-field-«Rlmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rlmlj5»-label"
-            ><span class="font-semibold">Enter your net income</span></label
+            ><span class="font-semibold"
+              >Enter your net income<!-- -->
+              <span class="sr-only">($)</span></span
+            ></label
           >
           <div
             class="-max-w-prose text-black"
@@ -29,7 +32,7 @@
           >
             <p>This is found on line 23600 of your 2024 tax return.</p>
           </div>
-          <span class="mr-1">$</span
+          <span aria-hidden="true" class="mr-1">$</span
           ><input
             aria-describedby="input-text-field-«Rlmlj5»-help-primary"
             aria-labelledby="input-text-field-«Rlmlj5»-label"
@@ -47,7 +50,10 @@
         </div>
         <div id="input-text-field-«Rpmlj5»" class="space-y-2">
           <label class="block" id="input-text-field-«Rpmlj5»-label"
-            ><span class="font-semibold">Enter your working income</span></label
+            ><span class="font-semibold"
+              >Enter your working income<!-- -->
+              <span class="sr-only">($)</span></span
+            ></label
           >
           <div
             class="-max-w-prose text-black"
@@ -109,7 +115,7 @@
               </details>
             </div>
           </div>
-          <span class="mr-1">$</span
+          <span aria-hidden="true" class="mr-1">$</span
           ><input
             aria-describedby="input-text-field-«Rpmlj5»-help-primary"
             aria-labelledby="input-text-field-«Rpmlj5»-label"
@@ -129,8 +135,8 @@
           <label class="block" id="input-text-field-«Rtmlj5»-label"
             ><span class="font-semibold"
               >Enter your Universal Child Care Benefit (<abbr>UCCB</abbr>) and
-              Registered Disability Savings Plan (<abbr>RDSP</abbr>)
-              income.</span
+              Registered Disability Savings Plan (<abbr>RDSP</abbr>) income.<!-- -->
+              <span class="sr-only">($)</span></span
             ></label
           >
           <div
@@ -143,7 +149,7 @@
               2024 tax return.
             </p>
           </div>
-          <span class="mr-1">$</span
+          <span aria-hidden="true" class="mr-1">$</span
           ><input
             aria-describedby="input-text-field-«Rtmlj5»-help-primary"
             aria-labelledby="input-text-field-«Rtmlj5»-label"
@@ -163,8 +169,8 @@
           <label class="block" id="input-text-field-«R11mlj5»-label"
             ><span class="font-semibold"
               >Enter your Universal Child Care Benefit (<abbr>UCCB</abbr>) and
-              Registered Disability Savings Plan (<abbr>RDSP</abbr>)
-              repayment.</span
+              Registered Disability Savings Plan (<abbr>RDSP</abbr>) repayment.<!-- -->
+              <span class="sr-only">($)</span></span
             ></label
           >
           <div
@@ -177,7 +183,7 @@
               2024 tax return.
             </p>
           </div>
-          <span class="mr-1">$</span
+          <span aria-hidden="true" class="mr-1">$</span
           ><input
             aria-describedby="input-text-field-«R11mlj5»-help-primary"
             aria-labelledby="input-text-field-«R11mlj5»-label"
