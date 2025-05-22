@@ -25,7 +25,7 @@ export const meta: Route.MetaFunction = mergeMeta(({ data }) => {
 export async function loader({ request }: Route.LoaderArgs) {
   const { t } = await getTranslation(request, handle.i18nNamespace);
 
-  const meta = { title: t('common:meta.title.template', { title: t('estimator:index.page-title') }) };
+  const meta = { title: t('common:meta.title.default') };
 
   return {
     meta,
