@@ -77,7 +77,6 @@ export function InputRadios({
                 aria-describedby={getAriaDescribedby()}
                 aria-errormessage={errorMessage && inputErrorId}
                 aria-invalid={!!errorMessage}
-                aria-required={required}
                 hasError={!!errorMessage}
                 id={inputRadioId}
                 name={name}

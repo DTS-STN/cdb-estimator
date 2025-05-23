@@ -78,7 +78,6 @@ export function InputField({
         aria-errormessage={errorMessage ? ids.error : undefined}
         aria-invalid={errorMessage ? true : undefined}
         aria-labelledby={ids.label}
-        aria-required={required ? true : undefined}
         className={cn(
           'block rounded-lg border-gray-500 focus:border-blue-500 focus:ring-3 focus:ring-blue-500 focus:outline-hidden',
           'read-only:pointer-events-none read-only:bg-gray-100 read-only:opacity-70',
