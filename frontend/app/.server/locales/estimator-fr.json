@@ -120,7 +120,7 @@
         "step-1": "état matrimonial",
         "step-2": "revenu"
       },
-      "result-disclaimer": "<strong>Cet outil ne détermine pas votre admissibilité à la prestation. Il fournit seulement une estimation du montant que vous pourriez recevoir. Vous pouvez consulter les critères d'admissibilité à la prestation sur <cdbRequirementsLink>Canada.ca/prestation-handicap</cdbRequirementsLink>.</strong>",
+      "result-disclaimer": "<strong>Cet outil ne détermine pas votre admissibilité à la prestation. Il fournit seulement une estimation du montant que vous pourriez recevoir. <cdbRequirementsLink>Pour en savoir plus sur l'admissibilité à la prestation canadienne pour les personnes handicapées, visitez le site Canada.ca/prestation-handicap</cdbRequirementsLink>.</strong>",
       "results": {
         "contact": " Pour une évaluation plus précise de votre montant de prestations estimé, veuillez <cdbContactLink>communiquer avec nous</cdbContactLink>.",
         "description": "Cet estimateur fournit des montants estimés de prestation pour les paiements effectués entre {{paymentPeriodStart}} et {{paymentPeriodEnd}}. Les montants futurs des prestations pourraient être plus élevés en raison de l'inflation. Les résultats ne sont pas des conseils financiers et peuvent changer.",

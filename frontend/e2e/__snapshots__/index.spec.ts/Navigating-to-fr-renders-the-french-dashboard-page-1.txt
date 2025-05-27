@@ -27,12 +27,13 @@
       <strong
         >Cet outil ne détermine pas votre admissibilité à la prestation. Il
         fournit seulement une estimation du montant que vous pourriez recevoir.
-        Vous pouvez consulter les critères d'admissibilité à la prestation sur
         <a
           class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700 external-link"
           href="https://www.canada.ca/fr/services/prestations/handicap/prestation-canadienne-personnes-situation-handicap.html"
           target="_blank"
-          >Canada.ca/prestation-handicap</a
+          >Pour en savoir plus sur l'admissibilité à la prestation canadienne
+          pour les personnes handicapées, visitez le site
+          Canada.ca/prestation-handicap</a
         >.</strong
       >
     </p>
