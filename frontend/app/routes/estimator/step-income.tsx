@@ -6,7 +6,7 @@ import type { RouteHandle } from 'react-router';
 import { Trans, useTranslation } from 'react-i18next';
 import * as v from 'valibot';
 
-import type { Info, Route } from './+types/step-income';
+import type { Route } from './+types/step-income';
 import type { MarriedIncome, MarriedIncomeForm, SingleIncome, SingleIncomeForm } from './@types';
 
 import { i18nRedirect } from '~/.server/utils/route-utils';
@@ -30,6 +30,9 @@ export const handle = {
 } as const satisfies RouteHandle;
 
 export const meta: Route.MetaFunction = mergeMeta(({ data }) => {
+  if (!data) {
+    return [];
+  }
   return getTitleMetaTags(data.meta.title);
 });
 
