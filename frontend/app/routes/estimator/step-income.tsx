@@ -162,7 +162,7 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
   const { t } = useTranslation(handle.i18nNamespace);
   const errT = useErrorTranslation('estimator', 'income.fields');
   const fetcherKey = useId();
-  const fetcher = useFetcher<Info['actionData']>({ key: fetcherKey });
+  const fetcher = useFetcher<typeof action>({ key: fetcherKey });
   const errors = fetcher.data?.errors;
   const isMarried = loaderData.isMarried;
 
