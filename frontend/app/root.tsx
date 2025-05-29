@@ -57,6 +57,9 @@ export function links(): Route.LinkDescriptors {
 }
 
 export const meta: Route.MetaFunction = ({ data }) => {
+  if (!data) {
+    return [];
+  }
   return [
     ...getTitleMetaTags(data.meta.title),
     ...getDescriptionMetaTags(data.meta.description),

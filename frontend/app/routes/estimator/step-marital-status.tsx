@@ -6,7 +6,7 @@ import type { RouteHandle } from 'react-router';
 import { Trans, useTranslation } from 'react-i18next';
 import * as v from 'valibot';
 
-import type { Info, Route } from './+types/step-marital-status';
+import type { Route } from './+types/step-marital-status';
 import type { MaritalStatus, MaritalStatusForm } from './@types';
 import { validMaritalStatuses } from './types';
 
@@ -30,6 +30,9 @@ export const handle = {
 } as const satisfies RouteHandle;
 
 export const meta: Route.MetaFunction = mergeMeta(({ data }) => {
+  if (!data) {
+    return [];
+  }
   return getTitleMetaTags(data.meta.title);
 });
 
@@ -89,7 +92,7 @@ export default function StepMaritalStatus({ actionData, loaderData, matches, par
   const { t } = useTranslation(handle.i18nNamespace);
   const errT = useErrorTranslation('estimator', 'marital-status.fields');
   const fetcherKey = useId();
-  const fetcher = useFetcher<Info['actionData']>({ key: fetcherKey });
+  const fetcher = useFetcher<typeof action>({ key: fetcherKey });
   const errors = fetcher.data?.errors;
 
   return (
