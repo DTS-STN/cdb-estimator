@@ -6,6 +6,7 @@ import { useActionData, useFetcher } from 'react-router';
 import { useTranslation } from 'react-i18next';
 
 import { AnchorLink } from '~/components/links';
+import { usePushValidationErrorEvent } from '~/hooks/use-push-validation-error-event';
 import { cn } from '~/utils/tailwind-utils';
 
 /**
@@ -46,6 +47,8 @@ export interface ErrorSummaryProps extends OmitStrict<ComponentPropsWithoutRef<'
 export function ErrorSummary({ className, actionData, errors, ...rest }: ErrorSummaryProps): JSX.Element | null {
   const { t } = useTranslation(['common']);
   const sectionRef = useRef<HTMLElement>(null);
+
+  usePushValidationErrorEvent(errors.map((x) => x.fieldId));
 
   // Scroll and focus on the error summary when errors are updated.
   // TODO: KaB : Ideally this scrolling action would be triggered by the page.
