@@ -1,7 +1,7 @@
 import { createRoutesStub } from 'react-router';
 
 import { render } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import {
   BilingualErrorBoundary,
@@ -13,6 +13,13 @@ import { AppError } from '~/errors/app-error';
 import { ErrorCodes } from '~/errors/error-codes';
 
 describe('error-boundaries', () => {
+  beforeAll(() => {
+    globalThis.__appEnvironment = {
+      ...globalThis.__appEnvironment,
+      ADOBE_ANALYTICS_ENABLED: true,
+      ADOBE_ANALYTICS_DEBUG: true,
+    };
+  });
   describe('BilingualErrorBoundary', () => {
     it('should correctly render the bilingual error boundary when it catches a generic error', () => {
       vi.spyOn(console, 'error').mockImplementation(() => {});
