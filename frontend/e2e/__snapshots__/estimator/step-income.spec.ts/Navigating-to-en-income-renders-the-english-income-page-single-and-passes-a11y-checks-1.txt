@@ -61,7 +61,10 @@
               This is income you made from your employment or self-employment.
             </p>
             <div class="my-4 space-y-4">
-              <details id="«R2epmlj5»">
+              <details
+                id="«R2epmlj5»"
+                data-gc-analytics-expand="Expand-collapse working income"
+              >
                 <summary
                   class="cursor-pointer marker:text-blue-900"
                   id="«R2epmlj5»-summary"
