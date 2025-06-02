@@ -3,6 +3,7 @@ import { Links, Meta, Scripts } from 'react-router';
 import { Trans, useTranslation } from 'react-i18next';
 
 import type { Route } from '../+types/root';
+import { AdobeAnalyticsBottomScript, AdobeAnalyticsHeadScript } from './adobe-analytics-script';
 
 import { AppLink } from '~/components/links';
 import { PageTitle } from '~/components/page-title';
@@ -29,6 +30,7 @@ export function BilingualErrorBoundary({ actionData, error, loaderData, params }
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        <AdobeAnalyticsHeadScript />
       </head>
       <body>
         <header className="border-b-[3px] border-slate-700 print:hidden">
@@ -153,6 +155,7 @@ export function BilingualErrorBoundary({ actionData, error, loaderData, params }
           src={`/api/client-env?v=${loaderData?.clientEnvRevision}`}
           suppressHydrationWarning={true}
         />
+        <AdobeAnalyticsBottomScript />
       </body>
     </html>
   );
@@ -173,6 +176,7 @@ export function BilingualNotFound({ actionData, error, loaderData, params }: Rou
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        <AdobeAnalyticsHeadScript />
       </head>
       <body>
         <header className="border-b-[3px] border-slate-700 print:hidden">
@@ -252,6 +256,7 @@ export function BilingualNotFound({ actionData, error, loaderData, params }: Rou
           src={`/api/client-env?v=${loaderData?.clientEnvRevision}`}
           suppressHydrationWarning={true}
         />
+        <AdobeAnalyticsBottomScript />
       </body>
     </html>
   );
@@ -277,6 +282,7 @@ export function UnilingualErrorBoundary({ actionData, error, loaderData, params 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        <AdobeAnalyticsHeadScript />
       </head>
       <body>
         <header className="border-b-[3px] border-slate-700 print:hidden">
@@ -347,6 +353,7 @@ export function UnilingualErrorBoundary({ actionData, error, loaderData, params 
           src={`/api/client-env?v=${loaderData?.clientEnvRevision}`}
           suppressHydrationWarning={true}
         />
+        <AdobeAnalyticsBottomScript />
       </body>
     </html>
   );
@@ -366,6 +373,7 @@ export function UnilingualNotFound({ actionData, error, loaderData, params }: Ro
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        <AdobeAnalyticsHeadScript />
       </head>
       <body>
         <header className="border-b-[3px] border-slate-700 print:hidden">
@@ -416,6 +424,7 @@ export function UnilingualNotFound({ actionData, error, loaderData, params }: Ro
           src={`/api/client-env?v=${loaderData?.clientEnvRevision}`}
           suppressHydrationWarning={true}
         />
+        <AdobeAnalyticsBottomScript />
       </body>
     </html>
   );

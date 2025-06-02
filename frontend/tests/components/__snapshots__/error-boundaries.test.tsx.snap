@@ -16,6 +16,8 @@ exports[`error-boundaries > BilingualErrorBoundary > should correctly render the
       href="build/stub-path-to-module.js"
       rel="modulepreload"
     />
+    <script />
+    <script />
   </head>
   <body>
     <div>
@@ -177,6 +179,11 @@ exports[`error-boundaries > BilingualErrorBoundary > should correctly render the
       <script
         src="/api/client-env?v=undefined"
       />
+      <script
+        id="gc-analytics-bottom-script"
+      >
+        _satellite.setDebug(true);
+      </script>
     </div>
   </body>
 </html>
@@ -194,6 +201,8 @@ exports[`error-boundaries > BilingualErrorBoundary > should correctly render the
       content="width=device-width, initial-scale=1"
       name="viewport"
     />
+    <script />
+    <script />
   </head>
   <body>
     <div>
@@ -360,6 +369,11 @@ exports[`error-boundaries > BilingualErrorBoundary > should correctly render the
       <script
         src="/api/client-env?v=undefined"
       />
+      <script
+        id="gc-analytics-bottom-script"
+      >
+        _satellite.setDebug(true);
+      </script>
     </div>
   </body>
 </html>
@@ -377,6 +391,8 @@ exports[`error-boundaries > BilingualNotFound > should correctly render the bili
       content="width=device-width, initial-scale=1"
       name="viewport"
     />
+    <script />
+    <script />
   </head>
   <body>
     <div>
@@ -533,6 +549,11 @@ exports[`error-boundaries > BilingualNotFound > should correctly render the bili
       <script
         src="/api/client-env?v=undefined"
       />
+      <script
+        id="gc-analytics-bottom-script"
+      >
+        _satellite.setDebug(true);
+      </script>
     </div>
   </body>
 </html>
@@ -550,6 +571,8 @@ exports[`error-boundaries > UnilingualErrorBoundary > should correctly render th
       content="width=device-width, initial-scale=1"
       name="viewport"
     />
+    <script />
+    <script />
   </head>
   <body>
     <div>
@@ -640,6 +663,11 @@ exports[`error-boundaries > UnilingualErrorBoundary > should correctly render th
       <script
         src="/api/client-env?v=undefined"
       />
+      <script
+        id="gc-analytics-bottom-script"
+      >
+        _satellite.setDebug(true);
+      </script>
     </div>
   </body>
 </html>
@@ -657,6 +685,8 @@ exports[`error-boundaries > UnilingualErrorBoundary > should correctly render th
       content="width=device-width, initial-scale=1"
       name="viewport"
     />
+    <script />
+    <script />
   </head>
   <body>
     <div>
@@ -757,6 +787,11 @@ exports[`error-boundaries > UnilingualErrorBoundary > should correctly render th
       <script
         src="/api/client-env?v=undefined"
       />
+      <script
+        id="gc-analytics-bottom-script"
+      >
+        _satellite.setDebug(true);
+      </script>
     </div>
   </body>
 </html>
@@ -774,6 +809,8 @@ exports[`error-boundaries > UnilingualNotFound > should correctly render the uni
       content="width=device-width, initial-scale=1"
       name="viewport"
     />
+    <script />
+    <script />
   </head>
   <body>
     <div>
@@ -864,6 +901,11 @@ exports[`error-boundaries > UnilingualNotFound > should correctly render the uni
       <script
         src="/api/client-env?v=undefined"
       />
+      <script
+        id="gc-analytics-bottom-script"
+      >
+        _satellite.setDebug(true);
+      </script>
     </div>
   </body>
 </html>
