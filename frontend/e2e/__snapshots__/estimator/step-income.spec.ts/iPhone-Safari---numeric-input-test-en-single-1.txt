@@ -195,7 +195,7 @@
       >
         <button
           class="font-lato inline-flex items-center justify-center rounded border align-middle outline-offset-4 px-5 py-3 text-base border-slate-700 bg-slate-700 text-white hover:bg-sky-800 focus:bg-sky-800 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-70"
-          data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:StepIncome:Next button"
+          data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH-EST:StepIncome:Next button"
           value="next"
           id="continue-button"
           name="action"
@@ -203,7 +203,7 @@
           Estimate my benefit</button
         ><button
           class="font-lato inline-flex items-center justify-center rounded border align-middle outline-offset-4 px-5 py-3 text-base border-gray-300 bg-gray-200 text-slate-700 hover:bg-neutral-300 focus:bg-neutral-300 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-70"
-          data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:StepIncome:Previous button"
+          data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH-EST:StepIncome:Previous button"
           value="back"
           id="back-button"
           name="action"

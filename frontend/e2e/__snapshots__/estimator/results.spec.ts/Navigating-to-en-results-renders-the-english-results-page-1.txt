@@ -71,7 +71,7 @@
                 <div class="mt-auto ml-auto">
                   <a
                     class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
-                    data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:Results:Edit marital status button"
+                    data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH-EST:Results:Edit marital status button"
                     aria-label="Edit your marital status"
                     href="/en/marital-status"
                     data-discover="true"
@@ -87,7 +87,7 @@
                 <div class="mt-auto ml-auto">
                   <a
                     class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700"
-                    data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:Results:Edit income button"
+                    data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH-EST:Results:Edit income button"
                     aria-label="Edit income informations"
                     href="/en/income"
                     data-discover="true"
@@ -104,7 +104,7 @@
         <div>
           <a
             class="font-lato inline-flex items-center justify-center rounded-sm border align-middle no-underline outline-offset-4 px-6 py-3.5 text-base border-slate-700 bg-slate-700 text-white hover:bg-sky-800 focus:bg-sky-800"
-            data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:Results:Apply button"
+            data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH-EST:Results:Apply button"
             href="https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit/apply.html"
             target="_blank"
             ><svg
@@ -127,7 +127,7 @@
         <div>
           <a
             class="font-lato inline-flex items-center justify-center rounded-sm border align-middle no-underline outline-offset-4 px-6 py-3.5 text-base border-gray-200 bg-white text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:bg-gray-100 focus:text-blue-700"
-            data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH:Results:Learn more button"
+            data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH-EST:Results:Learn more button"
             href="https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html"
             target="_blank"
             ><svg
