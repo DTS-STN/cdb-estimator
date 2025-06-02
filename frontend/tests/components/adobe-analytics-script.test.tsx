@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { AdobeAnalyticsBottomScript, AdobeAnalyticsHeadScript } from '~/components/adobe-analytics-script';
 
 describe('AdobeAnalytics', () => {
-  describe.skip('AdobeAnalyticsBottomScript', () => {
+  describe('AdobeAnalyticsBottomScript', () => {
     it.each([
       {
         config: {
