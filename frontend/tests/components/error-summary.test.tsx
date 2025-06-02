@@ -1,7 +1,7 @@
 import { useActionData, useFetcher } from 'react-router';
 
 import { render } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 
 import { ActionDataErrorSummary, ErrorSummary, FetcherErrorSummary, FormErrorSummary } from '~/components/error-summary';
@@ -15,6 +15,13 @@ vi.mock('react-router', () => ({
 }));
 
 describe('ErrorSummary', () => {
+  beforeAll(() => {
+    globalThis.__appEnvironment = {
+      ...globalThis.__appEnvironment,
+      ADOBE_ANALYTICS_ENABLED: true,
+      ADOBE_ANALYTICS_DEBUG: true,
+    };
+  });
   it('should not render an error summary when there are no errors', () => {
     const { container } = render(<ErrorSummary errors={[]} />);
     expect(container).toMatchSnapshot('expected html');
