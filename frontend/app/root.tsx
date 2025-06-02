@@ -12,6 +12,7 @@ import {
   UnilingualErrorBoundary,
   UnilingualNotFound,
 } from './components/error-boundaries';
+import { usePushErrorEvent } from './hooks/use-push-error-event';
 import { usePushPageviewEvent } from './hooks/use-push-pageview-event';
 import { getTranslation } from './i18n-config.server';
 import { getLanguageFromResource } from './utils/i18n-utils';
@@ -132,14 +133,16 @@ export function ErrorBoundary(props: Route.ErrorBoundaryProps) {
   // Show bilingual components when not on a unilingual route
   const { pathname } = useLocation();
   const currentLanguage = getLanguageFromResource(pathname);
+  const errorCode = is404Error(props.error) ? 404 : 500;
 
-  if (is404Error(props.error)) {
+  usePushErrorEvent(errorCode);
+
+  if (errorCode === 404) {
     // prettier-ignore
     return currentLanguage
       ? <UnilingualNotFound {...props} />
       : <BilingualNotFound {...props} />;
   }
-
   // prettier-ignore
   return currentLanguage
     ? <UnilingualErrorBoundary {...props} />
