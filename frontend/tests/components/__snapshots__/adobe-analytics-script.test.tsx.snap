@@ -5,20 +5,12 @@ exports[`AdobeAnalytics > AdobeAnalyticsBottomScript > AdobeAnalyticsBottomScrip
   <script
     id="gc-analytics-bottom-script"
   >
-    _satellite.setDebug(true); _satellite.pageBottom();
+    _satellite.setDebug(true);
   </script>
 </div>
 `;
 
-exports[`AdobeAnalytics > AdobeAnalyticsBottomScript > AdobeAnalyticsBottomScript should render the correct script tag based on config > expected html 2`] = `
-<div>
-  <script
-    id="gc-analytics-bottom-script"
-  >
-    _satellite.pageBottom();
-  </script>
-</div>
-`;
+exports[`AdobeAnalytics > AdobeAnalyticsBottomScript > AdobeAnalyticsBottomScript should render the correct script tag based on config > expected html 2`] = `<div />`;
 
 exports[`AdobeAnalytics > AdobeAnalyticsBottomScript > AdobeAnalyticsBottomScript should render the correct script tag based on config > expected html 3`] = `<div />`;
 

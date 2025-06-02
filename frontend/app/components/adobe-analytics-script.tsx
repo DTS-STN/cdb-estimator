@@ -15,10 +15,8 @@ export function AdobeAnalyticsHeadScript() {
 }
 
 export function AdobeAnalyticsBottomScript() {
-  if (adobeAnalytics.isEnabled()) {
-    if (adobeAnalytics.isDebug()) {
-      return <script id="gc-analytics-bottom-script">_satellite.setDebug(true);</script>;
-    }
-    return <></>;
+  if (adobeAnalytics.isEnabled() && adobeAnalytics.isDebug()) {
+    return <script id="gc-analytics-bottom-script">_satellite.setDebug(true);</script>;
   }
+  return <></>;
 }
