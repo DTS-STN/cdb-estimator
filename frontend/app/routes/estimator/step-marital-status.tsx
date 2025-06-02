@@ -106,7 +106,10 @@ export default function StepMaritalStatus({ actionData, loaderData, matches, par
               helpMessagePrimaryClassName="-max-w-prose text-black"
               helpMessagePrimary={
                 <div className="my-4 space-y-4">
-                  <Collapsible summary={<>{t('estimator:marital-status.additional-info.label')}</>}>
+                  <Collapsible
+                    summary={<>{t('estimator:marital-status.additional-info.label')}</>}
+                    data-gc-analytics-expand={`Expand-collapse marital status definitions`}
+                  >
                     <div className="space-y-4">
                       <dl className="mt-2 space-y-2">
                         <div>

@@ -230,7 +230,10 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                     <Trans i18nKey={'estimator:income.info.working-income.description'} />
                   </p>
                   <div className="my-4 space-y-4">
-                    <Collapsible summary={<>{t('estimator:income.fields.working-income.info-label')}</>}>
+                    <Collapsible
+                      summary={<>{t('estimator:income.fields.working-income.info-label')}</>}
+                      data-gc-analytics-expand={`Expand-collapse working income`}
+                    >
                       <div className="space-y-4">
                         <p>
                           <Trans
@@ -347,7 +350,10 @@ export default function StepIncome({ actionData, loaderData, matches, params }: 
                         <Trans i18nKey={'estimator:income.info.partner-working-income.description'} />
                       </p>
                       <div className="my-4 space-y-4">
-                        <Collapsible summary={<>{t('estimator:income.fields.partner.working-income.info-label')}</>}>
+                        <Collapsible
+                          summary={<>{t('estimator:income.fields.partner.working-income.info-label')}</>}
+                          data-gc-analytics-expand={`Expand-collapse partner working income`}
+                        >
                           <div className="space-y-4">
                             <p>
                               <Trans

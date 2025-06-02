@@ -31,7 +31,10 @@
             id="input-radios-marital-status-help-primary"
           >
             <div class="my-4 space-y-4">
-              <details id="«R1pmlj5»">
+              <details
+                id="«R1pmlj5»"
+                data-gc-analytics-expand="Expand-collapse marital status definitions"
+              >
                 <summary
                   class="cursor-pointer marker:text-blue-900"
                   id="«R1pmlj5»-summary"

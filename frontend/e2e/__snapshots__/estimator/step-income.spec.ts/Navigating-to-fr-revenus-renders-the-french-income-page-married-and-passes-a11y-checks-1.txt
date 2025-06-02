@@ -73,7 +73,10 @@
               votre travail indépendant.
             </p>
             <div class="my-4 space-y-4">
-              <details id="«R2epmlj5»">
+              <details
+                id="«R2epmlj5»"
+                data-gc-analytics-expand="Expand-collapse working income"
+              >
                 <summary
                   class="cursor-pointer marker:text-blue-900"
                   id="«R2epmlj5»-summary"
@@ -265,7 +268,10 @@
               d'un travail indépendant.
             </p>
             <div class="my-4 space-y-4">
-              <details id="«Rjn5mlj5»">
+              <details
+                id="«Rjn5mlj5»"
+                data-gc-analytics-expand="Expand-collapse partner working income"
+              >
                 <summary
                   class="cursor-pointer marker:text-blue-900"
                   id="«Rjn5mlj5»-summary"
