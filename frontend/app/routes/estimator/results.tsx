@@ -129,6 +129,8 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
     ESTIMATOR_CDB_APPLY_URL_FR,
     ESTIMATOR_CDB_URL_EN,
     ESTIMATOR_CDB_URL_FR,
+    ESTIMATOR_FEATURE_ENABLE_CONTACT_URL,
+    ESTIMATOR_FEATURE_ENABLE_APPLY_URL,
   } = globalThis.__appEnvironment;
   const estimationEqualsSplitBenefits =
     loaderData.formattedResults.results.kind === 'married' &&
@@ -196,7 +198,7 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
             <p>
               <Trans ns={handle.i18nNamespace} i18nKey="estimator:results.content.your-estimate.note" />
 
-              {i18n.language === 'fr' && ESTIMATOR_CDB_CONTACT_URL_FR && (
+              {i18n.language === 'fr' && ESTIMATOR_FEATURE_ENABLE_CONTACT_URL && (
                 <Trans
                   ns={handle.i18nNamespace}
                   i18nKey="estimator:results.content.your-estimate.contact"
@@ -204,7 +206,7 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
                 />
               )}
 
-              {i18n.language === 'en' && ESTIMATOR_CDB_CONTACT_URL_EN && (
+              {i18n.language === 'en' && ESTIMATOR_FEATURE_ENABLE_CONTACT_URL && (
                 <Trans
                   ns={handle.i18nNamespace}
                   i18nKey="estimator:results.content.your-estimate.contact"
@@ -219,18 +221,20 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
           <section className="col-span-2 row-span-1 space-y-6">
             <h2 className="font-lato mt-3 mb-5 text-2xl font-bold">{t('estimator:results.content.next-steps.header')}</h2>
 
-            <div>
-              <ButtonLink
-                target="_blank"
-                data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Apply button')}
-                to={i18n.language === 'fr' ? ESTIMATOR_CDB_APPLY_URL_FR : ESTIMATOR_CDB_APPLY_URL_EN}
-                variant="primary"
-                startIcon={faExternalLink}
-                size="xl"
-              >
-                {t('estimator:results.content.next-steps.apply-cdb')}
-              </ButtonLink>
-            </div>
+            {ESTIMATOR_FEATURE_ENABLE_APPLY_URL && (
+              <div>
+                <ButtonLink
+                  target="_blank"
+                  data-gc-analytics-customclick={adobeAnalytics.getCustomClick('Results:Apply button')}
+                  to={i18n.language === 'fr' ? ESTIMATOR_CDB_APPLY_URL_FR : ESTIMATOR_CDB_APPLY_URL_EN}
+                  variant="primary"
+                  startIcon={faExternalLink}
+                  size="xl"
+                >
+                  {t('estimator:results.content.next-steps.apply-cdb')}
+                </ButtonLink>
+              </div>
+            )}
 
             <div>
               <ButtonLink

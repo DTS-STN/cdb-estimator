@@ -54,6 +54,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
     ESTIMATOR_CDB_CONTACT_URL_FR,
     ESTIMATOR_CDB_ELIGIBILITY_URL_EN,
     ESTIMATOR_CDB_ELIGIBILITY_URL_FR,
+    ESTIMATOR_FEATURE_ENABLE_CONTACT_URL,
   } = globalThis.__appEnvironment;
 
   const cdbRequirementsLink = (
@@ -129,7 +130,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
               ),
             })}
 
-            {i18n.language === 'fr' && ESTIMATOR_CDB_CONTACT_URL_FR && (
+            {i18n.language === 'fr' && ESTIMATOR_FEATURE_ENABLE_CONTACT_URL && (
               <Trans
                 ns={handle.i18nNamespace}
                 i18nKey="estimator:index.content.results.contact"
@@ -137,7 +138,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
               />
             )}
 
-            {i18n.language === 'en' && ESTIMATOR_CDB_CONTACT_URL_EN && (
+            {i18n.language === 'en' && ESTIMATOR_FEATURE_ENABLE_CONTACT_URL && (
               <Trans
                 ns={handle.i18nNamespace}
                 i18nKey="estimator:index.content.results.contact"
