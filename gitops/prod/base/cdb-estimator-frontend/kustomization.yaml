@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: canada-disability-benefit 
+resources:
+  - ./deployments.yaml
+  - ./services.yaml
+configMapGenerator:
+  - name: cdb-estimator-frontend
+    envs:
+      - ./configs/config.conf
+secretGenerator:
+  - name: cdb-estimator-frontend
+    options:
+      # disable suffix hash so we can merge
+      # external secrets into this one via overlays
+      disableNameSuffixHash: true
+    envs:
+      - ./configs/secrets.conf
