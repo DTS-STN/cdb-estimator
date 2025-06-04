@@ -1,0 +1,35 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: canada-disability-benefit
+nameSuffix: -prod
+labels:
+  - pairs:
+      app.kubernetes.io/cluster: dts-prod-sced-rhp-spoke-aks
+      app.kubernetes.io/environment: prod
+      app.kubernetes.io/managed-by: kustomize
+      app.kubernetes.io/part-of: canada-disability-benefit
+      app.kubernetes.io/tier: prod
+  - includeSelectors: true
+    pairs:
+      # Must have at least one unique label per environment to ensure selectors are applied correctly
+      app.kubernetes.io/instance: prod
+resources:
+  - ../base/redis/
+  - ../base/cdb-estimator-frontend/
+  - ./external-secrets-frontend.yaml
+  - ./external-secrets-redis.yaml
+  - ./ingresses.yaml
+  - ./hpas.yaml
+patches:
+  - path: ./patches/deployments-frontend.yaml
+  - path: ./patches/stateful-sets-redis.yaml
+configMapGenerator:
+  - name: cdb-estimator-frontend
+    envs:
+      - ./configs/frontend/config.conf
+    behavior: merge
+  - name: redis
+    files:
+      - ./configs/redis/replica.conf
+      - ./configs/redis/sentinel.conf
+    behavior: merge
