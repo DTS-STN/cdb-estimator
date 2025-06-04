@@ -1,5 +1,5 @@
 import AxeBuilder from '@axe-core/playwright';
-import { expect, test } from '@playwright/test';
+import test, { expect } from '@playwright/test';
 import { seedSessionData } from 'e2e/__supports/session-supports';
 import { formatHtml } from 'e2e/__supports/string-utils';
 import { PlaywrightEstimatorPage } from 'e2e/models/playwright-estimator-page';

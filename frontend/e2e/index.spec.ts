@@ -1,5 +1,5 @@
 import AxeBuilder from '@axe-core/playwright';
-import { expect, test } from '@playwright/test';
+import test, { expect } from '@playwright/test';
 
 import { formatHtml } from './__supports/string-utils';
 import { PlaywrightEstimatorPage } from './models/playwright-estimator-page';

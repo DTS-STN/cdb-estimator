@@ -1,5 +1,6 @@
 import * as v from 'valibot';
 
+import { stringToBooleanSchema } from '../validation/string-to-boolean-schema';
 import { stringToIsoDateSchema } from '../validation/string-to-iso-date-schema';
 import { stringToNumberSchema } from '../validation/string-to-number-schema';
 import { stringToUrlSchema } from '../validation/string-to-url-schema';
@@ -29,6 +30,8 @@ export const defaults = {
   ESTIMATOR_BENEFIT_REDUCTION_RATE: '0.2',
   ESTIMATOR_SPLIT_BENEFIT_REDUCTION_RATE: '0.1',
   ESTIMATOR_INCOME_TAX_SLIP_YEAR: '2024',
+  ESTIMATOR_FEATURE_ENABLE_CONTACT_URL: 'true',
+  ESTIMATOR_FEATURE_ENABLE_APPLY_URL: 'true',
 } as const;
 
 // Define schema for the environment variable
@@ -124,6 +127,14 @@ export const estimator = v.object({
    * Tax slip year shown in the income step.
    */
   ESTIMATOR_INCOME_TAX_SLIP_YEAR: v.optional(stringToNumberSchema(), defaults.ESTIMATOR_INCOME_TAX_SLIP_YEAR),
+  /**
+   * Enables the contact url.
+   */
+  ESTIMATOR_FEATURE_ENABLE_CONTACT_URL: v.optional(stringToBooleanSchema(), defaults.ESTIMATOR_FEATURE_ENABLE_CONTACT_URL),
+  /**
+   * Enables the apply url.
+   */
+  ESTIMATOR_FEATURE_ENABLE_APPLY_URL: v.optional(stringToBooleanSchema(), defaults.ESTIMATOR_FEATURE_ENABLE_APPLY_URL),
 });
 
 export type Estimator = Readonly<v.InferOutput<typeof estimator>>;
