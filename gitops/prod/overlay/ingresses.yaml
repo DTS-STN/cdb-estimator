@@ -1,22 +1,22 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: cdb-estimator-frontend-public
-  labels:
-    app.kubernetes.io/name: cdb-estimator-frontend-public
-spec:
-  ingressClassName: nginx
-  rules:
-    - host: estimateurpcph-cdbestimator.service.canada.ca
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: cdb-estimator-frontend
-                port:
-                  name: http
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: cdb-estimator-frontend-public
+#   labels:
+#     app.kubernetes.io/name: cdb-estimator-frontend-public
+# spec:
+#   ingressClassName: nginx
+#   rules:
+#     - host: estimateurpcph-cdbestimator.service.canada.ca
+#       http:
+#         paths:
+#           - path: /
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: cdb-estimator-frontend
+#                 port:
+#                   name: http
 
 ---
 apiVersion: networking.k8s.io/v1
