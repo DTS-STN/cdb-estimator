@@ -3,11 +3,11 @@
 exports[`Collapsible > should render open: false > expected html 1`] = `
 <div>
   <details
-    id="«r1»"
+    id="_r_1_"
   >
     <summary
       class="cursor-pointer marker:text-blue-900"
-      id="«r1»-summary"
+      id="_r_1_-summary"
     >
       <span
         class="ml-4 inline-block text-blue-900 hover:underline"
@@ -19,7 +19,7 @@ exports[`Collapsible > should render open: false > expected html 1`] = `
     </summary>
     <div
       class="mt-2 border-l-[6px] border-gray-400 px-6 py-4"
-      id="«r1»-content"
+      id="_r_1_-content"
     >
       <div>
         test
@@ -32,12 +32,12 @@ exports[`Collapsible > should render open: false > expected html 1`] = `
 exports[`Collapsible > should render open: true > expected html 1`] = `
 <div>
   <details
-    id="«r0»"
+    id="_r_0_"
     open=""
   >
     <summary
       class="cursor-pointer marker:text-blue-900"
-      id="«r0»-summary"
+      id="_r_0_-summary"
     >
       <span
         class="ml-4 inline-block text-blue-900 hover:underline"
@@ -49,7 +49,7 @@ exports[`Collapsible > should render open: true > expected html 1`] = `
     </summary>
     <div
       class="mt-2 border-l-[6px] border-gray-400 px-6 py-4"
-      id="«r0»-content"
+      id="_r_0_-content"
     >
       <div>
         test
