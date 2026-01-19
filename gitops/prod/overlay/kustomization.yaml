@@ -14,14 +14,22 @@ labels:
       # Must have at least one unique label per environment to ensure selectors are applied correctly
       app.kubernetes.io/instance: prod
 resources:
-  - ../base/redis/
   - ../base/cdb-estimator-frontend/
+  - ../base/maintenance/
+  - ../base/redis/
   - ./external-secrets-frontend.yaml
   - ./external-secrets-redis.yaml
-  - ./ingresses.yaml
   - ./hpas.yaml
+  #
+  # Note: to enable maintenance mode:
+  #
+  # 1. comment ./ingresses.yaml
+  # 2. uncomment ./ingresses-maintenance.yaml
+  - ./ingresses.yaml
+  # - ./ingresses-maintenance.yaml
 patches:
   - path: ./patches/deployments-frontend.yaml
+  - path: ./patches/deployments-maintenance.yaml
   - path: ./patches/stateful-sets-redis.yaml
 configMapGenerator:
   - name: cdb-estimator-frontend
