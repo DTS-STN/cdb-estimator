@@ -67,7 +67,7 @@
                       </div>
                       <div>
                         <dt class="inline font-bold">Séparé&nbsp;:</dt>
-                        <dd class="ml-2 inline [&amp;>p]:mt-2">
+                        <dd class="ml-2 inline [&amp;&gt;p]:mt-2">
                           vous vivez séparément de votre époux ou conjoint de
                           fait depuis 90 jours ou plus en raison de la rupture
                           de votre union, et il n'y a pas de réconciliation.

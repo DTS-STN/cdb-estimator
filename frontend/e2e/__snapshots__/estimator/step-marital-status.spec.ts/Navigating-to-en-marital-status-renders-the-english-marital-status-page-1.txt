@@ -64,7 +64,7 @@
                       </div>
                       <div>
                         <dt class="inline font-bold">Separated:</dt>
-                        <dd class="ml-2 inline [&amp;>p]:mt-2">
+                        <dd class="ml-2 inline [&amp;&gt;p]:mt-2">
                           you've been living apart from your spouse or
                           common-law partner because of a breakdown in the
                           relationship for a period of at least 90 days and you
