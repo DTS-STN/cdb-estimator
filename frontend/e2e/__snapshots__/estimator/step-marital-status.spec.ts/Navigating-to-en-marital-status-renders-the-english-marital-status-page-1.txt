@@ -32,19 +32,19 @@
           >
             <div class="my-4 space-y-4">
               <details
-                id="«R1pmlj5»"
+                id="_R_1pmlj5_"
                 data-gc-analytics-expand="Expand-collapse marital status definitions"
               >
                 <summary
                   class="cursor-pointer marker:text-blue-900"
-                  id="«R1pmlj5»-summary"
+                  id="_R_1pmlj5_-summary"
                 >
                   <span class="ml-4 inline-block text-blue-900 hover:underline"
                     >Definitions of marital statuses</span
                   >
                 </summary>
                 <div
-                  id="«R1pmlj5»-content"
+                  id="_R_1pmlj5_-content"
                   class="mt-2 border-l-[6px] border-gray-400 px-6 py-4"
                 >
                   <div class="space-y-4">
