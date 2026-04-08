@@ -5,9 +5,14 @@ metadata:
   labels:
     app.kubernetes.io/name: cdb-estimator-frontend-public
   annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: 'true'
 spec:
   ingressClassName: nginx
+  tls:
+    # TLS secret 'devdpdtsstncom' is provisioned by the cluster platform.
+    - secretName: devdpdtsstncom
+      hosts:
+        - cdb-estimator-dev.dev-dp.dts-stn.com
   rules:
     - host: cdb-estimator-dev.dev-dp.dts-stn.com
       http:
@@ -28,9 +33,14 @@ metadata:
   labels:
     app.kubernetes.io/name: cdb-estimator-frontend-internal
   annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: 'true'
 spec:
   ingressClassName: nginx
+  tls:
+    # TLS secret 'devdpinternaldtsstncom' is provisioned by the cluster platform.
+    - secretName: devdpinternaldtsstncom
+      hosts:
+        - cdb-estimator-dev.dev-dp-internal.dts-stn.com
   rules:
     - host: cdb-estimator-dev.dev-dp-internal.dts-stn.com
       http:

@@ -6,6 +6,11 @@ metadata:
     app.kubernetes.io/name: cdb-estimator-frontend-public
 spec:
   ingressClassName: nginx
+  tls:
+    # TLS secret 'wildcardservicecanadaca' is provisioned by the cluster platform.
+    - secretName: wildcardservicecanadaca
+      hosts:
+        - estimateurpcph-cdbestimator.service.canada.ca
   rules:
     - host: estimateurpcph-cdbestimator.service.canada.ca
       http:
@@ -27,6 +32,11 @@ metadata:
     app.kubernetes.io/name: cdb-estimator-frontend-internal
 spec:
   ingressClassName: nginx
+  tls:
+    # TLS secret 'proddpinternaldtsstncom' is provisioned by the cluster platform.
+    - secretName: proddpinternaldtsstncom
+      hosts:
+        - cdb-estimator.prod-dp-internal.dts-stn.com
   rules:
     - host: cdb-estimator.prod-dp-internal.dts-stn.com
       http:
