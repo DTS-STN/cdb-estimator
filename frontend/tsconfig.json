@@ -19,7 +19,7 @@
     "./react-router.config.ts",
     "./vite.config.ts",
     "./vite.server.config.ts",
-    "./vitest.workspace.ts"
+    "./vitest.config.ts"
   ],
   "compilerOptions": {
     "baseUrl": ".",

@@ -78,17 +78,17 @@ describe('state-utils', () => {
       'should throw the correct route file for a given state, target url, target route file',
       ({ state, url, route, expectedRedirect }) => {
         const request = new Request(`http://localhost:3000${url}`);
-        expect(() => estimatorStepGate(state, route, request)).toThrow(
-          expect.objectContaining({
-            [Symbol('state')]: {
-              headersList: {
-                [Symbol('headers map')]: new Map<string, { name: string; value: string }>([
-                  ['location', { name: 'Location', value: expectedRedirect }],
-                ]),
-              },
-            },
-          }),
-        );
+
+        let error: unknown;
+        try {
+          estimatorStepGate(state, route, request);
+        } catch (error_) {
+          error = error_;
+        }
+
+        expect(error).toBeInstanceOf(Response);
+        expect((error as Response).status).toBe(302);
+        expect((error as Response).headers.get('location')).toBe(expectedRedirect);
       },
     );
   });

@@ -3,7 +3,6 @@ import { reactRouter } from '@react-router/dev/vite';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
-import tsconfigPaths from 'vite-tsconfig-paths';
 import { coverageConfigDefaults } from 'vitest/config';
 
 // important: this must be a non-aliased (ie: not ~/) import
@@ -20,7 +19,10 @@ export default defineConfig({
   optimizeDeps: {
     entries: ['./app/entry.client.tsx', './app/root.tsx', './app/routes/**/*.tsx'],
   },
-  plugins: [preserveImportMetaUrl(), tailwindcss(), tsconfigPaths(), framework()],
+  plugins: [preserveImportMetaUrl(), tailwindcss(), framework()],
+  resolve: {
+    tsconfigPaths: true,
+  },
   server: {
     hmr: {
       // Configures the Hot Module Replacement (HMR) port.

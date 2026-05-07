@@ -1,7 +1,6 @@
 import type { Plugin } from 'vite';
 import { defineConfig } from 'vite';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
-import tsconfigPaths from 'vite-tsconfig-paths';
 
 /**
  * This file is used separately from `vite.config.ts` to build the server
@@ -24,7 +23,7 @@ export default defineConfig({
     // Specifies the output directory for the server build.
     outDir: './build/server/',
 
-    rollupOptions: {
+    rolldownOptions: {
       // Specifies the entry point for the server runtime.
       // This is the TypeScript file that Vite will start buildin from.
       input: ['./app/.server/telemetry.ts', './app/.server/express/server.ts'],
@@ -40,9 +39,6 @@ export default defineConfig({
   },
   plugins: [
     preserveImportMetaUrl(),
-    // Integrates TypeScript path aliasing using the `vite-tsconfig-paths` plugin,
-    // which resolves paths defined in `tsconfig.json` for cleaner imports.
-    tsconfigPaths(),
     viteStaticCopy({
       // Copies static assets from the specified source directory to the build output directory.
       // This is necessary to bundle assets required by the server runtime, such as html templates
@@ -50,6 +46,9 @@ export default defineConfig({
       targets: [{ src: './app/.server/express/assets/', dest: './' }],
     }),
   ],
+  resolve: {
+    tsconfigPaths: true,
+  },
 });
 
 /**
