@@ -37,11 +37,8 @@ export const handle = {
   i18nNamespace: [...parentHandle.i18nNamespace],
 } as const satisfies RouteHandle;
 
-export const meta: Route.MetaFunction = mergeMeta(({ data }) => {
-  if (!data) {
-    return [];
-  }
-  return getTitleMetaTags(data.meta.title);
+export const meta: Route.MetaFunction = mergeMeta(({ loaderData }) => {
+  return getTitleMetaTags(loaderData.meta.title);
 });
 
 export async function loader({ context, params, request }: Route.LoaderArgs) {

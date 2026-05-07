@@ -22,7 +22,7 @@ export function mapIssueErrorMessage<TMessages extends Record<string, string | u
   const lang = v.parse(v.optional(v.picklist<Language[]>(['en', 'fr']), 'en'), issue.lang);
 
   // Override with default localized message if exists
-  if (defaultLocalizedErrorMessages && defaultLocalizedErrorMessages[lang][messageKey]) {
+  if (defaultLocalizedErrorMessages?.[lang][messageKey]) {
     message = defaultLocalizedErrorMessages[lang][messageKey];
   }
 

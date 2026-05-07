@@ -198,7 +198,7 @@ function getErrorMessageIds(input: Element): readonly string[] {
  */
 function createErrorItem(input: Element, errorMessageId: string): ErrorSummaryItem | null {
   const errorMessageElement = document.querySelector(`#${errorMessageId}`);
-  const errorMessageContent = errorMessageElement?.textContent?.trim();
+  const errorMessageContent = errorMessageElement?.textContent.trim();
 
   if (!errorMessageContent) {
     return null;
