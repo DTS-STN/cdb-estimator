@@ -5,9 +5,11 @@ import { serverEnvironment } from '~/.server/environment';
 import { getRedisClient } from '~/.server/redis';
 
 vi.mock('ioredis', () => ({
-  default: vi.fn().mockImplementation(() => ({
-    on: vi.fn().mockReturnThis(),
-  })),
+  default: vi.fn().mockImplementation(function () {
+    return {
+      on: vi.fn().mockReturnThis(),
+    };
+  }),
 }));
 
 vi.mock('~/.server/environment', () => ({
