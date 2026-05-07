@@ -16,26 +16,23 @@ export const handle = {
   i18nNamespace: ['common'],
 } as const satisfies RouteHandle;
 
-export const meta: Route.MetaFunction = mergeMeta(({ data }) => {
-  if (!data) {
-    return [];
-  }
+export const meta: Route.MetaFunction = mergeMeta(({ loaderData }) => {
   return [
-    ...getTitleMetaTags(data.meta.title),
-    ...getDescriptionMetaTags(data.meta.description),
-    { name: 'author', content: data.meta.eng.author },
-    { name: 'author', lang: 'fr', content: data.meta.fra.author },
+    ...getTitleMetaTags(loaderData.meta.title),
+    ...getDescriptionMetaTags(loaderData.meta.description),
+    { name: 'author', content: loaderData.meta.eng.author },
+    { name: 'author', lang: 'fr', content: loaderData.meta.fra.author },
     { name: 'dcterms.accessRights', content: '2' },
-    { name: 'dcterms.creator', content: data.meta.eng.author },
-    { name: 'dcterms.creator', lang: 'fr', content: data.meta.fra.author },
+    { name: 'dcterms.creator', content: loaderData.meta.eng.author },
+    { name: 'dcterms.creator', lang: 'fr', content: loaderData.meta.fra.author },
     { name: 'dcterms.language', content: 'eng' },
     { name: 'dcterms.language', lang: 'fr', content: 'fra' },
-    { name: 'dcterms.service', content: data.meta.service },
+    { name: 'dcterms.service', content: loaderData.meta.service },
     { name: 'dcterms.spatial', content: 'Canada' },
-    { name: 'dcterms.subject', content: data.meta.eng.subject },
-    { name: 'dcterms.subject', lang: 'fr', content: data.meta.fra.subject },
+    { name: 'dcterms.subject', content: loaderData.meta.eng.subject },
+    { name: 'dcterms.subject', lang: 'fr', content: loaderData.meta.fra.subject },
     { property: 'og:locale', content: 'en_CA' },
-    { property: 'og:site_name', content: data.meta.siteName },
+    { property: 'og:site_name', content: loaderData.meta.siteName },
     { property: 'og:type', content: 'website' },
   ];
 });

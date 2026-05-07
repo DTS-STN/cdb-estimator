@@ -43,7 +43,7 @@ export function InputRadios({
   const inputWrapperId = `input-radios-${id}`;
 
   function getAriaDescribedby() {
-    const ariaDescribedby = [];
+    const ariaDescribedby: string[] = [];
     if (helpMessagePrimary) ariaDescribedby.push(inputHelpMessagePrimaryId);
     if (helpMessageSecondary) ariaDescribedby.push(inputHelpMessageSecondaryId);
     return ariaDescribedby.length > 0 ? ariaDescribedby.join(' ') : undefined;
