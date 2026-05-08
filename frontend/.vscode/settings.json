@@ -21,5 +21,6 @@
       "(?:\\b(?:const|let|var)\\s+)?[\\w$_]*(?:[Ss]tyles|[Cc]lasses|[Cc]lassnames)[\\w\\d]*\\s*(?:=|\\+=)\\s*['\"]([^'\"]*)['\"]"
     ]
   ],
+  "tailwindCSS.lint.suggestCanonicalClasses": "ignore",
   "vitest.disableWorkspaceWarning": true
 }
