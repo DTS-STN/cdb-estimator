@@ -95,7 +95,6 @@ class ScriptRunner {
       return JSON.parse(content);
     } catch (error) {
       if (error instanceof Error) {
-        // eslint-disable-next-line unicorn/prefer-type-error
         throw new Error(`❌ Failed to read package.json: ${error.message}`, { cause: error });
       }
       throw error;

@@ -77,8 +77,8 @@ log.info('  ✓ registering global error handler');
 app.use(globalErrorHandler());
 
 log.info('Server initialization completed with runtime configuration: %o', {
-  client: Object.fromEntries(Object.entries(clientEnvironment).sort()),
-  server: Object.fromEntries(Object.entries(serverEnvironment).sort()),
+  client: Object.fromEntries(Object.entries(clientEnvironment).toSorted()),
+  server: Object.fromEntries(Object.entries(serverEnvironment).toSorted()),
 });
 
 const server = app.listen(serverEnvironment.PORT);

@@ -10,7 +10,7 @@ export type StateField = keyof CDBEstimator;
  * @param formData the FormData to store
  */
 export function storeFormFieldValues(session: AppSession, namespace: string, formData: FormData) {
-  const map = new Map<string, string | undefined>(session.formFieldValues ?? []);
+  const map = new Map<string, string | undefined>(session.formFieldValues);
   for (const [name, value] of formData.entries()) {
     map.set(`${namespace}:${name}`, value.toString());
   }

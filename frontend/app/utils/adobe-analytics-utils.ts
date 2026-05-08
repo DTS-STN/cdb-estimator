@@ -33,7 +33,7 @@ export const getRouteParamsString = (query: Record<string, string | string[] | u
     .map(([key, value]) => {
       const sanitizedValue = Array.isArray(value)
         ? value.map((v) => v.replaceAll('-', '_').replaceAll('|', '_')).join(',') // Handle arrays
-        : value?.replaceAll(/-/g, '_').replaceAll('|', '_'); // Handle single values
+        : value?.replaceAll('-', '_').replaceAll('|', '_'); // Handle single values
 
       return `${key.replaceAll('-', '_').replaceAll('|', '_')}-${sanitizedValue}`;
     })
