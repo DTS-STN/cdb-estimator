@@ -14,5 +14,3 @@ declare module 'i18next' {
     language: Language;
   }
 }
-
-export {};

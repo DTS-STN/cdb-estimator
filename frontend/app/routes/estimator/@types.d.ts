@@ -91,5 +91,3 @@ declare module 'express-session' {
     formFieldValues: FormValues; //tracks form field values on successful form posts
   }
 }
-
-export {};

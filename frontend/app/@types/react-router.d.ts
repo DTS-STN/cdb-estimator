@@ -31,5 +31,3 @@ declare module 'react-router' {
    */
   interface RouteModules extends Record<string, RouteModule | undefined> {}
 }
-
-export {};
