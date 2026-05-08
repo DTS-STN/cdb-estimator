@@ -1,9 +1,10 @@
 import AxeBuilder from '@axe-core/playwright';
 import type { Page } from '@playwright/test';
 import { expect, test } from '@playwright/test';
-import { seedSessionData } from 'e2e/__supports/session-supports';
-import { formatHtml } from 'e2e/__supports/string-utils';
-import { PlaywrightEstimatorPage } from 'e2e/models/playwright-estimator-page';
+
+import { seedSessionData } from '../__supports/session-supports';
+import { formatHtml } from '../__supports/string-utils';
+import { PlaywrightEstimatorPage } from '../models/playwright-estimator-page';
 
 const singleStagedSession = {
   estimator: {

@@ -22,9 +22,7 @@
     "./vitest.config.ts"
   ],
   "compilerOptions": {
-    "baseUrl": ".",
-    "checkJs": true,
-    "composite": true,
+    "allowJs": true,
     "erasableSyntaxOnly": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -42,6 +40,7 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "ES2022",
-    "types": ["node", "vite/client"]
+    "types": ["node", "vite/client"],
+    "verbatimModuleSyntax": true
   }
 }
