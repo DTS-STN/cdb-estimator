@@ -12,19 +12,17 @@
   <div class="relative pl-4 sm:pl-6 bg-white my-6">
     <div class="absolute top-3 left-1.5 pt-1 sm:left-3.5 bg-white">
       <svg
-        aria-hidden="true"
-        focusable="false"
         data-prefix="fas"
         data-icon="circle-info"
         class="svg-inline--fa fa-circle-info h-6 w-6 text-cyan-700"
         role="img"
-        xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 512 512"
+        aria-hidden="true"
         data-testid="info"
       >
         <path
           fill="currentColor"
-          d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"
+          d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zM224 160a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm-8 64l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24z"
         ></path>
       </svg>
     </div>
@@ -108,18 +106,16 @@
             href="https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit/apply.html"
             target="_blank"
             ><svg
-              aria-hidden="true"
-              focusable="false"
               data-prefix="fas"
               data-icon="arrow-up-right-from-square"
-              class="svg-inline--fa fa-arrow-up-right-from-square fa-fw me-1"
+              class="svg-inline--fa fa-arrow-up-right-from-square me-1 fa-fw"
               role="img"
-              xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
+              aria-hidden="true"
             >
               <path
                 fill="currentColor"
-                d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"
+                d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0-201.4 201.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3 448 192c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 96C35.8 96 0 131.8 0 176L0 432c0 44.2 35.8 80 80 80l256 0c44.2 0 80-35.8 80-80l0-80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 80c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l80 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 96z"
               ></path></svg
             >Apply for the Canada Disability Benefit</a
           >
@@ -131,18 +127,16 @@
             href="https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html"
             target="_blank"
             ><svg
-              aria-hidden="true"
-              focusable="false"
               data-prefix="fas"
               data-icon="arrow-up-right-from-square"
-              class="svg-inline--fa fa-arrow-up-right-from-square fa-fw me-1"
+              class="svg-inline--fa fa-arrow-up-right-from-square me-1 fa-fw"
               role="img"
-              xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
+              aria-hidden="true"
             >
               <path
                 fill="currentColor"
-                d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"
+                d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0-201.4 201.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3 448 192c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 96C35.8 96 0 131.8 0 176L0 432c0 44.2 35.8 80 80 80l256 0c44.2 0 80-35.8 80-80l0-80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 80c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l80 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 96z"
               ></path></svg
             >Learn more about the Canada Disability Benefit</a
           >
