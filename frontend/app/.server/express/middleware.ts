@@ -142,7 +142,7 @@ export function security(environment: ServerEnvironment): RequestHandler {
 /**
  * Configures session middleware, optionally skipping it for bots and specific paths.
  */
-export function session(environment: ServerEnvironment): RequestHandler {
+export async function session(environment: ServerEnvironment): Promise<RequestHandler> {
   const ignorePatterns = ['/__manifest', '/api/**'];
 
   const {
@@ -158,7 +158,7 @@ export function session(environment: ServerEnvironment): RequestHandler {
 
   const sessionStore =
     SESSION_TYPE === 'redis' //
-      ? createRedisStore(environment)
+      ? await createRedisStore(environment)
       : createMemoryStore();
 
   const middleware = sessionMiddleware({

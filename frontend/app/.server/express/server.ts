@@ -59,7 +59,7 @@ if (serverEnvironment.isProduction) {
 }
 
 log.info('    ✓ session middleware (%s)', serverEnvironment.SESSION_TYPE);
-app.use(session(serverEnvironment));
+app.use(await session(serverEnvironment));
 
 if (viteDevServer) {
   log.info('    ✓ vite dev server middlewares');
