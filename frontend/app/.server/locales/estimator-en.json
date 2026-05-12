@@ -71,8 +71,8 @@
       }
     },
     "form-instructions": {
-      "married": "To estimate your benefits, we will need the following information from your and your partner's <strong>{{year}} tax returns</strong>.",
-      "single": "To estimate your benefits, we will need the following information from your <strong>{{year}} tax return</strong>.",
+      "married": "To get an estimate of your benefits, you need your and your partner's <strong>{{year}} tax returns</strong>.",
+      "single": "To get an estimate of your benefits, you need your <strong>{{year}} tax return</strong>.",
       "note": "If any total amounts are negative or zero, enter '0'."
     },
     "heading": {
@@ -97,11 +97,11 @@
           "Farming income (use 0 if the amount is negative) (line 14100)",
           "Fishing income (use 0 if the amount is negative) (line 14300)"
         ],
-        "text1": "To calculate your working income, add up all the following lines from your {{year}} tax return:",
+        "text1": "To calculate your working income, add all of these lines from your {{year}} tax return:",
         "description": "This is income you made from your employment or self-employment."
       },
       "partner-working-income": {
-        "text1": "To calculate your partner's working income, add up all the following lines from their {{year}} tax return:",
+        "text1": "To calculate your partner's working income, add all of these lines from their {{year}} tax return:",
         "description": "This is income your partner made from their employment or self-employment."
       }
     },
