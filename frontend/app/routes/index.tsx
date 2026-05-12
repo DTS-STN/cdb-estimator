@@ -82,14 +82,14 @@ export default function Home({ loaderData }: Route.ComponentProps) {
           <h2 className="font-lato mb-4 text-2xl font-bold">{t('estimator:index.content.eligibility.header')}</h2>
 
           <p className="mb-4">{t('estimator:index.content.estimator-steps.intro')}</p>
-          <ol className="list-decimal space-y-1 pl-7">
+          <ul className="list-disc space-y-1 pl-7">
             <li>
               <Trans ns={handle.i18nNamespace} i18nKey="estimator:index.content.estimator-steps.step-1" />
             </li>
             <li>
               <Trans ns={handle.i18nNamespace} i18nKey="estimator:index.content.estimator-steps.step-2" />
             </li>
-          </ol>
+          </ul>
           <p>{t('estimator:index.content.completion-time')}</p>
           <p>
             <Trans
