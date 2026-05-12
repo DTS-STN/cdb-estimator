@@ -120,7 +120,7 @@
         "step-1": "état matrimonial",
         "step-2": "revenu"
       },
-      "result-disclaimer": "<strong>Cet outil ne vérifie pas si vous remplissez les conditions requises. Il fournit seulement uniquement une estimation du montant auquel vous pourriez avoir droit si vous remplissez les conditions requises. Vous pouvez consulter les critères d'admissibilité au <cdbRequirementsLink>Canada.ca/prestation-handicap</cdbRequirementsLink>.</strong>",
+      "result-disclaimer": "<strong>Cet outil ne vérifie pas si vous remplissez les conditions requises. Il fournit seulement une estimation du montant auquel vous pourriez avoir droit si vous remplissez les conditions requises. Vous pouvez consulter les critères d'admissibilité au <cdbRequirementsLink>Canada.ca/prestation-handicap</cdbRequirementsLink>.</strong>",
       "results": {
         "contact": " Pour une évaluation plus précise de votre montant de prestations estimé, veuillez <cdbContactLink>communiquer avec nous</cdbContactLink>.",
         "description": "Cet outil démontre un estimé des paiements mensuels entre {{paymentPeriodStart}} et {{paymentPeriodEnd}}. Les montants peuvent changés chaque année en raison de l'inflation (coût de la vie).",
@@ -136,22 +136,26 @@
       "label": "Définitions des états matrimoniaux",
       "common-law": {
         "term": "Conjoint de fait\u00a0:",
-        "item1": "elle vit avec vous depuis au moins 12 mois sans interruption. Cela comprend les périodes de moins de 90 jours où vous avez vécu séparément en raison de la rupture de votre union;",
-        "item2": "elle est le parent de votre enfant, par la naissance ou l'adoption;",
-        "item3": "elle a la garde, la surveillance et la charge entière de votre enfant (ou elle en avait la garde et la surveillance juste avant que l'enfant atteigne l'âge de 19 ans).",
-        "text": "vous vivez en relation conjugale avec une personne avec qui vous n'êtes pas marié. Au moins une des situations suivantes doit s'appliquer à cette personne\u00a0:"
+        "text": "vous vivez en relation conjugale avec une personne avec qui vous n'êtes pas marié.",
+        "p1": "Au moins une des situations suivantes doit s'appliquer à cette personne\u00a0:",
+        "item1": "Vous vivez ensemble depuis au moins 12 mois consécutifs. Cela inclut les périodes de séparation de moins de 90 jours dues à des problèmes relationnels.",
+        "item2": "Vous avez un enfant en commun (biologique ou adopté).",
+        "item3": "Votre partenaire a la garde et l'autorité parentale sur votre enfant juste avant que celui-ci n'atteigne l'âge de 19 ans et que votre enfant dépend de lui pour subvenir à ses besoins."
       },
       "divorced": { "term": "Divorcé\u00a0:", "text": "vous étiez marié et êtes maintenant divorcé légalement." },
-      "married": { "term": "Marié\u00a0:", "text": "vous êtes légalement marié à quelqu'un." },
+      "married": { "term": "Marié\u00a0:", "text": "vous êtes légalement mariés." },
       "separated": {
         "term": "Séparé\u00a0:",
-        "text": "vous vivez séparément de votre époux ou conjoint de fait depuis 90 jours ou plus en raison de la rupture de votre union, et il n'y a pas de réconciliation. Lorsque vous êtes séparé depuis 90 jours, la date d'entrée en vigueur de votre séparation est le jour où vous et votre époux ou conjoint de fait avez commencé à vivre séparément.",
-        "p1": "S'il n'y a pas de rupture de votre union, mais que vous vivez séparément pour des raisons telles que le travail, les études ou des problèmes de santé, vous serez considéré comme ayant un époux ou un conjoint de fait.",
-        "p2": "Vous n'êtes généralement pas considéré séparé si votre époux ou conjoint est détenu dans une prison ou ne vit pas au Canada, tant qu'il n'y a pas de rupture de votre union."
+        "text": "vous vivez séparé(e) de votre conjoint ou conjoint de fait depuis au moins 90 jours parce que votre relation a pris fin.",
+        "p1": "Une fois que vous êtes séparés depuis 90 jours, la date de séparation correspond à la date à laquelle vous avez commencé à vivre séparément.",
+        "p2": "Vous n'êtes pas considéré comme séparé si l'une des situations suivantes s'applique\u00a0:",
+        "item1": "Vous vivez séparément pour des raisons telles que le travail, les études ou la santé.",
+        "item2": "Votre conjoint ou conjoint de fait est en prison.",
+        "item3": "Votre conjoint ou conjoint de fait ne réside pas au Canada."
       },
       "single": {
         "term": "Célibataire\u00a0:",
-        "text": "vous êtes célibataire et aucune des situations ci-dessous ne s'applique à vous."
+        "text": "vous êtes célibataire et aucune des autres situations ne s'applique à vous."
       },
       "widowed": { "term": "Veuf\u00a0:", "text": "votre époux ou conjoint de fait est décédé." }
     },

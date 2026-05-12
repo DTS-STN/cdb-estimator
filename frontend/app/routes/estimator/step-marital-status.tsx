@@ -123,6 +123,11 @@ export default function StepMaritalStatus({ actionData, loaderData, matches, par
                             {t('estimator:marital-status.additional-info.separated.text')}
                             <p>{t('estimator:marital-status.additional-info.separated.p1')}</p>
                             <p>{t('estimator:marital-status.additional-info.separated.p2')}</p>
+                            <ul className="mt-2 list-disc space-y-2 pl-5">
+                              <li>{t('estimator:marital-status.additional-info.separated.item1')}</li>
+                              <li>{t('estimator:marital-status.additional-info.separated.item2')}</li>
+                              <li>{t('estimator:marital-status.additional-info.separated.item3')}</li>
+                            </ul>
                           </dd>
                         </div>
                         <div>
@@ -135,8 +140,9 @@ export default function StepMaritalStatus({ actionData, loaderData, matches, par
                         </div>
                         <div>
                           <dt className="inline font-bold">{t('estimator:marital-status.additional-info.common-law.term')}</dt>
-                          <dd className="ml-2 inline">
-                            {t('estimator:marital-status.additional-info.common-law.text')}{' '}
+                          <dd className="ml-2 inline [&>p]:mt-2">
+                            {t('estimator:marital-status.additional-info.common-law.text')}
+                            <p>{t('estimator:marital-status.additional-info.common-law.p1')}</p>
                             <ul className="mt-2 list-disc space-y-2 pl-5">
                               <li>{t('estimator:marital-status.additional-info.common-law.item1')}</li>
                               <li>{t('estimator:marital-status.additional-info.common-law.item2')}</li>

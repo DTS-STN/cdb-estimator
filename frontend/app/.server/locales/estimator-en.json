@@ -136,24 +136,28 @@
     "additional-info": {
       "label": "Definitions of marital statuses",
       "common-law": {
-        "text": "you're living in a conjugal relationship with someone that you are not married to. At least one of the following situations must apply to this person. They:",
-        "item1": "have been living with you for at least 12 continuous months. This includes any period you were separated for less than 90 days because of a breakdown in your relationship",
-        "item2": "are the parent of your child by birth or adoption",
-        "item3": "have custody and control of your child (or had custody and control immediately before your child turned 19 years old) and your child is wholly dependent on that person for support",
-        "term": "Common-law:"
+        "term": "Common-law:",
+        "text": "You live with a partner as a couple but are not married to them.",
+        "p1": "At least one of these apply:",
+        "item1": "You've lived together for at least 12 continuous months. This includes times you were separated for less than 90 days because of relationship problems.",
+        "item2": "You share a child (by birth or adoption).",
+        "item3": "Your partner has custody and control of your child right before they turned 19 and your child depends on them for support."
       },
-      "divorced": { "term": "Divorced:", "text": "you were married and are now legally divorced." },
-      "married": { "term": "Married:", "text": "you're legally married to someone." },
+      "divorced": { "term": "Divorced:", "text": "You were married and are now legally divorced." },
+      "married": { "term": "Married:", "text": "You're legally married." },
       "separated": {
         "term": "Separated:",
-        "text": "you've been living apart from your spouse or common-law partner because of a breakdown in the relationship for a period of at least 90 days and you have not reconciled.",
-        "p1": "Once you've been separated for 90 days, the effective day of your separation is the date you started living apart. If there is no breakdown in your relationship but you are living apart for reasons such as work, studies, or health problems, you would be considered to have a spouse or common-law partner.",
-        "p2": "Note: You are also generally not considered separated if your spouse or common-law partner is incarcerated or doesn't live in Canada, as long as there is no breakdown in your relationship."
+        "text": "You've been living apart from your spouse or common-law partner for at least 90 days because your relationship ended.",
+        "p1": "Once you have been separated for 90 days, the separation is the date you started living apart.",
+        "p2": "You're not considered separated if any of these apply:",
+        "item1": "You're living apart for reasons such as work, school or health.",
+        "item2": "Your spouse or common-law partner is in jail.",
+        "item3": "Your spouse or common-law partner does not live in Canada."
       },
-      "single": { "term": "Single:", "text": "you're single and none of the statuses below apply to you." },
-      "widowed": { "term": "Widowed:", "text": "your spouse or common-law partner is deceased." }
+      "single": { "term": "Single:", "text": "You're single. None of the other statuses apply to you." },
+      "widowed": { "term": "Widowed:", "text": "Your spouse or common-law partner has died." }
     },
-    "breadcrumb": "Marital Status",
+    "breadcrumb": "Marital status",
     "fields": {
       "status": {
         "error": {
@@ -166,7 +170,7 @@
         }
       }
     },
-    "page-title": "Step 1 of 2: Marital Status"
+    "page-title": "Step 1 of 2: Marital status"
   },
   "results": {
     "breadcrumb": "Results",
