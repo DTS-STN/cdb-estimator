@@ -127,15 +127,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
               ),
             })}
 
-            {i18n.language === 'fr' && ESTIMATOR_FEATURE_ENABLE_CONTACT_URL && (
-              <Trans
-                ns={handle.i18nNamespace}
-                i18nKey="estimator:index.content.results.contact"
-                components={{ cdbContactLink }}
-              />
-            )}
-
-            {i18n.language === 'en' && ESTIMATOR_FEATURE_ENABLE_CONTACT_URL && (
+            {ESTIMATOR_FEATURE_ENABLE_CONTACT_URL && (
               <Trans
                 ns={handle.i18nNamespace}
                 i18nKey="estimator:index.content.results.contact"
