@@ -9,6 +9,7 @@ export class PlaywrightBasePage {
   }
 
   async isLoaded(url: string | RegExp, language: Language, heading: string | RegExp) {
+    await this.page.waitForURL(url);
     await this.page.locator('main').waitFor();
 
     await expect(this.page.locator('html')).toHaveAttribute('lang', language);
