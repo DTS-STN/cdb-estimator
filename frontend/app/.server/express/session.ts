@@ -28,11 +28,11 @@ export function createMemoryStore(): MemoryStore {
  * This function initializes a new `RedisStore` instance, using the
  * Redis client and session configuration from the provided server environment.
  */
-export function createRedisStore(environment: ServerEnvironment): RedisStore {
+export async function createRedisStore(environment: ServerEnvironment): Promise<RedisStore> {
   log.info('      initializing new Redis session store');
 
   return new RedisStore({
-    client: getRedisClient(),
+    client: await getRedisClient(),
     prefix: environment.SESSION_KEY_PREFIX,
     // The Redis TTL is set to the session expiration
     // time, plus 5% to allow for clock drift
@@ -48,7 +48,13 @@ export function createRedisStore(environment: ServerEnvironment): RedisStore {
 function purgeExpiredSessions(memoryStore: MemoryStore): void {
   log.trace('Purging expired sessions');
 
+  const isPast = (date: Date): boolean => date.getTime() < Date.now();
+
   memoryStore.all((error, sessions) => {
+    if (error) {
+      log.error('Failed to enumerate sessions from memory store', error);
+      return;
+    }
     if (sessions) {
       const sessionEntries = Object.entries(sessions);
       log.trace('%s sessions in session store', Object.keys(sessions).length);
@@ -59,7 +65,7 @@ function purgeExpiredSessions(memoryStore: MemoryStore): void {
         const expiresAt = sessionData.cookie.expires;
 
         log.trace('Checking session %s (expires at %s)', sessionId, expiresAt);
-        if (expiresAt && expiresAt.getTime() < Date.now()) {
+        if (expiresAt && isPast(new Date(expiresAt))) {
           log.trace('Purging expired session %s', sessionId);
           memoryStore.destroy(sessionId);
         }
