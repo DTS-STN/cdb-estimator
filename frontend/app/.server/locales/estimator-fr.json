@@ -177,6 +177,10 @@
   "results": {
     "breadcrumb": "Résultats",
     "content": {
+      "cost-of-living": {
+        "label": "Adaptation au coût de la vie",
+        "text": "Chaque année en juillet, le montant des prestations est revu à la hausse pour tenir compte de l'augmentation du coût de la vie. Le montant des prestations ne diminue pas si le coût de la vie baisse."
+      },
       "next-steps": {
         "apply-cdb": "Faire une demande des Prestations canadienne pour les personnes handicapées",
         "header": "Étapes suivantes",
@@ -186,18 +190,19 @@
         "contact": " <cdbContactLink>Contactez-nous</cdbContactLink> pour en savoir plus.",
         "header": "Votre estimation",
         "married-common-law": {
-          "cdb-partner-result": "Si vous et votre partenaire recevez tous les deux la Prestation canadienne pour les personnes handicapées, vous pourriez recevoir un montant mensuel de <strong>{{result}}</strong>.",
-          "intro": "Le montant de la prestation mensuelle que vous pourriez recevoir dépend du fait que votre partenaire reçoive ou non la Prestation canadienne pour les personnes handicapées.",
-          "non-cdb-partner-result": "Si votre partenaire ne reçoit pas la Prestation canadienne pour les personnes handicapées, vous pourriez recevoir un montant mensuel de <strong>{{result}}</strong>."
+          "cdb-partner-result-text": "Si votre partenaire et vous-même recevez tous deux la Prestation canadienne pour les personnes handicapées, vous pourriez recevoir\u00a0:",
+          "intro": "Le montant mensuel auquel vous pourriez avoir droit dépend du fait que votre partenaire reçoit la Prestation canadienne pour les personnes handicapées.",
+          "non-cdb-partner-result-text": "Si votre partenaire ne reçoit pas la Prestation canadienne pour les personnes handicapées, vous pourriez recevoir\u00a0:",
+          "results": "<strong>{{result}}</strong> par mois."
         },
-        "note": "<strong>Veuillez noter que vous pourriez recevoir des paiements rétroactifs pour une période allant jusqu'à 24 mois à partir de la date à laquelle nous recevons votre demande. Aucun paiement rétroactif ne sera effectué pour la période antérieure à juillet 2025.</strong>",
+        "note": "<strong>Remarque\u00a0:</strong> vous pourriez avoir droit à des arriérés de paiement pouvant aller jusqu'à 24 mois à compter de la date de réception de votre demande. Aucun arriéré ne sera versé avant juillet 2025.",
         "single": {
-          "intro": "Vous pourriez être admissible à recevoir\u00a0:",
-          "result": "Un montant mensuel de <strong>{{result}}</strong> provenant de la Prestation canadienne pour les personnes handicapées."
+          "intro": "Vous pourriez recevoir\u00a0:",
+          "result": "<strong>{{result}}</strong> par mois provenant de la Prestation canadienne pour les personnes handicapées."
         }
       }
     },
-    "disclaimer-alert": "Cette estimation est basée sur l'information que vous avez fournie.",
+    "disclaimer-alert": "Il ne s'agit que d'une estimation. Elle est calculée à partir des informations que vous avez fournies. Les montants sont calculés sur la base des taux actuels et peuvent augmenter en fonction de l'évolution du coût de la vie.",
     "form-data-summary": {
       "edit-aria-labels": {
         "marital-status": "Modifier votre état matrimonial",

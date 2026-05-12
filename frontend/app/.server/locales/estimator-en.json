@@ -175,6 +175,10 @@
   "results": {
     "breadcrumb": "Results",
     "content": {
+      "cost-of-living": {
+        "label": "Changes for cost of living",
+        "text": "Each July, benefit amounts go up to match increases in the cost of living. Benefit amounts do not go down if the cost of living drops."
+      },
       "next-steps": {
         "apply-cdb": "Apply for the Canada Disability Benefit",
         "header": "Next steps",
@@ -184,18 +188,19 @@
         "contact": " <cdbContactLink>Contact us</cdbContactLink> to find out more.",
         "header": "Your estimate",
         "married-common-law": {
-          "cdb-partner-result": "If both you and your partner are receiving the Canada Disability Benefit, you could receive a monthly amount of <strong>{{result}}</strong>.",
-          "intro": "The monthly benefit amount you could receive depends on whether your partner is receiving the Canada Disability Benefit.",
-          "non-cdb-partner-result": "If your partner is not receiving the Canada Disability Benefit, you could receive a monthly amount of <strong>{{result}}</strong>."
+          "cdb-partner-result-text": "If both you and your partner are receiving the Canada Disability Benefit, you could receive:",
+          "intro": "The monthly amount you could get depends on if your partner is receiving the Canada Disability Benefit.",
+          "non-cdb-partner-result-text": "If your partner is not receiving the Canada Disability Benefit, you could receive:",
+          "results": "<strong>{{result}}</strong> per month."
         },
-        "note": "<strong>Please note that you may be eligible to get back payments for up to 24 months from the date we receive your application. There will be no back payments prior to July 2025.</strong>",
+        "note": "<strong>Note:</strong> You may be eligible to get back payments for up to 24 months from the date we receive your application. There will be no back payments before July 2025.",
         "single": {
-          "intro": "You could be eligible to receive:",
-          "result": "A monthly amount of <strong>{{result}}</strong> from the Canada Disability Benefit."
+          "intro": "You could receive:",
+          "result": "<strong>{{result}}</strong> per month from the Canada Disability Benefit."
         }
       }
     },
-    "disclaimer-alert": "This is only an estimate based on the information you provided.",
+    "disclaimer-alert": "This is only an estimate. It is based on the information you provided. Amounts use <strong>current rates</strong> and may increase with the cost of living.",
     "form-data-summary": {
       "edit-aria-labels": {
         "marital-status": "Edit your marital status",
