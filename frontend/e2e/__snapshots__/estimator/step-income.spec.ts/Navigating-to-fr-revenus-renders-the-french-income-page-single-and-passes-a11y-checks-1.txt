@@ -15,8 +15,8 @@
     <form novalidate="" data-discover="true" action="/fr/revenus" method="post">
       <div class="space-y-6">
         <p>
-          Pour estimer vos prestations, nous aurons besoin des renseignements
-          suivants de votre <strong>déclaration de revenus de 2024</strong>.
+          Pour obtenir une estimation de vos prestations, vous devez fournir
+          votre <strong>déclaration d'impôt de 2024</strong>.
         </p>
         <p>Si un des montants est négatif ou nul, entrez '0'.</p>
         <p>Tous les champs sont obligatoires.</p>

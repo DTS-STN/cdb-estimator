@@ -11,7 +11,7 @@ test('Single person can obtain results', async ({ page }) => {
 
   // dashboard
   await estimator.isLoaded('index');
-  await page.getByText(/start/i).click();
+  await page.getByRole('link', { name: /start/i }).click();
 
   // marital-status
   await estimator.isLoaded('marital-status');

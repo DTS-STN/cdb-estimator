@@ -11,6 +11,9 @@ export async function createViteDevServer(environment: ServerEnvironment): Promi
     const vite = await import('vite');
     return await vite.createServer({
       server: { middlewareMode: true },
+      // Disable Vite's automatic .env file loading. env vars are managed
+      // explicitly via node's --env-file-if-exists flag (dev/preview)
+      envDir: false,
     });
   }
 }
