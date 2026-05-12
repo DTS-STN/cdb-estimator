@@ -198,6 +198,13 @@ export function tracing(): RequestHandler {
   ];
 
   return (request, response, next) => {
+    // The OpenTelemetry HTTP instrumentation adds `finish` listeners to each
+    // ServerResponse for span lifecycle tracking. Combined with the Express
+    // middleware stack (compression, morgan, session, etc.), the per-request
+    // listener count exceeds the default limit of 10. These listeners are
+    // properly scoped to the request lifetime and are not a leak.
+    response.setMaxListeners(response.getMaxListeners() + 2);
+
     if (shouldIgnore(ignorePatterns, request.path)) {
       log.trace('Skipping tracing: [%s]', request.path);
       return next();
