@@ -121,10 +121,10 @@
         "step-1": "marital status",
         "step-2": "income"
       },
-      "result-disclaimer": "<strong>This tool does check if you are eligible. It only gives an estimate of the amount you may get if you are eligible. You can check the requirements at <cdbRequirementsLink>Canada.ca/disability-benefit</cdbRequirementsLink>.</strong>",
+      "result-disclaimer": "<strong>This tool does not check if you are eligible. It only gives an estimate of the amount you may get if you are eligible. You can check the requirements at <cdbRequirementsLink>Canada.ca/disability-benefit</cdbRequirementsLink>.</strong>",
       "results": {
         "contact": " For a more accurate assessment of your estimated benefits amount, please <cdbContactLink>contact us</cdbContactLink>.",
-        "description": "This tool shows an estimate of monthly payments from {{paymentPeriodStart}} and {{paymentPeriodEnd}}. Amounts may change each year due to inflation (cost of living).",
+        "description": "This tool shows an estimate of monthly payments from {{paymentPeriodStart}} to {{paymentPeriodEnd}}. Amounts may change each year due to inflation (cost of living).",
         "header": "About the results"
       }
     },

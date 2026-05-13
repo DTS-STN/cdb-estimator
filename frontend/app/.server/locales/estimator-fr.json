@@ -123,7 +123,7 @@
       "result-disclaimer": "<strong>Cet outil ne vérifie pas si vous remplissez les conditions requises. Il fournit seulement une estimation du montant auquel vous pourriez avoir droit si vous remplissez les conditions requises. Vous pouvez consulter les critères d'admissibilité au <cdbRequirementsLink>Canada.ca/prestation-handicap</cdbRequirementsLink>.</strong>",
       "results": {
         "contact": " Pour une évaluation plus précise de votre montant de prestations estimé, veuillez <cdbContactLink>communiquer avec nous</cdbContactLink>.",
-        "description": "Cet outil démontre un estimé des paiements mensuels entre {{paymentPeriodStart}} et {{paymentPeriodEnd}}. Les montants peuvent changés chaque année en raison de l'inflation (coût de la vie).",
+        "description": "Cet outil démontre un estimé des paiements mensuels entre {{paymentPeriodStart}} et {{paymentPeriodEnd}}. Les montants peuvent changer chaque année en raison de l'inflation (coût de la vie).",
         "header": "À propos des résultats"
       }
     },
@@ -143,7 +143,7 @@
         "item3": "Votre partenaire a la garde et l'autorité parentale sur votre enfant juste avant que celui-ci n'atteigne l'âge de 19 ans et que votre enfant dépend de lui pour subvenir à ses besoins."
       },
       "divorced": { "term": "Divorcé\u00a0:", "text": "vous étiez marié et êtes maintenant divorcé légalement." },
-      "married": { "term": "Marié\u00a0:", "text": "vous êtes légalement mariés." },
+      "married": { "term": "Marié\u00a0:", "text": "vous êtes légalement marié(e)." },
       "separated": {
         "term": "Séparé\u00a0:",
         "text": "vous vivez séparé(e) de votre conjoint ou conjoint de fait depuis au moins 90 jours parce que votre relation a pris fin.",

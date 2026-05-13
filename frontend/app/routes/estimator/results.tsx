@@ -202,7 +202,7 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
                         <Trans
                           ns={handle.i18nNamespace}
                           i18nKey="estimator:results.content.your-estimate.married-common-law.results"
-                          values={{ result: loaderData.formattedResults.results.estimation }}
+                          values={{ result: loaderData.formattedResults.results.estimationSplitBenefit }}
                         />
                       </li>
                     </ul>
