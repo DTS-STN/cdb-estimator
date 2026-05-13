@@ -47,6 +47,13 @@ describe('calculateTotalIncome', () => {
       } as PersonIncome,
       expected: 10,
     },
+    {
+      name: 'no optional fields (netIncome only)',
+      income: {
+        netIncome: 100,
+      } as PersonIncome,
+      expected: 100,
+    },
   ])('$name', ({ income, expected }) => {
     const result = calculateTotalIncome(income);
     expect(result).toBeCloseTo(expected);
@@ -566,11 +573,159 @@ describe('calculateEstimation', () => {
       } as MarriedIncome,
       expected: { estimation: 0, estimationSplitBenefit: 57.4 },
     },
+    {
+      name: 'TC_047: Married - negative working income (farming scenario) reduces benefit as if exemption works against applicant',
+      payload: {
+        kind: 'married',
+        individualIncome: { netIncome: 20_000, workingIncome: -5000, claimedIncome: 0, claimedRepayment: 0 },
+        partnerIncome: {
+          netIncome: 18_000,
+          workingIncome: -3000,
+          claimedIncome: 0,
+          claimedRepayment: 0,
+        },
+      } as MarriedIncome,
+      expected: { estimation: 0, estimationSplitBenefit: 87.5 },
+    },
   ])('$name', ({ payload, expected }) => {
     const result = calculateEstimation(payload);
     expect(result.estimation).toBeCloseTo(expected.estimation);
     if (expected.estimationSplitBenefit !== undefined) {
       expect(result.estimationSplitBenefit).toBeCloseTo(expected.estimationSplitBenefit);
     }
+  });
+});
+
+describe('calculateEstimation with different inflation factors', () => {
+  describe('2024 - inflation factor: 1 (max $200.00/month)', () => {
+    beforeAll(() => {
+      globalThis.__appEnvironment = {
+        ...globalThis.__appEnvironment,
+        ESTIMATOR_INFLATION_FACTOR: 1,
+        ESTIMATOR_SINGLE_WORKING_INCOME_EXEMPTION: 10_000,
+        ESTIMATOR_COUPLE_WORKING_INCOME_EXCEPTION: 14_000,
+        ESTIMATOR_COUPLE_THRESHOLD: 32_500,
+        ESTIMATOR_SINGLE_THRESHOLD: 23_000,
+        ESTIMATOR_YEARLY_MAX_BENEFITS: 2400,
+        ESTIMATOR_BENEFIT_REDUCTION_RATE: 0.2,
+        ESTIMATOR_SPLIT_BENEFIT_REDUCTION_RATE: 0.1,
+      };
+    });
+
+    it.each([
+      {
+        name: 'TC_048: Single - max monthly benefit is $200.00',
+        payload: {
+          kind: 'single',
+          individualIncome: { netIncome: 0, workingIncome: 0, claimedIncome: 0, claimedRepayment: 0 },
+        } as SingleIncome,
+        expected: { estimation: 200, estimationSplitBenefit: undefined },
+      },
+      {
+        name: 'TC_049: Married - max monthly benefit is $200.00',
+        payload: {
+          kind: 'married',
+          individualIncome: { netIncome: 0, workingIncome: 0, claimedIncome: 0, claimedRepayment: 0 },
+          partnerIncome: { netIncome: 0, workingIncome: 0, claimedIncome: 0, claimedRepayment: 0 },
+        } as MarriedIncome,
+        expected: { estimation: 200, estimationSplitBenefit: 200 },
+      },
+    ])('$name', ({ payload, expected }) => {
+      const result = calculateEstimation(payload);
+      expect(result.estimation).toBeCloseTo(expected.estimation);
+      if (expected.estimationSplitBenefit !== undefined) {
+        expect(result.estimationSplitBenefit).toBeCloseTo(expected.estimationSplitBenefit);
+      }
+    });
+  });
+
+  describe('2025 - inflation factor: 1.021 (max $204.20/month)', () => {
+    beforeAll(() => {
+      globalThis.__appEnvironment = {
+        ...globalThis.__appEnvironment,
+        ESTIMATOR_INFLATION_FACTOR: 1.021,
+        ESTIMATOR_SINGLE_WORKING_INCOME_EXEMPTION: 10_000,
+        ESTIMATOR_COUPLE_WORKING_INCOME_EXCEPTION: 14_000,
+        ESTIMATOR_COUPLE_THRESHOLD: 32_500,
+        ESTIMATOR_SINGLE_THRESHOLD: 23_000,
+        ESTIMATOR_YEARLY_MAX_BENEFITS: 2400,
+        ESTIMATOR_BENEFIT_REDUCTION_RATE: 0.2,
+        ESTIMATOR_SPLIT_BENEFIT_REDUCTION_RATE: 0.1,
+      };
+    });
+
+    it.each([
+      {
+        name: 'TC_050: Single - max monthly benefit is $204.20',
+        payload: {
+          kind: 'single',
+          individualIncome: { netIncome: 0, workingIncome: 0, claimedIncome: 0, claimedRepayment: 0 },
+        } as SingleIncome,
+        expected: { estimation: 204.2, estimationSplitBenefit: undefined },
+      },
+      {
+        name: 'TC_051: Married - max monthly benefit is $204.20',
+        payload: {
+          kind: 'married',
+          individualIncome: { netIncome: 0, workingIncome: 0, claimedIncome: 0, claimedRepayment: 0 },
+          partnerIncome: { netIncome: 0, workingIncome: 0, claimedIncome: 0, claimedRepayment: 0 },
+        } as MarriedIncome,
+        expected: { estimation: 204.2, estimationSplitBenefit: 204.2 },
+      },
+      {
+        // inflated threshold: $23,000 × 1.021 = $23,483
+        name: 'TC_052: Single - income at inflated threshold ($23,483) still receives max benefit',
+        payload: {
+          kind: 'single',
+          individualIncome: { netIncome: 23_483, workingIncome: 0, claimedIncome: 0, claimedRepayment: 0 },
+        } as SingleIncome,
+        expected: { estimation: 204.2, estimationSplitBenefit: undefined },
+      },
+      {
+        // $60 above inflated threshold → B = 0.2 × $60 = $12 → ($2,450.40 − $12) / 12 = $203.20
+        name: 'TC_053: Single - income above inflated threshold is reduced',
+        payload: {
+          kind: 'single',
+          individualIncome: { netIncome: 23_543, workingIncome: 0, claimedIncome: 0, claimedRepayment: 0 },
+        } as SingleIncome,
+        expected: { estimation: 203.2, estimationSplitBenefit: undefined },
+      },
+      {
+        // inflated ceiling: $10,000 × 1.021 = $10,210; net = $23,483 + $10,210 = $33,693 → B = 0
+        name: 'TC_054: Single - working income at inflated exemption ceiling ($10,210) is fully exempt',
+        payload: {
+          kind: 'single',
+          individualIncome: { netIncome: 33_693, workingIncome: 10_210, claimedIncome: 0, claimedRepayment: 0 },
+        } as SingleIncome,
+        expected: { estimation: 204.2, estimationSplitBenefit: undefined },
+      },
+      {
+        // inflated threshold: $32,500 × 1.021 = $33,182.50
+        name: 'TC_055: Married - combined income at inflated couple threshold ($33,182.50) still receives max benefit',
+        payload: {
+          kind: 'married',
+          individualIncome: { netIncome: 33_182.5, workingIncome: 0, claimedIncome: 0, claimedRepayment: 0 },
+          partnerIncome: { netIncome: 0, workingIncome: 0, claimedIncome: 0, claimedRepayment: 0 },
+        } as MarriedIncome,
+        expected: { estimation: 204.2, estimationSplitBenefit: 204.2 },
+      },
+      {
+        // $60 above inflated threshold → B (no split) = 0.2 × $60 = $12, B (split) = 0.1 × $60 = $6
+        // estimation = ($2,450.40 − $12) / 12 = $203.20, estimationSplitBenefit = ($2,450.40 − $6) / 12 = $203.70
+        name: 'TC_056: Married - combined income above inflated couple threshold is reduced',
+        payload: {
+          kind: 'married',
+          individualIncome: { netIncome: 33_242.5, workingIncome: 0, claimedIncome: 0, claimedRepayment: 0 },
+          partnerIncome: { netIncome: 0, workingIncome: 0, claimedIncome: 0, claimedRepayment: 0 },
+        } as MarriedIncome,
+        expected: { estimation: 203.2, estimationSplitBenefit: 203.7 },
+      },
+    ])('$name', ({ payload, expected }) => {
+      const result = calculateEstimation(payload);
+      expect(result.estimation).toBeCloseTo(expected.estimation);
+      if (expected.estimationSplitBenefit !== undefined) {
+        expect(result.estimationSplitBenefit).toBeCloseTo(expected.estimationSplitBenefit);
+      }
+    });
   });
 });
