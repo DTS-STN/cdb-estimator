@@ -22,8 +22,8 @@
     <p>It will take about 5 to 10 minutes to complete.</p>
     <p>
       <strong
-        >This tool does check if you are eligible. It only gives an estimate of
-        the amount you may get if you are eligible. You can check the
+        >This tool does not check if you are eligible. It only gives an estimate
+        of the amount you may get if you are eligible. You can check the
         requirements at
         <a
           class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700 external-link"
@@ -48,7 +48,7 @@
   <section class="space-y-4">
     <h2 class="font-lato text-2xl font-bold">About the results</h2>
     <p>
-      This tool shows an estimate of monthly payments from July 2025 and June
+      This tool shows an estimate of monthly payments from July 2025 to June
       2026. Amounts may change each year due to inflation (cost of living).<!-- -->
       For a more accurate assessment of your estimated benefits amount, please
       <a

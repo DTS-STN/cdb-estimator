@@ -104,7 +104,7 @@
                       <div>
                         <dt class="inline font-bold">Marié&nbsp;:</dt>
                         <dd class="ml-2 inline">
-                          vous êtes légalement mariés.
+                          vous êtes légalement marié(e).
                         </dd>
                       </div>
                       <div>

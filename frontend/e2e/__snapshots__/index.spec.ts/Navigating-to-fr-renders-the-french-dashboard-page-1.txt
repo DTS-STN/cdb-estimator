@@ -53,7 +53,7 @@
     <h2 class="font-lato text-2xl font-bold">À propos des résultats</h2>
     <p>
       Cet outil démontre un estimé des paiements mensuels entre juillet 2025 et
-      juin 2026. Les montants peuvent changés chaque année en raison de
+      juin 2026. Les montants peuvent changer chaque année en raison de
       l'inflation (coût de la vie).<!-- -->
       Pour une évaluation plus précise de votre montant de prestations estimé,
       veuillez
