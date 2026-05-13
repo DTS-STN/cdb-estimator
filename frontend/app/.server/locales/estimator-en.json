@@ -71,8 +71,8 @@
       }
     },
     "form-instructions": {
-      "married": "To estimate your benefits, we will need the following information from your and your partner's <strong>{{year}} tax returns</strong>.",
-      "single": "To estimate your benefits, we will need the following information from your <strong>{{year}} tax return</strong>.",
+      "married": "To get an estimate of your benefits, you need your and your partner's <strong>{{year}} tax returns</strong>.",
+      "single": "To get an estimate of your benefits, you need your <strong>{{year}} tax return</strong>.",
       "note": "If any total amounts are negative or zero, enter '0'."
     },
     "heading": {
@@ -97,11 +97,11 @@
           "Farming income (use 0 if the amount is negative) (line 14100)",
           "Fishing income (use 0 if the amount is negative) (line 14300)"
         ],
-        "text1": "To calculate your working income, add up all the following lines from your {{year}} tax return:",
+        "text1": "To calculate your working income, add all of these lines from your {{year}} tax return:",
         "description": "This is income you made from your employment or self-employment."
       },
       "partner-working-income": {
-        "text1": "To calculate your partner's working income, add up all the following lines from their {{year}} tax return:",
+        "text1": "To calculate your partner's working income, add all of these lines from their {{year}} tax return:",
         "description": "This is income your partner made from their employment or self-employment."
       }
     },
@@ -111,48 +111,53 @@
     "breadcrumb": "Estimator",
     "content": {
       "completion-time": "It will take about 5 to 10 minutes to complete.",
-      "description": "Use this estimator to find out how much money you could get from the Canada Disability Benefit. This is not the application for the benefit. ",
+      "description": "Use this tool to estimate how much money you could get from the Canada Disability Benefit. This is not an application. ",
       "eligibility": {
-        "header": "Before you begin"
+        "header": "Before you start"
       },
+
       "estimator-steps": {
-        "intro": "The estimator will ask you questions about your:",
+        "intro": "You will need to answer questions about your:",
         "step-1": "marital status",
         "step-2": "income"
       },
-      "result-disclaimer": "<strong>This tool does not assess your eligibility for the benefit. It only provides an estimate of the amount you may receive if you're eligible. <cdbRequirementsLink>Learn more about the Canada Disability Benefit eligibility at Canada.ca/disability-benefit</cdbRequirementsLink>.</strong>",
+      "result-disclaimer": "<strong>This tool does not check if you are eligible. It only gives an estimate of the amount you may get if you are eligible. You can check the requirements at <cdbRequirementsLink>Canada.ca/disability-benefit</cdbRequirementsLink>.</strong>",
       "results": {
         "contact": " For a more accurate assessment of your estimated benefits amount, please <cdbContactLink>contact us</cdbContactLink>.",
-        "description": "This estimator provides estimated benefit amounts for payments made between {{paymentPeriodStart}} and {{paymentPeriodEnd}}. Future benefit amounts may change.",
+        "description": "This tool shows an estimate of monthly payments from {{paymentPeriodStart}} to {{paymentPeriodEnd}}. Amounts may change each year due to inflation (cost of living).",
         "header": "About the results"
       }
     },
     "navigate": "Go to dashboard",
     "page-title": "Canada Disability Benefit Estimator",
-    "start": "Start benefits estimator"
+    "start": "Start your estimate"
   },
   "marital-status": {
     "additional-info": {
       "label": "Definitions of marital statuses",
       "common-law": {
-        "text": "you're living in a conjugal relationship with someone that you are not married to. At least one of the following situations must apply to this person. They:",
-        "item1": "have been living with you for at least 12 continuous months. This includes any period you were separated for less than 90 days because of a breakdown in your relationship",
-        "item2": "are the parent of your child by birth or adoption",
-        "item3": "have custody and control of your child (or had custody and control immediately before your child turned 19 years old) and your child is wholly dependent on that person for support",
-        "term": "Common-law:"
+        "term": "Common-law:",
+        "text": "You live with a partner as a couple but are not married to them.",
+        "p1": "At least one of these apply:",
+        "item1": "You've lived together for at least 12 continuous months. This includes times you were separated for less than 90 days because of relationship problems.",
+        "item2": "You share a child (by birth or adoption).",
+        "item3": "Your partner has custody and control of your child right before they turned 19 and your child depends on them for support."
       },
-      "divorced": { "term": "Divorced:", "text": "you were married and are now legally divorced." },
-      "married": { "term": "Married:", "text": "you're legally married to someone." },
+      "divorced": { "term": "Divorced:", "text": "You were married and are now legally divorced." },
+      "married": { "term": "Married:", "text": "You're legally married." },
       "separated": {
         "term": "Separated:",
-        "text": "you've been living apart from your spouse or common-law partner because of a breakdown in the relationship for a period of at least 90 days and you have not reconciled.",
-        "p1": "Once you've been separated for 90 days, the effective day of your separation is the date you started living apart. If there is no breakdown in your relationship but you are living apart for reasons such as work, studies, or health problems, you would be considered to have a spouse or common-law partner.",
-        "p2": "Note: You are also generally not considered separated if your spouse or common-law partner is incarcerated or doesn't live in Canada, as long as there is no breakdown in your relationship."
+        "text": "You've been living apart from your spouse or common-law partner for at least 90 days because your relationship ended.",
+        "p1": "Once you have been separated for 90 days, the separation is the date you started living apart.",
+        "p2": "You're not considered separated if any of these apply:",
+        "item1": "You're living apart for reasons such as work, school or health.",
+        "item2": "Your spouse or common-law partner is in jail.",
+        "item3": "Your spouse or common-law partner does not live in Canada."
       },
-      "single": { "term": "Single:", "text": "you're single and none of the statuses below apply to you." },
-      "widowed": { "term": "Widowed:", "text": "your spouse or common-law partner is deceased." }
+      "single": { "term": "Single:", "text": "You're single. None of the other statuses apply to you." },
+      "widowed": { "term": "Widowed:", "text": "Your spouse or common-law partner has died." }
     },
-    "breadcrumb": "Marital Status",
+    "breadcrumb": "Marital status",
     "fields": {
       "status": {
         "error": {
@@ -165,11 +170,15 @@
         }
       }
     },
-    "page-title": "Step 1 of 2: Marital Status"
+    "page-title": "Step 1 of 2: Marital status"
   },
   "results": {
     "breadcrumb": "Results",
     "content": {
+      "cost-of-living": {
+        "label": "Changes for cost of living",
+        "text": "Each July, benefit amounts go up to match increases in the cost of living. Benefit amounts do not go down if the cost of living drops."
+      },
       "next-steps": {
         "apply-cdb": "Apply for the Canada Disability Benefit",
         "header": "Next steps",
@@ -179,18 +188,19 @@
         "contact": " <cdbContactLink>Contact us</cdbContactLink> to find out more.",
         "header": "Your estimate",
         "married-common-law": {
-          "cdb-partner-result": "If both you and your partner are receiving the Canada Disability Benefit, you could receive a monthly amount of <strong>{{result}}</strong>.",
-          "intro": "The monthly benefit amount you could receive depends on whether your partner is receiving the Canada Disability Benefit.",
-          "non-cdb-partner-result": "If your partner is not receiving the Canada Disability Benefit, you could receive a monthly amount of <strong>{{result}}</strong>."
+          "cdb-partner-result-text": "If both you and your partner are receiving the Canada Disability Benefit, you could receive:",
+          "intro": "The monthly amount you could get depends on if your partner is receiving the Canada Disability Benefit.",
+          "non-cdb-partner-result-text": "If your partner is not receiving the Canada Disability Benefit, you could receive:",
+          "results": "<strong>{{result}}</strong> per month."
         },
-        "note": "<strong>Please note that you may be eligible to get back payments for up to 24 months from the date we receive your application. There will be no back payments prior to July 2025.</strong>",
+        "note": "<strong>Note:</strong> You may be eligible to get back payments for up to 24 months from the date we receive your application. There will be no back payments before July 2025.",
         "single": {
-          "intro": "You could be eligible to receive:",
-          "result": "A monthly amount of <strong>{{result}}</strong> from the Canada Disability Benefit."
+          "intro": "You could receive:",
+          "result": "<strong>{{result}}</strong> per month from the Canada Disability Benefit."
         }
       }
     },
-    "disclaimer-alert": "This is only an estimate based on the information you provided.",
+    "disclaimer-alert": "This is only an estimate. It is based on the information you provided. Amounts use <strong>current rates</strong> and may increase with the cost of living.",
     "form-data-summary": {
       "edit-aria-labels": {
         "marital-status": "Edit your marital status",

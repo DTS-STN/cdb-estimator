@@ -10,26 +10,26 @@
 <div class="space-y-6">
   <section class="space-y-6">
     <p>
-      Use this estimator to find out how much money you could get from the
-      Canada Disability Benefit. This is not the application for the benefit.
+      Use this tool to estimate how much money you could get from the Canada
+      Disability Benefit. This is not an application.
     </p>
-    <h2 class="font-lato mb-4 text-2xl font-bold">Before you begin</h2>
-    <p class="mb-4">The estimator will ask you questions about your:</p>
-    <ol class="list-decimal space-y-1 pl-7">
+    <h2 class="font-lato mb-4 text-2xl font-bold">Before you start</h2>
+    <p class="mb-4">You will need to answer questions about your:</p>
+    <ul class="list-disc space-y-1 pl-7">
       <li>marital status</li>
       <li>income</li>
-    </ol>
+    </ul>
     <p>It will take about 5 to 10 minutes to complete.</p>
     <p>
       <strong
-        >This tool does not assess your eligibility for the benefit. It only
-        provides an estimate of the amount you may receive if you're eligible.
+        >This tool does not check if you are eligible. It only gives an estimate
+        of the amount you may get if you are eligible. You can check the
+        requirements at
         <a
           class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700 external-link"
           href="https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html"
           target="_blank"
-          >Learn more about the Canada Disability Benefit eligibility at
-          Canada.ca/disability-benefit</a
+          >Canada.ca/disability-benefit</a
         >.</strong
       >
     </p>
@@ -41,15 +41,15 @@
         data-gc-analytics-customclick="ESDC-EDSC_CDB-PCH-EST:Dashboard:Start estimator button"
         href="/en/marital-status"
         data-discover="true"
-        >Start benefits estimator</a
+        >Start your estimate</a
       >
     </div>
   </section>
   <section class="space-y-4">
     <h2 class="font-lato text-2xl font-bold">About the results</h2>
     <p>
-      This estimator provides estimated benefit amounts for payments made
-      between July 2025 and June 2026. Future benefit amounts may change.<!-- -->
+      This tool shows an estimate of monthly payments from July 2025 to June
+      2026. Amounts may change each year due to inflation (cost of living).<!-- -->
       For a more accurate assessment of your estimated benefits amount, please
       <a
         class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700 external-link"

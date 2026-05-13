@@ -19,6 +19,7 @@ import { validMaritalStatuses } from './types';
 
 import { createCounter } from '~/.server/utils/telemetry-utils';
 import { ButtonLink } from '~/components/button-link';
+import { Collapsible } from '~/components/collapsible';
 import { ContextualAlert } from '~/components/contextual-alert';
 import { InlineLink } from '~/components/links';
 import { PageTitle } from '~/components/page-title';
@@ -145,13 +146,15 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
     <div className="space-y-3">
       <PageTitle subTitle={t('common:app.title')}>{t('estimator:results.page-title')}</PageTitle>
 
-      <ContextualAlert type="info" className="my-6">
-        <p>{t('estimator:results.disclaimer-alert')}</p>
-      </ContextualAlert>
-
       <div className="flex flex-col space-y-12">
         <div className="md:grid md:grid-cols-3 md:gap-12">
           <section className="col-span-2 row-span-1 space-y-6">
+            <ContextualAlert type="info">
+              <p>
+                <Trans ns={handle.i18nNamespace} i18nKey="estimator:results.disclaimer-alert" />{' '}
+              </p>
+            </ContextualAlert>
+
             <h2 className="font-lato mb-4 text-2xl font-bold">{t('estimator:results.content.your-estimate.header')}</h2>
 
             {(loaderData.results.maritalStatus === 'single-divorced-separated-or-widowed' || estimationEqualsSplitBenefits) && (
@@ -176,17 +179,33 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
                   <li>
                     <Trans
                       ns={handle.i18nNamespace}
-                      i18nKey="estimator:results.content.your-estimate.married-common-law.non-cdb-partner-result"
-                      values={{ result: loaderData.formattedResults.results.estimation }}
+                      i18nKey="estimator:results.content.your-estimate.married-common-law.non-cdb-partner-result-text"
                     />
+                    <ul className="list-disc space-y-1 pl-7">
+                      <li>
+                        <Trans
+                          ns={handle.i18nNamespace}
+                          i18nKey="estimator:results.content.your-estimate.married-common-law.results"
+                          values={{ result: loaderData.formattedResults.results.estimation }}
+                        />
+                      </li>
+                    </ul>
                   </li>
 
                   <li>
                     <Trans
                       ns={handle.i18nNamespace}
-                      i18nKey="estimator:results.content.your-estimate.married-common-law.cdb-partner-result"
-                      values={{ result: loaderData.formattedResults.results.estimationSplitBenefit }}
+                      i18nKey="estimator:results.content.your-estimate.married-common-law.cdb-partner-result-text"
                     />
+                    <ul className="list-disc space-y-1 pl-7">
+                      <li>
+                        <Trans
+                          ns={handle.i18nNamespace}
+                          i18nKey="estimator:results.content.your-estimate.married-common-law.results"
+                          values={{ result: loaderData.formattedResults.results.estimationSplitBenefit }}
+                        />
+                      </li>
+                    </ul>
                   </li>
                 </ul>
               </>
@@ -211,6 +230,16 @@ export default function Results({ actionData, loaderData, matches, params }: Rou
                 />
               )}
             </p>
+            <Collapsible
+              summary={<>{t('estimator:results.content.cost-of-living.label')}</>}
+              data-gc-analytics-expand={`Expand-collapse cost of living adjustment information`}
+            >
+              <div className="space-y-4">
+                <p>
+                  <Trans i18nKey={'estimator:results.content.cost-of-living.text'} />
+                </p>
+              </div>
+            </Collapsible>
           </section>
 
           <section className="col-span-1 row-span-2 space-y-4">{DataSummary(loaderData.formattedResults)}</section>

@@ -15,10 +15,11 @@
     <form novalidate="" data-discover="true" action="/fr/revenus" method="post">
       <div class="space-y-6">
         <p>
-          Pour estimer vos prestations, nous aurons besoin des renseignements
-          figurant sur votre
-          <strong>déclaration de revenus de 2024</strong> ainsi que sur celle de
-          votre partenaire.
+          Pour obtenir une estimation de vos prestations, vous devez fournir
+          <strong
+            >vos déclarations d'impôt et celles de votre conjoint(e) pour
+            l'année 2024</strong
+          >.
         </p>
         <p>Si un des montants est négatif ou nul, entrez '0'.</p>
         <p>Tous les champs sont obligatoires.</p>

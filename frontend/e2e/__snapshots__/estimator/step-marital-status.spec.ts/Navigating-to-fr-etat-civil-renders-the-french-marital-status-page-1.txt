@@ -54,8 +54,8 @@
                       <div>
                         <dt class="inline font-bold">Célibataire&nbsp;:</dt>
                         <dd class="ml-2 inline">
-                          vous êtes célibataire et aucune des situations
-                          ci-dessous ne s'applique à vous.
+                          vous êtes célibataire et aucune des autres situations
+                          ne s'applique à vous.
                         </dd>
                       </div>
                       <div>
@@ -68,26 +68,31 @@
                       <div>
                         <dt class="inline font-bold">Séparé&nbsp;:</dt>
                         <dd class="ml-2 inline [&amp;&gt;p]:mt-2">
-                          vous vivez séparément de votre époux ou conjoint de
-                          fait depuis 90 jours ou plus en raison de la rupture
-                          de votre union, et il n'y a pas de réconciliation.
-                          Lorsque vous êtes séparé depuis 90 jours, la date
-                          d'entrée en vigueur de votre séparation est le jour où
-                          vous et votre époux ou conjoint de fait avez commencé
-                          à vivre séparément.
+                          vous vivez séparé(e) de votre conjoint ou conjoint de
+                          fait depuis au moins 90 jours parce que votre relation
+                          a pris fin.
                           <p>
-                            S'il n'y a pas de rupture de votre union, mais que
-                            vous vivez séparément pour des raisons telles que le
-                            travail, les études ou des problèmes de santé, vous
-                            serez considéré comme ayant un époux ou un conjoint
-                            de fait.
+                            Une fois que vous êtes séparés depuis 90 jours, la
+                            date de séparation correspond à la date à laquelle
+                            vous avez commencé à vivre séparément.
                           </p>
                           <p>
-                            Vous n'êtes généralement pas considéré séparé si
-                            votre époux ou conjoint est détenu dans une prison
-                            ou ne vit pas au Canada, tant qu'il n'y a pas de
-                            rupture de votre union.
+                            Vous n'êtes pas considéré comme séparé si l'une des
+                            situations suivantes s'applique&nbsp;:
                           </p>
+                          <ul class="mt-2 list-disc space-y-2 pl-5">
+                            <li>
+                              Vous vivez séparément pour des raisons telles que
+                              le travail, les études ou la santé.
+                            </li>
+                            <li>
+                              Votre conjoint ou conjoint de fait est en prison.
+                            </li>
+                            <li>
+                              Votre conjoint ou conjoint de fait ne réside pas
+                              au Canada.
+                            </li>
+                          </ul>
                         </dd>
                       </div>
                       <div>
@@ -99,34 +104,36 @@
                       <div>
                         <dt class="inline font-bold">Marié&nbsp;:</dt>
                         <dd class="ml-2 inline">
-                          vous êtes légalement marié à quelqu'un.
+                          vous êtes légalement marié(e).
                         </dd>
                       </div>
                       <div>
                         <dt class="inline font-bold">
                           Conjoint de fait&nbsp;:
                         </dt>
-                        <dd class="ml-2 inline">
+                        <dd class="ml-2 inline [&amp;&gt;p]:mt-2">
                           vous vivez en relation conjugale avec une personne
-                          avec qui vous n'êtes pas marié. Au moins une des
-                          situations suivantes doit s'appliquer à cette
-                          personne&nbsp;:<!-- -->
+                          avec qui vous n'êtes pas marié.
+                          <p>
+                            Au moins une des situations suivantes doit
+                            s'appliquer à cette personne&nbsp;:
+                          </p>
                           <ul class="mt-2 list-disc space-y-2 pl-5">
                             <li>
-                              elle vit avec vous depuis au moins 12 mois sans
-                              interruption. Cela comprend les périodes de moins
-                              de 90 jours où vous avez vécu séparément en raison
-                              de la rupture de votre union;
+                              Vous vivez ensemble depuis au moins 12 mois
+                              consécutifs. Cela inclut les périodes de
+                              séparation de moins de 90 jours dues à des
+                              problèmes relationnels.
                             </li>
                             <li>
-                              elle est le parent de votre enfant, par la
-                              naissance ou l'adoption;
+                              Vous avez un enfant en commun (biologique ou
+                              adopté).
                             </li>
                             <li>
-                              elle a la garde, la surveillance et la charge
-                              entière de votre enfant (ou elle en avait la garde
-                              et la surveillance juste avant que l'enfant
-                              atteigne l'âge de 19 ans).
+                              Votre partenaire a la garde et l'autorité
+                              parentale sur votre enfant juste avant que
+                              celui-ci n'atteigne l'âge de 19 ans et que votre
+                              enfant dépend de lui pour subvenir à ses besoins.
                             </li>
                           </ul>
                         </dd>

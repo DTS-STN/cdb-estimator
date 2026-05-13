@@ -6,7 +6,7 @@
       tabindex="-1"
       class="font-lato text-3xl font-bold focus-visible:ring-3 after:mt-2 after:block after:h-1.5 after:w-18 after:bg-red-700"
     >
-      Step 1 of 2: Marital Status
+      Step 1 of 2: Marital status
     </h1>
   </div>
   <div>
@@ -52,73 +52,73 @@
                       <div>
                         <dt class="inline font-bold">Single:</dt>
                         <dd class="ml-2 inline">
-                          you're single and none of the statuses below apply to
+                          You're single. None of the other statuses apply to
                           you.
                         </dd>
                       </div>
                       <div>
                         <dt class="inline font-bold">Divorced:</dt>
                         <dd class="ml-2 inline">
-                          you were married and are now legally divorced.
+                          You were married and are now legally divorced.
                         </dd>
                       </div>
                       <div>
                         <dt class="inline font-bold">Separated:</dt>
                         <dd class="ml-2 inline [&amp;&gt;p]:mt-2">
-                          you've been living apart from your spouse or
-                          common-law partner because of a breakdown in the
-                          relationship for a period of at least 90 days and you
-                          have not reconciled.
+                          You've been living apart from your spouse or
+                          common-law partner for at least 90 days because your
+                          relationship ended.
                           <p>
-                            Once you've been separated for 90 days, the
-                            effective day of your separation is the date you
-                            started living apart. If there is no breakdown in
-                            your relationship but you are living apart for
-                            reasons such as work, studies, or health problems,
-                            you would be considered to have a spouse or
-                            common-law partner.
+                            Once you have been separated for 90 days, the
+                            separation is the date you started living apart.
                           </p>
                           <p>
-                            Note: You are also generally not considered
-                            separated if your spouse or common-law partner is
-                            incarcerated or doesn't live in Canada, as long as
-                            there is no breakdown in your relationship.
+                            You're not considered separated if any of these
+                            apply:
                           </p>
+                          <ul class="mt-2 list-disc space-y-2 pl-5">
+                            <li>
+                              You're living apart for reasons such as work,
+                              school or health.
+                            </li>
+                            <li>
+                              Your spouse or common-law partner is in jail.
+                            </li>
+                            <li>
+                              Your spouse or common-law partner does not live in
+                              Canada.
+                            </li>
+                          </ul>
                         </dd>
                       </div>
                       <div>
                         <dt class="inline font-bold">Widowed:</dt>
                         <dd class="ml-2 inline">
-                          your spouse or common-law partner is deceased.
+                          Your spouse or common-law partner has died.
                         </dd>
                       </div>
                       <div>
                         <dt class="inline font-bold">Married:</dt>
-                        <dd class="ml-2 inline">
-                          you're legally married to someone.
-                        </dd>
+                        <dd class="ml-2 inline">You're legally married.</dd>
                       </div>
                       <div>
                         <dt class="inline font-bold">Common-law:</dt>
-                        <dd class="ml-2 inline">
-                          you're living in a conjugal relationship with someone
-                          that you are not married to. At least one of the
-                          following situations must apply to this person. They:<!-- -->
+                        <dd class="ml-2 inline [&amp;&gt;p]:mt-2">
+                          You live with a partner as a couple but are not
+                          married to them.
+                          <p>At least one of these apply:</p>
                           <ul class="mt-2 list-disc space-y-2 pl-5">
                             <li>
-                              have been living with you for at least 12
-                              continuous months. This includes any period you
-                              were separated for less than 90 days because of a
-                              breakdown in your relationship
+                              You've lived together for at least 12 continuous
+                              months. This includes times you were separated for
+                              less than 90 days because of relationship
+                              problems.
                             </li>
+                            <li>You share a child (by birth or adoption).</li>
                             <li>
-                              are the parent of your child by birth or adoption
-                            </li>
-                            <li>
-                              have custody and control of your child (or had
-                              custody and control immediately before your child
-                              turned 19 years old) and your child is wholly
-                              dependent on that person for support
+                              Your partner has custody and control of your child
+                              right before they turned 19 and your child depends
+                              on them for support.
                             </li>
                           </ul>
                         </dd>

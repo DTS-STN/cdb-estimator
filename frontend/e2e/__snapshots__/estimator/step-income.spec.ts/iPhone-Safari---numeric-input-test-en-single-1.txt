@@ -13,8 +13,8 @@
     <form novalidate="" data-discover="true" action="/en/income" method="post">
       <div class="space-y-6">
         <p>
-          To estimate your benefits, we will need the following information from
-          your <strong>2024 tax return</strong>.
+          To get an estimate of your benefits, you need your
+          <strong>2024 tax return</strong>.
         </p>
         <p>If any total amounts are negative or zero, enter '0'.</p>
         <p>All fields are required.</p>
@@ -78,8 +78,8 @@
                 >
                   <div class="space-y-4">
                     <p>
-                      To calculate your working income, add up all the following
-                      lines from your 2024 tax return:
+                      To calculate your working income, add all of these lines
+                      from your 2024 tax return:
                     </p>
                     <ul class="list-disc space-y-2 pl-5">
                       <li>Employment income (line 10100)</li>

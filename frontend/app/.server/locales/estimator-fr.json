@@ -71,8 +71,8 @@
       }
     },
     "form-instructions": {
-      "married": "Pour estimer vos prestations, nous aurons besoin des renseignements figurant sur votre <strong>déclaration de revenus de {{year}}</strong> ainsi que sur celle de votre partenaire.",
-      "single": "Pour estimer vos prestations, nous aurons besoin des renseignements suivants de votre <strong>déclaration de revenus de {{year}}</strong>.",
+      "married": "Pour obtenir une estimation de vos prestations, vous devez fournir <strong>vos déclarations d'impôt et celles de votre conjoint(e) pour l'année {{year}}</strong>.",
+      "single": "Pour obtenir une estimation de vos prestations, vous devez fournir votre <strong>déclaration d'impôt de {{year}}</strong>.",
       "note": "Si un des montants est négatif ou nul, entrez '0'."
     },
     "heading": {
@@ -111,47 +111,51 @@
     "breadcrumb": "Estimateur",
     "content": {
       "completion-time": "Il vous faudra environ 5 à 10 minutes pour obtenir une estimation.",
-      "description": "Utilisez cet outil pour déterminer le montant que vous pourriez recevoir de la Prestation canadienne pour les personnes handicapées. Il ne s'agit pas d'une demande de prestations.",
+      "description": "Utilisez cet outil pour estimer le montant que vous pourriez recevoir de la Prestation canadienne pour les personnes handicapées. Il ne s'agit pas d'une demande.",
       "eligibility": {
         "header": "Avant de commencer"
       },
       "estimator-steps": {
-        "intro": "L'estimateur vous posera des questions au sujet de votre\u00A0:",
+        "intro": "Vous allez devoir répondre à des questions concernant votre\u00A0:",
         "step-1": "état matrimonial",
         "step-2": "revenu"
       },
-      "result-disclaimer": "<strong>Cet outil ne détermine pas votre admissibilité à la prestation. Il fournit seulement une estimation du montant que vous pourriez recevoir. <cdbRequirementsLink>Pour en savoir plus sur l'admissibilité à la prestation canadienne pour les personnes handicapées, visitez le site Canada.ca/prestation-handicap</cdbRequirementsLink>.</strong>",
+      "result-disclaimer": "<strong>Cet outil ne vérifie pas si vous remplissez les conditions requises. Il fournit seulement une estimation du montant auquel vous pourriez avoir droit si vous remplissez les conditions requises. Vous pouvez consulter les critères d'admissibilité au <cdbRequirementsLink>Canada.ca/prestation-handicap</cdbRequirementsLink>.</strong>",
       "results": {
         "contact": " Pour une évaluation plus précise de votre montant de prestations estimé, veuillez <cdbContactLink>communiquer avec nous</cdbContactLink>.",
-        "description": "Cet estimateur fournit des montants estimés de prestation pour les paiements effectués entre {{paymentPeriodStart}} et {{paymentPeriodEnd}}. Les montants futurs des prestations pourraient être plus élevés en raison de l'inflation. Les résultats ne sont pas des conseils financiers et peuvent changer.",
+        "description": "Cet outil démontre un estimé des paiements mensuels entre {{paymentPeriodStart}} et {{paymentPeriodEnd}}. Les montants peuvent changer chaque année en raison de l'inflation (coût de la vie).",
         "header": "À propos des résultats"
       }
     },
     "navigate": "Accédez au tableau de bord",
     "page-title": "Estimateur de la Prestation canadienne pour les personnes handicapées",
-    "start": "Démarrer l'estimateur de prestations"
+    "start": "Débuter votre estimation"
   },
   "marital-status": {
     "additional-info": {
       "label": "Définitions des états matrimoniaux",
       "common-law": {
         "term": "Conjoint de fait\u00a0:",
-        "item1": "elle vit avec vous depuis au moins 12 mois sans interruption. Cela comprend les périodes de moins de 90 jours où vous avez vécu séparément en raison de la rupture de votre union;",
-        "item2": "elle est le parent de votre enfant, par la naissance ou l'adoption;",
-        "item3": "elle a la garde, la surveillance et la charge entière de votre enfant (ou elle en avait la garde et la surveillance juste avant que l'enfant atteigne l'âge de 19 ans).",
-        "text": "vous vivez en relation conjugale avec une personne avec qui vous n'êtes pas marié. Au moins une des situations suivantes doit s'appliquer à cette personne\u00a0:"
+        "text": "vous vivez en relation conjugale avec une personne avec qui vous n'êtes pas marié.",
+        "p1": "Au moins une des situations suivantes doit s'appliquer à cette personne\u00a0:",
+        "item1": "Vous vivez ensemble depuis au moins 12 mois consécutifs. Cela inclut les périodes de séparation de moins de 90 jours dues à des problèmes relationnels.",
+        "item2": "Vous avez un enfant en commun (biologique ou adopté).",
+        "item3": "Votre partenaire a la garde et l'autorité parentale sur votre enfant juste avant que celui-ci n'atteigne l'âge de 19 ans et que votre enfant dépend de lui pour subvenir à ses besoins."
       },
       "divorced": { "term": "Divorcé\u00a0:", "text": "vous étiez marié et êtes maintenant divorcé légalement." },
-      "married": { "term": "Marié\u00a0:", "text": "vous êtes légalement marié à quelqu'un." },
+      "married": { "term": "Marié\u00a0:", "text": "vous êtes légalement marié(e)." },
       "separated": {
         "term": "Séparé\u00a0:",
-        "text": "vous vivez séparément de votre époux ou conjoint de fait depuis 90 jours ou plus en raison de la rupture de votre union, et il n'y a pas de réconciliation. Lorsque vous êtes séparé depuis 90 jours, la date d'entrée en vigueur de votre séparation est le jour où vous et votre époux ou conjoint de fait avez commencé à vivre séparément.",
-        "p1": "S'il n'y a pas de rupture de votre union, mais que vous vivez séparément pour des raisons telles que le travail, les études ou des problèmes de santé, vous serez considéré comme ayant un époux ou un conjoint de fait.",
-        "p2": "Vous n'êtes généralement pas considéré séparé si votre époux ou conjoint est détenu dans une prison ou ne vit pas au Canada, tant qu'il n'y a pas de rupture de votre union."
+        "text": "vous vivez séparé(e) de votre conjoint ou conjoint de fait depuis au moins 90 jours parce que votre relation a pris fin.",
+        "p1": "Une fois que vous êtes séparés depuis 90 jours, la date de séparation correspond à la date à laquelle vous avez commencé à vivre séparément.",
+        "p2": "Vous n'êtes pas considéré comme séparé si l'une des situations suivantes s'applique\u00a0:",
+        "item1": "Vous vivez séparément pour des raisons telles que le travail, les études ou la santé.",
+        "item2": "Votre conjoint ou conjoint de fait est en prison.",
+        "item3": "Votre conjoint ou conjoint de fait ne réside pas au Canada."
       },
       "single": {
         "term": "Célibataire\u00a0:",
-        "text": "vous êtes célibataire et aucune des situations ci-dessous ne s'applique à vous."
+        "text": "vous êtes célibataire et aucune des autres situations ne s'applique à vous."
       },
       "widowed": { "term": "Veuf\u00a0:", "text": "votre époux ou conjoint de fait est décédé." }
     },
@@ -173,6 +177,10 @@
   "results": {
     "breadcrumb": "Résultats",
     "content": {
+      "cost-of-living": {
+        "label": "Adaptation au coût de la vie",
+        "text": "Chaque année en juillet, le montant des prestations est revu à la hausse pour tenir compte de l'augmentation du coût de la vie. Le montant des prestations ne diminue pas si le coût de la vie baisse."
+      },
       "next-steps": {
         "apply-cdb": "Faire une demande des Prestations canadienne pour les personnes handicapées",
         "header": "Étapes suivantes",
@@ -182,18 +190,19 @@
         "contact": " <cdbContactLink>Contactez-nous</cdbContactLink> pour en savoir plus.",
         "header": "Votre estimation",
         "married-common-law": {
-          "cdb-partner-result": "Si vous et votre partenaire recevez tous les deux la Prestation canadienne pour les personnes handicapées, vous pourriez recevoir un montant mensuel de <strong>{{result}}</strong>.",
-          "intro": "Le montant de la prestation mensuelle que vous pourriez recevoir dépend du fait que votre partenaire reçoive ou non la Prestation canadienne pour les personnes handicapées.",
-          "non-cdb-partner-result": "Si votre partenaire ne reçoit pas la Prestation canadienne pour les personnes handicapées, vous pourriez recevoir un montant mensuel de <strong>{{result}}</strong>."
+          "cdb-partner-result-text": "Si votre partenaire et vous-même recevez tous deux la Prestation canadienne pour les personnes handicapées, vous pourriez recevoir\u00a0:",
+          "intro": "Le montant mensuel auquel vous pourriez avoir droit dépend du fait que votre partenaire reçoit la Prestation canadienne pour les personnes handicapées.",
+          "non-cdb-partner-result-text": "Si votre partenaire ne reçoit pas la Prestation canadienne pour les personnes handicapées, vous pourriez recevoir\u00a0:",
+          "results": "<strong>{{result}}</strong> par mois."
         },
-        "note": "<strong>Veuillez noter que vous pourriez recevoir des paiements rétroactifs pour une période allant jusqu'à 24 mois à partir de la date à laquelle nous recevons votre demande. Aucun paiement rétroactif ne sera effectué pour la période antérieure à juillet 2025.</strong>",
+        "note": "<strong>Remarque\u00a0:</strong> vous pourriez avoir droit à des arriérés de paiement pouvant aller jusqu'à 24 mois à compter de la date de réception de votre demande. Aucun arriéré ne sera versé avant juillet 2025.",
         "single": {
-          "intro": "Vous pourriez être admissible à recevoir\u00a0:",
-          "result": "Un montant mensuel de <strong>{{result}}</strong> provenant de la Prestation canadienne pour les personnes handicapées."
+          "intro": "Vous pourriez recevoir\u00a0:",
+          "result": "<strong>{{result}}</strong> par mois provenant de la Prestation canadienne pour les personnes handicapées."
         }
       }
     },
-    "disclaimer-alert": "Cette estimation est basée sur l'information que vous avez fournie.",
+    "disclaimer-alert": "Il ne s'agit que d'une estimation. Elle est calculée à partir des informations que vous avez fournies. Les montants sont calculés sur la base des taux actuels et peuvent augmenter en fonction de l'évolution du coût de la vie.",
     "form-data-summary": {
       "edit-aria-labels": {
         "marital-status": "Modifier votre état matrimonial",

@@ -11,45 +11,50 @@
       Résultats
     </h1>
   </div>
-  <div class="relative pl-4 sm:pl-6 bg-white my-6">
-    <div class="absolute top-3 left-1.5 pt-1 sm:left-3.5 bg-white">
-      <svg
-        data-prefix="fas"
-        data-icon="circle-info"
-        class="svg-inline--fa fa-circle-info h-6 w-6 text-cyan-700"
-        role="img"
-        viewBox="0 0 512 512"
-        aria-hidden="true"
-        data-testid="info"
-      >
-        <path
-          fill="currentColor"
-          d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zM224 160a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm-8 64l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24z"
-        ></path>
-      </svg>
-    </div>
-    <div class="overflow-auto border-l-4 pt-4 pb-2.5 pl-6 border-l-cyan-700">
-      <p>Cette estimation est basée sur l'information que vous avez fournie.</p>
-    </div>
-  </div>
   <div class="flex flex-col space-y-12">
     <div class="md:grid md:grid-cols-3 md:gap-12">
       <section class="col-span-2 row-span-1 space-y-6">
+        <div class="relative pl-4 sm:pl-6 bg-white">
+          <div class="absolute top-3 left-1.5 pt-1 sm:left-3.5 bg-white">
+            <svg
+              data-prefix="fas"
+              data-icon="circle-info"
+              class="svg-inline--fa fa-circle-info h-6 w-6 text-cyan-700"
+              role="img"
+              viewBox="0 0 512 512"
+              aria-hidden="true"
+              data-testid="info"
+            >
+              <path
+                fill="currentColor"
+                d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zM224 160a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm-8 64l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24z"
+              ></path>
+            </svg>
+          </div>
+          <div
+            class="overflow-auto border-l-4 pt-4 pb-2.5 pl-6 border-l-cyan-700"
+          >
+            <p>
+              Il ne s'agit que d'une estimation. Elle est calculée à partir des
+              informations que vous avez fournies. Les montants sont calculés
+              sur la base des taux actuels et peuvent augmenter en fonction de
+              l'évolution du coût de la vie.<!-- -->
+            </p>
+          </div>
+        </div>
         <h2 class="font-lato mb-4 text-2xl font-bold">Votre estimation</h2>
-        <p class="mb-4">Vous pourriez être admissible à recevoir&nbsp;:</p>
+        <p class="mb-4">Vous pourriez recevoir&nbsp;:</p>
         <ul class="list-disc space-y-1 pl-7">
           <li>
-            Un montant mensuel de <strong>200,00&nbsp;$</strong> provenant de la
-            Prestation canadienne pour les personnes handicapées.
+            <strong>200,00&nbsp;$</strong> par mois provenant de la Prestation
+            canadienne pour les personnes handicapées.
           </li>
         </ul>
         <p>
-          <strong
-            >Veuillez noter que vous pourriez recevoir des paiements rétroactifs
-            pour une période allant jusqu'à 24 mois à partir de la date à
-            laquelle nous recevons votre demande. Aucun paiement rétroactif ne
-            sera effectué pour la période antérieure à juillet 2025.</strong
-          >
+          <strong>Remarque&nbsp;:</strong> vous pourriez avoir droit à des
+          arriérés de paiement pouvant aller jusqu'à 24 mois à compter de la
+          date de réception de votre demande. Aucun arriéré ne sera versé avant
+          juillet 2025.<!-- -->
           <a
             class="text-slate-700 underline hover:text-blue-700 focus:text-blue-700 external-link"
             href="https://www.canada.ca/fr/services/prestations/handicap/prestation-canadienne-personnes-situation-handicap/contact.html"
@@ -58,6 +63,32 @@
           >
           pour en savoir plus.
         </p>
+        <details
+          id="_R_1j5j5_"
+          data-gc-analytics-expand="Expand-collapse cost of living adjustment information"
+        >
+          <summary
+            class="cursor-pointer marker:text-blue-900"
+            id="_R_1j5j5_-summary"
+          >
+            <span class="ml-4 inline-block text-blue-900 hover:underline"
+              >Adaptation au coût de la vie</span
+            >
+          </summary>
+          <div
+            id="_R_1j5j5_-content"
+            class="mt-2 border-l-[6px] border-gray-400 px-6 py-4"
+          >
+            <div class="space-y-4">
+              <p>
+                Chaque année en juillet, le montant des prestations est revu à
+                la hausse pour tenir compte de l'augmentation du coût de la vie.
+                Le montant des prestations ne diminue pas si le coût de la vie
+                baisse.
+              </p>
+            </div>
+          </div>
+        </details>
       </section>
       <section class="col-span-1 row-span-2 space-y-4">
         <div class="my-8 rounded bg-stone-100 p-5 md:mt-0 md:max-w-[360px]">
